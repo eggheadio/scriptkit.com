@@ -1,25 +1,25 @@
 {
-  "title": "Next.js and MDX fueled",
-  "titleTemplate": "%s | Joel",
-  "description": "THis is my Next.js TypeScript Tailwind Site",
+  "title": "Simple Scripts by John Lindquist",
+  "titleTemplate": "%s | Simple Scripts",
+  "description": "Automate anything",
   "favicon": "/favicon.ico",
   "additionalMetaTags": [
-    {"property": "author", "content": "joel hooks"},
+    {"property": "author", "content": "John Lindquist"},
     {
       "property": "keywords",
-      "content": ""
+      "content": "automation, javascript, shell"
     }
   ],
   "twitter": {
     "cardType": "summary",
-    "handle": "jhooks",
-    "site": "jhooks"
+    "handle": "johnlindquist",
+    "site": "johnlindquist"
   },
   "openGraph": {
     "type": "website",
-    "site_name": "Joel's Site",
+    "site_name": "Simple Scripts",
     "profile": {
-      "firstName": "Joel"
+      "firstName": "John"
     },
     "images": [
       {
