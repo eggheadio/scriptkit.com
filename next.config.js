@@ -1,5 +1,6 @@
 const withPlugins = require('next-compose-plugins')
 const withMDX = require('@next/mdx')()
+const withSvgr = require('next-svgr')
 
 const nextConfig = {
   reactStrictMode: true,
@@ -19,6 +20,7 @@ module.exports = withPlugins(
       ],
       rehypePlugins: [require('mdx-prism')],
     }),
+    withSvgr,
   ],
   nextConfig,
 )
