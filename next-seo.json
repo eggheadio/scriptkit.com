@@ -23,9 +23,9 @@
     },
     "images": [
       {
-        "url": "/images/og.jpg",
-        "width": 1280,
-        "height": 720
+        "url": "https://simplescripts.dev/card@2x.png",
+        "width": 1200,
+        "height": 628
       }
     ]
   }
