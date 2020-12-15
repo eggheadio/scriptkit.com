@@ -12,7 +12,7 @@ const content = {
   description:
     'Nam odio facilisis et primis aptent fusce praesent platea, rutrum senectus augue scelerisque potenti magnis libero egestas, id dis porttitor litora ullamcorper pharetra nisi.',
   install:
-    'curl -o- https://simplescripts.dev/api/install | SIMPLE_PATH=~/.simple zsh && source ~/.simple/.simplerc',
+    'curl -o- https://simplescripts.dev/api/install | SIMPLE_PATH=~/.simple sh && source ~/.simple/.simplerc',
   gettingStarted: `Run \`simple\` in your shell to launch an interactive prompt to train you to write your own scripts.`,
 }
 
