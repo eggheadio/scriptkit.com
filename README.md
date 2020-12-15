@@ -14,7 +14,7 @@ If you'd like serverless function support:
 vercel dev
 ```
 
-I'm personally in the "just do Next.js the Vercel way because it gives me modern best practices without a lot of friction" but if you've got other preferences you probably know how to manage them anyway.
+I'm personally in the "just do Next.js the Vercel way because it gives me modern best practices without a lot of friction" but if you've got other preferences you probably know how to manage them anyway. 🤪
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
