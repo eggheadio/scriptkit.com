@@ -13,6 +13,7 @@ const content = {
   install:
     'curl -o- https://simplescripts.dev/api/install | SIMPLE_PATH=~/.simple sh && source ~/.simple/.simplerc',
   gettingStarted: `Run \`simple\` in your shell to launch an interactive prompt to train you to write your own scripts.`,
+  discuss: `[github.com/johnlindquist/simplescripts/discussions](https://github.com/johnlindquist/simplescripts/discussions)`,
 }
 
 export default function Home() {
@@ -76,6 +77,13 @@ export default function Home() {
             <Markdown
               className="prose max-w-sm mx-auto"
               source={content.gettingStarted}
+            />
+          </div>
+          <div className="text-center space-y-2">
+            <h3 className="text-xl font-semibold">Join the Discussion</h3>
+            <Markdown
+              className="prose max-w-sm mx-auto"
+              source={content.discuss}
             />
           </div>
         </main>
