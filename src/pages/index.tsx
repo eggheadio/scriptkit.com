@@ -11,7 +11,7 @@ const content = {
   headline: 'Automate Anything',
   description: 'Scripting made fun.',
   install:
-    'curl -o- https://simplescripts.dev/api/install | SIMPLE_PATH=~/.simple sh && source ~/.simple/.simplerc',
+    'curl -o- https://simplescripts.dev/api/install | SIMPLE_PATH=~/.simple sh; export PATH=$PATH:$SIMPLE_PATH/bin',
   gettingStarted: `Run \`simple\` in your shell to launch an interactive prompt to train you to write your own scripts.`,
   discuss: `[GitHub Discussions](https://github.com/johnlindquist/simplescripts/discussions)`,
 }
