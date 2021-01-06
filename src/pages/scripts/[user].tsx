@@ -12,8 +12,6 @@ type Script = {
 export default function Script(props: any) {
   const {scripts} = props
 
-  const router = useRouter()
-
   return (
     <div>
       {scripts.map((script: Script) => {
@@ -23,11 +21,13 @@ export default function Script(props: any) {
             <div>{script.content}</div>
             <a
               href={
-                `simple://new ` +
-                script.command +
-                ' --url ' +
-                window.location.origin +
-                script.url
+                typeof window != 'undefined'
+                  ? `simple://new ` +
+                    script.command +
+                    ' --url ' +
+                    window.location.origin +
+                    script.url
+                  : ''
               }
             >
               Install {script.command}
