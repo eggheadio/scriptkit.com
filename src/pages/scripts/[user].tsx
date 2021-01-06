@@ -1,6 +1,7 @@
 import {readdirSync, readFileSync} from 'fs'
 import path from 'path'
 import {useRouter} from 'next/router'
+import {useState, useEffect} from 'react'
 
 type Script = {
   file: string
@@ -12,6 +13,11 @@ type Script = {
 export default function Script(props: any) {
   const {scripts} = props
 
+  let [origin, setOrigin] = useState('')
+  useEffect(() => {
+    setOrigin(window.location.origin)
+  }, [])
+
   return (
     <div>
       {scripts.map((script: Script) => {
@@ -21,13 +27,11 @@ export default function Script(props: any) {
             <div>{script.content}</div>
             <a
               href={
-                typeof window != 'undefined'
-                  ? `simple://new ` +
-                    script.command +
-                    ' --url ' +
-                    window.location.origin +
-                    script.url
-                  : ''
+                `simple://new ` +
+                script.command +
+                ' --url ' +
+                origin +
+                script.url
               }
             >
               Install {script.command}
@@ -40,6 +44,8 @@ export default function Script(props: any) {
 }
 
 export async function getStaticProps(context: any) {
+  console.log(Object.entries(process))
+
   const {params} = context
   const {user} = params
   const scriptNames = readdirSync(
