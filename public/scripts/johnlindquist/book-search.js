@@ -1,4 +1,6 @@
 // Description: Searches for book titles using Open Library
+// Author: John Lindquist
+// Twitter: @johnlindquist
 
 let query
 if (args.length > 1) {

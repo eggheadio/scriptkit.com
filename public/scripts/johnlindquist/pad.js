@@ -1,5 +1,7 @@
 //Description: The fastest way to play with JavaScript.
 //Menu: Pad
+//Author: John Lindquist
+//Twitter: @johnlindquist
 
 let fileName = 'scratch.js'
 let fileWrapper = 'scratch-wrapper.js'
@@ -32,7 +34,7 @@ let execString = `
 NODE_PATH=${env.SIMPLE_PATH}/node_modules \
 DOTENV_CONFIG_PATH=${env.SIMPLE_PATH}/.env \
 ${env.SIMPLE_NODE} \
---require dotenv-with-expand/config \
+--require dotenv/config \
 --require "${env.SIMPLE_PATH}/lib/core.cjs" \
 ${fileWrapperPath} \
 "$@"
