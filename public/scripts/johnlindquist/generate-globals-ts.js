@@ -6,4 +6,4 @@ declare function ${curr}():any;`.trim(),
   '',
 )
 
-writeFile(path.join(env.SIMPLE_PATH, 'global.d.ts'), template)
+writeFile(simplePath('global.d.ts'), template)
