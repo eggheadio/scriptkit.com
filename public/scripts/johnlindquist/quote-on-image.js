@@ -109,7 +109,7 @@ let htmlPath = path.join(env.SIMPLE_TMP_PATH, 'template.html')
 await writeFile(htmlPath, template)
 await page.goto('file://' + htmlPath)
 await wait(1000)
-let screenshotPath = path.join(env.SIMPLE_PATH, 'out', fileName)
+let screenshotPath = simplePath('out', fileName)
 await page.screenshot({
   path: screenshotPath,
 

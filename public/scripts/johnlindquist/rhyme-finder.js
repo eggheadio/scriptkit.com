@@ -17,7 +17,7 @@ let metaphone = natural.Metaphone
 let textFile = await arg('Select a text file')
 let outName = await arg('Name the output file')
 
-let rhymeFile = path.join(env.SIMPLE_PATH, 'out', outName)
+let rhymeFile = simplePath('out', outName)
 
 let stream = createWriteStream(rhymeFile, {
   flags: 'a',

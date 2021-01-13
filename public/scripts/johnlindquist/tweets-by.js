@@ -1,7 +1,7 @@
 let {default: Twitter} = await need('twitter')
 
 let username = await arg('Enter a twitter username:')
-let tweetsFile = path.join(env.SIMPLE_PATH, 'out', username + '-tweets.txt')
+let tweetsFile = simplePath('out', username + '-tweets.txt')
 
 console.log(tweetsFile)
 let stream = createWriteStream(tweetsFile, {
