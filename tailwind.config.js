@@ -25,6 +25,11 @@ module.exports = {
       },
     }),
   },
-  variants: {},
+  variants: {
+    extend: {
+      rotate: ['group-hover'],
+      overflow: ['hover'],
+    },
+  },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 }
