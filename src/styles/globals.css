@@ -2,8 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '../../node_modules/@reach/dialog/styles.css';
+@import '../../node_modules/simplebar/dist/simplebar.min.css';
+
 ::selection {
   background: rgb(252, 211, 77);
+}
+
+.masonry {
+  column-count: 1;
+  column-gap: 2rem;
+}
+
+@screen sm {
+  .masonry {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
+@screen lg {
+  .masonry {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
+@screen 2xl {
+  .masonry {
+    column-count: 3;
+    column-gap: 2rem;
+  }
 }
 
 /*
