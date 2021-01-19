@@ -35,7 +35,7 @@ NODE_PATH=${env.SIMPLE_PATH}/node_modules \
 DOTENV_CONFIG_PATH=${env.SIMPLE_PATH}/.env \
 ${env.SIMPLE_NODE} \
 --require dotenv/config \
---require "${env.SIMPLE_PATH}/lib/core.cjs" \
+--require "${env.SIMPLE_PATH}/preload/core.cjs" \
 ${fileWrapperPath} \
 "$@"
 `.trim()
