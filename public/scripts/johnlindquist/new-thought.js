@@ -1,6 +1,6 @@
 //Description: Generate a file using the current date in a specified folder
 //Menu: New Journal Entry
-let {format} = await need('date-fns')
+let {format} = await npm('date-fns')
 
 let date = format(new Date(), 'yyyy-MM-dd')
 let thoughtFile = path.join(await env('THOUGHTS_PATH'), date + '.md')

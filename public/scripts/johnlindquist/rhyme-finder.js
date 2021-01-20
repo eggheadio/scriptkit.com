@@ -1,15 +1,15 @@
-let {default: Tokenizer} = await need('sentence-tokenizer')
-let {default: syllable} = await need('syllable')
+let {default: Tokenizer} = await npm('sentence-tokenizer')
+let {default: syllable} = await npm('syllable')
 //requires rhyme dictionary
 /**
  * cd node_modules/rhyms-plus/data
  * ./fetch.sh
  */
-let {default: rhyme} = await need('rhyme-plus')
-let {default: write} = await need('write')
-let {default: stripHtml} = await need('string-strip-html')
-let {rhymes} = await need('rhyming.ly')
-let {default: natural} = await need('natural')
+let {default: rhyme} = await npm('rhyme-plus')
+let {default: write} = await npm('write')
+let {default: stripHtml} = await npm('string-strip-html')
+let {rhymes} = await npm('rhyming.ly')
+let {default: natural} = await npm('natural')
 
 let tokenizer = new Tokenizer('Chuck')
 let metaphone = natural.Metaphone

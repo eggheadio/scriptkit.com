@@ -1,6 +1,6 @@
 //Shortcut: Alt+T
 
-let {titleCase} = await need('title-case')
+let {titleCase} = await npm('title-case')
 
 let text = await getSelectedText()
 let titleText = titleCase(text)

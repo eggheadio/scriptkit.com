@@ -1,7 +1,7 @@
 //Description: Take a vocabulary quiz
-let {default: randomWord} = await need('random-word')
-let {} = await need('wordnet-db')
-let {WordNet} = await need('natural')
+let {default: randomWord} = await npm('random-word')
+let {} = await npm('wordnet-db')
+let {WordNet} = await npm('natural')
 
 let wordNet = new WordNet()
 let words = []

@@ -1,4 +1,4 @@
-let {default: Twitter} = await need('twitter')
+let {default: Twitter} = await npm('twitter')
 let client = new Twitter({
   consumer_key: await env('TWITTER_CONSUMER_KEY'),
   consumer_secret: await env('TWITTER_CONSUMER_SECRET'),

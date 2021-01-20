@@ -1,5 +1,5 @@
 //Description: Display clipboard content at a defined rate
-let {default: readline} = await need('readline')
+let {default: readline} = await npm('readline')
 
 let wpm = 1000 * (60 / (await arg('Enter words per minute:')))
 
