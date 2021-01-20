@@ -2,7 +2,7 @@
 
 let file = await getSelectedPath()
 
-let {default: sharp} = await need('sharp')
+let {default: sharp} = await npm('sharp')
 
 let lastDot = /.(?!.*\.)/
 let newFile = file.replace(lastDot, '-32.')

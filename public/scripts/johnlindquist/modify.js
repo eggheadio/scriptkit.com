@@ -5,7 +5,7 @@ the clipboard
 `)
 
 if (arg?.titleCase) {
-  let {titleCase} = await need('title-case')
+  let {titleCase} = await npm('title-case')
 
   let titleCased = titleCase(clipboard.toString().trim())
 

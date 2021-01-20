@@ -1,4 +1,4 @@
-let {default: Twitter} = await need('twitter')
+let {default: Twitter} = await npm('twitter')
 
 let username = await arg('Enter a twitter username:')
 let tweetsFile = simplePath('out', username + '-tweets.txt')

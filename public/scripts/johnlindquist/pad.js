@@ -22,8 +22,8 @@ if (env?.SIMPLE_PAD_PID > 0) {
   exit()
 }
 
-let {watch} = await need('chokidar')
-let {default: cleanup} = await need('node-cleanup')
+let {watch} = await npm('chokidar')
+let {default: cleanup} = await npm('node-cleanup')
 
 await run('cli/set-env-var', 'SIMPLE_PAD_PID', process.pid)
 
@@ -35,7 +35,9 @@ NODE_PATH=${env.SIMPLE_PATH}/node_modules \
 DOTENV_CONFIG_PATH=${env.SIMPLE_PATH}/.env \
 ${env.SIMPLE_NODE} \
 --require dotenv/config \
---require "${env.SIMPLE_PATH}/preload/core.cjs" \
+--require "${env.SIMPLE_PATH}/preload/api.cjs" \
+--require "${env.SIMPLE_PATH}/preload/tty.cjs" \
+--require "${env.SIMPLE_PATH}/preload/simple.cjs" \
 ${fileWrapperPath} \
 "$@"
 `.trim()

@@ -1,9 +1,9 @@
 //Description: Select a file. Copies a link to your clipboard where others can download the file from your machine.
 //Menu: Share Selected File
 
-let {default: ngrok} = await need('ngrok')
-let {default: handler} = await need('serve-handler')
-let {default: cleanup} = await need('node-cleanup')
+let {default: ngrok} = await npm('ngrok')
+let {default: handler} = await npm('serve-handler')
+let {default: cleanup} = await npm('node-cleanup')
 
 import http from 'http'
 let tmpPath = env.SIMPLE_TMP_PATH

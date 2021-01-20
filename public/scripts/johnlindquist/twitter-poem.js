@@ -1,5 +1,5 @@
-let {chromium} = await need('playwright')
-await need('textfit')
+let {chromium} = await npm('playwright')
+await npm('textfit')
 
 let textfit = path.join(
   env.SIMPLE_PATH,

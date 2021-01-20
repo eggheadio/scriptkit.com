@@ -1,6 +1,6 @@
 //Description: Scrape headlines from news.google.com then pick headline to read
 
-let {chromium} = await need('playwright')
+let {chromium} = await npm('playwright')
 
 const browser = await chromium.launch()
 const context = await browser.newContext()

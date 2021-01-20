@@ -1,4 +1,4 @@
-let {default: sharp} = await need('sharp')
+let {default: sharp} = await npm('sharp')
 
 let image = await arg('Select an image:')
 
