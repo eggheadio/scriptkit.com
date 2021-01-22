@@ -1,9 +1,9 @@
-//https://raw.githubusercontent.com/johnlindquist/.js/main/config/install.sh
+//https://raw.githubusercontent.com/johnlindquist/simplescripts/main/config/install.sh
 
 import axios from 'axios'
 export default async (req: any, res: any) => {
   const response = await axios.get(
-    `https://raw.githubusercontent.com/johnlindquist/.js/main/config/install.sh`,
+    `https://raw.githubusercontent.com/johnlindquist/simplescripts/main/config/install.sh`,
     req.body,
   )
 
