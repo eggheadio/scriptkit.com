@@ -1,3 +1,6 @@
-//Menu: Open Sound Settings
-//Shortcut: Alt+S
+// Menu: Open Sound Prefs
+// Description: Open the Sound prefs panel
+// Author: John Lindquist
+// Twitter: @johnlindquist
+
 exec(`open /System/Library/PreferencePanes/Sound.prefPane`)

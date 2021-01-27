@@ -1,7 +1,25 @@
+// Menu: Image Metadata
+// Description: Show the metadata of an image
+// Author: John Lindquist
+// Twitter: @johnlindquist
+
 let {default: sharp} = await npm('sharp')
 
-let image = await arg('Select an image:')
+let image = await arg('Search an image:', {
+  choices: async (input = '') => {
+    if (input.length < 3) return []
+    let files = await fileSearch(input, {kind: 'image'})
 
-let metadata = await sharp(image).metadata()
+    return files.map((path) => {
+      return {
+        name: path.split('/').pop(),
+        value: path,
+        info: path,
+      }
+    })
+  },
+})
 
-console.log(metadata)
+let {width, height} = await sharp(image).metadata()
+
+show({width, height})

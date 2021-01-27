@@ -1,6 +1,7 @@
-/**
- * Description: Queries a word api library
- */
+// Menu: Word API
+// Description: Queries a word api library
+// Author: John Lindquist
+// Twitter: @johnlindquist
 
 let typeMap = {
   describe: 'rel_jjb',
@@ -27,25 +28,6 @@ if (typeArg == 'suggest') url = `https://api.datamuse.com/sug?s=${word}&md=d`
 
 let response = await get(url)
 
-if (!arg.alfred) {
-  echo(response.data.map((result) => result.word))
-}
+let formatResult = ({word}) => `<li>"${word}"</li>`
 
-if (arg.alfred) {
-  let items = response.data.map(({word, score, tags, defs}) => {
-    return {
-      title: word,
-      subtitle: defs?.map((def) => def.replace(/.*\t/, '')).join('; ') || '',
-      arg: word,
-      variables: {word, score, tags, defs},
-    }
-  })
-
-  let out = {
-    variables: {
-      query: word,
-    },
-    items,
-  }
-  console.log(JSON.stringify(out))
-}
+show(response.data.map(formatResult).join(''))

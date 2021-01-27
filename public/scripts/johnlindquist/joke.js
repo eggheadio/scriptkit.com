@@ -1,4 +1,7 @@
+// Menu: Dad Joke
 // Description: Logs out a Dad Joke from icanhazdadjoke.com
+// Author: John Lindquist
+// Twitter: @johnlindquist
 
 let response = await get(`https://icanhazdadjoke.com/`, {
   headers: {
@@ -6,14 +9,12 @@ let response = await get(`https://icanhazdadjoke.com/`, {
   },
 })
 
-console.log(response.data)
+show(response.data)
 
-let confirm = await prompt({
-  name: 'value',
+let confirm = await arg(`Shall I also speak the joke?`, {
   type: 'confirm',
-  message: `Shall I also speak the joke?`,
 })
 
-if (confirm.value) {
+if (confirm) {
   say(response.data)
 }

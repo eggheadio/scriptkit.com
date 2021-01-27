@@ -1,16 +1,12 @@
-//Description: Create a gist from a selected file
+// Menu: Gist from Finder
+// Description: Select a file in Finder, then create a Gist
+// Author: John Lindquist
+// Twitter: @johnlindquist
 
-let basePath = cwd()
-let filePath = await arg('Select a file', {
-  type: 'file',
-  basePath,
-})
+let filePath = await getSelectedFile()
+let file = filePath.split('/').pop()
 
-filePath = path.join(basePath, filePath)
-let file = _.last(filePath.split(path.sep))
-
-let {value: isPublic} = await prompt({
-  message: 'Should the gist be public?',
+let isPublic = await arg('Should the gist be public?', {
   type: 'confirm',
 })
 
@@ -28,13 +24,11 @@ let config = {
     Authorization:
       'Bearer ' +
       (await env('GITHUB_GIST_TOKEN', {
-        message: chalk`
-> Create a gist token: https://github.com/settings/tokens/new      
-Set env {yellow GITHUB_GIST_TOKEN}:`,
+        info: `Create a gist token: <a class="bg-white" href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a>`,
+        message: `Set .env GITHUB_GIST_TOKEN:`,
       })),
   },
 }
 const response = await post(`https://api.github.com/gists`, body, config)
 
-console.log(response.data.html_url)
 exec(`open ` + response.data.html_url)

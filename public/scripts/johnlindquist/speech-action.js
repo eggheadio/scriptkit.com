@@ -1,5 +1,12 @@
-let items = (await readdir(cwd()))
-  .map((item) => `"${item}"`) //surround in quotes
+// Menu: Speak Script
+// Description: Edit a Script based on Speech
+// Author: John Lindquist
+// Twitter: @johnlindquist
+
+let {choices: scripts} = await import(simplePath('cli', 'scripts.js'))
+
+let items = scripts
+  .map((script) => `"${script.name}"`) //surround in quotes
   .join(',')
 
 let speech = await applescript(`
@@ -8,4 +15,6 @@ tell application "SpeechRecognitionServer"
 end tell
 `)
 
-edit(path.join(cwd(), speech))
+let {value} = scripts.find((script) => script.name === speech)
+
+edit(simplePath('scripts', value + '.js'))

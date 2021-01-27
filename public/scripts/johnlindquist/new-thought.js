@@ -1,5 +1,7 @@
-//Description: Generate a file using the current date in a specified folder
-//Menu: New Journal Entry
+// Menu: New Journal Entry
+// Description: Generate a file using the current date in a specified folder
+// Author: John Lindquist
+// Twitter: @johnlindquist
 let {format} = await npm('date-fns')
 
 let date = format(new Date(), 'yyyy-MM-dd')
