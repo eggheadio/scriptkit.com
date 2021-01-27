@@ -1,14 +1,20 @@
+// Menu: Resize an Image
+// Description: Select an image in Finder before running this
+// Author: John Lindquist
+// Twitter: @johnlindquist
+// Shortcut: Alt+I
+
 let {default: sharp} = await npm('sharp')
 
-let image = await arg('Select image:')
+let image = await getSelectedFile()
 
 let width = Number(await arg('Enter width:'))
 
 let metadata = await sharp(image).metadata()
 
 let newHeight = metadata.height * (width / metadata.width)
-console.log(newHeight)
 
-let newImage = image.replaceAll(metadata.width, width)
+let lastDot = /.(?!.*\.)/
+let resizedImageName = image.replace(lastDot, `-${width}.`)
 
-await sharp(image).resize(width, newHeight).toFile(newImage)
+await sharp(image).resize(width, newHeight).toFile(resizedImageName)

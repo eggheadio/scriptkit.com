@@ -1,5 +1,8 @@
-//Description: An example of launching a project, dev server, and chrome
-//Twitter: @johnlindquist
+// Menu: Dev Env for simplescripts.env
+// Description: This probably won't run on your machine 😜
+// Author: John Lindquist
+// Twitter: @johnlindquist
+
 exec(`code ~/projects/simplescripts.dev`)
 iterm(`cd ~/projects/simplescripts.dev; vercel dev`)
-exec(`chrome-tab localhost:3000`)
+await run('chrome-tab', 'localhost:3000')

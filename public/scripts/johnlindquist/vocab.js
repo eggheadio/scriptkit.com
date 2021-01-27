@@ -1,4 +1,8 @@
-//Description: Take a vocabulary quiz
+// Menu: Vocab Quiz
+// Description: Quiz on random vocab words
+// Author: John Lindquist
+// Twitter: @johnlindquist
+
 let {default: randomWord} = await npm('random-word')
 let {} = await npm('wordnet-db')
 let {WordNet} = await npm('natural')
@@ -8,13 +12,11 @@ let words = []
 
 let quiz = async () => {
   let word = words[0]
-  await prompt({
-    message: chalk`yellow ${word.value}`,
-    type: 'list',
+  let result = await arg(`Define: ${word.value}`, {
     choices: _.shuffle(words),
   })
 
-  echo(chalk`{yellow ${word.value}}: ${word.name}`)
+  show(`${word.value}: ${word.name}`)
 }
 
 let gatherWords = () => {

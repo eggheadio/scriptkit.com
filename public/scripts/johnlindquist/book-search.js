@@ -1,17 +1,16 @@
-// Description: Searches for book titles using Open Library
+// Menu: Book Search
+// Description: Use Open Library API to search for books
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
-let query
-if (args.length > 1) {
-  query = args.join(' ')
-} else {
-  query = await arg('What do you want to search for?')
-}
+let query = await arg('Search for a book title:')
 
+//This API can be a little slow. Wait a couple seconds
 let response = await get(`http://openlibrary.org/search.json?q=${query}`)
 
-let titles = response.data.docs.map((doc) => doc.title)
-titles = _.uniq(titles)
+let transform = ({title, author_name}) =>
+  `* "${title}" - ${author_name?.length && author_name[0]}`
 
-console.log(titles)
+let markdown = response.data.docs.map(transform).join('\n')
+
+showMarkdown(markdown)

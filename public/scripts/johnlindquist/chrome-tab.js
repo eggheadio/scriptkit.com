@@ -1,4 +1,6 @@
-//Description: Launch a url in Chrome. If url is alerady open, switch to that tab.
+// Description: Launch a url in Chrome. If url is already open, switch to that tab.
+// Author: John Lindquist
+// Twitter: @johnlindquist
 
 applescript(`
 set address to "${await arg('Enter url:')}"
