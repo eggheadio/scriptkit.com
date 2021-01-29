@@ -12,7 +12,7 @@ let width = Number(await arg('Enter width:'))
 
 let metadata = await sharp(image).metadata()
 
-let newHeight = metadata.height * (width / metadata.width)
+let newHeight = Math.floor(metadata.height * (width / metadata.width))
 
 let lastDot = /.(?!.*\.)/
 let resizedImageName = image.replace(lastDot, `-${width}.`)
