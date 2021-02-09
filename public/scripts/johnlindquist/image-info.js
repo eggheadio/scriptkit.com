@@ -5,19 +5,17 @@
 
 let {default: sharp} = await npm('sharp')
 
-let image = await arg('Search an image:', {
-  choices: async (input = '') => {
-    if (input.length < 3) return []
-    let files = await fileSearch(input, {kind: 'image'})
+let image = await arg('Search an image:', async (input = '') => {
+  if (input.length < 3) return []
+  let files = await fileSearch(input, {kind: 'image'})
 
-    return files.map((path) => {
-      return {
-        name: path.split('/').pop(),
-        value: path,
-        info: path,
-      }
-    })
-  },
+  return files.map((path) => {
+    return {
+      name: path.split('/').pop(),
+      value: path,
+      info: path,
+    }
+  })
 })
 
 let {width, height} = await sharp(image).metadata()

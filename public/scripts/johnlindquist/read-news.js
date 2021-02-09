@@ -22,8 +22,6 @@ const headlines = await page.evaluate(() =>
 
 await browser.close()
 
-let value = await arg('What do you want to read?', {
-  choices: headlines,
-})
+let value = await arg('What do you want to read?', headlines)
 
 exec(`open ${value}`)

@@ -33,8 +33,6 @@ let choices = tabs.split('\n').flatMap((line) => {
   }
 })
 
-let url = await arg('Select Chrome tab:', {
-  choices,
-})
+let url = await arg('Select Chrome tab:', choices)
 
 await run('chrome-tab', url)
