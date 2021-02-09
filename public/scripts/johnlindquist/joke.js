@@ -10,11 +10,4 @@ let response = await get(`https://icanhazdadjoke.com/`, {
 })
 
 show(response.data)
-
-let confirm = await arg(`Shall I also speak the joke?`, {
-  type: 'confirm',
-})
-
-if (confirm) {
-  say(response.data)
-}
+say(response.data)

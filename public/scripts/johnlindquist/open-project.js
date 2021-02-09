@@ -3,12 +3,10 @@
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
-let project = await arg('Open project:', {
-  choices: [
-    '~/.simple',
-    '~/projects/simpleapp',
-    '~/projects/simplescripts.dev',
-  ],
-})
+let project = await arg('Open project:', [
+  '~/.simple',
+  '~/projects/simpleapp',
+  '~/projects/simplescripts.dev',
+])
 
 edit(project)

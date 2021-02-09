@@ -16,9 +16,7 @@ let typeMap = {
 }
 
 let word = await arg('Type a word:')
-let typeArg = await arg('What would you like to find?', {
-  choices: Object.keys(typeMap),
-})
+let typeArg = await arg('What would you like to find?', Object.keys(typeMap))
 
 let type = typeMap[typeArg]
 word = word.replace(/ /g, '+')

@@ -6,9 +6,10 @@
 let filePath = await getSelectedFile()
 let file = filePath.split('/').pop()
 
-let isPublic = await arg('Should the gist be public?', {
-  type: 'confirm',
-})
+let isPublic = await arg('Should the gist be public?', [
+  {name: 'Yes', value: true},
+  {name: 'No', value: false},
+])
 
 const body = {
   files: {

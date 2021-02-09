@@ -3,7 +3,7 @@
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
-let {choices: scripts} = await import(simplePath('cli', 'scripts.js'))
+let {choices: scripts} = await simple('cli/scripts')
 
 let items = scripts
   .map((script) => `"${script.name}"`) //surround in quotes

@@ -5,4 +5,4 @@
 
 exec(`code ~/projects/simplescripts.dev`)
 iterm(`cd ~/projects/simplescripts.dev; vercel dev`)
-await run('chrome-tab', 'localhost:3000')
+await simple('chrome-tab', 'localhost:3000')

@@ -11,9 +11,7 @@ let basePath = cwd()
 
 cd(tmpPath)
 
-let {getSelectedPath} = await import('./osx/finder.js')
-
-let filePath = await getSelectedPath()
+let filePath = await getSelectedFile()
 
 let symLink = _.last(filePath.split(path.sep)).replaceAll(' ', '-')
 let symLinkPath = path.join(tmpPath, symLink)
