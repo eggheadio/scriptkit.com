@@ -148,12 +148,12 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   const response = await fetch(
     `https://api.github.com/repos/johnlindquist/simple/releases`,
   )
 
-  const release = (await response.json())[0].assets.filter((asset) =>
+  const release = (await response.json())[0].assets.filter((asset: any) =>
     asset.name.endsWith('.dmg'),
   )[0]
 
