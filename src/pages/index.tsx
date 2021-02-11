@@ -104,18 +104,23 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
           </div> */}
           <div className="text-center space-y-2">
             <h3 className="text-xl font-semibold">Download</h3>
-            <a className="underline" href={release.browser_download_url}>
+            <a className="underline py-2" href={release.browser_download_url}>
               {release.name}
             </a>
           </div>
+
           <div className="text-center space-y-2">
-            <h3 className="text-xl font-semibold">Browse Starter Scripts</h3>
-            <a className="underline" href={`/scripts/johnlindquist`}>
-              simplescripts.dev/scripts/johnlindquist
-            </a>
-            <p className="text-xs">Community Scripts Coming Soon 👀</p>
+            <h3 className="text-xl font-semibold space-y-2">Browse Scripts</h3>
+            <Link href="/scripts/johnlindquist">
+              <a className="underline py-2">
+                simplescripts.dev/scripts/johnlindquist
+              </a>
+            </Link>
+            <p className="text-xs">
+              <span className="italic">Community Scripts Coming Soon</span> 👀
+            </p>
           </div>
-          <div className="text-center space-y-2">
+          <div className="text-center">
             <h3 className="text-xl font-semibold">Ask a Question</h3>
             <Markdown
               className="prose max-w-sm mx-auto underline"
