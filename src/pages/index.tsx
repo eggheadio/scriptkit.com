@@ -25,6 +25,7 @@ const content = {
 
 type HomeProps = {
   featuredScripts: ScriptProps[]
+  release: {name: string; browser_download_url: string}
 }
 
 const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
