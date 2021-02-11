@@ -27,7 +27,7 @@ type HomeProps = {
   featuredScripts: ScriptProps[]
 }
 
-const Home: FunctionComponent<HomeProps> = ({featuredScripts}) => {
+const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
   let [origin, setOrigin] = React.useState('')
   React.useEffect(() => {
     setOrigin(window.location.origin)
@@ -55,15 +55,15 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts}) => {
               <h1 className="sm:text-6xl text-4xl font-bold tracking-tight leading-tight">
                 {content.headline}
               </h1>
-              <Markdown
+              {/* <Markdown
                 className="text-center text-gray-800 font-light leading-tight max-w-xl font-mono text-base"
                 source={content.description}
-              />
+              /> */}
             </div>
           </div>
         </header>
         <main className="max-w-screen-md mx-auto space-y-10 flex-grow pb-24 w-full">
-          <div className="text-center space-y-2">
+          {/* <div className="text-center space-y-2">
             <h3 className="text-xl font-semibold">Install</h3>
             <div className="relative max-w-lg w-full mx-auto flex">
               <input
@@ -86,13 +86,26 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts}) => {
                 )}
               </button>
             </div>
-          </div>
-          <div className="text-center space-y-2">
+          </div> */}
+          {/* <div className="text-center space-y-2">
             <h3 className="text-xl font-semibold">Get Started</h3>
             <Markdown
               className="prose max-w-sm mx-auto"
               source={content.gettingStarted}
             />
+          </div>
+          <div className="text-center space-y-2">
+            <h3 className="text-xl font-semibold">Ask a Question</h3>
+            <Markdown
+              className="prose max-w-sm mx-auto underline"
+              source={content.discuss}
+            />
+          </div> */}
+          <div className="text-center space-y-2">
+            <h3 className="text-xl font-semibold">Download</h3>
+            <a className="underline" href={release.browser_download_url}>
+              {release.name}
+            </a>
           </div>
           <div className="text-center space-y-2">
             <h3 className="text-xl font-semibold">Ask a Question</h3>
@@ -134,7 +147,18 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts}) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
+  const response = await fetch(
+    `https://api.github.com/repos/johnlindquist/simple/releases`,
+  )
+
+  const release = (await response.json())[0].assets.filter((asset) =>
+    asset.name.endsWith('.dmg'),
+  )[0]
+
+  console.log(release.name)
+  console.log(release.browser_download_url)
+
   const featuredScripts: any[] = [
     // {
     //   user: 'johnlindquist',
@@ -180,7 +204,7 @@ export async function getStaticProps() {
     })
 
   return {
-    props: {featuredScripts: scripts}, // will be passed to the page component as props
+    props: {featuredScripts: scripts, release}, // will be passed to the page component as props
   }
 }
 
