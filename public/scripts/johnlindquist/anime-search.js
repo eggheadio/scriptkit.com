@@ -9,7 +9,4 @@ let response = await get(`https://api.jikan.moe/v3/search/anime?q=${anime}`)
 
 let {image_url, title} = response.data.results[0]
 
-showMarkdown(`![${title}](${image_url})`, {
-  transparent: true,
-  frame: false,
-})
+inspect(`![${title}](${image_url})`, 'md')

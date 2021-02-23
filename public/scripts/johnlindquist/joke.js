@@ -9,5 +9,5 @@ let response = await get(`https://icanhazdadjoke.com/`, {
   },
 })
 
-show(response.data)
+console.log(response.data)
 say(response.data)

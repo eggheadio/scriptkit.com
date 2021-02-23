@@ -13,4 +13,4 @@ let transform = ({title, author_name}) =>
 
 let markdown = response.data.docs.map(transform).join('\n')
 
-showMarkdown(markdown)
+inspect(markdown, 'md')
