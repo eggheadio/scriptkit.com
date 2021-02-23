@@ -28,4 +28,4 @@ let response = await get(url)
 
 let formatResult = ({word}) => `<li>"${word}"</li>`
 
-show(response.data.map(formatResult).join(''))
+inspect(response.data.map(formatResult).join(''), 'html')

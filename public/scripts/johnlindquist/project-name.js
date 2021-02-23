@@ -9,4 +9,6 @@ const name = generate({word: 2, alliterative: true}).dashed
 
 copy(name)
 
-show(`> "${name}" has been copied to the clipboard. Paste anywhere to see it.`)
+console.log(
+  `> "${name}" has been copied to the clipboard. Paste anywhere to see it.`,
+)

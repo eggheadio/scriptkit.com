@@ -16,7 +16,7 @@ let quiz = async () => {
     choices: _.shuffle(words),
   })
 
-  show(`${word.value}: ${word.name}`)
+  console.log(`${word.value}: ${word.name}`)
 }
 
 let gatherWords = () => {

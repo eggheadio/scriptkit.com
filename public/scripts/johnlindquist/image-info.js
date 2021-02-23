@@ -20,4 +20,4 @@ let image = await arg('Search an image:', async (input = '') => {
 
 let {width, height} = await sharp(image).metadata()
 
-show({width, height})
+console.log({width, height})
