@@ -4,9 +4,9 @@
 // Twitter: @johnlindquist
 
 let project = await arg('Open project:', [
-  '~/.simple',
-  '~/projects/simpleapp',
-  '~/projects/simplescripts.dev',
+  '~/.kit',
+  '~/projects/kitapp',
+  '~/projects/scriptkit.app',
 ])
 
 edit(project)

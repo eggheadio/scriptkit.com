@@ -4,7 +4,7 @@
 // Twitter: @johnlindquist
 
 /** Note: This is a very basic search implementation based on "mdfind".
- * File search will be a _big_ focus in future versions of Simple Scripts
+ * File search will be a _big_ focus in future versions of Script Kit
  */
 
 let selectedFile = await arg('Search a file:', async (input = '') => {

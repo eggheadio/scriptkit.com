@@ -46,5 +46,5 @@ complete "Installed simple npm packages"
 cp $SIMPLE_PATH/config/template-env.env $SIMPLE_PATH/.env
 complete "Created .env"
 
-complete "Welcome to Simple Scripts!"
+complete "Welcome to Script Kit!"
 echo "type ${BOLD}${GREEN}simple ${NO_COLOR}and hit enter to get started:"

@@ -32,11 +32,7 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
         <a
           className="group flex items-center space-x-2 relative font-semibold px-3 py-2 leading-4 bg-black text-white rounded-md font-mono text-xs"
           href={
-            `simple://cli/new ` +
-            script.command +
-            ' --url ' +
-            origin +
-            script.url
+            `kit://cli/new ` + script.command + ' --url ' + origin + script.url
           }
         >
           <span>Install</span>
