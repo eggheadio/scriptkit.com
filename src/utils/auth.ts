@@ -11,11 +11,11 @@ const AUTH_CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID
 const AUTH_REDIRECT_URL = process.env.NEXT_PUBLIC_REDIRECT_URI
 
 export const CONVERTKIT_COOKIE_NAME =
-  process.env.NEXT_PUBLIC_CONVERTKIT_COOKIE_NAME || 'simple_scripts_ck_id'
-export const USER_KEY = 'simple_scripts_user'
-export const ACCESS_TOKEN_KEY = 'simple_scripts_sellable_access_token'
-export const EXPIRES_AT_KEY = 'simple_scripts_sellable_expires_at'
-export const VIEWING_AS_USER_KEY = 'simple_scripts_sellable_viewing_as_user'
+  process.env.NEXT_PUBLIC_CONVERTKIT_COOKIE_NAME || 'script_kit_ck_id'
+export const USER_KEY = 'script_kit_user'
+export const ACCESS_TOKEN_KEY = 'script_kit_sellable_access_token'
+export const EXPIRES_AT_KEY = 'script_kit_sellable_expires_at'
+export const VIEWING_AS_USER_KEY = 'script_kit_sellable_viewing_as_user'
 
 export function getTokenFromCookieHeaders(serverCookies = '') {
   const parsedCookie = serverCookie.parse(serverCookies)

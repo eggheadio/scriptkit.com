@@ -1,6 +1,6 @@
 {
-  "title": "Simple Scripts by John Lindquist",
-  "titleTemplate": "%s | Simple Scripts",
+  "title": "Script Kit by John Lindquist",
+  "titleTemplate": "%s | Script Kit",
   "description": "Automate anything",
   "favicon": "/favicon.ico",
   "additionalMetaTags": [
@@ -17,13 +17,13 @@
   },
   "openGraph": {
     "type": "website",
-    "site_name": "Simple Scripts",
+    "site_name": "Script Kit",
     "profile": {
       "firstName": "John"
     },
     "images": [
       {
-        "url": "https://simplescripts.dev/card@2x.png",
+        "url": "https://scriptkit.app/card@2x.png",
         "width": 1200,
         "height": 628
       }

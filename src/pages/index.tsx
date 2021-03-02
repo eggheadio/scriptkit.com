@@ -17,10 +17,9 @@ import Footer from 'components/footer'
 const content = {
   headline: 'Automate Anything',
   description: 'Scripting made fun.',
-  install:
-    'export SIMPLE_PATH=~/.simple; curl -o- https://simplescripts.dev/api/install | sh; export PATH=$PATH:$SIMPLE_PATH/bin',
-  gettingStarted: `Run \`simple\` in your shell to launch an interactive prompt to train you to write your own scripts.`,
-  discuss: `[GitHub Discussions](https://github.com/johnlindquist/simplescripts/discussions)`,
+  install: '//TODO: fix',
+  gettingStarted: `Run \`kit\` in your shell to launch an interactive prompt to train you to write your own scripts.`,
+  discuss: `[GitHub Discussions](https://github.com/johnlindquist/kit/discussions)`,
 }
 
 type HomeProps = {
@@ -50,7 +49,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
           <div className="flex flex-col items-center justify-center text-center space-y-1">
             <Logo className="text-yellow-300" />
             <div className="font-bold tracking-tight leading-tighter text-lg">
-              Simple Scripts
+              Script Kit
             </div>
             <div className="pt-14 space-y-6">
               <h1 className="sm:text-6xl text-4xl font-bold tracking-tight leading-tight">
@@ -113,7 +112,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
             <h3 className="text-xl font-semibold space-y-2">Browse Scripts</h3>
             <Link href="/scripts/johnlindquist">
               <a className="underline py-2">
-                simplescripts.dev/scripts/johnlindquist
+                scriptkit.app/scripts/johnlindquist
               </a>
             </Link>
             <p className="text-xs">
@@ -162,7 +161,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
 
 export async function getServerSideProps(context: any) {
   const response = await fetch(
-    `https://api.github.com/repos/johnlindquist/simple/releases`,
+    `https://api.github.com/repos/johnlindquist/kitapp/releases`,
   )
 
   const release = (await response.json())[0].assets.filter((asset: any) =>

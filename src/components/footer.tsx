@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="flex items-center space-x-4">
           <a
             className="flex items-center space-x-1"
-            href="https://github.com/johnlindquist/simplescripts"
+            href="https://github.com/johnlindquist/kit"
           >
             <GitHubIcon />
           </a>

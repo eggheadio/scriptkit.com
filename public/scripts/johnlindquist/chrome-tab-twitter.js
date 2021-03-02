@@ -4,4 +4,4 @@
 // Shortcut: Alt+T
 
 //requires the "chrome-tab" script to be installed
-await simple('chrome-tab', 'twitter.com')
+await kit('chrome-tab', 'twitter.com')
