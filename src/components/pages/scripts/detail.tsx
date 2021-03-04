@@ -27,7 +27,7 @@ const ScriptDetail: FunctionComponent<ScriptProps> = ({
           </h2>
           <a
             className="group inline-flex items-center space-x-2 relative font-semibold px-4 py-3 leading-4 bg-black text-white rounded-md font-mono text-sm"
-            href={`kit://cli/new ` + command + ' --url ' + origin + url}
+            href={`kit://` + command + ' --url ' + origin + url}
           >
             <span>Install</span>
             <span className="group-hover:rotate-90 font-bold transform transition-all ease-in-out duration-300 text-base leading-none">
