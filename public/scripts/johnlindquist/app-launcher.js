@@ -4,6 +4,8 @@
 // Twitter: @johnlindquist
 // Shortcut: Alt+A
 
+let {fileSearch} = await kit('file')
+
 let choices = async () => {
   let apps = await fileSearch('', {
     onlyin: '/',
@@ -40,7 +42,7 @@ let choices = async () => {
   })
 }
 
-let app = await arg('Select app:', choices)
+let app = await arg('Select app:', choices, true)
 let command = `open -a "${app}"`
 if (app.endsWith('.prefPane')) {
   command = `open ${app}`
