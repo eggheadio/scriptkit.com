@@ -159,7 +159,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
   )
 }
 
-export async function getServerSideProps(context: any) {
+export async function getStaticProps(context: any) {
   const response = await fetch(
     `https://api.github.com/repos/johnlindquist/kitapp/releases`,
   )
