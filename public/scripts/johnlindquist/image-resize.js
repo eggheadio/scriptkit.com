@@ -4,7 +4,8 @@
 // Twitter: @johnlindquist
 // Shortcut: Alt+I
 
-let {default: sharp} = await npm('sharp')
+let sharp = await npm('sharp')
+let {getSelectedFile} = await kit('file')
 
 let image = await getSelectedFile()
 
