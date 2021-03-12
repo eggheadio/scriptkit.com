@@ -31,7 +31,7 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
         </div>
         <a
           className="group flex items-center space-x-2 relative font-semibold px-3 py-2 leading-4 bg-black text-white rounded-md font-mono text-xs"
-          href={`kit://` + script.command + ' --url ' + origin + script.url}
+          href={`kit://` + script.command + '?url=' + origin + script.url}
         >
           <span>Install</span>
           <span className="group-hover:rotate-90 font-bold transform transition-all ease-in-out duration-300 text-base leading-none">
