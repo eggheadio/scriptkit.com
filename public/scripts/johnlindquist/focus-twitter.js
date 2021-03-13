@@ -3,5 +3,5 @@
 // Twitter: @johnlindquist
 // Shortcut: Alt+T
 
-//requires the "chrome-tab" script to be installed
-await run('chrome-tab', 'twitter.com')
+let {focusTab} = await kit('chrome')
+await focusTab('twitter.com')
