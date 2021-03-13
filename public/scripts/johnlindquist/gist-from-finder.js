@@ -3,6 +3,7 @@
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
+let {getSelectedFile} = await kit('file')
 let filePath = await getSelectedFile()
 let file = filePath.split('/').pop()
 
@@ -17,8 +18,9 @@ const body = {
       content: await readFile(filePath, 'utf8'),
     },
   },
-  public: isPublic,
 }
+
+if (isPublic) body.public = true
 
 let config = {
   headers: {
