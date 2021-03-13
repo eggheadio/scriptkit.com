@@ -1,7 +1,9 @@
 // Menu: Word API
-// Description: Queries a word api library
+// Description: Queries a word api. Pastes selection.
 // Author: John Lindquist
 // Twitter: @johnlindquist
+
+let {setSelectedText} = await kit('text')
 
 let typeMap = {
   describe: 'rel_jjb',
@@ -25,7 +27,17 @@ let url = `https://api.datamuse.com/words?${type}=${word}&md=d`
 if (typeArg == 'suggest') url = `https://api.datamuse.com/sug?s=${word}&md=d`
 
 let response = await get(url)
+let formattedWords = response.data.map(({word, defs}) => {
+  let info = ''
+  if (defs) {
+    let [type, meaning] = defs[0].split('\t')
+    info = `- (${type}): ${meaning}`
+  }
+  return {
+    name: `${word}${info}`,
+    value: word,
+  }
+})
 
-let formatResult = ({word}) => `<li>"${word}"</li>`
-
-inspect(response.data.map(formatResult).join(''), 'html')
+let pickWord = await arg('Select to paste:', formattedWords)
+setSelectedText(pickWord)
