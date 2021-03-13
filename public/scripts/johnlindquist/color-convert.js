@@ -3,8 +3,10 @@
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
-let {default: convert} = await npm('color-convert')
+let {setSelectedText} = await kit('text')
+let convert = await npm('color-convert')
 
+//using a function with "input" allows you to generate values
 let conversion = await arg('Enter color:', (input) => {
   if (input.startsWith('#')) {
     return ['rgb', 'cmyk', 'hsl'].map((type) => {
@@ -44,4 +46,4 @@ let conversion = await arg('Enter color:', (input) => {
   return []
 })
 
-copy(conversion)
+setSelectedText(conversion)
