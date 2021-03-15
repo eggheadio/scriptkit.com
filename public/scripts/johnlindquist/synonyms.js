@@ -3,6 +3,8 @@
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
+let {setSelectedText} = await kit('text')
+
 let synonym = await arg('Type a word', async (input) => {
   if (!input || input?.length < 3) return []
   let url = `https://api.datamuse.com/words?ml=${input}&md=d`
