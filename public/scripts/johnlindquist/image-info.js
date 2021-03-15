@@ -3,7 +3,7 @@
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
-let {default: sharp} = await npm('sharp')
+let sharp = await npm('sharp')
 
 let image = await arg('Search an image:', async (input = '') => {
   if (input.length < 3) return []
