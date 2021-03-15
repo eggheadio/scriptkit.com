@@ -3,8 +3,8 @@
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
-let {default: randomWord} = await npm('random-word')
-let {} = await npm('wordnet-db')
+await npm('wordnet-db')
+let randomWord = await npm('random-word')
 let {WordNet} = await npm('natural')
 
 let wordNet = new WordNet()
@@ -12,14 +12,17 @@ let words = []
 
 let quiz = async () => {
   let word = words[0]
-  let result = await arg(`Define: ${word.value}`, {
-    choices: _.shuffle(words),
-  })
+  let result = await arg(`What does "${word.value}" mean?`, _.shuffle(words))
 
-  console.log(`${word.value}: ${word.name}`)
+  let correct = word.value === result
+  setPromptText(`${correct ? '✅' : '🚫'} ${word.value}: ${word.name}`)
+  await wait(2000)
+  words = []
+  prepareWords()
 }
 
-let gatherWords = () => {
+let prepareWords = () => {
+  setPromptText(`Finding random word and definitions...`)
   wordNet.lookup(randomWord(), (results) => {
     if (results.length) {
       let [{lemma, def}] = results
@@ -29,8 +32,8 @@ let gatherWords = () => {
         return
       }
     }
-    gatherWords()
+    prepareWords()
   })
 }
 
-gatherWords()
+prepareWords()
