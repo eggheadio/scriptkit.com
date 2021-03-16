@@ -2,23 +2,27 @@
 // Description: Converts colors between rgb, hex, etc
 // Author: John Lindquist
 // Twitter: @johnlindquist
+//
 
 let {setSelectedText} = await kit('text')
 let convert = await npm('color-convert')
+
+let createChoice = (type, value, input) => {
+  return {
+    name: type + ': ' + value,
+    value,
+    html: `<div class="h-full w-full p-1 text-xs flex justify-center items-center font-bold" style="background-color:${input}">
+      <span>${input}</span>
+      </div>`,
+  }
+}
 
 //using a function with "input" allows you to generate values
 let conversion = await arg('Enter color:', (input) => {
   if (input.startsWith('#')) {
     return ['rgb', 'cmyk', 'hsl'].map((type) => {
       let value = convert.hex[type](input).toString()
-
-      return {
-        name: type + ': ' + value,
-        value,
-        info: `<div style="background-color:${input}; width:100px; height:100px;">
-          ${input}
-          </div>`,
-      }
+      return createChoice(type, value, input)
     })
   }
 
@@ -29,13 +33,7 @@ let conversion = await arg('Enter color:', (input) => {
         try {
           let value = convert.keyword[type](input).toString()
 
-          return {
-            name: type + ': ' + value,
-            value,
-            info: `<div style="background-color:${input}">
-              ${input}
-              </div>`,
-          }
+          return createChoice(type, value, input)
         } catch (error) {
           return ''
         }
