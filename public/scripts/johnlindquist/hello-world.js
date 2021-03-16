@@ -1,7 +1,8 @@
 // Menu: Hello World
-// Description: Enter an arg, speak it back
+// Description: Enter an name, speak it back
 // Author: John Lindquist
 // Twitter: @johnlindquist
 
-let message = await arg('What should I say?')
-say(message)
+let {say} = await kit('speech')
+let name = await arg(`What's your name?`)
+say(`Hello, ${name}!`)
