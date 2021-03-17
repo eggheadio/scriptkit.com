@@ -2,8 +2,6 @@
 // Description: Search giphy. Paste markdown link.
 // Author: John Lindquist
 // Twitter: @johnlindquist
-let download = await npm('image-downloader')
-let queryString = await npm('query-string')
 let {setSelectedText} = await kit('text')
 
 if (!env.GIPHY_API_KEY) {
