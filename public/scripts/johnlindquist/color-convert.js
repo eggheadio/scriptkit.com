@@ -2,7 +2,6 @@
 // Description: Converts colors between rgb, hex, etc
 // Author: John Lindquist
 // Twitter: @johnlindquist
-//
 
 let {setSelectedText} = await kit('text')
 let convert = await npm('color-convert')
