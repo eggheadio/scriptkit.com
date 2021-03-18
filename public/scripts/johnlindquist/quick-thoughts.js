@@ -33,8 +33,7 @@ let openThoughtFile = async () => {
   exit()
 }
 
-if (!(await isFile(thoughtFile)))
-  await writeFile(thoughtFile, `# ${date}`.trim())
+if (!(await isFile(thoughtFile))) await writeFile(thoughtFile, `# ${date}\n`)
 
 while (true) {
   let thought = await arg('Thought:')
