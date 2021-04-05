@@ -15,14 +15,14 @@ let quiz = async () => {
   let result = await arg(`What does "${word.value}" mean?`, _.shuffle(words))
 
   let correct = word.value === result
-  setPromptText(`${correct ? '✅' : '🚫'} ${word.value}: ${word.name}`)
+  setPlaceholder(`${correct ? '✅' : '🚫'} ${word.value}: ${word.name}`)
   await wait(2000)
   words = []
   prepareWords()
 }
 
 let prepareWords = () => {
-  setPromptText(`Finding random word and definitions...`)
+  setPlaceholder(`Finding random word and definitions...`)
   wordNet.lookup(randomWord(), (results) => {
     if (results.length) {
       let [{lemma, def}] = results

@@ -15,6 +15,6 @@ text = text
 let i = 0
 
 let id = setInterval(() => {
-  setPromptText(` ${text[i++]}`)
+  setPlaceholder(` ${text[i++]}`)
   if (i >= text.length) clearInterval(id)
 }, wpm)
