@@ -2,6 +2,7 @@ import * as React from 'react'
 import {FunctionComponent} from 'react'
 import {ScriptProps} from 'pages/scripts/[user]'
 import CodeBlock from 'components/code-block'
+import createInstallLink from '../../../utils/createInstallLink'
 
 type ScriptCardProps = {
   script: ScriptProps
@@ -31,7 +32,7 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
         </div>
         <a
           className="group flex items-center space-x-2 relative font-semibold px-3 py-2 leading-4 bg-black text-white rounded-md font-mono text-xs"
-          href={`kit://` + script.command + '?url=' + origin + script.url}
+          href={createInstallLink(script.command, origin + script.url)}
         >
           <span>Install</span>
           <span className="group-hover:rotate-90 font-bold transform transition-all ease-in-out duration-300 text-base leading-none">
