@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {readdirSync, readFileSync} from 'fs'
-import findByCommentMarker from 'utils/find-by-comment-marker'
+import {readdirSync} from 'fs'
+import getUserScripts from 'utils/get-user-scripts'
 import path from 'path'
 import {useRouter} from 'next/router'
 import {useState, useEffect} from 'react'
@@ -247,36 +247,10 @@ export default function User(props: any) {
 }
 
 export async function getStaticProps(context: any) {
-  console.log(Object.entries(process))
   const {params} = context
   const {user} = params
-  const scriptNames = readdirSync(
-    path.join(process.cwd(), '/public/scripts/', user),
-  )
 
-  const scripts = scriptNames.map((file) => {
-    const content = readFileSync(
-      path.join(process.cwd(), '/public/scripts/', user, file),
-      {encoding: 'utf8'},
-    )
-
-    const description = findByCommentMarker(content, 'Description:')
-    const author = findByCommentMarker(content, 'Author:')
-    const twitter = findByCommentMarker(content, 'Twitter:')
-    const github = findByCommentMarker(content, 'GitHub:')
-
-    const url = `/scripts/${user}/${file}`
-    return {
-      file,
-      command: file.replace('.js', ''),
-      content,
-      url,
-      description,
-      author,
-      twitter,
-      github,
-    }
-  })
+  const scripts = getUserScripts(user)
 
   return {
     props: {scripts, user}, // will be passed to the page component as props
@@ -285,7 +259,7 @@ export async function getStaticProps(context: any) {
 
 export async function getStaticPaths() {
   const users = readdirSync(path.join(process.cwd(), '/public/scripts'))
-  console.log({users})
+
   const paths = users.map((user) => `/scripts/` + user)
 
   return {
