@@ -1,11 +1,10 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
-import {ScriptProps} from 'pages/scripts/[user]'
+import type {ScriptProps} from 'pages/scripts/[user]'
 import CodeBlock from 'components/code-block'
 import createInstallLink from 'utils/createInstallLink'
 
 const ScriptDetail: FunctionComponent<ScriptProps> = ({
-  file,
   command,
   description,
   content,
@@ -20,7 +19,7 @@ const ScriptDetail: FunctionComponent<ScriptProps> = ({
   }, [])
 
   return (
-    <div key={file} className="bg-white rounded-md overflow-hidden">
+    <div key={command} className="rounded-md overflow-hidden">
       <div className="p-6">
         <div className="flex w-full justify-between">
           <h2 className="md:text-3xl text-2xl font-bold font-mono leading-tight">
