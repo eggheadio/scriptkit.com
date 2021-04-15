@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Link from 'next/link'
+import Link from 'components/link'
 
 const Navigation = () => {
   return (
@@ -15,8 +15,13 @@ const Navigation = () => {
         </a>
       </Link>
       <div className="flex items-center space-x-5">
-        <Link href="/scripts/johnlindquist">
-          <a>Browse Scripts</a>
+        <Link
+          href="/scripts/johnlindquist"
+          activeClassName="cursor-default bg-gray-900"
+        >
+          <a className="flex items-center space-x-1 px-3 py-2 rounded-lg hover:bg-gray-900 transition-all duration-100 ease-in-out opacity-90 hover:opacity-100">
+            Browse Scripts
+          </a>
         </Link>
       </div>
     </nav>
