@@ -208,7 +208,9 @@ export default function User(props: any) {
               )}
             </div>
             {currentScript.id && (
-              <ScriptDetail {...find(scripts, {command: currentScript.id})} />
+              <div className="px-5 pb-5">
+                <ScriptDetail {...find(scripts, {command: currentScript.id})} />
+              </div>
             )}
           </DialogContent>
         </DialogOverlay>

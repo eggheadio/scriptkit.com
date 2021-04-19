@@ -24,10 +24,8 @@ const CodeBlock: FunctionComponent<CodeBlockProps> = ({
         theme={theme}
       >
         {({className, tokens, getLineProps, getTokenProps}) => (
-          <pre
-            className={`${className} sm:rounded-sm overflow-x-auto rounded-none h-full`}
-          >
-            <SimpleBar className="h-full z-0 bg-black">
+          <pre className={`${className}  h-full`}>
+            <SimpleBar className="h-full z-0 ">
               <div className="px-5">
                 {tokens.map((line, i) => (
                   <div

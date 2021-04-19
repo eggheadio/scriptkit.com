@@ -41,7 +41,7 @@ const Image = () => {
               className="transform rotate-90 origin-center"
               transition={{
                 repeat: Infinity,
-                duration: 30,
+                duration: 40,
                 repeatType: 'loop',
                 ease: 'linear',
               }}
