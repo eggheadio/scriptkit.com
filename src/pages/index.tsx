@@ -36,17 +36,22 @@ const featuredScripts: any[] = [
 
 const links = [
   {
-    label: 'Quick orientation',
+    label: 'Quick orientation guide',
     url: 'https://github.com/johnlindquist/kit/discussions/131',
   },
   {
-    label: 'Browse community examples',
+    label: 'Community examples',
     url:
       'https://github.com/johnlindquist/kit/discussions/categories/show-and-tell',
   },
   {
     label: 'Watch livestreams building Script Kit',
     url: 'https://www.youtube.com/c/johnlindquist/videos',
+  },
+  {
+    label: 'Announcements',
+    url:
+      'https://github.com/johnlindquist/kit/discussions/categories/announcements',
   },
   {
     label: 'Ask a question',
@@ -70,7 +75,9 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
       <header className="py-10">
         <div className="flex items-center justify-center">
           <div className="flex flex-col items-center justify-center text-center space-y-1">
-            <HeaderImage />
+            <div className="w-56 h-56">
+              <HeaderImage />
+            </div>
             <div className="pt-14 ">
               <h1 className="sm:text-6xl text-5xl font-bold tracking-tight leading-tighter">
                 Automation for Developers
@@ -99,7 +106,17 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
           <div>
             <h2 className="text-3xl font-bold">What is it?</h2>
             <div className="prose pt-4 max-w-none">
-              <p>Script Kit scripts easier to write, run, and share</p>
+              <p>
+                Id netus habitant urna sit ultricies nam inceptos, placerat
+                facilisis consequat class ipsum rutrum himenaeos integer, per
+                risus scelerisque magnis primis eleifend.
+              </p>
+              <p>
+                Placerat nulla rhoncus ad arcu erat egestas eu in at natoque,
+                augue risus parturient sollicitudin fusce gravida dui tempus id
+                diam, laoreet libero tellus pharetra litora varius euismod
+                viverra a.
+              </p>
               <p>
                 Id netus habitant urna sit ultricies nam inceptos, placerat
                 facilisis consequat class ipsum rutrum himenaeos integer, per
@@ -115,10 +132,12 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
           </div>
           <div>
             <h2 className="text-3xl font-bold">Learn more</h2>
-            <div className="pt-4">
+            <div className="pt-4 prose">
               <p>
-                ScriptKit is currently in beta and I'm still working on
-                documentation and educational material.
+                Script Kit is currently in beta and I'm still working on proper
+                documentation and learning materials around it. For now, the
+                best thing to do to learn more is to check out these links
+                below:
               </p>
             </div>
             <ul className="pt-4 font-semibold">
@@ -127,18 +146,20 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
                 .map((link) => {
                   return (
                     <li>
-                      <a
-                        href={link.url}
-                        className="group bg-gradient-to-l from-transparent to-transparent hover:from-gray-900 bg-opacity-5 flex py-4 pl-6 text-lg border-b border-white border-opacity-10 relative transition-all ease-in-out duration-300"
-                      >
-                        <span className="absolute left-0 pr-3 transform group-hover:text-transparent text-yellow-300 group-hover:translate-x-2 -translate-x-0 transition-all duration-200 ease-in-out">
-                          ▪︎
-                        </span>
-                        <span className="absolute left-0 pr-3 transform group-hover:text-yellow-300 text-transparent group-hover:-translate-x-1 -translate-x-4 transition-all duration-200 ease-in-out">
-                          →
-                        </span>
-                        <span>{link.label}</span>
-                      </a>
+                      <Link href={link.url}>
+                        <a
+                          target="_blank"
+                          className="group bg-gradient-to-l from-transparent to-transparent hover:from-gray-900 bg-opacity-5 flex py-4 pl-6 text-lg border-b border-white border-opacity-10 relative transition-all ease-in-out duration-300"
+                        >
+                          <span className="absolute left-0 pr-3 transform group-hover:text-transparent text-yellow-300 group-hover:translate-x-2 -translate-x-0 transition-all duration-200 ease-in-out">
+                            ▪︎
+                          </span>
+                          <span className="absolute left-0 pr-3 transform group-hover:text-yellow-300 text-transparent group-hover:-translate-x-1 -translate-x-4 transition-all duration-200 ease-in-out">
+                            →
+                          </span>
+                          <span>{link.label}</span>
+                        </a>
+                      </Link>
                     </li>
                   )
                 })}

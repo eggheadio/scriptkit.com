@@ -21,6 +21,13 @@ module.exports = {
             '*': {
               color: theme('colors.gray.200'),
             },
+            a: {
+              color: theme('colors.yellow.300'),
+              textDecoration: 'none',
+            },
+            'a:hover': {
+              textDecoration: 'underline',
+            },
             code: {
               background: theme('colors.yellow.200'),
               fontWeight: 'bold',
