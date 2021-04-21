@@ -208,8 +208,8 @@ export async function getStaticProps(context: any) {
     `https://api.github.com/repos/johnlindquist/kitapp/releases`,
   )
 
-  const release = (await response.json())[0].assets.filter((asset: any) =>
-    asset.name.endsWith('.dmg'),
+  const release = (await response.json())[0].assets.filter(
+    (asset: any) => asset.name.includes('beta') && asset.name.endsWith('.dmg'),
   )[0]
 
   console.log(release.name)
