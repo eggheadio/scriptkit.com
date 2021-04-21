@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         sans: ['Articulat', ...defaultTheme.fontFamily.sans],
       },
+      fontSize: {
+        xxs: '0.65rem',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
