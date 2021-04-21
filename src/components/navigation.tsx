@@ -20,7 +20,7 @@ const Navigation = () => {
           href="/scripts/johnlindquist"
           activeClassName="cursor-default bg-gray-900"
         >
-          <a className="flex items-center space-x-1 px-3 py-2 rounded-lg hover:bg-gray-900 transition-all duration-100 ease-in-out opacity-90 hover:opacity-100">
+          <a className="sm:text-base text-sm flex items-center space-x-1 sm:px-3 px-2 sm:py-2 py-1 rounded-lg hover:bg-gray-900 transition-all duration-100 ease-in-out opacity-90 hover:opacity-100">
             Browse Scripts
           </a>
         </Link>

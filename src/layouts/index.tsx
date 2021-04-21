@@ -5,9 +5,16 @@ import Navigation from 'components/navigation'
 
 type LayoutProps = {
   meta?: NextSeoProps
+  className?: string
+  withFooter?: boolean
 }
 
-const DefaultLayout: FunctionComponent<LayoutProps> = ({children, meta}) => {
+const DefaultLayout: FunctionComponent<LayoutProps> = ({
+  children,
+  className,
+  withFooter = true,
+  meta,
+}) => {
   const {title, description, openGraph} = meta || {}
   return (
     <>
@@ -24,8 +31,8 @@ const DefaultLayout: FunctionComponent<LayoutProps> = ({children, meta}) => {
       />
       <div className="flex flex-col min-h-screen">
         <Navigation />
-        <div className="p-5 flex-grow">{children}</div>
-        <Footer />
+        <div className={`p-5 flex-grow ${className}`}>{children}</div>
+        {withFooter && <Footer />}
       </div>
     </>
   )
