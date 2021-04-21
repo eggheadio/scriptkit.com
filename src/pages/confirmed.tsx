@@ -7,7 +7,7 @@ export default function Confirm() {
       meta={{title: 'Subscription confirmed'}}
       className="flex items-center justify-center"
     >
-      <div className="max-w-screen-sm text-center">
+      <div className="max-w-screen-sm text-center sm:pb-32 pb-16">
         <span
           role="img"
           aria-label="incoming envelope"
