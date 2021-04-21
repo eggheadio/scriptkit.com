@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {readFileSync} from 'fs'
@@ -8,7 +9,7 @@ import path from 'path'
 import ScriptCard from 'components/pages/scripts/card'
 import {ScriptProps} from 'pages/scripts/[user]'
 import Layout from 'layouts'
-import HeaderImage from 'components/pages/landing/image'
+import AnimatedHeaderImage from 'components/pages/landing/image'
 
 type HomeProps = {
   featuredScripts: ScriptProps[]
@@ -75,10 +76,18 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
       <header className="py-10">
         <div className="flex items-center justify-center">
           <div className="flex flex-col items-center justify-center text-center space-y-1">
-            <div className="w-56 h-56">
-              <HeaderImage />
+            <div className="relative flex p-2 rounded-md bg-gradient-to-t from-gray-900 to-black">
+              {/* <AnimatedHeaderImage /> */}
+              <Image
+                src="/scriptkit@2x.png"
+                width={2408 / 4.5}
+                height={1540 / 4.5}
+                quality={100}
+                priority={true}
+              />
+              <div className="sm:block hidden absolute w-px h-5 mt-px top-12 left-5 z-10 bg-white animate-blink duration-75" />
             </div>
-            <div className="pt-14 ">
+            <div className="sm:pt-14 pt-8">
               <h1 className="sm:text-6xl text-5xl font-bold tracking-tight leading-tighter">
                 Automation for Developers
                 <sup className="px-2 py-1 rounded-full bg-indigo-500 text-xs font-bold tracking-normal font-mono inline-flex transform sm:-translate-y-6 -translate-y-4 ml-1">

@@ -18,6 +18,9 @@ module.exports = {
       fontSize: {
         xxs: '0.65rem',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
