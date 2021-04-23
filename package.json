@@ -36,12 +36,12 @@
     "remark-code-titles": "^0.1.1",
     "remark-footnotes": "^3.0.0",
     "remark-slug": "^6.0.0",
-    "simplebar-react": "^2.3.0"
+    "simplebar-react": "^2.3.0",
+    "@tailwindcss/typography": "^0.4.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.13.12",
     "@mdx-js/loader": "^1.6.22",
-    "@tailwindcss/typography": "^0.4.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@types/cookie": "^0.4.0",

@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -9,27 +10,40 @@ module.exports = {
         tighter: 1.1,
       },
       colors: {
-        yellow: colors.amber,
+        ...colors,
       },
-    },
-    typography: (theme) => ({
-      DEFAULT: {
-        css: {
-          code: {
-            background: theme('colors.yellow.200'),
-            fontWeight: 'bold',
-            padding: '2px 5px',
-            borderRadius: 3,
-            fontSize: '90%',
+      fontFamily: {
+        sans: ['Articulat', ...defaultTheme.fontFamily.sans],
+      },
+      fontSize: {
+        xxs: '0.65rem',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            '*': {
+              color: theme('colors.gray.200'),
+            },
+            a: {
+              color: theme('colors.yellow.300'),
+              textDecoration: 'none',
+            },
+            'a:hover': {
+              textDecoration: 'underline',
+            },
+            code: {
+              background: theme('colors.yellow.200'),
+              fontWeight: 'bold',
+              padding: '2px 5px',
+              borderRadius: 3,
+              fontSize: '90%',
+            },
           },
         },
-      },
-    }),
-  },
-  variants: {
-    extend: {
-      rotate: ['group-hover'],
-      overflow: ['hover'],
+      }),
     },
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],

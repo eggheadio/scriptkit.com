@@ -4,35 +4,21 @@
 
 @import '../../node_modules/@reach/dialog/styles.css';
 @import '../../node_modules/simplebar/dist/simplebar.min.css';
+@import './fonts/index.css';
 
 ::selection {
-  background: rgb(252, 211, 77);
+  @apply bg-yellow-300 text-black;
 }
 
-.masonry {
-  column-count: 1;
-  column-gap: 2rem;
-}
-
-@screen sm {
-  .masonry {
-    column-count: 2;
-    column-gap: 2rem;
-  }
-}
-
-@screen lg {
-  .masonry {
-    column-count: 2;
-    column-gap: 2rem;
-  }
-}
-
-@screen 2xl {
-  .masonry {
-    column-count: 3;
-    column-gap: 2rem;
-  }
+.simplebar-scrollbar:before {
+  @apply bg-gray-700;
+  position: absolute;
+  content: '';
+  border-radius: 7px;
+  left: 2px;
+  right: 2px;
+  opacity: 0;
+  transition: opacity 0.2s 0.5s linear;
 }
 
 /*
@@ -41,4 +27,26 @@
 */
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-blink {
+  animation-name: blink;
+  animation-direction: alternate;
+  animation-duration: 0.65s;
+  animation-iteration-count: infinite;
 }

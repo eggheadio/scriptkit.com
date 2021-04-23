@@ -1,161 +1,254 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import Logo from 'images/logo.svg'
-
-import ClipboardIcon from 'images/clipboard.svg'
-import CheckIcon from 'images/check.svg'
-import Markdown from 'react-markdown'
-import {useCopyToClipboard} from 'react-use'
+import {useRouter} from 'next/router'
 import {readFileSync} from 'fs'
 import findByCommentMarker from 'utils/find-by-comment-marker'
 import path from 'path'
 import ScriptCard from 'components/pages/scripts/card'
 import {ScriptProps} from 'pages/scripts/[user]'
-import Footer from 'components/footer'
-
-const content = {
-  headline: 'Automate Anything',
-  description: 'Scripting made fun.',
-  install: '//TODO: fix',
-  gettingStarted: `Run \`kit\` in your shell to launch an interactive prompt to train you to write your own scripts.`,
-  discuss: `[GitHub Discussions](https://github.com/johnlindquist/kit/discussions)`,
-}
+import Layout from 'layouts'
+import AnimatedHeaderImage from 'components/pages/landing/image'
 
 type HomeProps = {
   featuredScripts: ScriptProps[]
   release: {name: string; browser_download_url: string}
 }
 
+const featuredScripts: any[] = [
+  {
+    user: 'johnlindquist',
+    script: 'book-search.js',
+  },
+  {
+    user: 'johnlindquist',
+    script: 'image-resize.js',
+  },
+  {
+    user: 'johnlindquist',
+    script: 'color-convert.js',
+  },
+  {
+    user: 'johnlindquist',
+    script: 'read-news.js',
+  },
+]
+
+const links = [
+  {
+    label: 'Community examples',
+    url:
+      'https://github.com/johnlindquist/kit/discussions/categories/show-and-tell',
+  },
+  {
+    label: 'Quick orientation guide',
+    url: 'https://github.com/johnlindquist/kit/discussions/131',
+  },
+  {
+    label: 'Watch livestreams building Script Kit',
+    url: 'https://www.youtube.com/c/johnlindquist/videos',
+  },
+  {
+    label: 'Announcements',
+    url:
+      'https://github.com/johnlindquist/kit/discussions/categories/announcements',
+  },
+  {
+    label: 'Ask a question',
+    url: 'https://github.com/johnlindquist/kit/discussions/new',
+  },
+  {
+    label: 'Join mailing list',
+    url: '', // TODO
+  },
+]
+
 const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
+  const router = useRouter()
   let [origin, setOrigin] = React.useState('')
   React.useEffect(() => {
     setOrigin(window.location.origin)
   }, [])
-  const [copied, setCopied] = React.useState(false)
-  const [, copyToClipboard] = useCopyToClipboard()
-  const installInputRef = React.createRef<HTMLInputElement>()
-  const handleCopyToClipboard = () => {
-    copyToClipboard(content.install)
-    setCopied(true)
-    installInputRef.current && installInputRef.current.select()
-    setTimeout(() => setCopied(false), 1000)
-  }
 
   return (
-    <div className="flex flex-col min-h-screen justify-between">
-      <div className="flex flex-col flex-grow px-8">
-        <header className="flex items-center justify-center sm:py-16 py-10">
+    <Layout>
+      <header className="py-10">
+        <div className="flex items-center justify-center">
           <div className="flex flex-col items-center justify-center text-center space-y-1">
-            <Logo className="text-yellow-300" />
-            <div className="font-bold tracking-tight leading-tighter text-lg">
-              Script Kit
-            </div>
-            <div className="pt-14 space-y-6">
-              <h1 className="sm:text-6xl text-4xl font-bold tracking-tight leading-tight">
-                {content.headline}
-              </h1>
-              {/* <Markdown
-                className="text-center text-gray-800 font-light leading-tight max-w-xl font-mono text-base"
-                source={content.description}
-              /> */}
-            </div>
-          </div>
-        </header>
-        <main className="max-w-screen-md mx-auto space-y-10 flex-grow pb-24 w-full">
-          {/* <div className="text-center space-y-2">
-            <h3 className="text-xl font-semibold">Install</h3>
-            <div className="relative max-w-lg w-full mx-auto flex">
-              <input
-                ref={installInputRef}
-                readOnly
-                onClick={handleCopyToClipboard}
-                type="text"
-                className="focus:outline-none focus:border-yellow-400 focus:ring-inset focus:ring-1 focus:ring-yellow-400 form-input border-gray-200 w-full font-mono text-sm rounded-l-md bg-gray-100 px-4 py-2"
-                value={content.install}
+            <div className="relative flex p-2 rounded-md bg-gradient-to-t from-gray-900 to-black">
+              {/* <AnimatedHeaderImage /> */}
+              <Image
+                src="/scriptkit@2x.png"
+                width={2408 / 4.5}
+                height={1540 / 4.5}
+                quality={100}
+                priority={true}
               />
-              <button
-                className="rounded-r-md bg-gray-100 border border-gray-200 p-2"
-                type="button"
-                onClick={handleCopyToClipboard}
-              >
-                {copied ? (
-                  <CheckIcon className="text-yellow-500" />
-                ) : (
-                  <ClipboardIcon />
-                )}
-              </button>
+              <div className="sm:block hidden absolute w-px h-5 mt-px top-12 left-5 z-10 bg-white animate-blink duration-75" />
             </div>
-          </div> */}
-          {/* <div className="text-center space-y-2">
-            <h3 className="text-xl font-semibold">Get Started</h3>
-            <Markdown
-              className="prose max-w-sm mx-auto"
-              source={content.gettingStarted}
-            />
-          </div>
-          <div className="text-center space-y-2">
-            <h3 className="text-xl font-semibold">Ask a Question</h3>
-            <Markdown
-              className="prose max-w-sm mx-auto underline"
-              source={content.discuss}
-            />
-          </div> */}
-          <div className="text-center space-y-2">
-            <h3 className="text-xl font-semibold">Download</h3>
-            <a className="underline py-2" href={release.browser_download_url}>
-              {release.name}
-            </a>
-          </div>
-
-          <div className="text-center space-y-2">
-            <h3 className="text-xl font-semibold space-y-2">Browse Scripts</h3>
-            <Link href="/scripts/johnlindquist">
-              <a className="underline py-2">
-                scriptkit.app/scripts/johnlindquist
-              </a>
-            </Link>
-            <p className="text-xs">
-              <span className="italic">Community Scripts Coming Soon</span> 👀
-            </p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-xl font-semibold">Ask a Question</h3>
-            <Markdown
-              className="prose max-w-sm mx-auto underline"
-              source={content.discuss}
-            />
-          </div>
-        </main>
-      </div>
-      {featuredScripts.length > 0 && (
-        <div className="w-full bg-gray-100 px-5">
-          <h2 className="text-center md:text-3xl text-2xl font-bold tracking-tight py-16">
-            Featured Scripts
-          </h2>
-          <div className="max-w-screen-lg w-full mx-auto grid md:grid-cols-2 grid-cols-1 gap-5">
-            {featuredScripts.map((script: ScriptProps) => {
-              return (
-                <ScriptCard
-                  script={script}
-                  key={script.file}
-                  origin={origin}
-                  withAuthor
-                />
-              )
-            })}
-          </div>
-          <div className="flex w-full items-center justify-center py-16">
-            <Link href="/scripts/johnlindquist">
-              <a className="inline-flex py-3 px-4 rounded-md bg-black text-white text-sm font-mono">
-                Browse all scripts
-              </a>
-            </Link>
+            <div className="sm:pt-14 pt-8">
+              <h1 className="sm:text-6xl text-5xl font-bold tracking-tight leading-tighter">
+                Automation for Developers
+                <sup className="px-2 py-1 rounded-full bg-indigo-500 text-xs font-bold tracking-normal font-mono inline-flex transform sm:-translate-y-6 -translate-y-4 ml-1">
+                  beta
+                </sup>
+              </h1>
+              <h2 className="sm:text-2xl text-xl opacity-90 font-light pt-1 leading-tighter">
+                <span>Making scripts easy to run, write, and share</span>{' '}
+              </h2>
+            </div>
           </div>
         </div>
-      )}
-      <Footer />
-    </div>
+        <div className="flex flex-col items-center pt-14">
+          <a
+            className="transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-8 py-5 text-lg font-bold leading-tighter"
+            href={release?.browser_download_url}
+          >
+            Download Kit.app beta for Mac
+          </a>
+          <div className="pt-4 text-sm opacity-80">{release?.name}</div>
+        </div>
+      </header>
+      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-32 py-16 w-full">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
+          <div>
+            <h2 className="text-3xl font-bold">What is Script Kit?</h2>
+            <div className="prose pt-4 max-w-none">
+              <p>
+                How often do you avoid scripting something because it takes too
+                much effort?
+              </p>
+              <p></p>
+              <p>
+                Script Kit makes it easy to create and run scripts that solve
+                your daily problems. Create a new script from the prompt then
+                your script opens in the editor of your choice. Write a few
+                lines of JavaScript. Then run the script from the prompt.
+              </p>
+              <p>
+                Simply put, Script Kit helps you script away the friction of
+                your day.
+              </p>
+            </div>
+            <div className="pt-12">
+              <h3 className="text-2xl font-bold text-white">Key Features</h3>
+              <ul>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Launch the prompt from anywhere as part of your flow
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Add keyboard shortcuts with comments:{''}
+                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                    //Shortcut: opt a
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Prompt for input with:{''}
+                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                    await arg("First name")
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Prompt for environment vars:{''}
+                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                    await env("GITHUB_TOKEN")
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Load npm libraries:{''}
+                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                    await npm("sharp")
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Share scripts directly from the prompt
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Launch scripts from a Stream Deck button
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Scripts behave the same in your terminal
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold">Learn more</h2>
+            <div className="pt-4 prose">
+              <p>
+                Script Kit includes a built-in tutoria and myriad examples are
+                avaiable on our discussions pages:
+              </p>
+            </div>
+            <ul className="pt-4 font-semibold">
+              {links
+                .filter((link) => link.url)
+                .map((link) => {
+                  return (
+                    <li>
+                      <Link href={link.url}>
+                        <a
+                          target="_blank"
+                          className="group bg-gradient-to-l from-transparent to-transparent hover:from-gray-900 bg-opacity-5 flex py-4 pl-6 text-lg border-b border-white border-opacity-10 relative transition-all ease-in-out duration-300"
+                        >
+                          <span className="absolute left-0 pr-3 transform group-hover:text-transparent text-yellow-300 group-hover:translate-x-2 -translate-x-0 transition-all duration-200 ease-in-out">
+                            ▪︎
+                          </span>
+                          <span className="absolute left-0 pr-3 transform group-hover:text-yellow-300 text-transparent group-hover:-translate-x-1 -translate-x-4 transition-all duration-200 ease-in-out">
+                            →
+                          </span>
+                          <span>{link.label}</span>
+                        </a>
+                      </Link>
+                    </li>
+                  )
+                })}
+            </ul>
+          </div>
+        </div>
+      </main>
+      <section className="max-w-screen-lg mx-auto">
+        {featuredScripts?.length > 0 && (
+          <div className="w-full pt-8">
+            <h2 className="text-3xl font-bold pb-4">Featured Scripts</h2>
+            <div className="max-w-screen-lg w-full mx-auto grid md:grid-cols-2 grid-cols-1 gap-5">
+              {featuredScripts.map((script: ScriptProps) => {
+                console.log(script)
+                return (
+                  <ScriptCard
+                    handleOpenScriptDetail={() =>
+                      router.push(
+                        `/scripts/${script?.file?.user}/${script.command}`,
+                      )
+                    }
+                    script={script}
+                    key={script.command}
+                    origin={origin}
+                    withAuthor
+                  />
+                )
+              })}
+            </div>
+            {/* <div className="flex w-full items-center justify-center py-16">
+                <Link href="/scripts/johnlindquist">
+                  <a className="inline-flex py-3 px-4 rounded-md bg-black text-white text-sm font-mono">
+                    Browse all scripts
+                  </a>
+                </Link>
+              </div> */}
+          </div>
+        )}
+      </section>
+    </Layout>
   )
 }
 
@@ -164,31 +257,13 @@ export async function getStaticProps(context: any) {
     `https://api.github.com/repos/johnlindquist/kitapp/releases`,
   )
 
-  const release = (await response.json())[0].assets.filter(
+  const json = await response.json()
+
+  const {assets} = json.find((release: any) => release.name.includes('beta'))
+  const release = assets.find(
     (asset: any) => asset.name.includes('beta') && asset.name.endsWith('.dmg'),
-  )[0]
+  )
 
-  console.log(release.name)
-  console.log(release.browser_download_url)
-
-  const featuredScripts: any[] = [
-    // {
-    //   user: 'johnlindquist',
-    //   script: 'book-search.js',
-    // },
-    // {
-    //   user: 'johnlindquist',
-    //   script: 'image-resize.js',
-    // },
-    // {
-    //   user: 'johnlindquist',
-    //   script: 'pad.js',
-    // },
-    // {
-    //   user: 'johnlindquist',
-    //   script: 'read-news.js',
-    // },
-  ]
   const scripts =
     featuredScripts &&
     featuredScripts.map((file) => {

@@ -6,7 +6,7 @@
 let project = await arg('Open project:', [
   '~/.kit',
   '~/projects/kitapp',
-  '~/projects/scriptkit.app',
+  '~/projects/scriptkit.com',
 ])
 
 edit(project)

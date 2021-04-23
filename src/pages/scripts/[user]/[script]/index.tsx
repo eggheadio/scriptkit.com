@@ -3,56 +3,27 @@ import {FunctionComponent} from 'react'
 import {readdirSync, readFileSync} from 'fs'
 import findByCommentMarker from 'utils/find-by-comment-marker'
 import path from 'path'
-import Link from 'next/link'
+import Layout from 'layouts'
+import type {ScriptProps} from 'pages/scripts/[user]'
 import ScriptDetail from 'components/pages/scripts/detail'
-import Header from 'components/pages/scripts/user/header'
-import Footer from 'components/footer'
-import {NextSeo} from 'next-seo'
 
-export type ScriptProps = {
-  script: {
-    file: string
-    command: string
-    content: string
-    url: string
-    description: string
-    author: string
-    twitter: string
-    github: string
-  }
+export type ScriptPropsTwo = {
+  script: ScriptProps
   user: string
 }
 
-const Script: FunctionComponent<ScriptProps> = ({script, user}) => {
+const Script: FunctionComponent<ScriptPropsTwo> = ({script, user}) => {
   return (
-    <>
-      <NextSeo
-        title={`${script.command} script by ${user}`}
-        description={script.description || undefined}
-      />
-      <div className="flex flex-col min-h-screen justify-between items-between">
-        <div className="bg-gray-100 p-5 flex-grow">
-          <div className="pb-8 max-w-screen-lg mx-auto">
-            <Header>
-              <div className="font-mono">
-                <div className="text-sm">
-                  scripts/
-                  <Link href={`/scripts/${user}`}>
-                    <a className="underline">{user}</a>
-                  </Link>
-                  /
-                </div>
-                <div className="text-lg font-bold">{script.command}</div>
-              </div>
-            </Header>
-            <main>
-              <ScriptDetail {...script} />
-            </main>
-          </div>
-        </div>
-        <Footer />
+    <Layout
+      meta={{
+        title: `${script.command} script by ${user}`,
+        description: script.description || undefined,
+      }}
+    >
+      <div className="max-w-screen-lg w-full mx-auto">
+        <ScriptDetail {...script} />
       </div>
-    </>
+    </Layout>
   )
 }
 
