@@ -73,7 +73,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
 
   return (
     <Layout>
-      <header className="py-10">
+      <header className="sm:pt-10 pt-2 pb-10">
         <div className="flex items-center justify-center">
           <div className="flex flex-col items-center justify-center text-center space-y-1">
             <div className="relative flex">
