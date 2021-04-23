@@ -1,20 +1,17 @@
-// Menu: Giphy Search
-// Description: Search giphy. Paste markdown link.
+// Menu: Giphy
+// Description: Search giphy. Paste link.
 // Author: John Lindquist
 // Twitter: @johnlindquist
+
+let download = await npm('image-downloader')
+let queryString = await npm('query-string')
 let {setSelectedText} = await kit('text')
 
-if (!env.GIPHY_API_KEY) {
-  show(
-    `<div class="p-4">
-      <div>
-        Grab an API Key from the Giphy dev dashboard:
-      </div>
-      <a href="https://developers.giphy.com/dashboard/">Here</a>
-    </div>`,
-  )
-}
-let GIPHY_API_KEY = await env('GIPHY_API_KEY')
+let GIPHY_API_KEY = await env('GIPHY_API_KEY', {
+  hint: md(`Get a [Giphy API Key](https://developers.giphy.com/dashboard/)`),
+  ignoreBlur: true,
+  secret: true,
+})
 
 let search = (q) =>
   `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${q}&limit=10&offset=0&rating=g&lang=en`
@@ -29,11 +26,26 @@ let {input, url} = await arg('Search giphy:', async (input) => {
       name: gif.title.trim() || gif.slug,
       value: {
         input,
-        url: gif.images.downsized_medium.url,
+        url: gif.images.original.url,
       },
-      img: gif.images.downsized_medium.url,
+      preview: `<img src="${gif.images.downsized.url}" alt="">`,
     }
   })
 })
 
-setSelectedText(`![${input}](${url})`)
+let formattedLink = await arg('Format to paste', [
+  {
+    name: 'URL Only',
+    value: url,
+  },
+  {
+    name: 'Markdown Image Link',
+    value: `![${input}](${url})`,
+  },
+  {
+    name: 'HTML <img>',
+    value: `<img src="${url}" alt="${input}">`,
+  },
+])
+
+setSelectedText(formattedLink)

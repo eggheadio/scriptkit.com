@@ -19,7 +19,7 @@ type HomeProps = {
 const featuredScripts: any[] = [
   {
     user: 'johnlindquist',
-    script: 'book-search.js',
+    script: 'giphy-search.js',
   },
   {
     user: 'johnlindquist',
@@ -27,11 +27,11 @@ const featuredScripts: any[] = [
   },
   {
     user: 'johnlindquist',
-    script: 'color-convert.js',
+    script: 'center-app.js',
   },
   {
     user: 'johnlindquist',
-    script: 'read-news.js',
+    script: 'reddit.js',
   },
 ]
 

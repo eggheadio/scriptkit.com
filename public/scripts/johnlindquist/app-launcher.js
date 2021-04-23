@@ -2,11 +2,10 @@
 // Description: Search for an app then launch it
 // Author: John Lindquist
 // Twitter: @johnlindquist
-// Shortcut: Alt+A
 
 let {fileSearch} = await kit('file')
 
-let choices = async () => {
+let createChoices = async () => {
   let apps = await fileSearch('', {
     onlyin: '/',
     kind: 'application',
@@ -42,7 +41,14 @@ let choices = async () => {
   })
 }
 
-let app = await arg('Select app:', choices, true)
+let appsDb = db('apps', {choices: []})
+let choices = appsDb.get('choices').value()
+if (!choices.length) {
+  appsDb.set('choices', await createChoices()).write()
+  choices = appsDb.get('choices').value()
+}
+
+let app = await arg('Select app:', choices)
 let command = `open -a "${app}"`
 if (app.endsWith('.prefPane')) {
   command = `open ${app}`
