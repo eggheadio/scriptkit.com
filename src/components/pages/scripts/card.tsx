@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
-import {ScriptProps} from 'pages/scripts/[user]'
+import type {ScriptProps} from 'pages/scripts/[user]'
 import CodeBlock from 'components/code-block'
 import createInstallLink from '../../../utils/createInstallLink'
 
@@ -18,31 +18,31 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
   withAuthor = false,
 }) => {
   return (
-    <article className="bg-white rounded-md overflow-hidden shadow-sm flex flex-col justify-between">
+    <article className="rounded-lg overflow-hidden flex flex-col justify-between border border-gray-900">
       <div className="flex items-start px-6 pt-6">
         <div className="flex-grow">
-          <h2 className="md:text-xl text-lg font-bold font-mono leading-tight mt-1">
+          <h2 className="md:text-2xl text-xl font-bold leading-tight">
             {script.command}
           </h2>
           {withAuthor && (
-            <div className="flex space-x-2 font-xs text-sm text-gray-500">
+            <div className="flex space-x-2 font-xs text-sm opacity-70">
               {script.author && <div>by {script.author}</div>}
             </div>
           )}
         </div>
         <a
-          className="group flex items-center space-x-2 relative font-semibold px-3 py-2 leading-4 bg-black text-white rounded-md font-mono text-xs"
+          className="group flex items-center space-x-2 relative font-semibold px-3 py-2 leading-4 bg-gradient-to-t from-amber-400 to-yellow-300 text-black rounded-md font-mono text-xs transform hover:scale-105 transition-all duration-200 ease-in-out"
           href={createInstallLink(script.command, origin + script.url)}
         >
-          <span>Install</span>
+          <span>Add to Kit.app</span>
           <span className="group-hover:rotate-90 font-bold transform transition-all ease-in-out duration-300 text-base leading-none">
             +
           </span>
         </a>
       </div>
-      <div className="px-6 pb-6 pt-2">
+      <div className="px-6 pb-6 pt-2 border-b border-white border-opacity-10">
         {script.description && (
-          <h3 className="leading-normal text-gray-800">{script.description}</h3>
+          <h3 className="leading-normal text-gray-100">{script.description}</h3>
         )}
       </div>
       {handleOpenScriptDetail ? (
@@ -53,14 +53,14 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
           type="button"
         >
           <CodeBlock
-            className="text-sm h-80 overflow-hidden bg-gray-50 "
+            className="text-sm h-80 overflow-hidden"
             value={script.content}
             language="javascript"
           />
         </button>
       ) : (
         <CodeBlock
-          className="text-sm h-80 overflow-hidden bg-gray-50 "
+          className="text-sm h-80 overflow-hidden"
           value={script.content}
           language="javascript"
         />
