@@ -37,13 +37,13 @@ const featuredScripts: any[] = [
 
 const links = [
   {
-    label: 'Quick orientation guide',
-    url: 'https://github.com/johnlindquist/kit/discussions/131',
-  },
-  {
     label: 'Community examples',
     url:
       'https://github.com/johnlindquist/kit/discussions/categories/show-and-tell',
+  },
+  {
+    label: 'Quick orientation guide',
+    url: 'https://github.com/johnlindquist/kit/discussions/131',
   },
   {
     label: 'Watch livestreams building Script Kit',
@@ -95,7 +95,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
                 </sup>
               </h1>
               <h2 className="sm:text-2xl text-xl opacity-90 font-light pt-1 leading-tighter">
-                <span>Making scripts easier to write, run, and share</span>{' '}
+                <span>Making scripts easy to run, write, and share</span>{' '}
               </h2>
             </div>
           </div>
@@ -105,7 +105,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
             className="transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-8 py-5 text-lg font-bold leading-tighter"
             href={release?.browser_download_url}
           >
-            Download KitApp beta for Mac
+            Download Kit.app beta for Mac
           </a>
           <div className="pt-4 text-sm opacity-80">{release?.name}</div>
         </div>
@@ -113,40 +113,80 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
       <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-32 py-16 w-full">
         <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
           <div>
-            <h2 className="text-3xl font-bold">What is it?</h2>
+            <h2 className="text-3xl font-bold">What is Script Kit?</h2>
             <div className="prose pt-4 max-w-none">
               <p>
-                Id netus habitant urna sit ultricies nam inceptos, placerat
-                facilisis consequat class ipsum rutrum himenaeos integer, per
-                risus scelerisque magnis primis eleifend.
+                How often do you avoid scripting something because it takes too
+                much effort?
+              </p>
+              <p></p>
+              <p>
+                Script Kit makes it easy to create and run scripts that solve
+                your daily problems. Create a new script from the prompt then
+                your script opens in the editor of your choice. Write a few
+                lines of JavaScript. Then run the script from the prompt.
               </p>
               <p>
-                Placerat nulla rhoncus ad arcu erat egestas eu in at natoque,
-                augue risus parturient sollicitudin fusce gravida dui tempus id
-                diam, laoreet libero tellus pharetra litora varius euismod
-                viverra a.
+                Simply put, Script Kit helps you script away the friction of
+                your day.
               </p>
-              <p>
-                Id netus habitant urna sit ultricies nam inceptos, placerat
-                facilisis consequat class ipsum rutrum himenaeos integer, per
-                risus scelerisque magnis primis eleifend.
-              </p>
-              <p>
-                Placerat nulla rhoncus ad arcu erat egestas eu in at natoque,
-                augue risus parturient sollicitudin fusce gravida dui tempus id
-                diam, laoreet libero tellus pharetra litora varius euismod
-                viverra a.
-              </p>
+            </div>
+            <div className="pt-12">
+              <h3 className="text-2xl font-bold text-white">Key Features</h3>
+              <ul>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Launch the prompt from anywhere as part of your flow
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Add keyboard shortcuts with comments:{''}
+                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                    //Shortcut: opt a
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Prompt for input with:{''}
+                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                    await arg("First name")
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Prompt for environment vars:{''}
+                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                    await env("GITHUB_TOKEN")
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Load npm libraries:{''}
+                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                    await npm("sharp")
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Share scripts directly from the prompt
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Launch scripts from a Stream Deck button
+                </li>
+                <li className="pt-2">
+                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  Scripts behave the same in your terminal
+                </li>
+              </ul>
             </div>
           </div>
           <div>
             <h2 className="text-3xl font-bold">Learn more</h2>
             <div className="pt-4 prose">
               <p>
-                Script Kit is currently in beta and I'm still working on proper
-                documentation and learning materials around it. For now, the
-                best thing to do to learn more is to check out these links
-                below:
+                Script Kit includes a built-in tutoria and myriad examples are
+                avaiable on our discussions pages:
               </p>
             </div>
             <ul className="pt-4 font-semibold">
@@ -217,12 +257,12 @@ export async function getStaticProps(context: any) {
     `https://api.github.com/repos/johnlindquist/kitapp/releases`,
   )
 
-  const release = (await response.json())[0].assets.filter(
-    (asset: any) => asset.name.includes('beta') && asset.name.endsWith('.dmg'),
-  )[0]
+  const json = await response.json()
 
-  console.log(release.name)
-  console.log(release.browser_download_url)
+  const {assets} = json.find((release: any) => release.name.includes('beta'))
+  const release = assets.find(
+    (asset: any) => asset.name.includes('beta') && asset.name.endsWith('.dmg'),
+  )
 
   const scripts =
     featuredScripts &&

@@ -29,7 +29,7 @@ const ScriptDetail: FunctionComponent<ScriptProps> = ({
             className="group flex items-center space-x-2 relative font-semibold px-3 py-2 leading-4 bg-gradient-to-t from-amber-400 to-yellow-300 text-black rounded-md font-mono text-xs transform hover:scale-105 transition-all duration-200 ease-in-out"
             href={createInstallLink(command, 'origin' + url)}
           >
-            <span>Add to KitApp</span>
+            <span>Add to Kit.app</span>
             <span className="group-hover:rotate-90 font-bold transform transition-all ease-in-out duration-300 text-base leading-none">
               +
             </span>
