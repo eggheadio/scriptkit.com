@@ -76,16 +76,16 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
       <header className="py-10">
         <div className="flex items-center justify-center">
           <div className="flex flex-col items-center justify-center text-center space-y-1">
-            <div className="relative flex p-2 rounded-md bg-gradient-to-t from-gray-900 to-black">
+            <div className="relative flex">
               {/* <AnimatedHeaderImage /> */}
               <Image
                 src="/scriptkit@2x.png"
-                width={2408 / 4.5}
-                height={1540 / 4.5}
+                width={2408 / 4.3}
+                height={1540 / 4.3}
                 quality={100}
                 priority={true}
               />
-              <div className="sm:block hidden absolute w-px h-5 mt-px top-12 left-5 z-10 bg-white animate-blink duration-75" />
+              <div className="sm:block hidden absolute w-px h-5 top-10 left-3 z-10 bg-white animate-blink duration-75" />
             </div>
             <div className="sm:pt-14 pt-8">
               <h1 className="sm:text-6xl text-5xl font-bold tracking-tight leading-tighter">
@@ -131,58 +131,58 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
                 your day.
               </p>
             </div>
-            <div className="pt-16">
-              <h3 className="text-2xl font-bold text-white">Key Features</h3>
+            <div className="pt-10">
+              <h3 className="text-3xl font-bold">Key Features</h3>
               <ul>
                 <li className="pt-3">
-                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  <span className="pr-3 text-yellow-300 text-lg">▪︎</span>
                   Launch the prompt from anywhere as part of your flow
                 </li>
                 <li className="pt-3">
-                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  <span className="pr-3 text-yellow-300 text-lg">▪︎</span>
                   Add keyboard shortcuts with comments:{''}
-                  <span className="font-mono text-sm bg-gray-300 py-0.5 text-black px-1 ml-2">
+                  <code className="whitespace-nowrap font-mono text-sm bg-yellow-500 bg-opacity-10 py-1 rounded-md text-yellow-300 px-2 ml-2">
                     //Shortcut: opt a
-                  </span>
+                  </code>
                 </li>
                 <li className="pt-3">
-                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  <span className="pr-3 text-yellow-300 text-lg">▪︎</span>
                   Prompt for input with:{''}
-                  <span className="font-mono text-sm bg-gray-300 py-0.5 text-black px-1 ml-2">
+                  <code className="whitespace-nowrap font-mono text-sm bg-yellow-500 bg-opacity-10 py-1 rounded-md text-yellow-300 px-2 ml-2">
                     await arg("First name")
-                  </span>
+                  </code>
                 </li>
                 <li className="pt-3">
-                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  <span className="pr-3 text-yellow-300 text-lg">▪︎</span>
                   Prompt for environment vars:{''}
-                  <span className="font-mono text-sm bg-gray-300 py-0.5 text-black px-1 ml-2">
+                  <code className="whitespace-nowrap font-mono text-sm bg-yellow-500 bg-opacity-10 py-1 rounded-md text-yellow-300 px-2 ml-2">
                     await env("GITHUB_TOKEN")
-                  </span>
+                  </code>
                 </li>
                 <li className="pt-3">
-                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  <span className="pr-3 text-yellow-300 text-lg">▪︎</span>
                   Load npm libraries:{''}
-                  <span className="font-mono text-sm bg-gray-300 py-0.5 text-black px-1 ml-2">
+                  <code className="whitespace-nowrap font-mono text-sm bg-yellow-500 bg-opacity-10 py-1 rounded-md text-yellow-300 px-2 ml-2">
                     await npm("sharp")
-                  </span>
+                  </code>
                 </li>
                 <li className="pt-3">
-                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  <span className="pr-3 text-yellow-300 text-lg">▪︎</span>
                   Share scripts directly from the prompt
                 </li>
                 <li className="pt-3">
-                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  <span className="pr-3 text-yellow-300 text-lg">▪︎</span>
                   Launch scripts from a Stream Deck button
                 </li>
                 <li className="pt-3">
-                  <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
+                  <span className="pr-3 text-yellow-300 text-lg">▪︎</span>
                   Scripts behave the same in your terminal
                 </li>
               </ul>
             </div>
           </div>
           <div>
-            <h2 className="text-3xl font-bold">Learn more</h2>
+            <h3 className="text-3xl font-bold">Learn more</h3>
             <div className="pt-4 prose">
               <p>
                 Script Kit includes a built-in tutoria and myriad examples are
@@ -198,7 +198,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
                       <Link href={link.url}>
                         <a
                           target="_blank"
-                          className="group bg-gradient-to-l from-transparent to-transparent hover:from-gray-900 bg-opacity-5 flex py-4 pl-6 text-lg border-b border-white border-opacity-10 relative transition-all ease-in-out duration-300"
+                          className="group bg-gradient-to-l from-transparent to-transparent hover:from-gray-900 bg-opacity-5 flex sm:py-5 py-4 pl-6 text-lg border-b border-white border-opacity-10 relative transition-all ease-in-out duration-300"
                         >
                           <span className="absolute left-0 pr-3 transform group-hover:text-transparent text-yellow-300 group-hover:translate-x-2 -translate-x-0 transition-all duration-200 ease-in-out">
                             ▪︎
