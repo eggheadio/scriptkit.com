@@ -85,7 +85,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
                 quality={100}
                 priority={true}
               />
-              <div className="sm:block hidden absolute w-px h-5 top-10 left-3 z-10 bg-white animate-blink duration-75" />
+              <div className="sm:block hidden absolute w-px h-4 top-11 left-3 z-10 bg-white animate-blink duration-75" />
             </div>
             <div className="sm:pt-14 pt-8">
               <h1 className="sm:text-6xl text-5xl font-bold tracking-tight leading-tighter">
