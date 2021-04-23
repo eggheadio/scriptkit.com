@@ -131,50 +131,50 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
                 your day.
               </p>
             </div>
-            <div className="pt-12">
+            <div className="pt-16">
               <h3 className="text-2xl font-bold text-white">Key Features</h3>
               <ul>
-                <li className="pt-2">
+                <li className="pt-3">
                   <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
                   Launch the prompt from anywhere as part of your flow
                 </li>
-                <li className="pt-2">
+                <li className="pt-3">
                   <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
                   Add keyboard shortcuts with comments:{''}
-                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                  <span className="font-mono text-sm bg-gray-300 py-0.5 text-black px-1 ml-2">
                     //Shortcut: opt a
                   </span>
                 </li>
-                <li className="pt-2">
+                <li className="pt-3">
                   <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
                   Prompt for input with:{''}
-                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                  <span className="font-mono text-sm bg-gray-300 py-0.5 text-black px-1 ml-2">
                     await arg("First name")
                   </span>
                 </li>
-                <li className="pt-2">
+                <li className="pt-3">
                   <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
                   Prompt for environment vars:{''}
-                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                  <span className="font-mono text-sm bg-gray-300 py-0.5 text-black px-1 ml-2">
                     await env("GITHUB_TOKEN")
                   </span>
                 </li>
-                <li className="pt-2">
+                <li className="pt-3">
                   <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
                   Load npm libraries:{''}
-                  <span className="font-mono text-sm bg-gray-100 text-black px-1 ml-2">
+                  <span className="font-mono text-sm bg-gray-300 py-0.5 text-black px-1 ml-2">
                     await npm("sharp")
                   </span>
                 </li>
-                <li className="pt-2">
+                <li className="pt-3">
                   <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
                   Share scripts directly from the prompt
                 </li>
-                <li className="pt-2">
+                <li className="pt-3">
                   <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
                   Launch scripts from a Stream Deck button
                 </li>
-                <li className="pt-2">
+                <li className="pt-3">
                   <span className="pr-3  text-yellow-300 text-lg">▪︎</span>
                   Scripts behave the same in your terminal
                 </li>
