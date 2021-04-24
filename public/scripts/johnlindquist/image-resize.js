@@ -2,7 +2,7 @@
 // Description: Select an image in Finder before running this
 // Author: John Lindquist
 // Twitter: @johnlindquist
-// Shortcut: Alt+I
+// Shortcut: opt i
 
 let sharp = await npm('sharp')
 let {getSelectedFile} = await kit('file')
