@@ -185,7 +185,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
             <h3 className="text-3xl font-bold">Learn more</h3>
             <div className="pt-4 prose">
               <p>
-                Script Kit includes a built-in tutoria and myriad examples are
+                Script Kit includes a built-in tutorial and myriad examples are
                 avaiable on our discussions pages:
               </p>
             </div>
