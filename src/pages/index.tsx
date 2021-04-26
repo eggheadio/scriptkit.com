@@ -222,7 +222,6 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
             <h2 className="text-3xl font-bold pb-4">Featured Scripts</h2>
             <div className="max-w-screen-lg w-full mx-auto grid md:grid-cols-2 grid-cols-1 gap-5">
               {featuredScripts.map((script: ScriptProps) => {
-                console.log(script)
                 return (
                   <ScriptCard
                     handleOpenScriptDetail={() =>
