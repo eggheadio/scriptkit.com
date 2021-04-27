@@ -1,9 +1,27 @@
 [
   {
+    "name": "Open Github repository in browser",
+    "value": "https://github.com/johnlindquist/kit/discussions/203",
+    "description": "Created by Alarid",
+    "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4"
+  },
+  {
+    "name": "URL actions (inspired by Alfred)",
+    "value": "https://github.com/johnlindquist/kit/discussions/201",
+    "description": "Created by ashkanhosseini",
+    "img": "https://avatars.githubusercontent.com/u/1738205?u=b6ec3e614177761f1d927c34517f29ddc569d2ce&v=4"
+  },
+  {
+    "name": "AWS Log Group: Quickly search and open log groups",
+    "value": "https://github.com/johnlindquist/kit/discussions/199",
+    "description": "Created by boyney123",
+    "img": "https://avatars.githubusercontent.com/u/3268013?u=b13fa1f618dafe5c250289d4c0cb4b10dbe6c7bc&v=4"
+  },
+  {
     "name": "Drag and Drop to compress or die!",
     "value": "https://github.com/johnlindquist/kit/discussions/190",
     "description": "Created by Antonio-Laguna",
-    "img": "https://avatars.githubusercontent.com/u/946645?u=3ed4d2ccf689d452097d3d9fc5d791348b129182&v=4"
+    "img": "https://avatars.githubusercontent.com/u/946645?v=4"
   },
   {
     "name": "Simple Calculator",
