@@ -1,5 +1,11 @@
 [
   {
+    "name": "Decode JWT",
+    "value": "https://github.com/johnlindquist/kit/discussions/208",
+    "description": "Created by rvisharma",
+    "img": "https://avatars.githubusercontent.com/u/5556114?u=0882c6d15ed47b6804d0eb6ed216d73828dd8c6f&v=4"
+  },
+  {
     "name": "Open Github repository in browser",
     "value": "https://github.com/johnlindquist/kit/discussions/203",
     "description": "Created by Alarid",
