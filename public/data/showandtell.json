@@ -1,5 +1,23 @@
 [
   {
+    "name": "Vite Scaffolder",
+    "value": "https://github.com/johnlindquist/kit/discussions/222",
+    "description": "Created by austincrim",
+    "img": "https://avatars.githubusercontent.com/u/32459922?u=effc229900dd0378b29724b8a7d8e7ca9fa3e0b2&v=4"
+  },
+  {
+    "name": "Copy GitHub name",
+    "value": "https://github.com/johnlindquist/kit/discussions/221",
+    "description": "Created by gr2m",
+    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4"
+  },
+  {
+    "name": "Open Graph Image Grabber",
+    "value": "https://github.com/johnlindquist/kit/discussions/217",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+  },
+  {
     "name": "Decode JWT",
     "value": "https://github.com/johnlindquist/kit/discussions/208",
     "description": "Created by rvisharma",
