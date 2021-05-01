@@ -276,7 +276,7 @@ export async function getStaticProps(context: any) {
       const twitter = findByCommentMarker(content, 'Twitter:')
       const github = findByCommentMarker(content, 'GitHub:')
 
-      const url = `/scripts/${file.user}/${file.script}.js`
+      const url = `/scripts/${file.user}/${file.script}`
       return {
         file,
         command: file.script.replace('.js', ''),
