@@ -1,5 +1,35 @@
 [
   {
+    "name": "Google Home Speak Text",
+    "value": "https://github.com/johnlindquist/kit/discussions/233",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+  },
+  {
+    "name": "AWS Select profile",
+    "value": "https://github.com/johnlindquist/kit/discussions/232",
+    "description": "Created by udondan",
+    "img": "https://avatars.githubusercontent.com/u/6443408?v=4"
+  },
+  {
+    "name": "View GitHub Trending Repos",
+    "value": "https://github.com/johnlindquist/kit/discussions/228",
+    "description": "Created by lannonbr",
+    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4"
+  },
+  {
+    "name": "First one, simple text / string transformations",
+    "value": "https://github.com/johnlindquist/kit/discussions/227",
+    "description": "Created by letanure",
+    "img": "https://avatars.githubusercontent.com/u/81244?v=4"
+  },
+  {
+    "name": "View supported versions of node",
+    "value": "https://github.com/johnlindquist/kit/discussions/223",
+    "description": "Created by lannonbr",
+    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4"
+  },
+  {
     "name": "Vite Scaffolder",
     "value": "https://github.com/johnlindquist/kit/discussions/222",
     "description": "Created by austincrim",
