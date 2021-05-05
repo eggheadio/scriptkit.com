@@ -1,5 +1,29 @@
 [
   {
+    "name": "Low-Fi Finder Image Grid View 🖼️",
+    "value": "https://github.com/johnlindquist/kit/discussions/237",
+    "description": "Created by zzeleznick",
+    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4"
+  },
+  {
+    "name": "Drag and Drop Files for Data Entry and Syncing",
+    "value": "https://github.com/johnlindquist/kit/discussions/236",
+    "description": "Created by zacjones93",
+    "img": "https://avatars.githubusercontent.com/u/6188161?v=4"
+  },
+  {
+    "name": "Tweet Script",
+    "value": "https://github.com/johnlindquist/kit/discussions/235",
+    "description": "Created by chrislaughlin",
+    "img": "https://avatars.githubusercontent.com/u/495517?u=8415a891a1866c5047c5a8dda3ee7e10b136dce0&v=4"
+  },
+  {
+    "name": "My IP",
+    "value": "https://github.com/johnlindquist/kit/discussions/234",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+  },
+  {
     "name": "Google Home Speak Text",
     "value": "https://github.com/johnlindquist/kit/discussions/233",
     "description": "Created by johnlindquist",
@@ -274,29 +298,5 @@
     "value": "https://github.com/johnlindquist/kit/discussions/76",
     "description": "Created by elijahmanor",
     "img": "https://avatars.githubusercontent.com/u/86454?u=1d6b81eb137f33bcd3c27d7ad38080a96a73744c&v=4"
-  },
-  {
-    "name": "View AWS Cost for the month",
-    "value": "https://github.com/johnlindquist/kit/discussions/73",
-    "description": "Created by lannonbr",
-    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4"
-  },
-  {
-    "name": "🥳 Script: Internet speed test",
-    "value": "https://github.com/johnlindquist/kit/discussions/72",
-    "description": "Created by dipakcg",
-    "img": "https://avatars.githubusercontent.com/u/1273127?v=4"
-  },
-  {
-    "name": "Using ScriptKit to Automate Mac Setup",
-    "value": "https://github.com/johnlindquist/kit/discussions/71",
-    "description": "Created by jh3y",
-    "img": "https://avatars.githubusercontent.com/u/842246?u=5391c17867995775b195a240db7b143f53e694fd&v=4"
-  },
-  {
-    "name": "Start Day Script - plays music, arranges windows, starts timer and creates a note",
-    "value": "https://github.com/johnlindquist/kit/discussions/63",
-    "description": "Created by jsjoeio",
-    "img": "https://avatars.githubusercontent.com/u/3806031?u=f379659b9def22e8b0003f3f9d2f5ad9cdea9223&v=4"
   }
 ]
