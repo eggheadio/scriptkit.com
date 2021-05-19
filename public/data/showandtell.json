@@ -1,5 +1,53 @@
 [
   {
+    "name": "✨NEW FEATURES✨ beta.17",
+    "value": "https://github.com/johnlindquist/kit/discussions/282",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+  },
+  {
+    "name": "npm search",
+    "value": "https://github.com/johnlindquist/kit/discussions/283",
+    "description": "Created by iansu",
+    "img": "https://avatars.githubusercontent.com/u/433725?u=7e3bc90109dae2debbf59a2c822f3daca50f6aa7&v=4"
+  },
+  {
+    "name": "Twimage Download (tweet image)",
+    "value": "https://github.com/johnlindquist/kit/discussions/269",
+    "description": "Created by kentcdodds",
+    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4"
+  },
+  {
+    "name": "Create Gist from Clipboard",
+    "value": "https://github.com/johnlindquist/kit/discussions/266",
+    "description": "Created by gr2m",
+    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4"
+  },
+  {
+    "name": "Word Game 🎯",
+    "value": "https://github.com/johnlindquist/kit/discussions/253",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+  },
+  {
+    "name": "Open a GitHub repo (including org and private repos, as well as pagination)",
+    "value": "https://github.com/johnlindquist/kit/discussions/252",
+    "description": "Created by mandiwise",
+    "img": "https://avatars.githubusercontent.com/u/1518780?u=af82f867331be805d51330c3f8e1f7ab8169837b&v=4"
+  },
+  {
+    "name": "Snippets",
+    "value": "https://github.com/johnlindquist/kit/discussions/249",
+    "description": "Created by hakubo",
+    "img": "https://avatars.githubusercontent.com/u/1018759?v=4"
+  },
+  {
+    "name": "Set GitHub profile status",
+    "value": "https://github.com/johnlindquist/kit/discussions/246",
+    "description": "Created by gr2m",
+    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4"
+  },
+  {
     "name": "Low-Fi Finder Image Grid View 🖼️",
     "value": "https://github.com/johnlindquist/kit/discussions/237",
     "description": "Created by zzeleznick",
@@ -256,47 +304,5 @@
     "value": "https://github.com/johnlindquist/kit/discussions/101",
     "description": "Created by johnlindquist",
     "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
-  },
-  {
-    "name": "Flexin' new features (drag and drop + panel)",
-    "value": "https://github.com/johnlindquist/kit/discussions/100",
-    "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
-  },
-  {
-    "name": "Open GitHub Discussion listing of repo",
-    "value": "https://github.com/johnlindquist/kit/discussions/96",
-    "description": "Created by lannonbr",
-    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4"
-  },
-  {
-    "name": "Preview of the Panel component",
-    "value": "https://github.com/johnlindquist/kit/discussions/95",
-    "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
-  },
-  {
-    "name": "Google It",
-    "value": "https://github.com/johnlindquist/kit/discussions/94",
-    "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
-  },
-  {
-    "name": "Pokémon Finder",
-    "value": "https://github.com/johnlindquist/kit/discussions/79",
-    "description": "Created by zzeleznick",
-    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4"
-  },
-  {
-    "name": "Stock Watchlist",
-    "value": "https://github.com/johnlindquist/kit/discussions/77",
-    "description": "Created by zzeleznick",
-    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4"
-  },
-  {
-    "name": "Time Zones Script",
-    "value": "https://github.com/johnlindquist/kit/discussions/76",
-    "description": "Created by elijahmanor",
-    "img": "https://avatars.githubusercontent.com/u/86454?u=1d6b81eb137f33bcd3c27d7ad38080a96a73744c&v=4"
   }
 ]
