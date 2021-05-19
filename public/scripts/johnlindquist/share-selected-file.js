@@ -1,12 +1,18 @@
-//Description: Select a file. Copies a link to your clipboard where others can download the file from your machine.
-//Menu: Share Selected File
+// Menu: Share Selected File
+// Description: Select a file in Finder. Creates tunnel and copies link to clipboard.
+// Author: John Lindquist
+// Twitter: @johnlindquistt
+// Background: true
 
-let {default: ngrok} = await npm('ngrok')
-let {default: handler} = await npm('serve-handler')
-let {default: cleanup} = await npm('node-cleanup')
+let ngrok = await npm('ngrok')
+let handler = await npm('serve-handler')
+let cleanup = await npm('node-cleanup')
+let http = await import('http')
 
-import http from 'http'
-let tmpPath = env.SIMPLE_TMP_PATH
+//requires that a file is selected in Finder
+let {getSelectedFile} = await kit('file')
+
+let tmpPath = tmp()
 let basePath = cwd()
 
 cd(tmpPath)
