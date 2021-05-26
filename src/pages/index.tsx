@@ -7,7 +7,7 @@ import {readFileSync} from 'fs'
 import findByCommentMarker from 'utils/find-by-comment-marker'
 import path from 'path'
 import ScriptCard from 'components/pages/scripts/card'
-import {ScriptProps} from 'pages/scripts/[user]'
+import {ScriptProps} from 'pages/[user]/scripts'
 import Layout from 'layouts'
 import AnimatedHeaderImage from 'components/pages/landing/image'
 
@@ -226,7 +226,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
                   <ScriptCard
                     handleOpenScriptDetail={() =>
                       router.push(
-                        `/scripts/${script?.file?.user}/${script.command}`,
+                        `/${script?.file?.user}/scripts/${script.command}`,
                       )
                     }
                     script={script}
@@ -267,7 +267,7 @@ export async function getStaticProps(context: any) {
     featuredScripts &&
     featuredScripts.map((file) => {
       const content = readFileSync(
-        path.join(process.cwd(), '/public/scripts', file.user, file.script),
+        path.join(process.cwd(), '/public', file.user, 'scripts', file.script),
         {encoding: 'utf8'},
       )
 
@@ -276,7 +276,7 @@ export async function getStaticProps(context: any) {
       const twitter = findByCommentMarker(content, 'Twitter:')
       const github = findByCommentMarker(content, 'GitHub:')
 
-      const url = `/scripts/${file.user}/${file.script}`
+      const url = `/${file.user}/scripts/${file.script}`
       return {
         file,
         command: file.script.replace('.js', ''),

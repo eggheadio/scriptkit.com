@@ -4,11 +4,11 @@ import findByCommentMarker from './find-by-comment-marker'
 
 const getUserScripts = (user: string) => {
   const scriptNames = readdirSync(
-    path.join(process.cwd(), '/public/scripts/', user),
+    path.join(process.cwd(), '/public/', user, 'scripts'),
   )
   const scripts = scriptNames.map((file) => {
     const content = readFileSync(
-      path.join(process.cwd(), '/public/scripts/', user, file),
+      path.join(process.cwd(), '/public', user, 'scripts', file),
       {encoding: 'utf8'},
     )
 
@@ -17,7 +17,7 @@ const getUserScripts = (user: string) => {
     const twitter = findByCommentMarker(content, 'Twitter:')
     const github = findByCommentMarker(content, 'GitHub:')
 
-    const url = `/scripts/${user}/${file}`
+    const url = `/${user}/scripts/{file}`
     return {
       file,
       command: file.replace('.js', ''),

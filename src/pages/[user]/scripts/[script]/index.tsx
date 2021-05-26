@@ -4,7 +4,7 @@ import {readdirSync, readFileSync} from 'fs'
 import findByCommentMarker from 'utils/find-by-comment-marker'
 import path from 'path'
 import Layout from 'layouts'
-import type {ScriptProps} from 'pages/scripts/[user]'
+import type {ScriptProps} from 'pages/[user]/scripts'
 import ScriptDetail from 'components/pages/scripts/detail'
 
 export type ScriptPropsTwo = {
@@ -33,7 +33,7 @@ export async function getStaticProps(context: any) {
   const {script, user} = params
 
   const content = readFileSync(
-    path.join(process.cwd(), '/public/scripts/', user, script + '.js'),
+    path.join(process.cwd(), '/public/', user, 'scripts', script + '.js'),
     {encoding: 'utf8'},
   )
 
@@ -42,7 +42,7 @@ export async function getStaticProps(context: any) {
   const twitter = findByCommentMarker(content, 'Twitter:')
   const github = findByCommentMarker(content, 'GitHub:')
 
-  const url = `/scripts/${user}/${script}`
+  const url = `/${user}/scripts/${script}`
 
   return {
     props: {
@@ -62,10 +62,10 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-  const users = readdirSync(path.join(process.cwd(), '/public/scripts'))
+  const users = ['johnlindquist'] //readdirSync(path.join(process.cwd(), '/public/scripts'))
   const paths = users.map((user) => {
     const scriptNames = readdirSync(
-      path.join(process.cwd(), `/public/scripts/${user}`),
+      path.join(process.cwd(), `/public/${user}/scripts`),
     )
     const scripts = scriptNames.map((file) => {
       return {params: {user: user, script: file.replace('.js', '')}}

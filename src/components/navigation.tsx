@@ -17,7 +17,7 @@ const Navigation = () => {
       </Link>
       <div className="flex items-center space-x-5">
         <Link
-          href="/scripts/johnlindquist"
+          href="/johnlindquist/scripts"
           activeClassName="cursor-default bg-gray-900"
         >
           <a className="sm:text-base text-sm flex items-center space-x-1 sm:px-3 px-2 sm:py-2 py-1 rounded-lg hover:bg-gray-900 transition-all duration-100 ease-in-out opacity-90 hover:opacity-100">
