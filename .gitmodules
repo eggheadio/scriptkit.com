@@ -1,3 +1,0 @@
-[submodule "public/johnlindquist"]
-	path = public/johnlindquist
-	url = git@github.com:johnlindquist/shared-kenv.git
