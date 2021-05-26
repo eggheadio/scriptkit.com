@@ -9,7 +9,7 @@ import {DialogOverlay, DialogContent} from '@reach/dialog'
 import Fuse from 'fuse.js'
 import ScriptCard from 'components/pages/scripts/card'
 import ScriptDetail from 'components/pages/scripts/detail'
-import Header from 'components/pages/scripts/user/header'
+import Header from 'components/pages/scripts/[user]/header'
 import Layout from 'layouts'
 import {NextSeo} from 'next-seo'
 
@@ -64,7 +64,7 @@ export default function User(props: any) {
     setCurrentScript({id: script.command})
     router.push(
       {query: {s: script.command, user: props.user}},
-      `/scripts/${props.user}/${script.command}`,
+      `/${props.user}/scripts/${script.command}`,
     )
   }
 
@@ -72,20 +72,20 @@ export default function User(props: any) {
     setCurrentScript({id: script.command})
     router.push(
       {query: {s: script.command, user: props.user}},
-      `/scripts/${props.user}/${script.command}`,
+      `/${props.user}/scripts/${script.command}`,
     )
   }
   const handleViewPrevScript = (script: ScriptProps) => {
     setCurrentScript({id: script.command})
     router.push(
       {query: {s: script.command, user: props.user}},
-      `/scripts/${props.user}/${script.command}`,
+      `/${props.user}/scripts/${script.command}`,
     )
   }
 
   const handleDismissScriptDetail = () => {
     setCurrentScript({})
-    router.push(`/scripts/${props.user}`, undefined, {
+    router.push(`/${props.user}/scripts`, undefined, {
       shallow: true,
     })
   }
@@ -273,9 +273,9 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-  const users = readdirSync(path.join(process.cwd(), '/public/scripts'))
+  const users = ['johnlindquist'] //readdirSync(path.join(process.cwd(), '/public/scripts'))
 
-  const paths = users.map((user) => `/scripts/` + user)
+  const paths = users.map((user) => `/${user}/scripts`)
 
   return {
     paths,
