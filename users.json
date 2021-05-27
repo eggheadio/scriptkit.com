@@ -1,6 +1,12 @@
 [
   {
     "user": "johnlindquist",
+    "owner": "johnlindquist",
     "repo": "shared-kenv"
+  },
+  {
+    "user": "zacjones93",
+    "owner": "johnlindquist",
+    "repo": "zacjones93"
   }
 ]
