@@ -3,6 +3,12 @@ import path from 'path'
 import findByCommentMarker from './find-by-comment-marker'
 
 const getUserScripts = (user: string) => {
+  const gitModules = readFileSync(path.join(process.cwd(), '.gitmodules'), {
+    encoding: 'utf-8',
+  })
+
+  console.log(gitModules)
+
   const scriptNames = readdirSync(
     path.join(process.cwd(), '/public/users/', user, 'scripts'),
   )
