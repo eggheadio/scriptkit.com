@@ -266,23 +266,17 @@ export async function getStaticProps(context: any) {
   const scripts =
     featuredScripts &&
     featuredScripts.map((file) => {
-      const content = readFileSync(
-        path.join(
-          process.cwd(),
-          '/public/users',
-          file.user,
-          'scripts',
-          file.script,
-        ),
-        {encoding: 'utf8'},
-      )
+      const url = `/users/${file.user}/scripts/${file.script}`
+
+      const content = readFileSync(path.join(process.cwd(), 'public', url), {
+        encoding: 'utf8',
+      })
 
       const description = findByCommentMarker(content, 'Description:')
       const author = findByCommentMarker(content, 'Author:')
       const twitter = findByCommentMarker(content, 'Twitter:')
       const github = findByCommentMarker(content, 'GitHub:')
 
-      const url = `/${file.user}/scripts/${file.script}`
       return {
         file,
         command: file.script.replace('.js', ''),
