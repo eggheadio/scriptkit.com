@@ -1,20 +1,14 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
 import Layout from 'layouts'
-import type {ScriptProps} from 'pages/[user]'
 import ScriptDetail from 'components/pages/scripts/detail'
-import {getScriptPaths} from 'utils/get-user-scripts'
+import {getScriptPaths, Script} from 'utils/get-user-scripts'
 
-export type ScriptPropsTwo = {
-  script: ScriptProps
-  user: string
-}
-
-const Script: FunctionComponent<ScriptPropsTwo> = ({script, user}) => {
+const Script: FunctionComponent<{script: Script}> = ({script}) => {
   return (
     <Layout
       meta={{
-        title: `${script.command} script by ${user}`,
+        title: `${script.command} script by ${script.user}`,
         description: script.description || undefined,
       }}
     >
@@ -27,12 +21,11 @@ const Script: FunctionComponent<ScriptPropsTwo> = ({script, user}) => {
 
 export async function getStaticProps(context: any) {
   const {params} = context
-  const {script, user} = params
+  const {script} = params
 
   return {
     props: {
       script,
-      user,
     },
   }
 }

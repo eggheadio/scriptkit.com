@@ -1,12 +1,12 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
-import type {ScriptProps} from 'pages/[user]/scripts'
 import CodeBlock from 'components/code-block'
 import createInstallLink from '../../../utils/createInstallLink'
+import {Script} from 'utils/get-user-scripts'
 
 type ScriptCardProps = {
-  script: ScriptProps
-  handleOpenScriptDetail?: (script: ScriptProps) => void
+  script: Script
+  handleOpenScriptDetail?: (script: Script) => void
   origin: string
   withAuthor?: boolean
 }

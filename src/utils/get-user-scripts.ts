@@ -12,6 +12,7 @@ export interface Script {
   author: string
   twitter: string
   github: string
+  user: string
 }
 
 const usersJSON: {user: string; repo: string}[] = JSON.parse(
@@ -62,6 +63,7 @@ export const getUserScripts = async (user: string): Promise<Script[]> => {
       author,
       twitter,
       github,
+      user,
     })
   }
 

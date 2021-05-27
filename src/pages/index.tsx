@@ -7,13 +7,12 @@ import {readFileSync} from 'fs'
 import findByCommentMarker from 'utils/find-by-comment-marker'
 import path from 'path'
 import ScriptCard from 'components/pages/scripts/card'
-import {ScriptProps} from 'pages/[user]/scripts'
 import Layout from 'layouts'
 import AnimatedHeaderImage from 'components/pages/landing/image'
-import {getUsers, getUserScripts} from 'utils/get-user-scripts'
+import {getUsers, getUserScripts, Script} from 'utils/get-user-scripts'
 
 type HomeProps = {
-  featuredScripts: ScriptProps[]
+  featuredScripts: Script[]
   release: {name: string; browser_download_url: string}
 }
 
@@ -203,13 +202,11 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
           <div className="w-full pt-8">
             <h2 className="text-3xl font-bold pb-4">Featured Scripts</h2>
             <div className="max-w-screen-lg w-full mx-auto grid md:grid-cols-2 grid-cols-1 gap-5">
-              {featuredScripts.map((script: ScriptProps) => {
+              {featuredScripts.map((script: Script) => {
                 return (
                   <ScriptCard
                     handleOpenScriptDetail={() =>
-                      router.push(
-                        `/${script?.file?.user}/scripts/${script.command}`,
-                      )
+                      router.push(`/${script?.user}/scripts/${script.command}`)
                     }
                     script={script}
                     key={script.command}
