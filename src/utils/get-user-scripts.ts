@@ -4,11 +4,11 @@ import findByCommentMarker from './find-by-comment-marker'
 
 const getUserScripts = (user: string) => {
   const scriptNames = readdirSync(
-    path.join(process.cwd(), '/public/', user, 'scripts'),
+    path.join(process.cwd(), '/public/users/', user, 'scripts'),
   )
   const scripts = scriptNames.map((file) => {
     const content = readFileSync(
-      path.join(process.cwd(), '/public', user, 'scripts', file),
+      path.join(process.cwd(), '/public/users/', user, 'scripts', file),
       {encoding: 'utf8'},
     )
 

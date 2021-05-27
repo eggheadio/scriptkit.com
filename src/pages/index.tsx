@@ -267,7 +267,13 @@ export async function getStaticProps(context: any) {
     featuredScripts &&
     featuredScripts.map((file) => {
       const content = readFileSync(
-        path.join(process.cwd(), '/public', file.user, 'scripts', file.script),
+        path.join(
+          process.cwd(),
+          '/public/users',
+          file.user,
+          'scripts',
+          file.script,
+        ),
         {encoding: 'utf8'},
       )
 
