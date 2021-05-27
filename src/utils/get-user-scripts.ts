@@ -7,17 +7,17 @@ const getUserScripts = (user: string) => {
     path.join(process.cwd(), '/public/users/', user, 'scripts'),
   )
   const scripts = scriptNames.map((file) => {
-    const content = readFileSync(
-      path.join(process.cwd(), '/public/users/', user, 'scripts', file),
-      {encoding: 'utf8'},
-    )
+    const url = `/users/${user}/scripts/${file}`
+
+    const content = readFileSync(path.join(process.cwd(), 'public', url), {
+      encoding: 'utf8',
+    })
 
     const description = findByCommentMarker(content, 'Description:')
     const author = findByCommentMarker(content, 'Author:')
     const twitter = findByCommentMarker(content, 'Twitter:')
     const github = findByCommentMarker(content, 'GitHub:')
 
-    const url = `/${user}/scripts/{file}`
     return {
       file,
       command: file.replace('.js', ''),

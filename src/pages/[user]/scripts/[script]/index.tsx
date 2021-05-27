@@ -33,7 +33,7 @@ export async function getStaticProps(context: any) {
   const {script, user} = params
 
   const content = readFileSync(
-    path.join(process.cwd(), '/public/', user, 'scripts', script + '.js'),
+    path.join(process.cwd(), '/public/users/', user, 'scripts', script + '.js'),
     {encoding: 'utf8'},
   )
 
@@ -42,7 +42,7 @@ export async function getStaticProps(context: any) {
   const twitter = findByCommentMarker(content, 'Twitter:')
   const github = findByCommentMarker(content, 'GitHub:')
 
-  const url = `/${user}/scripts/${script}`
+  const url = `/users/${user}/scripts/${script}.js`
 
   return {
     props: {
@@ -65,7 +65,7 @@ export async function getStaticPaths() {
   const users = readdirSync(path.join(process.cwd(), '/public/users'))
   const paths = users.map((user) => {
     const scriptNames = readdirSync(
-      path.join(process.cwd(), `/public/${user}/scripts`),
+      path.join(process.cwd(), `/public/users/${user}/scripts`),
     )
     const scripts = scriptNames.map((file) => {
       return {params: {user: user, script: file.replace('.js', '')}}
