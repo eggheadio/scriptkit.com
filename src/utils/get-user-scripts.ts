@@ -29,14 +29,24 @@ export const getUsers = (): string[] => {
 
 let userScripts: {[key: string]: Script[]} = {}
 
-export const getUserScripts = async (user: string): Promise<Script[]> => {
-  if (userScripts[user]) return userScripts[user]
+export const getUserScripts = async (
+  selectedUser: string,
+): Promise<Script[]> => {
+  if (userScripts[selectedUser]) return userScripts[selectedUser]
+
+  const {user, owner, repo} = usersJSON.find(
+    (o) => o.user === selectedUser,
+  ) as {
+    user: string
+    owner: string
+    repo: string
+  }
 
   const scriptsResponse = await octokit.request(
     'GET /repos/{owner}/{repo}/contents/{path}',
     {
-      owner: user,
-      repo: usersJSON.find((o) => o.user === user)?.repo as string,
+      owner,
+      repo,
       path: 'scripts',
     },
   )
@@ -52,8 +62,8 @@ export const getUserScripts = async (user: string): Promise<Script[]> => {
     const scriptResponse = await octokit.request(
       'GET /repos/{owner}/{repo}/contents/{path}',
       {
-        owner: user,
-        repo: usersJSON.find((o) => o.user === user)?.repo as string,
+        owner,
+        repo,
         path: `${script.path}`,
         mediaType: {
           format: 'raw',
@@ -77,11 +87,22 @@ export const getUserScripts = async (user: string): Promise<Script[]> => {
       author,
       twitter,
       github,
-      user,
+      user: selectedUser,
     })
   }
 
-  userScripts[user] = scripts
+  userScripts[selectedUser] = scripts
+
+  return scripts
+}
+
+export async function getAllScripts() {
+  const users = getUsers()
+  let scripts: Script[] = []
+  for await (const user of users) {
+    const userScripts = await getUserScripts(user)
+    scripts = scripts.concat(userScripts)
+  }
 
   return scripts
 }

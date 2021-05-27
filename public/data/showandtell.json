@@ -1,9 +1,21 @@
 [
   {
-    "name": "✨NEW FEATURES✨ beta.17",
-    "value": "https://github.com/johnlindquist/kit/discussions/282",
-    "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "name": "Shorten with netlify-shortener",
+    "value": "https://github.com/johnlindquist/kit/discussions/295",
+    "description": "Created by kentcdodds",
+    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4"
+  },
+  {
+    "name": "Kill Notification",
+    "value": "https://github.com/johnlindquist/kit/discussions/288",
+    "description": "Created by gm90",
+    "img": "https://avatars.githubusercontent.com/u/285740?v=4"
+  },
+  {
+    "name": "Post to Notion",
+    "value": "https://github.com/johnlindquist/kit/discussions/286",
+    "description": "Created by dealingwith",
+    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4"
   },
   {
     "name": "npm search",
@@ -284,24 +296,6 @@
   {
     "name": "GitHub Advanced Search",
     "value": "https://github.com/johnlindquist/kit/discussions/104",
-    "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
-  },
-  {
-    "name": "Show Github Discussions of Kit repo",
-    "value": "https://github.com/johnlindquist/kit/discussions/103",
-    "description": "Created by zzeleznick",
-    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4"
-  },
-  {
-    "name": "Searching my Digital Garden",
-    "value": "https://github.com/johnlindquist/kit/discussions/102",
-    "description": "Created by lannonbr",
-    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4"
-  },
-  {
-    "name": "Run scripts from Stream Deck with Script Kit",
-    "value": "https://github.com/johnlindquist/kit/discussions/101",
     "description": "Created by johnlindquist",
     "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
   }
