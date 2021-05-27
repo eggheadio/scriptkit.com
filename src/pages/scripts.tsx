@@ -203,7 +203,9 @@ export default function AllScripts({scripts}: AllScriptProps) {
             </div>
             {currentScript.id && (
               <div className="px-5 pb-5">
-                <ScriptDetail {...find(scripts, {command: currentScript.id})} />
+                <ScriptDetail
+                  {...(find(scripts, {command: currentScript.id}) as Script)}
+                />
               </div>
             )}
           </DialogContent>
