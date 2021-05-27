@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
-Host: undefined
-Sitemap: undefined/sitemap.xml
+
+# Host
+Host: https://scriptkit.com
+
+# Sitemaps
+Sitemap: https://scriptkit.com/sitemap.xml

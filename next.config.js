@@ -5,6 +5,9 @@ const withSvgr = require('next-svgr')
 const IMAGE_HOST_DOMAINS = [`res.cloudinary.com`]
 
 const nextConfig = {
+  future: {
+    webpack5: true,
+  },
   reactStrictMode: true,
   images: {
     domains: IMAGE_HOST_DOMAINS,

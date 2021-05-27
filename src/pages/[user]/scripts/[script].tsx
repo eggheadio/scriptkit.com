@@ -2,7 +2,7 @@ import * as React from 'react'
 import {FunctionComponent} from 'react'
 import Layout from 'layouts'
 import ScriptDetail from 'components/pages/scripts/detail'
-import {getScriptPaths, Script} from 'utils/get-user-scripts'
+import {getScript, getScriptPaths, Script} from 'utils/get-user-scripts'
 
 const ScriptComponent: FunctionComponent<{script: Script}> = ({script}) => {
   return (
@@ -21,11 +21,11 @@ const ScriptComponent: FunctionComponent<{script: Script}> = ({script}) => {
 
 export async function getStaticProps(context: any) {
   const {params} = context
-  const {script} = params
+  const {script, user} = params
 
   return {
     props: {
-      script,
+      script: await getScript(user, script),
     },
   }
 }
