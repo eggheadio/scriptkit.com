@@ -273,7 +273,7 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-  const users = ['johnlindquist'] //readdirSync(path.join(process.cwd(), '/public/scripts'))
+  const users = readdirSync(path.join(process.cwd(), '/public/users'))
 
   const paths = users.map((user) => `/${user}/scripts`)
 
