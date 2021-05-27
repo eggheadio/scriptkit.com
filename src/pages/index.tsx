@@ -10,30 +10,12 @@ import ScriptCard from 'components/pages/scripts/card'
 import {ScriptProps} from 'pages/[user]/scripts'
 import Layout from 'layouts'
 import AnimatedHeaderImage from 'components/pages/landing/image'
+import {getUsers, getUserScripts} from 'utils/get-user-scripts'
 
 type HomeProps = {
   featuredScripts: ScriptProps[]
   release: {name: string; browser_download_url: string}
 }
-
-const featuredScripts: any[] = [
-  {
-    user: 'johnlindquist',
-    script: 'giphy-search.js',
-  },
-  {
-    user: 'johnlindquist',
-    script: 'image-resize.js',
-  },
-  {
-    user: 'johnlindquist',
-    script: 'center-app.js',
-  },
-  {
-    user: 'johnlindquist',
-    script: 'reddit.js',
-  },
-]
 
 const links = [
   {
@@ -263,34 +245,26 @@ export async function getStaticProps(context: any) {
     (asset: any) => asset.name.includes('beta') && asset.name.endsWith('.dmg'),
   )
 
-  const scripts =
-    featuredScripts &&
-    featuredScripts.map((file) => {
-      const url = `/users/${file.user}/scripts/${file.script}`
+  const selectedScripts: {user: string; script: string}[] = JSON.parse(
+    readFileSync(path.join(process.cwd(), 'featured.json'), 'utf-8'),
+  )
 
-      const content = readFileSync(path.join(process.cwd(), 'public', url), {
-        encoding: 'utf8',
-      })
+  const users = getUsers()
+  const featuredScripts = []
 
-      const description = findByCommentMarker(content, 'Description:')
-      const author = findByCommentMarker(content, 'Author:')
-      const twitter = findByCommentMarker(content, 'Twitter:')
-      const github = findByCommentMarker(content, 'GitHub:')
-
-      return {
-        file,
-        command: file.script.replace('.js', ''),
-        content,
-        url,
-        description,
-        author,
-        twitter,
-        github,
+  for (const user of users) {
+    const scripts = await getUserScripts(user)
+    for (const script of scripts) {
+      if (
+        selectedScripts.find((s) => s.user === user && s.script === script.file)
+      ) {
+        featuredScripts.push(script)
       }
-    })
+    }
+  }
 
   return {
-    props: {featuredScripts: scripts, release}, // will be passed to the page component as props
+    props: {featuredScripts, release}, // will be passed to the page component as props
   }
 }
 

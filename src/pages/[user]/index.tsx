@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {getUsers, getUserScripts, Script} from 'utils/get-user-scripts'
+import {getUsers, getUserScripts} from 'utils/get-user-scripts'
 import {useRouter} from 'next/router'
 import {useState, useEffect} from 'react'
 import {find, get, first, findIndex} from 'lodash'
@@ -10,6 +10,21 @@ import ScriptDetail from 'components/pages/scripts/detail'
 import Header from 'components/pages/scripts/[user]/header'
 import Layout from 'layouts'
 import {NextSeo} from 'next-seo'
+
+export type ScriptProps = {
+  command: string
+  content: string
+  url: string
+  description: string
+  author: string
+  twitter: string
+  github: string
+  script?: string
+  file?: {
+    user: string
+    script: string
+  }
+}
 
 export default function User(props: any) {
   const {scripts} = props
@@ -33,7 +48,7 @@ export default function User(props: any) {
     router.query.s && setCurrentScript({id: get(router.query, 's')})
   }, [])
 
-  const searchOptions: Fuse.IFuseOptions<Script> = {
+  const searchOptions: Fuse.IFuseOptions<ScriptProps> = {
     includeScore: true,
     keys: ['command', 'content', 'description'],
   }
@@ -43,32 +58,32 @@ export default function User(props: any) {
   const searchResult = fuse.search(searchValue)
   const searchOn: boolean = searchValue.length > 0
 
-  const handleOpenScriptDetail = (script: Script) => {
+  const handleOpenScriptDetail = (script: ScriptProps) => {
     setCurrentScript({id: script.command})
     router.push(
       {query: {s: script.command, user: props.user}},
-      `/${props.user}/scripts/${script.command}`,
+      `/${props.user}/${script.command}`,
     )
   }
 
-  const handleViewNextScript = (script: Script) => {
+  const handleViewNextScript = (script: ScriptProps) => {
     setCurrentScript({id: script.command})
     router.push(
       {query: {s: script.command, user: props.user}},
-      `/${props.user}/scripts/${script.command}`,
+      `/${props.user}/${script.command}`,
     )
   }
-  const handleViewPrevScript = (script: Script) => {
+  const handleViewPrevScript = (script: ScriptProps) => {
     setCurrentScript({id: script.command})
     router.push(
       {query: {s: script.command, user: props.user}},
-      `/${props.user}/scripts/${script.command}`,
+      `/${props.user}/${script.command}`,
     )
   }
 
   const handleDismissScriptDetail = () => {
     setCurrentScript({})
-    router.push(`/${props.user}/scripts`, undefined, {
+    router.push(`/${props.user}`, undefined, {
       shallow: true,
     })
   }
@@ -103,7 +118,7 @@ export default function User(props: any) {
                   />
                 )
               })
-            : scripts.map((script: Script) => {
+            : scripts.map((script: ScriptProps) => {
                 return (
                   <ScriptCard
                     key={script.command}
@@ -258,7 +273,7 @@ export async function getStaticProps(context: any) {
 export async function getStaticPaths() {
   const users = getUsers()
 
-  const paths = users.map((user) => `/${user}/scripts`)
+  const paths = users.map((user) => `/${user}`)
 
   return {
     paths,
