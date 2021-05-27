@@ -3,11 +3,11 @@
 import {NextApiRequest, NextApiResponse} from 'next'
 import {getUserScripts} from 'utils/get-user-scripts'
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200
   const {user} = req.query
 
-  const scripts = getUserScripts(user as string)
+  const scripts = await getUserScripts(user as string)
 
   res.send(scripts)
 }
