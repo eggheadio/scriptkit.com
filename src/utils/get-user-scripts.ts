@@ -7,8 +7,6 @@ const getUserScripts = (user: string) => {
     encoding: 'utf-8',
   })
 
-  console.log(gitModules)
-
   const scriptNames = readdirSync(
     path.join(process.cwd(), '/public/users/', user, 'scripts'),
   )
