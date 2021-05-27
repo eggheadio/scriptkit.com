@@ -2,9 +2,13 @@ import * as React from 'react'
 import {FunctionComponent} from 'react'
 import Layout from 'layouts'
 import ScriptDetail from 'components/pages/scripts/detail'
-import {getScriptPaths, Script} from 'utils/get-user-scripts'
+import {
+  getScriptPaths,
+  Script,
+  Script as ScriptComponent,
+} from 'utils/get-user-scripts'
 
-const Script: FunctionComponent<{script: Script}> = ({script}) => {
+const ScriptComponent: FunctionComponent<{script: Script}> = ({script}) => {
   return (
     <Layout
       meta={{
@@ -34,4 +38,4 @@ export async function getStaticPaths() {
   return await getScriptPaths()
 }
 
-export default Script
+export default ScriptComponent
