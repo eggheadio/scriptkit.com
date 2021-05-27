@@ -9,7 +9,12 @@ import path from 'path'
 import ScriptCard from 'components/pages/scripts/card'
 import Layout from 'layouts'
 import AnimatedHeaderImage from 'components/pages/landing/image'
-import {getUsers, getUserScripts, Script} from 'utils/get-user-scripts'
+import {
+  getLatestRelease,
+  getUsers,
+  getUserScripts,
+  Script,
+} from 'utils/get-user-scripts'
 
 type HomeProps = {
   featuredScripts: Script[]
@@ -231,16 +236,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
 }
 
 export async function getStaticProps(context: any) {
-  const response = await fetch(
-    `https://api.github.com/repos/johnlindquist/kitapp/releases`,
-  )
-
-  const json = await response.json()
-
-  const {assets} = json.find((release: any) => release.name.includes('beta'))
-  const release = assets.find(
-    (asset: any) => asset.name.includes('beta') && asset.name.endsWith('.dmg'),
-  )
+  const release = await getLatestRelease()
 
   const selectedScripts: {user: string; script: string}[] = JSON.parse(
     readFileSync(path.join(process.cwd(), 'featured.json'), 'utf-8'),

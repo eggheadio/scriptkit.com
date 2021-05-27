@@ -1,7 +1,11 @@
-import {readdirSync, readFileSync} from 'fs'
+import {readFileSync} from 'fs'
 import path from 'path'
 import {Octokit} from '@octokit/rest'
 import findByCommentMarker from './find-by-comment-marker'
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_SCRIPTKITCOM_TOKEN,
+})
 
 export interface Script {
   file: string
@@ -27,7 +31,6 @@ let userScripts: {[key: string]: Script[]} = {}
 
 export const getUserScripts = async (user: string): Promise<Script[]> => {
   if (userScripts[user]) return userScripts[user]
-  const octokit = new Octokit()
 
   const scriptsResponse = await octokit.request(
     'GET /repos/{owner}/{repo}/contents/{path}',
@@ -46,8 +49,19 @@ export const getUserScripts = async (user: string): Promise<Script[]> => {
     const file = script.name
     const url = script.download_url
 
-    const fileResponse = await fetch(url)
-    const content = await fileResponse.text()
+    const scriptResponse = await octokit.request(
+      'GET /repos/{owner}/{repo}/contents/{path}',
+      {
+        owner: user,
+        repo: usersJSON.find((o) => o.user === user)?.repo as string,
+        path: `${script.path}`,
+        mediaType: {
+          format: 'raw',
+        },
+      },
+    )
+
+    const content = scriptResponse.data as any
 
     const description = findByCommentMarker(content, 'Description:')
     const author = findByCommentMarker(content, 'Author:')
@@ -93,7 +107,26 @@ export async function getScriptPaths() {
   }
 }
 
-export async function getScript(user: string, file: string) {
+export async function getScript(user: string, command: string) {
   const scripts: Script[] = await getUserScripts(user)
-  return scripts.find((script) => script.file === file)
+  return scripts.find((script) => script.command === command)
+}
+
+export async function getLatestRelease() {
+  const releaseResponse = await octokit.repos.listReleases({
+    owner: 'johnlindquist',
+    repo: 'kitapp',
+  })
+
+  const releases = releaseResponse.data
+
+  const betaRelease = releases.find((release: any) =>
+    release.name.includes('beta'),
+  )
+
+  const release = betaRelease?.assets.find(
+    (asset: any) => asset.name.includes('beta') && asset.name.endsWith('.dmg'),
+  )
+
+  return release
 }
