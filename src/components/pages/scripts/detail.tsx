@@ -1,10 +1,10 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
-import type {ScriptProps} from 'pages/[user]/scripts'
 import CodeBlock from 'components/code-block'
 import createInstallLink from 'utils/createInstallLink'
+import {Script} from 'utils/get-user-scripts'
 
-const ScriptDetail: FunctionComponent<ScriptProps> = ({
+const ScriptDetail: FunctionComponent<Script> = ({
   command,
   description,
   content,
