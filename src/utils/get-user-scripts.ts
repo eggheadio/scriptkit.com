@@ -2,11 +2,32 @@ import {readdirSync, readFileSync} from 'fs'
 import path from 'path'
 import findByCommentMarker from './find-by-comment-marker'
 
-const getUserScripts = (user: string) => {
-  const gitModules = readFileSync(path.join(process.cwd(), '.gitmodules'), {
-    encoding: 'utf-8',
-  })
+export const getUsers = (): string[] => {
+  const gitModulesContent = readFileSync(
+    path.join(process.cwd(), '.gitmodules'),
+    {
+      encoding: 'utf-8',
+    },
+  )
 
+  const gitModules: {path: string; url: string}[] = gitModulesContent
+    .split(/\[submodule .*\]/)
+    .filter(Boolean)
+    .map((sub) =>
+      Object.fromEntries(
+        sub
+          .split('\n')
+          .filter(Boolean)
+          .map((str) => str.trim().split(' = ')),
+      ),
+    )
+
+  const users = gitModules.map((sub) => sub.path.replace(/.*\//, ''))
+
+  return users
+}
+
+export const getUserScripts = (user: string) => {
   const scriptNames = readdirSync(
     path.join(process.cwd(), '/public/users/', user, 'scripts'),
   )
@@ -36,5 +57,3 @@ const getUserScripts = (user: string) => {
 
   return scripts
 }
-
-export default getUserScripts
