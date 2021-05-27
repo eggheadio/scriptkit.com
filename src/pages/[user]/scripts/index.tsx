@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {readdirSync} from 'fs'
-import getUserScripts from 'utils/get-user-scripts'
+import {getUsers, getUserScripts} from 'utils/get-user-scripts'
 import path from 'path'
 import {useRouter} from 'next/router'
 import {useState, useEffect} from 'react'
@@ -273,7 +273,7 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-  const users = readdirSync(path.join(process.cwd(), '/public/users'))
+  const users = getUsers()
 
   const paths = users.map((user) => `/${user}/scripts`)
 

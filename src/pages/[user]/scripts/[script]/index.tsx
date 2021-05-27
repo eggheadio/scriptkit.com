@@ -6,6 +6,7 @@ import path from 'path'
 import Layout from 'layouts'
 import type {ScriptProps} from 'pages/[user]/scripts'
 import ScriptDetail from 'components/pages/scripts/detail'
+import {getUsers} from 'utils/get-user-scripts'
 
 export type ScriptPropsTwo = {
   script: ScriptProps
@@ -62,7 +63,7 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-  const users = readdirSync(path.join(process.cwd(), '/public/users'))
+  const users = getUsers()
   const paths = users.map((user) => {
     const scriptNames = readdirSync(
       path.join(process.cwd(), `/public/users/${user}/scripts`),
