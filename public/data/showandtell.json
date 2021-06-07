@@ -1,5 +1,29 @@
 [
   {
+    "name": "Beta.19 New Features - Gotta go fast! 🏎💨",
+    "value": "https://github.com/johnlindquist/kit/discussions/312",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+  },
+  {
+    "name": "Cloudinary upload",
+    "value": "https://github.com/johnlindquist/kit/discussions/310",
+    "description": "Created by kentcdodds",
+    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4"
+  },
+  {
+    "name": "My attempt with Notion API",
+    "value": "https://github.com/johnlindquist/kit/discussions/306",
+    "description": "Created by Alarid",
+    "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4"
+  },
+  {
+    "name": "Another Notion example -- select a random item from a database",
+    "value": "https://github.com/johnlindquist/kit/discussions/297",
+    "description": "Created by dealingwith",
+    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4"
+  },
+  {
     "name": "Shorten with netlify-shortener",
     "value": "https://github.com/johnlindquist/kit/discussions/295",
     "description": "Created by kentcdodds",
@@ -280,23 +304,5 @@
     "value": "https://github.com/johnlindquist/kit/discussions/108",
     "description": "Created by rvisharma",
     "img": "https://avatars.githubusercontent.com/u/5556114?u=0882c6d15ed47b6804d0eb6ed216d73828dd8c6f&v=4"
-  },
-  {
-    "name": "Emoji Picker ⚒️",
-    "value": "https://github.com/johnlindquist/kit/discussions/107",
-    "description": "Created by zzeleznick",
-    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4"
-  },
-  {
-    "name": "CSS Named Colors 🎨",
-    "value": "https://github.com/johnlindquist/kit/discussions/105",
-    "description": "Created by zzeleznick",
-    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4"
-  },
-  {
-    "name": "GitHub Advanced Search",
-    "value": "https://github.com/johnlindquist/kit/discussions/104",
-    "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
   }
 ]
