@@ -146,7 +146,33 @@ export async function getLatestRelease() {
   )
 
   const release = betaRelease?.assets.find(
-    (asset: any) => asset.name.includes('beta') && asset.name.endsWith('.dmg'),
+    (asset: any) =>
+      asset.name.includes('beta') &&
+      !asset.name.includes('arm') &&
+      asset.name.endsWith('.dmg'),
+  )
+
+  return release
+}
+export async function getLatestAppleSiliconRelease() {
+  const releaseResponse = await octokit.repos.listReleases({
+    owner: 'johnlindquist',
+    repo: 'kitapp',
+  })
+
+  const releases = releaseResponse.data
+
+  console.log(releases.map((r) => r.name))
+
+  const betaRelease = releases.find((release: any) =>
+    release.name.includes('beta'),
+  )
+
+  const release = betaRelease?.assets.find(
+    (asset: any) =>
+      asset.name.includes('beta') &&
+      asset.name.includes('arm') &&
+      asset.name.endsWith('.dmg'),
   )
 
   return release
