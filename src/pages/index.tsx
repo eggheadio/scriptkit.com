@@ -97,6 +97,10 @@ const Home: FunctionComponent<HomeProps> = ({
             <a
               className="flex-col transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-6 pt-4 pb-3 text-lg font-bold leading-tighter"
               href={release?.browser_download_url}
+              onMouseUp={(e) => {
+                e.preventDefault()
+                fetch('/api/update-twitter-count')
+              }}
             >
               Download Kit.app beta for Mac
               <p className="text-sm">(Intel)</p>
@@ -107,6 +111,10 @@ const Home: FunctionComponent<HomeProps> = ({
             <a
               className="flex-col transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-6 pt-4 pb-3 text-lg font-bold leading-tighter"
               href={appleSiliconRelease?.browser_download_url}
+              onMouseUp={(e) => {
+                e.preventDefault()
+                fetch('/api/update-twitter-count')
+              }}
             >
               Download Kit.app beta for Mac
               <p className="text-sm">(Apple Silicon)</p>
