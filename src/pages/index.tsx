@@ -10,6 +10,7 @@ import ScriptCard from 'components/pages/scripts/card'
 import Layout from 'layouts'
 import AnimatedHeaderImage from 'components/pages/landing/image'
 import {
+  getLatestAppleSiliconRelease,
   getLatestRelease,
   getUsers,
   getUserScripts,
@@ -19,6 +20,7 @@ import {
 type HomeProps = {
   featuredScripts: Script[]
   release: {name: string; browser_download_url: string}
+  appleSiliconRelease: {name: string; browser_download_url: string}
 }
 
 const links = [
@@ -50,7 +52,11 @@ const links = [
   },
 ]
 
-const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
+const Home: FunctionComponent<HomeProps> = ({
+  featuredScripts,
+  release,
+  appleSiliconRelease,
+}) => {
   const router = useRouter()
   let [origin, setOrigin] = React.useState('')
   React.useEffect(() => {
@@ -88,12 +94,25 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
         </div>
         <div className="flex flex-col items-center pt-14">
           <a
-            className="transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-8 py-5 text-lg font-bold leading-tighter"
+            className="flex-col transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-8 pt-4 pb-3 text-lg font-bold leading-tighter"
             href={release?.browser_download_url}
           >
             Download Kit.app beta for Mac
+            <p className="text-sm">(Intel)</p>
           </a>
           <div className="pt-4 text-sm opacity-80">{release?.name}</div>
+        </div>
+        <div className="flex flex-col items-center pt-14">
+          <a
+            className="flex-col transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-8 pt-4 pb-3 text-lg font-bold leading-tighter"
+            href={appleSiliconRelease?.browser_download_url}
+          >
+            Download Kit.app beta for Mac
+            <p className="text-sm">(Apple Silicon)</p>
+          </a>
+          <div className="pt-4 text-sm opacity-80">
+            {appleSiliconRelease?.name}
+          </div>
         </div>
       </header>
       <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-32 py-16 w-full">
@@ -237,6 +256,7 @@ const Home: FunctionComponent<HomeProps> = ({featuredScripts, release}) => {
 
 export async function getStaticProps(context: any) {
   const release = await getLatestRelease()
+  const appleSiliconRelease = await getLatestAppleSiliconRelease()
 
   const selectedScripts: {user: string; script: string}[] = JSON.parse(
     readFileSync(path.join(process.cwd(), 'featured.json'), 'utf-8'),
@@ -257,7 +277,7 @@ export async function getStaticProps(context: any) {
   }
 
   return {
-    props: {featuredScripts, release}, // will be passed to the page component as props
+    props: {featuredScripts, release, appleSiliconRelease}, // will be passed to the page component as props
   }
 }
 
