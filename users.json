@@ -8,5 +8,10 @@
     "user": "zacjones93",
     "owner": "johnlindquist",
     "repo": "zacjones93"
+  },
+    {
+    "user": "kentcdodds",
+    "owner": "kentcdodds",
+    "repo": ".kenv"
   }
 ]
