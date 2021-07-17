@@ -1,308 +1,734 @@
 [
   {
+    "name": "beta.29 M1 build, install remote kenvs, polish, upcoming lessons",
+    "createdAt": "2021-07-16T18:29:00Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/353",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
+  },
+  {
+    "name": "Generate fake data with faker.js",
+    "createdAt": "2021-07-10T10:00:11Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/341",
+    "description": "Created by JCofman",
+    "img": "https://avatars.githubusercontent.com/u/2118956?u=dd12813efdeb91151f98fcecd5c078f29bed6ff9&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "ConvertKit lookup",
+    "createdAt": "2021-07-08T05:07:55Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/336",
+    "description": "Created by kentcdodds",
+    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "Title Case Selected Text",
+    "createdAt": "2021-07-01T14:06:36Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/335",
+    "description": "Created by dealingwith",
+    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "Beta.20 MOAR SPEED! ⚡️",
+    "createdAt": "2021-06-26T17:03:40Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/330",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
+  },
+  {
+    "name": "Compress selected images with Tinify",
+    "createdAt": "2021-06-24T17:28:25Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/328",
+    "description": "Created by vojtaholik",
+    "img": "https://avatars.githubusercontent.com/u/25487857?u=a371b702ae9208d23d523acc1fcd02ce6573ffe0&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "Paste last item from clipboard",
+    "createdAt": "2021-06-20T07:15:54Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/325",
+    "description": "Created by JoepKockelkorn",
+    "img": "https://avatars.githubusercontent.com/u/12891645?u=eb9ed13c1bc9eeccf0b87ddbeea8778c7c32c05a&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "Slugify selected file names",
+    "createdAt": "2021-06-15T08:26:48Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/320",
+    "description": "Created by vojtaholik",
+    "img": "https://avatars.githubusercontent.com/u/25487857?u=a371b702ae9208d23d523acc1fcd02ce6573ffe0&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
     "name": "Beta.19 New Features - Gotta go fast! 🏎💨",
+    "createdAt": "2021-06-07T20:47:28Z",
     "value": "https://github.com/johnlindquist/kit/discussions/312",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
   },
   {
     "name": "Cloudinary upload",
+    "createdAt": "2021-06-07T05:28:35Z",
     "value": "https://github.com/johnlindquist/kit/discussions/310",
     "description": "Created by kentcdodds",
-    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4"
+    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "My attempt with Notion API",
+    "createdAt": "2021-06-04T23:37:23Z",
     "value": "https://github.com/johnlindquist/kit/discussions/306",
     "description": "Created by Alarid",
-    "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4"
+    "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "How to Get Your Scripts Featured on ScriptKit.com 😎",
+    "createdAt": "2021-06-04T20:07:36Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/305",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
+  },
+  {
+    "name": "Beta.18 Changes/Features (`db` has a breaking change)",
+    "createdAt": "2021-06-04T18:09:55Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/304",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
   },
   {
     "name": "Another Notion example -- select a random item from a database",
+    "createdAt": "2021-05-30T04:23:32Z",
     "value": "https://github.com/johnlindquist/kit/discussions/297",
     "description": "Created by dealingwith",
-    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4"
+    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Shorten with netlify-shortener",
+    "createdAt": "2021-05-27T02:50:35Z",
     "value": "https://github.com/johnlindquist/kit/discussions/295",
     "description": "Created by kentcdodds",
-    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4"
+    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Kill Notification",
+    "createdAt": "2021-05-21T20:26:44Z",
     "value": "https://github.com/johnlindquist/kit/discussions/288",
     "description": "Created by gm90",
-    "img": "https://avatars.githubusercontent.com/u/285740?v=4"
+    "img": "https://avatars.githubusercontent.com/u/285740?v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Post to Notion",
+    "createdAt": "2021-05-20T04:14:00Z",
     "value": "https://github.com/johnlindquist/kit/discussions/286",
     "description": "Created by dealingwith",
-    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4"
+    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "npm search",
+    "createdAt": "2021-05-18T21:53:16Z",
     "value": "https://github.com/johnlindquist/kit/discussions/283",
     "description": "Created by iansu",
-    "img": "https://avatars.githubusercontent.com/u/433725?u=7e3bc90109dae2debbf59a2c822f3daca50f6aa7&v=4"
+    "img": "https://avatars.githubusercontent.com/u/433725?u=7e3bc90109dae2debbf59a2c822f3daca50f6aa7&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "✨NEW FEATURES✨ beta.17",
+    "createdAt": "2021-05-18T20:24:57Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/282",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
   },
   {
     "name": "Twimage Download (tweet image)",
+    "createdAt": "2021-05-17T05:21:38Z",
     "value": "https://github.com/johnlindquist/kit/discussions/269",
     "description": "Created by kentcdodds",
-    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4"
+    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Create Gist from Clipboard",
+    "createdAt": "2021-05-14T00:19:42Z",
     "value": "https://github.com/johnlindquist/kit/discussions/266",
     "description": "Created by gr2m",
-    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4"
+    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Word Game 🎯",
+    "createdAt": "2021-05-07T22:01:23Z",
     "value": "https://github.com/johnlindquist/kit/discussions/253",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Open a GitHub repo (including org and private repos, as well as pagination)",
+    "createdAt": "2021-05-07T18:51:28Z",
     "value": "https://github.com/johnlindquist/kit/discussions/252",
     "description": "Created by mandiwise",
-    "img": "https://avatars.githubusercontent.com/u/1518780?u=af82f867331be805d51330c3f8e1f7ab8169837b&v=4"
+    "img": "https://avatars.githubusercontent.com/u/1518780?u=af82f867331be805d51330c3f8e1f7ab8169837b&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Snippets",
+    "createdAt": "2021-05-07T08:35:22Z",
     "value": "https://github.com/johnlindquist/kit/discussions/249",
     "description": "Created by hakubo",
-    "img": "https://avatars.githubusercontent.com/u/1018759?v=4"
+    "img": "https://avatars.githubusercontent.com/u/1018759?v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Set GitHub profile status",
+    "createdAt": "2021-05-06T20:31:36Z",
     "value": "https://github.com/johnlindquist/kit/discussions/246",
     "description": "Created by gr2m",
-    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4"
+    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "✨ NEW ✨ // Background: true",
+    "createdAt": "2021-05-06T19:36:22Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/245",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
   },
   {
     "name": "Low-Fi Finder Image Grid View 🖼️",
+    "createdAt": "2021-05-04T00:50:22Z",
     "value": "https://github.com/johnlindquist/kit/discussions/237",
     "description": "Created by zzeleznick",
-    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4"
+    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Drag and Drop Files for Data Entry and Syncing",
+    "createdAt": "2021-05-03T18:57:42Z",
     "value": "https://github.com/johnlindquist/kit/discussions/236",
     "description": "Created by zacjones93",
-    "img": "https://avatars.githubusercontent.com/u/6188161?v=4"
+    "img": "https://avatars.githubusercontent.com/u/6188161?v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Tweet Script",
+    "createdAt": "2021-05-03T14:58:26Z",
     "value": "https://github.com/johnlindquist/kit/discussions/235",
     "description": "Created by chrislaughlin",
-    "img": "https://avatars.githubusercontent.com/u/495517?u=8415a891a1866c5047c5a8dda3ee7e10b136dce0&v=4"
+    "img": "https://avatars.githubusercontent.com/u/495517?u=8415a891a1866c5047c5a8dda3ee7e10b136dce0&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "My IP",
+    "createdAt": "2021-05-03T14:57:28Z",
     "value": "https://github.com/johnlindquist/kit/discussions/234",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Google Home Speak Text",
+    "createdAt": "2021-05-03T14:27:28Z",
     "value": "https://github.com/johnlindquist/kit/discussions/233",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "AWS Select profile",
+    "createdAt": "2021-05-03T08:26:23Z",
     "value": "https://github.com/johnlindquist/kit/discussions/232",
     "description": "Created by udondan",
-    "img": "https://avatars.githubusercontent.com/u/6443408?v=4"
+    "img": "https://avatars.githubusercontent.com/u/6443408?v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "View GitHub Trending Repos",
+    "createdAt": "2021-05-02T14:31:44Z",
     "value": "https://github.com/johnlindquist/kit/discussions/228",
     "description": "Created by lannonbr",
-    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4"
+    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "First one, simple text / string transformations",
+    "createdAt": "2021-05-01T16:54:09Z",
     "value": "https://github.com/johnlindquist/kit/discussions/227",
     "description": "Created by letanure",
-    "img": "https://avatars.githubusercontent.com/u/81244?v=4"
+    "img": "https://avatars.githubusercontent.com/u/81244?v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "View supported versions of node",
+    "createdAt": "2021-05-01T02:46:42Z",
     "value": "https://github.com/johnlindquist/kit/discussions/223",
     "description": "Created by lannonbr",
-    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4"
+    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Vite Scaffolder",
+    "createdAt": "2021-04-30T21:05:04Z",
     "value": "https://github.com/johnlindquist/kit/discussions/222",
     "description": "Created by austincrim",
-    "img": "https://avatars.githubusercontent.com/u/32459922?u=effc229900dd0378b29724b8a7d8e7ca9fa3e0b2&v=4"
+    "img": "https://avatars.githubusercontent.com/u/32459922?u=effc229900dd0378b29724b8a7d8e7ca9fa3e0b2&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Copy GitHub name",
+    "createdAt": "2021-04-30T20:24:10Z",
     "value": "https://github.com/johnlindquist/kit/discussions/221",
     "description": "Created by gr2m",
-    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4"
+    "img": "https://avatars.githubusercontent.com/u/39992?u=1ee38610bb2d8a082b3e84db7ecacf78149d061b&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Open Graph Image Grabber",
+    "createdAt": "2021-04-30T18:25:40Z",
     "value": "https://github.com/johnlindquist/kit/discussions/217",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "// Watch: metadata 👀",
+    "createdAt": "2021-04-29T14:31:31Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/213",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
   },
   {
     "name": "Decode JWT",
+    "createdAt": "2021-04-28T20:23:48Z",
     "value": "https://github.com/johnlindquist/kit/discussions/208",
     "description": "Created by rvisharma",
-    "img": "https://avatars.githubusercontent.com/u/5556114?u=0882c6d15ed47b6804d0eb6ed216d73828dd8c6f&v=4"
+    "img": "https://avatars.githubusercontent.com/u/5556114?u=0882c6d15ed47b6804d0eb6ed216d73828dd8c6f&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Open Github repository in browser",
+    "createdAt": "2021-04-27T19:32:53Z",
     "value": "https://github.com/johnlindquist/kit/discussions/203",
     "description": "Created by Alarid",
-    "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4"
+    "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "URL actions (inspired by Alfred)",
+    "createdAt": "2021-04-27T18:54:10Z",
     "value": "https://github.com/johnlindquist/kit/discussions/201",
     "description": "Created by ashkanhosseini",
-    "img": "https://avatars.githubusercontent.com/u/1738205?u=b6ec3e614177761f1d927c34517f29ddc569d2ce&v=4"
+    "img": "https://avatars.githubusercontent.com/u/1738205?u=b6ec3e614177761f1d927c34517f29ddc569d2ce&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "AWS Log Group: Quickly search and open log groups",
+    "createdAt": "2021-04-27T18:43:14Z",
     "value": "https://github.com/johnlindquist/kit/discussions/199",
     "description": "Created by boyney123",
-    "img": "https://avatars.githubusercontent.com/u/3268013?u=b13fa1f618dafe5c250289d4c0cb4b10dbe6c7bc&v=4"
+    "img": "https://avatars.githubusercontent.com/u/3268013?u=b13fa1f618dafe5c250289d4c0cb4b10dbe6c7bc&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Drag and Drop to compress or die!",
+    "createdAt": "2021-04-25T20:52:34Z",
     "value": "https://github.com/johnlindquist/kit/discussions/190",
     "description": "Created by Antonio-Laguna",
-    "img": "https://avatars.githubusercontent.com/u/946645?v=4"
+    "img": "https://avatars.githubusercontent.com/u/946645?v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Simple Calculator",
+    "createdAt": "2021-04-25T19:46:44Z",
     "value": "https://github.com/johnlindquist/kit/discussions/189",
     "description": "Created by hakubo",
-    "img": "https://avatars.githubusercontent.com/u/1018759?v=4"
+    "img": "https://avatars.githubusercontent.com/u/1018759?v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Translate Text",
+    "createdAt": "2021-04-25T16:12:42Z",
     "value": "https://github.com/johnlindquist/kit/discussions/188",
     "description": "Created by ArnonEilat",
-    "img": "https://avatars.githubusercontent.com/u/1027943?u=db67c5ecf3e91dc756da8f690abd8a3cf9dfe2e2&v=4"
+    "img": "https://avatars.githubusercontent.com/u/1027943?u=db67c5ecf3e91dc756da8f690abd8a3cf9dfe2e2&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "View current week's tasks from Todoist",
+    "createdAt": "2021-04-25T04:37:03Z",
     "value": "https://github.com/johnlindquist/kit/discussions/182",
     "description": "Created by lannonbr",
-    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4"
+    "img": "https://avatars.githubusercontent.com/u/3685876?u=c97fccb99cb1e8efb2425b46bf2f6e5f1538bf5a&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Update Twitter Name",
+    "createdAt": "2021-04-23T15:09:53Z",
     "value": "https://github.com/johnlindquist/kit/discussions/179",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Browse Reddit Directly in Script Kit",
+    "createdAt": "2021-04-22T17:26:05Z",
     "value": "https://github.com/johnlindquist/kit/discussions/177",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "HEIC Converter",
+    "createdAt": "2021-04-21T23:00:45Z",
     "value": "https://github.com/johnlindquist/kit/discussions/174",
     "description": "Created by gm90",
-    "img": "https://avatars.githubusercontent.com/u/285740?v=4"
+    "img": "https://avatars.githubusercontent.com/u/285740?v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Speak Text with Google's Text-to-Speech",
+    "createdAt": "2021-04-20T15:37:43Z",
     "value": "https://github.com/johnlindquist/kit/discussions/164",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Create a new Jekyll post with Script Kit",
+    "createdAt": "2021-04-17T22:56:44Z",
     "value": "https://github.com/johnlindquist/kit/discussions/153",
     "description": "Created by dealingwith",
-    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4"
+    "img": "https://avatars.githubusercontent.com/u/124208?u=5b2a19548fc1db39a17293af84a845aef2906dc5&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
+    "name": "beta.96 - Design, Drop, and Hotkeys! Oh my!",
+    "createdAt": "2021-04-16T20:32:44Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/150",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
   },
   {
     "name": "Basecamp API Library",
+    "createdAt": "2021-04-16T14:18:39Z",
     "value": "https://github.com/johnlindquist/kit/discussions/148",
     "description": "Created by peterjohnhunt",
-    "img": "https://avatars.githubusercontent.com/u/5384860?u=97f0a224c5ee1c1c2b5dfb947dab93475f5f30c6&v=4"
+    "img": "https://avatars.githubusercontent.com/u/5384860?u=97f0a224c5ee1c1c2b5dfb947dab93475f5f30c6&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Text analyzer script",
+    "createdAt": "2021-04-15T10:29:08Z",
     "value": "https://github.com/johnlindquist/kit/discussions/147",
     "description": "Created by filiptammergard",
-    "img": "https://avatars.githubusercontent.com/u/44197016?u=62b3aabbf9c7c9e0750d5cf664ad7b386c13b370&v=4"
+    "img": "https://avatars.githubusercontent.com/u/44197016?u=62b3aabbf9c7c9e0750d5cf664ad7b386c13b370&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Run a Script from Right-Click in Finder",
+    "createdAt": "2021-04-14T20:37:55Z",
     "value": "https://github.com/johnlindquist/kit/discussions/143",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Simple Zoom Room Quick Links",
+    "createdAt": "2021-04-13T03:54:34Z",
     "value": "https://github.com/johnlindquist/kit/discussions/138",
     "description": "Created by peterjohnhunt",
-    "img": "https://avatars.githubusercontent.com/u/5384860?u=97f0a224c5ee1c1c2b5dfb947dab93475f5f30c6&v=4"
+    "img": "https://avatars.githubusercontent.com/u/5384860?u=97f0a224c5ee1c1c2b5dfb947dab93475f5f30c6&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Brave bookmarks recursively",
+    "createdAt": "2021-04-12T18:07:42Z",
     "value": "https://github.com/johnlindquist/kit/discussions/136",
     "description": "Created by Alarid",
-    "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4"
+    "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
     "name": "Breezy SVG Optimization",
+    "createdAt": "2021-04-12T17:45:59Z",
     "value": "https://github.com/johnlindquist/kit/discussions/134",
     "description": "Created by jh3y",
-    "img": "https://avatars.githubusercontent.com/u/842246?u=5391c17867995775b195a240db7b143f53e694fd&v=4"
+    "img": "https://avatars.githubusercontent.com/u/842246?u=5391c17867995775b195a240db7b143f53e694fd&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
   },
   {
-    "name": "Epic React update-deps script",
-    "value": "https://github.com/johnlindquist/kit/discussions/125",
-    "description": "Created by kentcdodds",
-    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4"
-  },
-  {
-    "name": "Open Project in VSCode Script",
-    "value": "https://github.com/johnlindquist/kit/discussions/124",
-    "description": "Created by kentcdodds",
-    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4"
-  },
-  {
-    "name": "Google Image Grid",
-    "value": "https://github.com/johnlindquist/kit/discussions/120",
+    "name": "*New* Choice Preview",
+    "createdAt": "2021-04-09T21:43:36Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/119",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
   },
   {
-    "name": "Change Extension",
-    "value": "https://github.com/johnlindquist/kit/discussions/116",
+    "name": "Types are here!",
+    "createdAt": "2021-04-03T18:08:24Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/112",
     "description": "Created by johnlindquist",
-    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4"
-  },
-  {
-    "name": "View Scripts Kit Scripts in Script Kit 🤯",
-    "value": "https://github.com/johnlindquist/kit/discussions/111",
-    "description": "Created by zzeleznick",
-    "img": "https://avatars.githubusercontent.com/u/5779832?u=42c63031fea8d5774f5011caf5b92ac5e61c346b&v=4"
-  },
-  {
-    "name": "ScriptKit is cool! - Here's how it is helping me with manual repetitive tasks.",
-    "value": "https://github.com/johnlindquist/kit/discussions/108",
-    "description": "Created by rvisharma",
-    "img": "https://avatars.githubusercontent.com/u/5556114?u=0882c6d15ed47b6804d0eb6ed216d73828dd8c6f&v=4"
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
   }
 ]
