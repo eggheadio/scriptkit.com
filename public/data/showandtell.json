@@ -1,5 +1,29 @@
 [
   {
+    "name": "beta.33 `console.log` component, cmd+o to Open, `className`",
+    "createdAt": "2021-07-22T22:44:19Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/365",
+    "description": "Created by johnlindquist",
+    "img": "https://avatars.githubusercontent.com/u/36073?u=1617518acc4e480c94d57308adfedebcd936ffd1&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw",
+      "name": "Announcements",
+      "emoji": ":loudspeaker:"
+    }
+  },
+  {
+    "name": "Daily Story",
+    "createdAt": "2021-07-20T18:16:42Z",
+    "value": "https://github.com/johnlindquist/kit/discussions/357",
+    "description": "Created by kentcdodds",
+    "img": "https://avatars.githubusercontent.com/u/1500684?u=1c014810361080e75ad80cdb8577ced97da65b11&v=4",
+    "category": {
+      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
+      "name": "Show and tell",
+      "emoji": ":raised_hands:"
+    }
+  },
+  {
     "name": "beta.29 M1 build, install remote kenvs, polish, upcoming lessons",
     "createdAt": "2021-07-16T18:29:00Z",
     "value": "https://github.com/johnlindquist/kit/discussions/353",
@@ -689,18 +713,6 @@
     "value": "https://github.com/johnlindquist/kit/discussions/136",
     "description": "Created by Alarid",
     "img": "https://avatars.githubusercontent.com/u/5678065?u=e2e528a3ee58b5150a1947c7ded93695b35a8779&v=4",
-    "category": {
-      "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
-      "name": "Show and tell",
-      "emoji": ":raised_hands:"
-    }
-  },
-  {
-    "name": "Breezy SVG Optimization",
-    "createdAt": "2021-04-12T17:45:59Z",
-    "value": "https://github.com/johnlindquist/kit/discussions/134",
-    "description": "Created by jh3y",
-    "img": "https://avatars.githubusercontent.com/u/842246?u=5391c17867995775b195a240db7b143f53e694fd&v=4",
     "category": {
       "id": "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw",
       "name": "Show and tell",
