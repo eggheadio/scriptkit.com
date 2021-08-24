@@ -5,9 +5,7 @@ const withSvgr = require('next-svgr')
 const IMAGE_HOST_DOMAINS = [`res.cloudinary.com`]
 
 const nextConfig = {
-  future: {
-    webpack5: true,
-  },
+  webpack5: true,
   reactStrictMode: true,
   images: {
     domains: IMAGE_HOST_DOMAINS,
@@ -19,15 +17,15 @@ const nextConfig = {
 
 module.exports = withPlugins(
   [
-    withMDX({
-      pageExtensions: ['ts', 'tsx', 'mdx'],
-      remarkPlugins: [
-        require('remark-slug'),
-        require('remark-footnotes'),
-        require('remark-code-titles'),
-      ],
-      rehypePlugins: [require('mdx-prism')],
-    }),
+    // withMDX({
+    //   pageExtensions: ['ts', 'tsx', 'mdx'],
+    //   remarkPlugins: [
+    //     // require('remark-slug'),
+    //     // require('remark-footnotes'),
+    //     require('remark-code-titles'),
+    //   ],
+    //   rehypePlugins: [require('mdx-prism')],
+    // }),
     withSvgr,
   ],
   nextConfig,

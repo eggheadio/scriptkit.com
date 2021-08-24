@@ -50,3 +50,25 @@
   animation-duration: 0.65s;
   animation-iteration-count: infinite;
 }
+
+.doc,
+.blog {
+  h1 {
+    @apply text-3xl font-bold mb-4;
+  }
+  h2 {
+    @apply text-3xl font-bold my-8;
+  }
+
+  h3 {
+    @apply text-2xl font-bold my-8;
+  }
+
+  a {
+    @apply hover:underline text-yellow-300;
+  }
+
+  .inline-code {
+    @apply whitespace-nowrap font-mono bg-yellow-500 bg-opacity-10 py-1 rounded-md text-yellow-300 px-2 ml-2;
+  }
+}
