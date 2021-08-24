@@ -54,7 +54,6 @@ export default function User(props: UserProps) {
         <header className="flex md:flex-row flex-col-reverse w-full md:items-center justify-between pb-8">
           <div className="md:pt-0 pt-4">
             <h1 className="text-4xl font-bold ">Scripts by {props.user}</h1>
-            <div>Community scripts are coming soon!</div>
           </div>
           <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         </header>
