@@ -209,7 +209,7 @@ const Home: FunctionComponent<HomeProps> = ({
                 .filter((link) => link.url)
                 .map((link) => {
                   return (
-                    <li>
+                    <li key={link.url}>
                       <Link href={link.url}>
                         <a
                           target="_blank"
