@@ -108,7 +108,6 @@ export default function AllScripts({scripts}: AllScriptProps) {
                 return (
                   <ScriptCard
                     key={script.command}
-                    handleOpenScriptDetail={handleOpenScriptDetail}
                     origin={origin}
                     script={script}
                   />
@@ -119,98 +118,12 @@ export default function AllScripts({scripts}: AllScriptProps) {
                   <ScriptCard
                     key={script.command}
                     origin={origin}
-                    handleOpenScriptDetail={handleOpenScriptDetail}
                     script={script}
                   />
                 )
               })}
         </main>
       </div>
-      {currentScript && (
-        <DialogOverlay
-          onKeyDown={(e) => {
-            if (e.key === 'ArrowRight' && nextScript) {
-              handleViewNextScript(nextScript)
-            }
-            if (e.key === 'ArrowLeft' && prevScript) {
-              handleViewPrevScript(prevScript)
-            }
-          }}
-          isOpen={currentScript.id ? true : false}
-          onDismiss={() => handleDismissScriptDetail()}
-          className="md:px-0 px-5"
-          style={{
-            backdropFilter: 'blur(1px)',
-            background: 'rgba(113, 113, 119, 0.3)',
-            cursor: 'zoom-out',
-          }}
-        >
-          <DialogContent
-            aria-label={
-              get(find(scripts, {command: currentScript.id}), 'command') ||
-              'script detail'
-            }
-            className="rounded-md shadow-xl z-20 p-0 relative w-full max-w-screen-md bg-black"
-            style={{cursor: 'initial'}}
-          >
-            <div className="w-full flex items-center justify-between">
-              {currentScript.id && prevScript && (
-                <button
-                  className="absolute flex items-center justify-center md:-left-16 md:top-32 md:bottom-auto md:right-auto -bottom-16 left-5 rounded-full md:w-8 w-12 md:h-8 h-12 bg-black shadow-md"
-                  onClick={() => handleViewPrevScript(prevScript)}
-                >
-                  <span className="sr-only">previous script</span>
-                  <svg
-                    width={24}
-                    height={24}
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g fill="none">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M12.707 5.293a1 1 0 0 1 0 1.414L9.414 10l3.293 3.293a1 1 0 0 1-1.414 1.414l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 0 1 1.414 0z"
-                        fill="currentColor"
-                      />
-                    </g>
-                  </svg>
-                </button>
-              )}
-              {currentScript.id && nextScript && (
-                <button
-                  className="absolute flex items-center justify-center md:-right-16 md:top-32 md:left-auto md:bottom-auto -bottom-16 right-5 rounded-full md:w-8 w-12 md:h-8 h-12 bg-black shadow-md"
-                  onClick={() => handleViewNextScript(nextScript)}
-                >
-                  <span className="sr-only">previous script</span>
-                  <svg
-                    width={24}
-                    height={24}
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g fill="none">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M7.293 14.707a1 1 0 0 1 0-1.414L10.586 10 7.293 6.707a1 1 0 0 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0z"
-                        fill="currentColor"
-                      />
-                    </g>
-                  </svg>
-                </button>
-              )}
-            </div>
-            {currentScript.id && (
-              <div className="px-5 pb-5">
-                <ScriptDetail
-                  {...(find(scripts, {command: currentScript.id}) as Script)}
-                />
-              </div>
-            )}
-          </DialogContent>
-        </DialogOverlay>
-      )}
     </Layout>
   )
 }

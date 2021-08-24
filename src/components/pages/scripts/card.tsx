@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Link from 'next/link'
 import {FunctionComponent} from 'react'
 import CodeBlock from 'components/code-block'
 import createInstallLink from '../../../utils/createInstallLink'
@@ -13,17 +14,20 @@ type ScriptCardProps = {
 
 const ScriptCard: FunctionComponent<ScriptCardProps> = ({
   script,
-  handleOpenScriptDetail,
-  origin,
-  withAuthor = false,
+  withAuthor = true,
 }) => {
   return (
     <article className="rounded-lg overflow-hidden flex flex-col justify-between border border-gray-900">
       <div className="flex items-start px-6 pt-6">
         <div className="flex-grow">
-          <h2 className="md:text-2xl text-xl font-bold leading-tight">
-            {script.command}
-          </h2>
+          <Link href={`${script.user}/scripts/${script.command}`}>
+            <a>
+              <h2 className="md:text-2xl text-xl font-bold leading-tight">
+                {script.command}
+              </h2>
+            </a>
+          </Link>
+
           {withAuthor && (
             <div className="flex space-x-2 font-xs text-sm opacity-70">
               {script.author && <div>by {script.author}</div>}
@@ -45,26 +49,12 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
           <h3 className="leading-normal text-gray-100">{script.description}</h3>
         )}
       </div>
-      {handleOpenScriptDetail ? (
-        <button
-          onClick={() => handleOpenScriptDetail(script)}
-          className="relative block text-left group"
-          style={{cursor: 'zoom-in'}}
-          type="button"
-        >
-          <CodeBlock
-            className="text-sm h-80 overflow-hidden"
-            value={script.content}
-            language="javascript"
-          />
-        </button>
-      ) : (
-        <CodeBlock
-          className="text-sm h-80 overflow-hidden"
-          value={script.content}
-          language="javascript"
-        />
-      )}
+
+      <CodeBlock
+        className="text-sm h-80 overflow-hidden"
+        value={script.content}
+        language="javascript"
+      />
     </article>
   )
 }

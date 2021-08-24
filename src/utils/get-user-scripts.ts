@@ -116,7 +116,7 @@ export async function getScriptPaths() {
       paths.push({
         params: {
           user,
-          slug: script.command,
+          script: script.command,
         },
       })
     }
