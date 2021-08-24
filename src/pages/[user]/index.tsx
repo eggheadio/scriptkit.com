@@ -2,35 +2,32 @@ import * as React from 'react'
 import {getUsers, getUserScripts, Script} from 'utils/get-user-scripts'
 import {useRouter} from 'next/router'
 import {useState, useEffect} from 'react'
-import {find, get, first, findIndex} from 'lodash'
-import {DialogOverlay, DialogContent} from '@reach/dialog'
+import _ from 'lodash'
 import Fuse from 'fuse.js'
 import ScriptCard from 'components/pages/scripts/card'
-import ScriptDetail from 'components/pages/scripts/detail'
-import Header from 'components/pages/scripts/[user]/header'
 import Layout from 'layouts'
 import {NextSeo} from 'next-seo'
+import {
+  Discussion,
+  DiscussionsProps,
+  getLogins,
+  getUserShares,
+} from 'utils/get-discussions'
+import DiscussionPost from 'components/discussion-post'
 
-export default function User(props: any) {
-  const {scripts} = props
+interface UserProps {
+  scripts: Script[]
+  shares: Discussion[]
+  user: string
+}
+
+export default function User(props: UserProps) {
+  const {scripts, shares} = props
   const router = useRouter()
 
   let [origin, setOrigin] = useState('')
   useEffect(() => {
     setOrigin(window.location.origin)
-  }, [])
-
-  const [currentScript, setCurrentScript] = React.useState<{id?: any}>({id: ''}) // using currentScript.command as id
-
-  const nextScript =
-    currentScript.id &&
-    scripts[findIndex(scripts, {command: currentScript.id}) + 1]
-  const prevScript =
-    currentScript.id &&
-    scripts[findIndex(scripts, {command: currentScript.id}) - 1]
-
-  useEffect(() => {
-    router.query.s && setCurrentScript({id: get(router.query, 's')})
   }, [])
 
   const searchOptions: Fuse.IFuseOptions<Script> = {
@@ -42,36 +39,6 @@ export default function User(props: any) {
   const fuse = new Fuse(scripts, searchOptions)
   const searchResult = fuse.search(searchValue)
   const searchOn: boolean = searchValue.length > 0
-
-  const handleOpenScriptDetail = (script: Script) => {
-    setCurrentScript({id: script.command})
-    router.push(
-      {query: {s: script.command, user: props.user}},
-      `/${props.user}/${script.command}`,
-    )
-  }
-
-  const handleViewNextScript = (script: Script) => {
-    setCurrentScript({id: script.command})
-    router.push(
-      {query: {s: script.command, user: props.user}},
-      `/${props.user}/${script.command}`,
-    )
-  }
-  const handleViewPrevScript = (script: Script) => {
-    setCurrentScript({id: script.command})
-    router.push(
-      {query: {s: script.command, user: props.user}},
-      `/${props.user}/${script.command}`,
-    )
-  }
-
-  const handleDismissScriptDetail = () => {
-    setCurrentScript({})
-    router.push(`/${props.user}`, undefined, {
-      shallow: true,
-    })
-  }
 
   return (
     <Layout>
@@ -97,7 +64,6 @@ export default function User(props: any) {
                 return (
                   <ScriptCard
                     key={script.command}
-                    handleOpenScriptDetail={handleOpenScriptDetail}
                     origin={origin}
                     script={script}
                   />
@@ -108,96 +74,16 @@ export default function User(props: any) {
                   <ScriptCard
                     key={script.command}
                     origin={origin}
-                    handleOpenScriptDetail={handleOpenScriptDetail}
                     script={script}
                   />
                 )
               })}
+
+          {shares.map((share: Discussion) => (
+            <DiscussionPost key={share.id} discussion={share} />
+          ))}
         </main>
       </div>
-      {currentScript && (
-        <DialogOverlay
-          onKeyDown={(e) => {
-            if (e.key === 'ArrowRight' && nextScript) {
-              handleViewNextScript(nextScript)
-            }
-            if (e.key === 'ArrowLeft' && prevScript) {
-              handleViewPrevScript(prevScript)
-            }
-          }}
-          isOpen={currentScript.id ? true : false}
-          onDismiss={() => handleDismissScriptDetail()}
-          className="md:px-0 px-5"
-          style={{
-            backdropFilter: 'blur(1px)',
-            background: 'rgba(113, 113, 119, 0.3)',
-            cursor: 'zoom-out',
-          }}
-        >
-          <DialogContent
-            aria-label={
-              get(find(scripts, {command: currentScript.id}), 'command') ||
-              'script detail'
-            }
-            className="rounded-md shadow-xl z-20 p-0 relative w-full max-w-screen-md bg-black"
-            style={{cursor: 'initial'}}
-          >
-            <div className="w-full flex items-center justify-between">
-              {currentScript.id && prevScript && (
-                <button
-                  className="absolute flex items-center justify-center md:-left-16 md:top-32 md:bottom-auto md:right-auto -bottom-16 left-5 rounded-full md:w-8 w-12 md:h-8 h-12 bg-black shadow-md"
-                  onClick={() => handleViewPrevScript(prevScript)}
-                >
-                  <span className="sr-only">previous script</span>
-                  <svg
-                    width={24}
-                    height={24}
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g fill="none">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M12.707 5.293a1 1 0 0 1 0 1.414L9.414 10l3.293 3.293a1 1 0 0 1-1.414 1.414l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 0 1 1.414 0z"
-                        fill="currentColor"
-                      />
-                    </g>
-                  </svg>
-                </button>
-              )}
-              {currentScript.id && nextScript && (
-                <button
-                  className="absolute flex items-center justify-center md:-right-16 md:top-32 md:left-auto md:bottom-auto -bottom-16 right-5 rounded-full md:w-8 w-12 md:h-8 h-12 bg-black shadow-md"
-                  onClick={() => handleViewNextScript(nextScript)}
-                >
-                  <span className="sr-only">previous script</span>
-                  <svg
-                    width={24}
-                    height={24}
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g fill="none">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M7.293 14.707a1 1 0 0 1 0-1.414L10.586 10 7.293 6.707a1 1 0 0 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0z"
-                        fill="currentColor"
-                      />
-                    </g>
-                  </svg>
-                </button>
-              )}
-            </div>
-            {currentScript.id && (
-              <div className="px-5 pb-5">
-                <ScriptDetail {...find(scripts, {command: currentScript.id})} />
-              </div>
-            )}
-          </DialogContent>
-        </DialogOverlay>
-      )}
     </Layout>
   )
 }
@@ -249,16 +135,19 @@ export async function getStaticProps(context: any) {
   const {user} = params
 
   const scripts = await getUserScripts(user)
+  const shares = await getUserShares(user)
 
   return {
-    props: {scripts, user}, // will be passed to the page component as props
+    props: {scripts, shares, user}, // will be passed to the page component as props
   }
 }
 
 export async function getStaticPaths() {
   const users = getUsers()
+  const logins = await getLogins()
 
-  const paths = users.map((user) => `/${user}`)
+  const combined = _.uniq([...users, ...logins])
+  const paths = combined.map((user) => `/${user}`)
 
   return {
     paths,
