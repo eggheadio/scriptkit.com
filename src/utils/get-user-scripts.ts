@@ -34,13 +34,15 @@ export const getUserScripts = async (
 ): Promise<Script[]> => {
   if (userScripts[selectedUser]) return userScripts[selectedUser]
 
-  const {user, owner, repo} = usersJSON.find(
-    (o) => o.user === selectedUser,
-  ) as {
+  const foundUser = usersJSON.find((o) => o.user === selectedUser) as {
     user: string
     owner: string
     repo: string
   }
+
+  if (!foundUser) return []
+
+  const {user, owner, repo} = foundUser
 
   const scriptsResponse = await octokit.request(
     'GET /repos/{owner}/{repo}/contents/{path}',

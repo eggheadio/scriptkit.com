@@ -51,8 +51,7 @@
   animation-iteration-count: infinite;
 }
 
-.doc,
-.blog {
+.discussion {
   h1 {
     @apply text-3xl font-bold mb-4;
   }
