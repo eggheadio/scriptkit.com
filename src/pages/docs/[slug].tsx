@@ -24,7 +24,6 @@ const Doc: FunctionComponent<DiscussionProps> = ({discussion}) => {
             children={discussion.body}
             components={{
               code({node, inline, className, children, ...props}: any) {
-                console.log(String(children))
                 const match = /language-(\w+)/.exec(className || '')
                 return !inline && match ? (
                   <div className="border border-white border-opacity-10 rounded-md my-8">
@@ -55,11 +54,11 @@ const Doc: FunctionComponent<DiscussionProps> = ({discussion}) => {
 export async function getStaticProps(context: any) {
   const {params} = context
   const {slug} = params
-  const doc = await getDiscussionBySlug(Category.Docs, slug)
+  const discussion = await getDiscussionBySlug(Category.Docs, slug)
 
   return {
     props: {
-      doc,
+      discussion,
     },
   }
 }

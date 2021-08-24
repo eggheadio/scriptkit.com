@@ -31,7 +31,6 @@ const Blog: FunctionComponent<DiscussionsProps> = ({discussions}) => {
               children={body}
               components={{
                 code({node, inline, className, children, ...props}: any) {
-                  console.log(String(children))
                   const match = /language-(\w+)/.exec(className || '')
                   return !inline && match ? (
                     <div className="border border-white border-opacity-10 rounded-md my-8">
