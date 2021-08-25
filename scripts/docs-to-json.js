@@ -1,3 +1,5 @@
+console.log(`Let's do this!`)
+
 let memoize = await npm('memoizee')
 let {gql, GraphQLClient} = await npm('graphql-request')
 let slugify = await npm('slugify')
@@ -88,3 +90,5 @@ let jsonfile = await npm('jsonfile')
 let docs = await getDiscussions(Category.Docs)
 
 await jsonfile.writeFile(`./public/data/docs.json`, docs)
+
+console.log(`Well done! 👏`)
