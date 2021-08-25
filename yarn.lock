@@ -6374,9 +6374,9 @@ kit-bridge@^15.0.3:
     fs-extra "^10.0.0"
     lowdb "^2.1.0"
 
-"kit@https://github.com/johnlindquist/kit#beta":
+"kit@https://github.com/johnlindquist/kit#alpha":
   version "1.0.0"
-  resolved "https://github.com/johnlindquist/kit#a4c43dae6f08e4fe7ffcd725d955cab317e3b858"
+  resolved "https://github.com/johnlindquist/kit#a2dea90d46a7e3545bbc7e6b3d21a381ba6aadad"
   dependencies:
     ansi-to-html "^0.6.15"
     axios "^0.21.1"
