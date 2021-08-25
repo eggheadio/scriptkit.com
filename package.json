@@ -11,7 +11,7 @@
     "postbuild": "NODE_ENV=production next-sitemap && yarn docs-to-json",
     "start": "next start",
     "test": "jest --watch",
-    "docs-to-json": "KIT=./node_modules/kit kit ./scripts/docs-to-json.js"
+    "docs-to-json": "kit ./scripts/docs-to-json.js"
   },
   "dependencies": {
     "@next/mdx": "^11.1.0",
