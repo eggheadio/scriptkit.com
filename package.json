@@ -2,6 +2,9 @@
   "name": "next-typescript-tailwind-mdx-starter",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
