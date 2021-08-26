@@ -1,5 +1,3 @@
-console.log(`Let's do this!`)
-
 let memoize = await npm('memoizee')
 let {gql, GraphQLClient} = await npm('graphql-request')
 let slugify = await npm('slugify')
@@ -88,8 +86,6 @@ export const getDiscussions = memoize(
 
 let jsonfile = await npm('jsonfile')
 let docs = await getDiscussions(Category.Docs)
-console.log(docs)
-
 await jsonfile.writeFile(`${process.env.KENV}/public/data/docs.json`, docs)
 
 console.log(`Well done! 👏`)
