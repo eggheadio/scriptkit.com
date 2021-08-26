@@ -26,7 +26,7 @@ export const ConvertkitProvider: React.FunctionComponent = ({children}) => {
 
     axios
       .get(`/api/subscriber`)
-      .then(({data}) => {
+      .then(({data}: any) => {
         setSubscriber(data)
       })
       .finally(() => setLoadingSubscriber(false))
