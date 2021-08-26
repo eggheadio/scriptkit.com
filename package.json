@@ -11,7 +11,8 @@
     "postbuild": "NODE_ENV=production next-sitemap && yarn docs-to-json",
     "start": "next start",
     "test": "jest --watch",
-    "docs-to-json": "kit ./scripts/docs-to-json.js --trust"
+    "docs-to-json": "kit ./scripts/docs-to-json.js --trust",
+    "nothing": ""
   },
   "dependencies": {
     "@johnlindquist/kit": "https://github.com/johnlindquist/kit#alpha",
