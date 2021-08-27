@@ -8,14 +8,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
-    "postbuild": "NODE_ENV=production next-sitemap && yarn docs-to-json",
+    "postbuild": "NODE_ENV=production next-sitemap && yarn docs-to-json && yarn copy-scripts",
     "start": "next start",
     "test": "jest --watch",
     "docs-to-json": "kit ./scripts/docs-to-json.js --trust",
+    "copy-scripts": "kit ./scripts/copy-scripts.js --trust",
     "nothing": ""
   },
   "dependencies": {
-    "@johnlindquist/kit": "https://github.com/johnlindquist/kit#a684c9fae8dab5e0eed79ed8a38eae4006bb7488",
+    "@johnlindquist/kit": "https://github.com/johnlindquist/kit#a8ce6eb167187d74bb6f1e43a35b13fb4780c602",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",
