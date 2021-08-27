@@ -7,16 +7,17 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_ENV=production next build",
+    "build": "yarn rm-kit-src && NODE_ENV=production next build",
     "postbuild": "NODE_ENV=production next-sitemap && yarn docs-to-json && yarn copy-scripts",
     "start": "next start",
     "test": "jest --watch",
     "docs-to-json": "kit ./scripts/docs-to-json.js --trust",
     "copy-scripts": "kit ./scripts/copy-scripts.js --trust",
+    "rm-kit-src": "rm -rf ./node_modules/@johnlindquist/kit/src",
     "nothing": ""
   },
   "dependencies": {
-    "@johnlindquist/kit": "https://github.com/johnlindquist/kit#9a092d07fb6cf8b968a21b1f88b90650694c1043",
+    "@johnlindquist/kit": "https://github.com/johnlindquist/kit#00f9e4299c3e40dac4ce0cbe659b362f6d443624",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",
