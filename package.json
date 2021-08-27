@@ -16,7 +16,7 @@
     "nothing": ""
   },
   "dependencies": {
-    "@johnlindquist/kit": "https://github.com/johnlindquist/kit#b3c03efa0c0e45060f99fc8f2edb37aec2774810",
+    "@johnlindquist/kit": "https://github.com/johnlindquist/kit#f783e7d3ffee97838ee49a9b43d1c57d4108cf5a",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",
