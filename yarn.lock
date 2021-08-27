@@ -1451,9 +1451,9 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@johnlindquist/kit@https://github.com/johnlindquist/kit#00f9e4299c3e40dac4ce0cbe659b362f6d443624":
+"@johnlindquist/kit@https://github.com/johnlindquist/kit#f97eb2e":
   version "1.0.0"
-  resolved "https://github.com/johnlindquist/kit#00f9e4299c3e40dac4ce0cbe659b362f6d443624"
+  resolved "https://github.com/johnlindquist/kit#f97eb2e19bfe8315abe7a77b221b59674c15bdae"
   dependencies:
     ansi-to-html "^0.6.15"
     axios "^0.21.1"
@@ -1482,6 +1482,7 @@
     shelljs "^0.8.4"
     strip-ansi "^6.0.0"
     trash "^7.0.0"
+    tree-cli "^0.6.7"
     uuid "^8.3.2"
     zx "^2.1.0"
 
