@@ -1451,9 +1451,9 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@johnlindquist/kit@https://github.com/johnlindquist/kit#f783e7d3ffee97838ee49a9b43d1c57d4108cf5a":
-  version "1.0.22"
-  resolved "https://github.com/johnlindquist/kit#f783e7d3ffee97838ee49a9b43d1c57d4108cf5a"
+"@johnlindquist/kit@https://github.com/johnlindquist/kit#9a092d07fb6cf8b968a21b1f88b90650694c1043":
+  version "1.0.23"
+  resolved "https://github.com/johnlindquist/kit#9a092d07fb6cf8b968a21b1f88b90650694c1043"
   dependencies:
     ansi-to-html "^0.6.15"
     axios "^0.21.1"
