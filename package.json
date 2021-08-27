@@ -16,7 +16,7 @@
     "nothing": ""
   },
   "dependencies": {
-    "@johnlindquist/kit": "https://github.com/johnlindquist/kit#a8ce6eb167187d74bb6f1e43a35b13fb4780c602",
+    "@johnlindquist/kit": "https://github.com/johnlindquist/kit#833a3116aa6b0ff7bd77c6f974b7be5a09117948",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",
@@ -54,6 +54,7 @@
     "sharp": "^0.29.0",
     "simplebar-react": "^2.3.5",
     "slugify": "^1.6.0",
+    "tree-cli": "^0.6.7",
     "twitter-lite": "^1.1.0"
   },
   "devDependencies": {
