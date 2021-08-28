@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "init-kit && NODE_ENV=production next build",
-    "postbuild": "NODE_ENV=production next-sitemap && yarn docs-to-json",
+    "postbuild": "NODE_ENV=production next-sitemap && yarn docs-to-json && init-kit",
     "start": "next start",
     "test": "jest --watch",
     "docs-to-json": "kit ./scripts/docs-to-json.js --trust",
