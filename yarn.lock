@@ -1451,10 +1451,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@johnlindquist/kit@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-1.0.1.tgz#f996c2d12bf0538a6163cd755babcf508718e690"
-  integrity sha512-3h3vGjyOGQXNZBjJZ1BXmDfSANkld/BfB3JGZz/371G5JZtMI6ezZQm3usEMShc8IxipaSMn/X4r5bKeFkKhyA==
+"@johnlindquist/kit@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-1.0.4.tgz#bbfc5d2abd2a0e2f157e7f851a59e09cb9571be5"
+  integrity sha512-y1n8aOazTx4vNjN0ANND2uMnIp+4fMWxYJyp3g7SeCFGQ9vEsLZzjzcQpUfx+3nzjhJx1/W/Ci/MCpA6SDVAXA==
   dependencies:
     ansi-to-html "^0.6.15"
     axios "^0.21.1"
