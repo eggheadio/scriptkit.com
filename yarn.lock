@@ -1451,9 +1451,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@johnlindquist/kit@https://github.com/johnlindquist/kit#a37d4ac":
-  version "1.0.0"
-  resolved "https://github.com/johnlindquist/kit#a37d4ac7382bc85c88861553b83f8a65bd1a016e"
+"@johnlindquist/kit@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-1.0.1.tgz#f996c2d12bf0538a6163cd755babcf508718e690"
+  integrity sha512-3h3vGjyOGQXNZBjJZ1BXmDfSANkld/BfB3JGZz/371G5JZtMI6ezZQm3usEMShc8IxipaSMn/X4r5bKeFkKhyA==
   dependencies:
     ansi-to-html "^0.6.15"
     axios "^0.21.1"
@@ -2187,9 +2188,9 @@
   integrity sha512-Zw1vhUSQZYw+7u5dAwNbIA9TuTotpzY/OF7sJM9FqPOF3SPjKnxrjoTktXDZgUjybf4cWVBP7O8wvKdSaGHweg==
 
 "@types/node@^16.0":
-  version "16.7.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.2.tgz#0465a39b5456b61a04d98bd5545f8b34be340cb7"
-  integrity sha512-TbG4TOx9hng8FKxaVrCisdaxKxqEwJ3zwHoCWXZ0Jw6mnvTInpaB99/2Cy4+XxpXtjNv9/TgfGSvZFyfV/t8Fw==
+  version "16.7.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.4.tgz#68a9384694af63ceab8848e95d76d9a3519e84b6"
+  integrity sha512-25QXpDsTiDnl2rZGUenagVMwO46way8dOUdvoC3R3p+6TrbpxeJBo/v87BEG1IHI31Jhaa8lPeSHcqwxsVBeYQ==
 
 "@types/node@^16.7.1":
   version "16.7.1"
