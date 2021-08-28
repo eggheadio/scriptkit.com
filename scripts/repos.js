@@ -16,6 +16,6 @@
 // console.log(await readdir(tmpScriptsPath))
 // console.log(`\n\n\n`)
 
-let response = await get(`https://api.github.com/users/johnlindquist/repos`)
+let response = await fetch(`https://api.github.com/users/johnlindquist/repos`)
 
-export default response.data.map((r) => r.url)
+export default await response.json()
