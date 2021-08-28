@@ -16,6 +16,4 @@
 // console.log(await readdir(tmpScriptsPath))
 // console.log(`\n\n\n`)
 
-let response = await fetch(`https://api.github.com/users/johnlindquist/repos`)
-
-export default await response.json()
+export default {pizza: 'yum'}
