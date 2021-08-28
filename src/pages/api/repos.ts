@@ -4,6 +4,5 @@ import {NextApiRequest, NextApiResponse} from 'next'
 import '@johnlindquist/kit'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  await import('@johnlindquist/kit/scripts/tmp/repo')
   res.json(await kit('repos'))
 }
