@@ -8,14 +8,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
-    "postbuild": "NODE_ENV=production next-sitemap && yarn docs-to-json && init-kit",
+    "postbuild": "NODE_ENV=production next-sitemap && kit docs-to-json --trust && kit init",
     "start": "next start",
-    "test": "jest --watch",
-    "docs-to-json": "kit ./scripts/docs-to-json.js --trust",
-    "nothing": ""
+    "test": "jest --watch"
   },
   "dependencies": {
-    "@johnlindquist/kit": "^1.0.4",
+    "@johnlindquist/kit": "^0.1.0-alpha.19",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",
