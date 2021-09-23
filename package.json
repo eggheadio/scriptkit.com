@@ -8,12 +8,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
-    "postbuild": "NODE_ENV=production next-sitemap && kit docs-to-json --trust && kit init",
+    "postbuild": "NODE_ENV=production next-sitemap && next-opengraph-image && kit docs-to-json --trust",
     "start": "next start",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "repos": "kit ./scripts/repos.js"
   },
   "dependencies": {
-    "@johnlindquist/kit": "^0.1.0-alpha.19",
+    "@johnlindquist/kit": "^0.1.0-alpha.48",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",
@@ -33,6 +34,7 @@
     "mdx-prism": "^0.3.4",
     "memoizee": "^0.4.15",
     "next": "^11.1.0",
+    "next-opengraph-image": "^1.3.2",
     "next-seo": "^4.26.0",
     "next-sitemap": "^1.6.164",
     "next-svgr": "^0.0.2",
