@@ -1,3 +1,5 @@
+import '@johnlindquist/kit'
+
 let memoize = await npm('memoizee')
 let {gql, GraphQLClient} = await npm('graphql-request')
 let slugify = await npm('slugify')
@@ -91,3 +93,5 @@ let outfile = path.resolve(`./public/data/docs.json`)
 await jsonfile.writeFile(outfile, docs)
 
 console.log(`Docs written to json: ${outfile} 👏`)
+
+export {}

@@ -1,3 +1,5 @@
+import {useData} from 'next-opengraph-image'
+
 export default function Default() {
   const {title, description} = useData({
     placeholder: {
