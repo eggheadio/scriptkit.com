@@ -50,7 +50,7 @@ async function _getDiscussions(categoryId: string): Promise<Discussion[]> {
   })
 
   const query = gql`
-    query($categoryId: ID) {
+    query ($categoryId: ID) {
       repository(owner: "johnlindquist", name: "kit") {
         discussions(
           first: 100
