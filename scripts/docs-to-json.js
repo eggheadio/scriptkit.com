@@ -1,10 +1,11 @@
 let memoize = await npm('memoizee')
 let {gql, GraphQLClient} = await npm('graphql-request')
 let slugify = await npm('slugify')
+console.log(`Starting docs-to-json`)
 
 const endpoint = 'https://api.github.com/graphql'
 
-export let Category = {
+let Category = {
   Announcements: 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',
   Docs: 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODc5NjIx',
   Share: 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw',
@@ -86,6 +87,7 @@ export const getDiscussions = memoize(
 
 let jsonfile = await npm('jsonfile')
 let docs = await getDiscussions(Category.Docs)
-await jsonfile.writeFile(`${process.env.KENV}/public/data/docs.json`, docs)
+let outfile = path.resolve(`./public/data/docs.json`)
+await jsonfile.writeFile(outfile, docs)
 
-console.log(`Well done! 👏`)
+console.log(`Docs written to json: ${outfile} 👏`)

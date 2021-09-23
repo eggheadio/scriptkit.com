@@ -2,6 +2,8 @@ import * as React from 'react'
 import {FunctionComponent} from 'react'
 import Layout from 'layouts'
 import DiscussionPost from 'components/discussion-post'
+import {useOgImage} from 'next-opengraph-image'
+import Head from 'next/head'
 
 import {
   Category,
@@ -12,8 +14,19 @@ import {
 } from 'utils/get-discussions'
 
 const Blog: FunctionComponent<DiscussionsProps> = ({discussions}) => {
+  const ogImage = useOgImage({
+    baseUrl: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  })
+
   return (
     <Layout className="blog">
+      <Head>
+        <title>...</title>
+        <meta name="description" content="..." />
+        <link rel="icon" href="/favicon.ico" />
+        // Step 3
+        <meta {...ogImage} />
+      </Head>
       <main className="max-w-screen-lg mx-auto flex-grow w-full">
         {discussions.map((discussion) => (
           <DiscussionPost

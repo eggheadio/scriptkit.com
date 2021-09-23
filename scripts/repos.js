@@ -18,4 +18,4 @@
 
 let response = await fetch(`https://api.github.com/users/johnlindquist/repos`)
 
-export default await response.json()
+export let repos = await response.json()
