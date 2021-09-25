@@ -38,7 +38,7 @@ export default function User(props: UserProps) {
 
   const fuse = new Fuse(scripts, searchOptions)
   const searchResult = fuse.search(searchValue)
-  const searchOn: boolean = searchValue.length > 0
+  const searchOn: boolean = false // searchValue.length > 0
 
   return (
     <Layout>
@@ -55,7 +55,7 @@ export default function User(props: UserProps) {
           <div className="md:pt-0 pt-4">
             <h1 className="text-4xl font-bold ">Scripts by {props.user}</h1>
           </div>
-          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+          {/* <Search searchValue={searchValue} setSearchValue={setSearchValue} /> */}
         </header>
         <main className="grid md:grid-cols-2 grid-cols-1 gap-6">
           {searchOn

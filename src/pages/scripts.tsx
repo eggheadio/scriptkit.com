@@ -53,7 +53,7 @@ export default function AllScripts({scripts}: AllScriptProps) {
 
   const fuse = new Fuse(scripts, searchOptions)
   const searchResult = fuse.search(searchValue)
-  const searchOn: boolean = searchValue.length > 0
+  const searchOn: boolean = false //searchValue.length > 0
 
   const handleOpenScriptDetail = (script: Script) => {
     setCurrentScript({id: script.command})
@@ -100,7 +100,7 @@ export default function AllScripts({scripts}: AllScriptProps) {
           <div className="md:pt-0 pt-4">
             <h1 className="text-4xl font-bold ">Community Scripts</h1>
           </div>
-          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+          {/* <Search searchValue={searchValue} setSearchValue={setSearchValue} /> */}
         </header>
         <main className="grid md:grid-cols-2 grid-cols-1 gap-6">
           {searchOn

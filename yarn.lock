@@ -1451,10 +1451,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@johnlindquist/kit@^0.1.0-alpha.48":
-  version "0.1.0-alpha.48"
-  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-0.1.0-alpha.48.tgz#4e64afba4cc60d685202e14ebb22113bc28d6bc6"
-  integrity sha512-qpIhg4gJo3edaahG2tk+VDT5tUXPqNr9fJQsKN2CZvnLfN07QDSn9ZUkZDYXPVkApm6Hf9icYnLwtVvaLHN9ig==
+"@johnlindquist/kit@^0.1.0-beta.7":
+  version "0.1.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-0.1.0-beta.7.tgz#cdc15c2e6310b0c10bf7585b428f543ae46f503b"
+  integrity sha512-LFcA1cyui7YfNuQUU5iOkWSGCYrspCd9KeHtuWGp8gvtOO3CSSywstf7QJ/iCdtg5qO0ispxXm94NVNKKRQ8MA==
   dependencies:
     "@types/degit" "^2.8.3"
     "@types/download" "^8.0.1"
