@@ -22,6 +22,11 @@ const Navigation = () => {
             Browse Scripts
           </a>
         </Link>
+        <Link href="/blog" activeClassName="cursor-default bg-gray-900">
+          <a className="flex items-center px-2 py-1 space-x-1 text-sm transition-all duration-100 ease-in-out rounded-lg sm:text-base sm:px-3 sm:py-2 hover:bg-gray-900 opacity-90 hover:opacity-100">
+            Blog
+          </a>
+        </Link>
       </div>
     </nav>
   )

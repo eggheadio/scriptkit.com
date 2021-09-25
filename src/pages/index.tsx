@@ -26,8 +26,7 @@ type HomeProps = {
 const links = [
   {
     label: 'Community examples',
-    url:
-      'https://github.com/johnlindquist/kit/discussions/categories/show-and-tell',
+    url: 'https://github.com/johnlindquist/kit/discussions/categories/show-and-tell',
   },
   {
     label: 'Quick orientation guide',
@@ -39,8 +38,7 @@ const links = [
   },
   {
     label: 'Announcements',
-    url:
-      'https://github.com/johnlindquist/kit/discussions/categories/announcements',
+    url: 'https://github.com/johnlindquist/kit/discussions/categories/announcements',
   },
   {
     label: 'Ask a question',
