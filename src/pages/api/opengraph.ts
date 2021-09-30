@@ -2,7 +2,7 @@ import {launchChromium} from 'playwright-aws-lambda'
 import {NextApiRequest, NextApiResponse} from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const {user, title} = req.query
+  const {user, title, backgroundImage} = req.query
   const browser = await launchChromium()
 
   const context = await browser.newContext()
@@ -11,9 +11,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     width: 1200,
     height: 628,
   })
-
-  const backgroundImage =
-    process.env.NEXT_PUBLIC_VERCEL_URL + '/card-background.png'
   const fontUrl = process.env.NEXT_PUBLIC_VERCEL_URL + '/SF-Pro.ttf'
 
   const content = `

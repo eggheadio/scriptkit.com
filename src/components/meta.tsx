@@ -5,6 +5,7 @@ interface MetaProps {
   title: string
   twitter?: string
   description?: string
+  backgroundImage?: string
 }
 
 export default function Meta({
@@ -12,10 +13,11 @@ export default function Meta({
   title,
   twitter = '',
   description = '',
+  backgroundImage = process.env.NEXT_PUBLIC_VERCEL_URL + '/card-background.png',
 }: MetaProps) {
   const opengraphImage =
     process.env.NEXT_PUBLIC_VERCEL_URL +
-    `/api/opengraph?user=${user}&title=${title}`
+    `/api/opengraph?user="${user}"&title="${title}"&backgroundImage="${backgroundImage}""`
 
   return (
     <Head>
