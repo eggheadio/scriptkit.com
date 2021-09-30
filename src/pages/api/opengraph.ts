@@ -9,7 +9,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const page = await context.newPage()
   page.setViewportSize({
     width: 1200,
-    height: 628,
+    height: 630,
   })
   const fontUrl = process.env.NEXT_PUBLIC_VERCEL_URL + '/SF-Pro.ttf'
 
@@ -36,6 +36,7 @@ body{
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background-color: #ffffff;
     background-image: url("${backgroundImage}");
     font-family: "SFPro";
 }
