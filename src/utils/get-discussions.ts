@@ -34,6 +34,7 @@ export interface Discussion {
 
 export interface DiscussionsProps {
   discussions: Discussion[]
+  host?: string
 }
 
 export interface DiscussionProps {

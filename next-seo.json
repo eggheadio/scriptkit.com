@@ -9,24 +9,5 @@
       "property": "keywords",
       "content": "automation, javascript, shell"
     }
-  ],
-  "twitter": {
-    "cardType": "summary_large_image",
-    "handle": "johnlindquist",
-    "site": "johnlindquist"
-  },
-  "openGraph": {
-    "type": "website",
-    "site_name": "Script Kit",
-    "profile": {
-      "firstName": "John"
-    },
-    "images": [
-      {
-        "url": "https://res.cloudinary.com/dg3gyk0gu/image/upload/v1632383968/scriptkit.com/card_2x.png",
-        "width": 1200,
-        "height": 628
-      }
-    ]
-  }
+  ]
 }

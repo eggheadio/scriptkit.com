@@ -22,7 +22,7 @@ interface UserProps {
 }
 
 export default function User(props: UserProps) {
-  const {scripts, shares} = props
+  const {scripts, shares, user} = props
   const router = useRouter()
 
   let [origin, setOrigin] = useState('')
@@ -79,7 +79,11 @@ export default function User(props: UserProps) {
               })}
 
           {shares.map((share: Discussion) => (
-            <DiscussionPost key={share.id} discussion={share} />
+            <DiscussionPost
+              key={share.id}
+              discussion={share}
+              link={`${user}/scripts`}
+            />
           ))}
         </main>
       </div>

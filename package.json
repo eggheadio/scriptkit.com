@@ -11,10 +11,11 @@
     "postbuild": "NODE_ENV=production next-sitemap && kit docs-to-json.ts --trust",
     "start": "next start",
     "test": "jest --watch",
-    "repos": "kit ./scripts/repos.js"
+    "repos": "kit ./scripts/repos.js",
+    "og-image": "kit generate-open-graph-image"
   },
   "dependencies": {
-    "@johnlindquist/kit": "^0.1.0-beta.7",
+    "@johnlindquist/kit": "^0.1.0-alpha.65",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",
@@ -30,6 +31,7 @@
     "fuse.js": "^6.4.6",
     "graphql": "^15.5.1",
     "graphql-request": "^3.5.0",
+    "is-npm": "^6.0.0",
     "lodash": "^4.17.21",
     "mdx-prism": "^0.3.4",
     "memoizee": "^0.4.15",
@@ -38,6 +40,9 @@
     "next-seo": "^4.26.0",
     "next-sitemap": "^1.6.164",
     "next-svgr": "^0.0.2",
+    "playwright": "^1.15.0",
+    "playwright-aws-lambda": "^0.7.0",
+    "playwright-core": "^1.15.0",
     "prism-react-renderer": "^1.2.1",
     "query-string": "^7.0.1",
     "react": "^17.0.2",
