@@ -92,6 +92,7 @@ body{
   await browser.close()
 
   res.setHeader('Content-Type', 'image/png')
+  res.setHeader('Content-Length', screenshotBuffer.length.toString())
   res.statusCode = 200
-  res.send(screenshotBuffer)
+  res.send(screenshotBuffer.toString('base64'))
 }
