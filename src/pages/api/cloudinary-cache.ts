@@ -18,7 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   const imageUrl = cloudinary.url(
-    `/kit/v0/og-images/${user}-${slugify(title as string)}.png`,
+    `/kit/${user}-${slugify(title as string)}.png`,
     {
       // resouce_type: "raw"
       sign_url: true,
