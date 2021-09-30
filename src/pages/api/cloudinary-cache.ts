@@ -1,6 +1,5 @@
 import {NextApiRequest, NextApiResponse} from 'next'
 import {v2 as cloudinary} from 'cloudinary'
-import qs from 'query-string'
 import slugify from 'slugify'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -13,13 +12,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } = req.query
 
   cloudinary.config({
-    cloud_name: 'kit',
+    cloud_name: 'johnlindquist',
     api_key: process.env.CLOUDINARY_KEY,
     api_secret: process.env.CLOUDINARY_SECRET,
   })
 
   const imageUrl = cloudinary.url(
-    `v0/og-images/${user}-${slugify(title as string)}.png`,
+    `/kit/v0/og-images/${user}-${slugify(title as string)}.png`,
     {
       // resouce_type: "raw"
       sign_url: true,
