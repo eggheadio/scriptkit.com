@@ -93,7 +93,8 @@ body{
 
   res.setHeader('Content-Type', 'image/png')
   res.setHeader('Content-Length', screenshotBuffer.length)
+
   res.statusCode = 200
-  res.setDefaultEncoding('base64url')
+
   res.send(screenshotBuffer.toString('base64url'))
 }
