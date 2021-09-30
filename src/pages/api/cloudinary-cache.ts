@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   console.log(cloudinary)
 
-  const imagePath = `/kit/${user}-${slugify(title as string)}.png`
+  const imagePath = `kit/${user}-${slugify(title as string)}.png`
   console.log({imagePath})
 
   const source = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/opengraph?user=${user}&description=${description}&twitter=${twitter}&title=${title}&backgroundImage=${backgroundImage}`
