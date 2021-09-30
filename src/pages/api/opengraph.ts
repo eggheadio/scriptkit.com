@@ -96,5 +96,5 @@ body{
 
   res.statusCode = 200
 
-  res.send(screenshotBuffer.toString('base64url'))
+  res.send(screenshotBuffer.toString('base64'))
 }
