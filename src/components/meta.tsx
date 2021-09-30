@@ -13,11 +13,9 @@ export default function Meta({
   title,
   twitter = '',
   description = '',
-  backgroundImage = process.env.NEXT_PUBLIC_VERCEL_URL + '/card-background.png',
+  backgroundImage = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/card-background.png`,
 }: MetaProps) {
-  const opengraphImage =
-    process.env.NEXT_PUBLIC_VERCEL_URL +
-    `/api/opengraph?user="${user}"&title="${title}"&backgroundImage="${backgroundImage}""`
+  const opengraphImage = `https://${process.env.NEXT_PULBIC_VERCEL_URL}/api/opengraph?user=${user}&description=${description}&twitter=${twitter}&title=${title}&backgroundImage=${backgroundImage}`
 
   return (
     <Head>
