@@ -41,15 +41,10 @@ export async function getStaticProps(context: any) {
 
   const userScript = await getScript(user, script)
 
-  console.log({
-    userScript,
-    userShare,
-  })
-
   return {
     props: {
-      script: userScript,
-      share: userShare,
+      script: userScript || null,
+      share: userShare || null,
     },
   }
 }
