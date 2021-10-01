@@ -2,7 +2,11 @@ import {launchChromium} from 'playwright-aws-lambda'
 import {NextApiRequest, NextApiResponse} from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const {user, title, backgroundImage} = req.query
+  const {
+    user,
+    title,
+    backgroundImage = `${process.env.NEXT_PUBLIC_VERCEL_URL}/card-background.png`,
+  } = req.query
   const browser = await launchChromium()
 
   const context = await browser.newContext()
@@ -39,6 +43,7 @@ body{
     background-color: #ffffff;
     background-image: url("${backgroundImage}");
     font-family: "SFPro";
+    border: 8px solid #FCD34D;
 }
 
 .resize{
@@ -46,8 +51,8 @@ body{
     top: 158px;
     left: 75px;
     position: absolute;
-    width: 580px;
-    height: 280px;
+    width: 560px;
+    height: 260px;
     color: #ffffff;
 }
 
@@ -55,27 +60,27 @@ body{
     position: absolute;
     left: 75px;
     top: 474px;
-    height: 72px
+    height: 100px
 }
 
 .created{
     position: absolute;
-    left: 153px;
-    top: 479px;
+    left: 200px;
+    top: 475px;
 }
 
 .author{
     position: absolute;
-    left: 153px;
-    top: 500px;
+    left: 200px;
+    top: 510px;
 }
 
 </style>
 
 <div class="resize">${title}</div>
 <img class="avatar rounded-full" src="${`https://github.com/${user}.png`}"/>
-<div class="created text-gray-500">Created by</div>
-<div class="author text-white text-2xl">${user}</div>
+<div class="created text-gray-400 text-2xl">Created by</div>
+<div class="author text-white text-4xl">${user}</div>
 <script src="https://unpkg.com/textfit@2.4.0/textFit.js"></script>
 <script>
     textFit(document.querySelector('.resize'), { multiLine: true})
