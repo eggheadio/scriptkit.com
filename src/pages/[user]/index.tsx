@@ -14,6 +14,7 @@ import {
   getUserShares,
 } from 'utils/get-discussions'
 import DiscussionPost from 'components/discussion-post'
+import Meta from 'components/meta'
 
 interface UserProps {
   scripts: Script[]
@@ -39,10 +40,12 @@ export default function User(props: UserProps) {
   const fuse = new Fuse(scripts, searchOptions)
   const searchResult = fuse.search(searchValue)
   const searchOn: boolean = false // searchValue.length > 0
+  const title = `Scripts by ${props.user}`
 
   return (
     <Layout>
-      <NextSeo title={`Scripts by ${props.user}`} />
+      <NextSeo title={title} />
+      <Meta user={props.user} title={title} />
 
       <div className="pb-8 max-w-screen-lg mx-auto">
         {/* <Header>
