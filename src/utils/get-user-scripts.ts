@@ -11,7 +11,7 @@ const octokit = new Octokit({
 export interface Script {
   file?: string
   command: string
-  content?: string
+  content: string
   url: string
   description?: string
   author?: string
@@ -147,6 +147,7 @@ export function convertShareToScript(discussion: Discussion): Script {
     command: discussion.slug,
     url: discussion.url,
     user: discussion.author.login,
+    content: '', // TODO: try to parse script from discussion post
   }
 }
 
