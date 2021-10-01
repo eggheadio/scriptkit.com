@@ -92,9 +92,9 @@ body{
   await browser.close()
 
   res.setHeader('Content-Type', 'image/png')
-  res.setHeader('Content-Length', screenshotBuffer.length)
+  //   res.setHeader('Content-Length', screenshotBuffer.length)
 
   res.statusCode = 200
 
-  res.send(screenshotBuffer.toString('base64'))
+  res.send(screenshotBuffer)
 }
