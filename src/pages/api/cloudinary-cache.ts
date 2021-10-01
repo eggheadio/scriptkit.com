@@ -17,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const source = `https://${
     process.env.NEXT_PUBLIC_VERCEL_URL
-  }/api/opengraph/?${qs.stringify(req.query)}`
+  }/api/opengraph?${qs.stringify(req.query)}`
 
   console.log({source})
 
@@ -27,5 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     overwrite: false,
   })
 
-  res.redirect(response.url)
+  console.log(response)
+
+  res.redirect(200, response.url)
 }
