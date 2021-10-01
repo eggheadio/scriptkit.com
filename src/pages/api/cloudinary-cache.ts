@@ -29,5 +29,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   console.log(response)
 
-  res.redirect(200, response.url)
+  res.redirect(response.url)
 }
