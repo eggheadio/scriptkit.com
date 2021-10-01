@@ -11,11 +11,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     api_secret: process.env.CLOUDINARY_SECRET,
   })
 
+  const slug = slugify(title as string, {
+    lower: true,
+  })
+
   const source = `https://${
     process.env.NEXT_PUBLIC_VERCEL_URL
-  }/api/opengraph/kit/${user}/${slugify(title as string, {
-    lower: true,
-  })}.png?${qs.stringify(req.query)}`
+  }/api/opengraph/kit/${user}/${slug}.png?${qs.stringify(req.query)}`
+
+  console.log({source})
 
   const imageUrl = cloudinary.url(source, {
     type: 'fetch',
