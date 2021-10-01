@@ -29,5 +29,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   console.log(response)
 
-  res.redirect(response.url)
+  // res.redirect(response.url)
+  res.writeHead(302, {
+    'Content-type': 'image/png',
+    Location: response.url,
+    //add other headers here...
+  })
+
+  res.end()
 }

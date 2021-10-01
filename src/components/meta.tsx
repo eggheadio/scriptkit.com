@@ -11,18 +11,18 @@ interface MetaProps {
 }
 
 export default function Meta(props: MetaProps) {
-  const {
-    user,
-    title,
-    twitter = '',
-    description = '',
-    backgroundImage = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/card-background.png`,
-  } = props
+  const query = {
+    ...props,
+    backgroundImage: `https://scriptkit.com/card-background.png`,
+  }
+
+  const {user, title, twitter, description} = query
+
   const router = useRouter()
 
   const opengraphImage = `https://${
     process.env.NEXT_PUBLIC_VERCEL_URL
-  }/api/cloudinary-cache?${qs.stringify(props)}`
+  }/api/cloudinary-cache?${qs.stringify(query)}`
 
   return (
     <Head>
