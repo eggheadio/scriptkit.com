@@ -13,7 +13,11 @@ const ScriptComponent: FunctionComponent<{script: Script}> = ({script}) => {
         description: script.description || undefined,
       }}
     >
-      <Meta user={script.user} title={script.description} />
+      <Meta
+        user={script.user}
+        title={script.description || script.command}
+        twitter={script.twitter}
+      />
       <div className="max-w-screen-lg w-full mx-auto">
         <ScriptDetail {...script} />
       </div>

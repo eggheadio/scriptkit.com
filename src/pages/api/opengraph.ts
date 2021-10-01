@@ -91,10 +91,15 @@ body{
   const screenshotBuffer = await page.screenshot()
   await browser.close()
 
+  const decoded = screenshotBuffer
+    .toString()
+    .replace('data:image/png;base64,', '')
+
+  const buf = Buffer.from(decoded)
   res.setHeader('Content-Type', 'image/png')
-  //   res.setHeader('Content-Length', screenshotBuffer.length)
+  res.setHeader('Content-Length', buf.length)
 
   res.statusCode = 200
 
-  res.send(screenshotBuffer)
+  res.send(buf.toString('base64'))
 }
