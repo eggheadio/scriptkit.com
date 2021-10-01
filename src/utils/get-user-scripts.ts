@@ -2,20 +2,21 @@ import {readFileSync} from 'fs'
 import path from 'path'
 import {Octokit} from '@octokit/rest'
 import findByCommentMarker from './find-by-comment-marker'
+import {Category, Discussion, getDiscussions} from './get-discussions'
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_SCRIPTKITCOM_TOKEN,
 })
 
 export interface Script {
-  file: string
+  file?: string
   command: string
-  content: string
+  content?: string
   url: string
-  description: string
-  author: string
-  twitter: string
-  github: string
+  description?: string
+  author?: string
+  twitter?: string
+  github?: string
   user: string
 }
 
@@ -124,13 +125,42 @@ export async function getScriptPaths() {
     }
   }
 
+  const shares = await getDiscussions(Category.Share)
+  for await (const share of shares) {
+    const {user, command} = convertShareToScript(share)
+    paths.push({
+      params: {
+        user,
+        script: command,
+      },
+    })
+  }
+
   return {
     paths,
     fallback: false,
   }
 }
 
+export function convertShareToScript(discussion: Discussion): Script {
+  return {
+    command: discussion.slug,
+    url: discussion.url,
+    user: discussion.author.login,
+  }
+}
+
 export async function getScript(user: string, command: string) {
+  const shared = await getDiscussions(Category.Share)
+  // console.log({shared, user, command})
+  const foundShared = shared.find(
+    (d) => user === d.author.login && command === d.slug,
+  )
+  if (foundShared) {
+    const convertedScript = convertShareToScript(foundShared)
+    // console.log({convertedScript})
+    return convertedScript
+  }
   const scripts: Script[] = await getUserScripts(user)
   return scripts.find((script) => script.command === command)
 }
