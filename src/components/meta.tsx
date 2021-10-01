@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import {useRouter} from 'next/router'
+import qs from 'query-string'
 
 interface MetaProps {
   user: string
@@ -9,16 +10,19 @@ interface MetaProps {
   backgroundImage?: string
 }
 
-export default function Meta({
-  user,
-  title,
-  twitter = '',
-  description = '',
-  backgroundImage = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/card-background.png`,
-}: MetaProps) {
+export default function Meta(props: MetaProps) {
+  const {
+    user,
+    title,
+    twitter = '',
+    description = '',
+    backgroundImage = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/card-background.png`,
+  } = props
   const router = useRouter()
 
-  const opengraphImage = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/opengraph?user=${user}&description=${description}&twitter=${twitter}&title=${title}&backgroundImage=${backgroundImage}`
+  const opengraphImage = `https://${
+    process.env.NEXT_PUBLIC_VERCEL_URL
+  }/api/cloudinary-cache?${qs.stringify(props)}`
 
   return (
     <Head>
