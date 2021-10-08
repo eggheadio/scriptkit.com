@@ -23,7 +23,7 @@ export default function User({user, scripts}: UserProps) {
   return (
     <Layout>
       <NextSeo title={title} />
-      <Meta user={user} title={title} />
+      <Meta user={author ? author : user} title={title} />
 
       <div className="pb-8 max-w-screen-lg mx-auto">
         {/* <Header>
