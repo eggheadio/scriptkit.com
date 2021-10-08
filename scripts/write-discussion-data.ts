@@ -17,7 +17,7 @@ let endpoint = 'https://api.github.com/graphql'
 let categoryKey = await arg('Category', Object.keys(Category))
 let category = {
   name: categoryKey,
-  value: Category[categoryKey as Category],
+  value: Category[categoryKey as any],
 }
 
 let client = new GraphQLClient(endpoint, {
