@@ -4,7 +4,7 @@ import qs from 'query-string'
 import slugify from 'slugify'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const {user, title, folder = 'kit'} = req.query
+  const {user = 'kit', title, folder = 'kit'} = req.query
   cloudinary.config({
     cloud_name: 'johnlindquist',
     api_key: process.env.CLOUDINARY_KEY,
@@ -22,7 +22,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   console.log({source})
 
   const response = await cloudinary.uploader.upload(source, {
-    folder: `${folder}/${user}`,
+    folder: `${folder}/${slugify(user as string, {
+      lower: true,
+    })}`,
     public_id,
     overwrite: false,
   })
