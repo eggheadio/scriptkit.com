@@ -70,7 +70,7 @@ export default function AllScripts({userScripts}: AllScriptProps) {
                 {scripts.map(({command, url, title, description}) => {
                   return (
                     <div key={url} className="py-4">
-                      <Link href={`${user}/${command}`}>
+                      <Link href={`/${user}/${command}`}>
                         <a className="md:text-2xl text-xl font-semibold leading-tight text-yellow-300 hover:underline">
                           <h2>{title}</h2>
                         </a>
