@@ -22,6 +22,8 @@
     "write-repo-scripts-data": "kit write-repo-scripts-data"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
     "@johnlindquist/kit": "^0.1.0-alpha.77",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
