@@ -1,137 +1,67 @@
-import {readFileSync} from 'fs'
 import path from 'path'
 import {Octokit} from '@octokit/rest'
-import findByCommentMarker from './find-by-comment-marker'
-import {Category, Discussion, getDiscussions} from './get-discussions'
+import {LoadedScript} from './types'
+import _ from 'lodash'
+import '@johnlindquist/kit/api/global'
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_SCRIPTKITCOM_TOKEN,
 })
 
-export interface Script {
-  file?: string
-  command: string
-  content: string
-  url: string
-  description?: string
-  author?: string
-  twitter?: string
-  github?: string
-  user: string
-}
-
-const usersJSON: {user: string; repo: string}[] = JSON.parse(
-  readFileSync(path.join(process.cwd(), 'users.json'), 'utf-8'),
-)
-
-export const getUsers = (): string[] => {
-  return usersJSON.map((o) => o.user)
-}
-
-let userScripts: {[key: string]: Script[]} = {}
-
-export const getUserScripts = async (
-  selectedUser: string,
-): Promise<Script[]> => {
-  if (userScripts[selectedUser]) return userScripts[selectedUser]
-
-  const foundUser = usersJSON.find((o) => o.user === selectedUser) as {
-    user: string
-    owner: string
-    repo: string
-  }
-
-  if (!foundUser) return []
-
-  const {user, owner, repo} = foundUser
-
-  const scriptsResponse = await octokit.request(
-    'GET /repos/{owner}/{repo}/contents/{path}',
-    {
-      owner,
-      repo,
-      path: 'scripts',
-    },
+export const getAllScripts = async (): Promise<LoadedScript[]> => {
+  let shareScripts = await readJson(
+    path.resolve(cwd(), 'public', 'data', 'share.json'),
   )
 
-  const scriptsDir = scriptsResponse.data as any[]
+  let reposScripts = await readJson(
+    path.resolve(cwd(), 'public', 'data', 'repo-scripts.json'),
+  )
 
-  const scripts = []
-
-  for await (const script of scriptsDir) {
-    const file = script.name
-    const url = script.download_url
-
-    const scriptResponse = await octokit.request(
-      'GET /repos/{owner}/{repo}/contents/{path}',
-      {
-        owner,
-        repo,
-        path: `${script.path}`,
-        mediaType: {
-          format: 'raw',
-        },
-      },
-    )
-
-    const content = scriptResponse.data as any
-
-    const description = findByCommentMarker(content, 'Description:')
-    const author = findByCommentMarker(content, 'Author:')
-    const twitter = findByCommentMarker(content, 'Twitter:')
-    const github = findByCommentMarker(content, 'GitHub:')
-
-    scripts.push({
-      file,
-      command: file.replace('.js', ''),
-      content,
-      url,
-      description,
-      author,
-      twitter,
-      github,
-      user: selectedUser,
-    })
-  }
-
-  userScripts[selectedUser] = scripts
-
-  return scripts
+  return shareScripts.concat(reposScripts)
 }
 
-export async function getAllScripts() {
-  const users = getUsers()
-  let scripts: Script[] = []
-  for await (const user of users) {
-    const userScripts = await getUserScripts(user)
-    scripts = scripts.concat(userScripts)
-  }
-
-  return scripts
+export interface UserScripts {
+  [user: string]: LoadedScript[]
 }
 
-export async function getScriptPaths() {
-  const users = getUsers()
-  const paths = []
-  for await (const user of users) {
-    const scripts = await getUserScripts(user)
-    for await (const script of scripts) {
-      paths.push({
-        params: {
-          user,
-          script: script.command,
-        },
-      })
+export const getAllScriptsGroupedByUser = async (): Promise<UserScripts> => {
+  const scripts = await getAllScripts()
+
+  return _.groupBy(scripts, 'user')
+}
+
+export const getAllUsers = async (): Promise<string[]> => {
+  const scripts = await getAllScripts()
+  const users = scripts.map((s) => s.user)
+  return _.uniq(users)
+}
+
+export const getScriptsByUser = async (
+  user: string,
+): Promise<LoadedScript[]> => {
+  const scripts = await getAllScripts()
+
+  return scripts.filter((s) => s.user === user)
+}
+
+interface ScriptPath {
+  paths: {
+    params: {
+      user: string
+      script: string
     }
-  }
+  }[]
+  fallback: boolean
+}
+export async function getScriptPaths(): Promise<ScriptPath> {
+  const paths = []
 
-  const shares = await getDiscussions(Category.Share)
-  for await (const share of shares) {
-    const {user, command} = convertShareToScript(share)
+  const scripts = await getAllScripts()
+  for await (const script of scripts) {
     paths.push({
       params: {
-        user,
-        script: command,
+        user: script.user,
+        script: script.command,
       },
     })
   }
@@ -142,28 +72,12 @@ export async function getScriptPaths() {
   }
 }
 
-export function convertShareToScript(discussion: Discussion): Script {
-  return {
-    command: discussion.slug,
-    url: discussion.url,
-    user: discussion.author.login,
-    content: '', // TODO: try to parse script from discussion post
-  }
-}
-
-export async function getScript(user: string, command: string) {
-  const shared = await getDiscussions(Category.Share)
-  // console.log({shared, user, command})
-  const foundShared = shared.find(
-    (d) => user === d.author.login && command === d.slug,
-  )
-  if (foundShared) {
-    const convertedScript = convertShareToScript(foundShared)
-    // console.log({convertedScript})
-    return convertedScript
-  }
-  const scripts: Script[] = await getUserScripts(user)
-  return scripts.find((script) => script.command === command)
+export async function getScript(
+  user: string,
+  command: string,
+): Promise<LoadedScript | undefined> {
+  const scripts = await getAllScripts()
+  return scripts.find((d) => user === d.user && command === d.command)
 }
 
 export async function getLatestRelease() {

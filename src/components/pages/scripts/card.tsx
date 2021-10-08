@@ -3,12 +3,11 @@ import Link from 'next/link'
 import {FunctionComponent} from 'react'
 import CodeBlock from 'components/code-block'
 import createInstallLink from '../../../utils/createInstallLink'
-import {Script} from 'utils/get-user-scripts'
+import {LoadedScript} from 'utils/types'
 
 type ScriptCardProps = {
-  script: Script
-  handleOpenScriptDetail?: (script: Script) => void
-  origin: string
+  script: LoadedScript
+  handleOpenScriptDetail?: (script: LoadedScript) => void
   withAuthor?: boolean
 }
 
@@ -17,10 +16,10 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
   withAuthor = true,
 }) => {
   return (
-    <article className="rounded-lg overflow-hidden flex flex-col justify-between border border-gray-900">
+    <article className="rounded-lg overflow-hidden flex flex-col border border-gray-900">
       <div className="flex items-start px-6 pt-6">
         <div className="flex-grow">
-          <Link href={`${script.user}/scripts/${script.command}`}>
+          <Link href={`${script.user}/${script.command}`}>
             <a>
               <h2 className="md:text-2xl text-xl font-bold leading-tight">
                 {script.command}
@@ -51,7 +50,7 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
       </div>
 
       <CodeBlock
-        className="text-sm h-80 overflow-hidden"
+        className="text-sm overflow-hidden"
         value={script.content}
         language="javascript"
       />

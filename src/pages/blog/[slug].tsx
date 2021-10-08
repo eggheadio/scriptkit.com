@@ -10,12 +10,15 @@ import {
   Login,
 } from 'utils/get-discussions'
 import DiscussionPost from 'components/discussion-post'
+import Meta from 'components/meta'
 
 const Doc: FunctionComponent<DiscussionProps> = ({discussion}) => {
   return (
     <Layout className="doc">
+      <Meta title={discussion.title} />
+
       <main className="max-w-screen-lg mx-auto flex-grow w-full pt-8">
-        <DiscussionPost discussion={discussion} key={discussion.id} />
+        <DiscussionPost discussion={discussion} key={discussion.url} />
       </main>
     </Layout>
   )

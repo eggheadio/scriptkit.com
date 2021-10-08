@@ -42,13 +42,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   let count = await getReleaseCount()
   let response = await client.post('account/update_profile', {
     name: `John (${count}) Lindquist`,
-    description: `
-The number in my name updates when someone downloads Script Kit 🤓
+    //     description: `
+    // The number in my name updates when someone downloads Script Kit 🤓
 
-· scriptkit.com Creator
-· egghead.io founder
-· nap enthusiast
-  `,
+    // · scriptkit.com Creator
+    // · egghead.io founder
+    // · nap enthusiast
+    //   `,
   })
 
   console.log({count})

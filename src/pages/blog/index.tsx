@@ -15,16 +15,12 @@ import {
 const Blog: FunctionComponent<DiscussionsProps> = ({discussions}) => {
   return (
     <Layout className="blog">
-      <Meta
-        user="johnlindquist"
-        twitter="johnlindquist"
-        title="Script Kit Blog"
-      />
+      <Meta title="Script Kit Blog" />
       <main className="max-w-screen-lg mx-auto flex-grow w-full">
         {discussions.map((discussion) => (
           <DiscussionPost
             discussion={discussion}
-            key={discussion.id}
+            key={discussion.url}
             link="blog"
           />
         ))}

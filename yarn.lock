@@ -1451,16 +1451,17 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@johnlindquist/kit@^0.1.0-alpha.65":
-  version "0.1.0-alpha.65"
-  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-0.1.0-alpha.65.tgz#eeb6846bf3dbc634e2f0a3c844a538e5f993525c"
-  integrity sha512-/DMBZoOVQMODyn+upYmFO35waSn7mfQoFpnxr/tyhmgKt2T5x0AWzOp4/s0UKr1+0ExQy4zJZw/+9orKqiY4vQ==
+"@johnlindquist/kit@^0.1.0-alpha.77":
+  version "0.1.0-alpha.77"
+  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-0.1.0-alpha.77.tgz#0cc354035d86bef7441267951f3e666d26f9a10f"
+  integrity sha512-DyT9IPgFkbxbiZ5r9KpT/qM6gDPn45eveTimaAYA5arGvJj6OJv7PjuLUY45HGUiFJdYlP9bUxWt/P3vyleAbA==
   dependencies:
     "@types/degit" "^2.8.3"
     "@types/download" "^8.0.1"
     "@types/lodash" "^4.14.172"
     "@types/marked" "^3.0.0"
     "@types/minimist" "^1.2.2"
+    "@types/node-notifier" "^8.0.1"
     "@types/shelljs" "^0.8.9"
     ansi-to-html "^0.7.1"
     axios "^0.21.4"
@@ -1469,6 +1470,7 @@
     date-fns "^2.23.0"
     degit "^2.8.4"
     dotenv "^10.0.0"
+    dotenv-flow "^3.2.0"
     download "^8.0.0"
     enquirer "^2.3.6"
     esbuild "^0.12.28"
@@ -2235,6 +2237,13 @@
   dependencies:
     "@types/node" "*"
     form-data "^3.0.0"
+
+"@types/node-notifier@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@types/node-notifier/-/node-notifier-8.0.1.tgz#5cf3fb1c67732bfc487e051492de688dd362edbc"
+  integrity sha512-oEaec3j6vw1u0xT/rEniM0yarkV5dZsZvjgTX3IlgekpjDGlv8EGD+Pnpbt3D9IMkoosprPeRtvYc/1t9XBduw==
+  dependencies:
+    "@types/node" "*"
 
 "@types/node@*":
   version "14.14.7"

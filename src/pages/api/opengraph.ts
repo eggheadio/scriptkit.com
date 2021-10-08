@@ -78,9 +78,13 @@ body{
 </style>
 
 <div class="resize">${title}</div>
-<img class="avatar rounded-full" src="${`https://github.com/${user}.png`}"/>
+${
+  user &&
+  `<img class="avatar rounded-full" src="${`https://github.com/${user}.png`}"/>
 <div class="created text-gray-400 text-2xl">Created by</div>
-<div class="author text-white text-4xl">${user}</div>
+<div class="author text-white text-4xl">${user}</div>`
+}
+
 <script src="https://unpkg.com/textfit@2.4.0/textFit.js"></script>
 <script>
     textFit(document.querySelector('.resize'), { multiLine: true})
