@@ -14,10 +14,13 @@ export enum Category {
 
 let endpoint = 'https://api.github.com/graphql'
 
-let categoryKey = await arg('Category', Object.keys(Category))
+const categoryKey: keyof Category = await arg<keyof Category>(
+  'Category',
+  Object.keys(Category),
+)
 let category = {
-  name: categoryKey,
-  value: Category[categoryKey as any],
+  name: categoryKey as string,
+  value: (Category as any)[categoryKey] as string,
 }
 
 let client = new GraphQLClient(endpoint, {
