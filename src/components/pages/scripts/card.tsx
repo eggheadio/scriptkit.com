@@ -19,7 +19,7 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
     <article className="rounded-lg overflow-hidden flex flex-col border border-gray-900">
       <div className="flex items-start px-6 pt-6">
         <div className="flex-grow">
-          <Link href={`${script.user}/${script.command}`}>
+          <Link href={`/${script.user}/${script.command}`}>
             <a>
               <h2 className="md:text-2xl text-xl font-bold leading-tight">
                 {script.command}
