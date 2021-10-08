@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "kit write-discussion-data && kit write-repo-scripts-data",
+    "prebuild": "yarn share-data && yarn docs-data && yarn announcements-data",
     "build": "NODE_ENV=production next build",
     "postbuild": "NODE_ENV=production next-sitemap && kit docs-to-json.ts --trust",
     "start": "next start",
