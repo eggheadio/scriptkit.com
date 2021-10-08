@@ -22,16 +22,9 @@ export default function User({user, scripts}: UserProps) {
 
   return (
     <Layout>
-      <NextSeo title={title} />
-      <Meta user={author ? author : user} title={title} />
+      <Meta author={author} user={user} title={title} />
 
       <div className="pb-8 max-w-screen-lg mx-auto">
-        {/* <Header>
-            <div className="font-mono">
-              <div className="text-sm">scripts/</div>
-              <div className="text-lg font-bold">{props.user}</div>
-            </div>
-          </Header> */}
         <header className="flex md:flex-row flex-col-reverse w-full md:items-center justify-between pb-8">
           <div className="md:pt-0 pt-4 flex flex-col">
             <div className="flex flex-row items-center justify-center">

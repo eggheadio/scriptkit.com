@@ -3,6 +3,7 @@ import {useRouter} from 'next/router'
 import qs from 'query-string'
 
 interface MetaProps {
+  author?: string
   user?: string
   title: string
   twitter?: string
