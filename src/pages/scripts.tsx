@@ -1,93 +1,21 @@
 import * as React from 'react'
-import {
-  getAllScripts,
-  getUsers,
-  getUserScripts,
-  Script,
-} from 'utils/get-user-scripts'
-import {useRouter} from 'next/router'
-import {useState, useEffect} from 'react'
-import {find, get, first, findIndex} from 'lodash'
-import {DialogOverlay, DialogContent} from '@reach/dialog'
-import Fuse from 'fuse.js'
-import ScriptCard from 'components/pages/scripts/card'
-import ScriptDetail from 'components/pages/scripts/detail'
-import Header from 'components/pages/scripts/[user]/header'
+import {getAllScriptsGroupedByUser, UserScripts} from 'utils/get-user-scripts'
 import Layout from 'layouts'
-import {NextSeo} from 'next-seo'
+import Link from 'components/link'
+import Meta from 'components/meta'
 
 // interface UserScripts {
 //   [key: string]: Script[]
 // }
 
 interface AllScriptProps {
-  scripts: Script[]
+  userScripts: UserScripts
 }
 
-export default function AllScripts({scripts}: AllScriptProps) {
-  const router = useRouter()
-
-  let [origin, setOrigin] = useState('')
-  useEffect(() => {
-    setOrigin(window.location.origin)
-  }, [])
-
-  const [currentScript, setCurrentScript] = React.useState<{id?: any}>({id: ''}) // using currentScript.command as id
-
-  const nextScript =
-    currentScript.id &&
-    scripts[findIndex(scripts, {command: currentScript.id}) + 1]
-  const prevScript =
-    currentScript.id &&
-    scripts[findIndex(scripts, {command: currentScript.id}) - 1]
-
-  useEffect(() => {
-    router.query.s && setCurrentScript({id: get(router.query, 's')})
-  }, [])
-
-  const searchOptions: Fuse.IFuseOptions<Script> = {
-    includeScore: true,
-    keys: ['command', 'content', 'description'],
-  }
-  const [searchValue, setSearchValue] = React.useState('')
-
-  const fuse = new Fuse(scripts, searchOptions)
-  const searchResult = fuse.search(searchValue)
-  const searchOn: boolean = false //searchValue.length > 0
-
-  const handleOpenScriptDetail = (script: Script) => {
-    setCurrentScript({id: script.command})
-    router.push(
-      {query: {s: script.command, user: script.user}},
-      `/${script.user}/${script.command}`,
-    )
-  }
-
-  const handleViewNextScript = (script: Script) => {
-    setCurrentScript({id: script.command})
-    router.push(
-      {query: {s: script.command, user: script.user}},
-      `/${script.user}/${script.command}`,
-    )
-  }
-  const handleViewPrevScript = (script: Script) => {
-    setCurrentScript({id: script.command})
-    router.push(
-      {query: {s: script.command, user: script.user}},
-      `/${script.user}/${script.command}`,
-    )
-  }
-
-  const handleDismissScriptDetail = () => {
-    setCurrentScript({})
-    router.push(`/scripts`, undefined, {
-      shallow: true,
-    })
-  }
-
+export default function AllScripts({userScripts}: AllScriptProps) {
   return (
     <Layout>
-      <NextSeo title={`Community Scripts`} />
+      <Meta title={`Community Scripts`} />
 
       <div className="pb-8 max-w-screen-lg mx-auto">
         {/* <Header>
@@ -102,78 +30,64 @@ export default function AllScripts({scripts}: AllScriptProps) {
           </div>
           {/* <Search searchValue={searchValue} setSearchValue={setSearchValue} /> */}
         </header>
-        <main className="grid md:grid-cols-2 grid-cols-1 gap-6">
-          {searchOn
-            ? searchResult.map(({item: script}: any) => {
-                return (
-                  <ScriptCard
-                    key={script.command}
-                    origin={origin}
-                    script={script}
-                  />
-                )
-              })
-            : scripts.map((script: Script) => {
-                return (
-                  <ScriptCard
-                    key={script.command}
-                    origin={origin}
-                    script={script}
-                  />
-                )
-              })}
+        <main className="md:masonry-2 lg:masonry-3">
+          {Object.entries(userScripts).map(([, scripts]) => {
+            const {author, user, twitter} = scripts[0]
+            return (
+              <div
+                key={user}
+                className="border-4 border-white border-opacity-50 p-4 rounded-xl m-2 break-inside"
+              >
+                <div className="mb-2">
+                  <Link href={`/${user}`}>
+                    <a className="md:text-3xl text-2xl font-bold leading-tight text-white hover:underline flex flex-row-reverse items-center justify-between">
+                      <img
+                        className="rounded-full h-12 mr-2"
+                        src={`https://github.com/${user}.png`}
+                        alt=""
+                      />
+                      <h2>{author ? author : user}</h2>
+                    </a>
+                  </Link>
+                  {twitter && (
+                    <a
+                      className="hover:underline"
+                      href={`https://twitter.com/${twitter}`}
+                    >
+                      @{twitter}
+                    </a>
+                  )}
+                </div>
+                {scripts.map(({command, url, title, description}) => {
+                  return (
+                    <div key={url} className="py-4">
+                      <Link href={`${user}/${command}`}>
+                        <a className="md:text-2xl text-xl font-semibold leading-tight text-yellow-300 hover:underline">
+                          <h2>{title}</h2>
+                        </a>
+                      </Link>
+                      {description && <div>{description}</div>}
+                    </div>
+                  )
+                })}
+              </div>
+            )
+            // return script.extension === Extension.md ? (
+            //   <ScriptMarkdown script={script} />
+            // ) : (
+            //   <ScriptCard key={script.user + script.command} script={script} />
+            // )
+          })}
         </main>
       </div>
     </Layout>
   )
 }
 
-const Search: React.FC<any> = ({searchValue, setSearchValue}) => {
-  return (
-    <div>
-      <label className="sr-only" htmlFor="search">
-        Search scripts
-      </label>
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
-          <svg
-            className="h-4 w-4 text-gray-200"
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g fill="none">
-              <path
-                d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </g>
-          </svg>
-        </div>
-        <input
-          name="search"
-          id="search"
-          className="pl-7 bg-transparent rounded-lg border border-gray-800 focus:border-yellow-300 md:w-64 w-full focus:ring-0 text-sm leading-4"
-          placeholder="Search scripts"
-          onChange={(e) => {
-            setSearchValue(e.target.value)
-          }}
-          value={searchValue}
-          type="search"
-          autoComplete="off"
-        />
-      </div>
-    </div>
-  )
-}
-
 export async function getStaticProps(context: any) {
-  const scripts = await getAllScripts()
+  const userScripts = await getAllScriptsGroupedByUser()
 
   return {
-    props: {scripts}, // will be passed to the page component as props
+    props: {userScripts}, // will be passed to the page component as props
   }
 }

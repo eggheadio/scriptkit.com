@@ -7,15 +7,22 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "kit write-discussion-data && kit write-repo-scripts-data",
     "build": "NODE_ENV=production next build",
     "postbuild": "NODE_ENV=production next-sitemap && kit docs-to-json.ts --trust",
     "start": "next start",
     "test": "jest --watch",
     "repos": "kit ./scripts/repos.js",
-    "og-image": "kit generate-open-graph-image"
+    "og-image": "kit generate-open-graph-image",
+    "get-scripts": "kit get-scripts",
+    "write-discussion-data": "kit write-discussion-data",
+    "share-data": "yarn write-discussion-data Share",
+    "docs-data": "yarn write-discussion-data Docs",
+    "annoucements-data": "yarn write-discussion-data Announcements",
+    "write-repo-scripts-data": "kit write-repo-scripts-data"
   },
   "dependencies": {
-    "@johnlindquist/kit": "^0.1.0-alpha.65",
+    "@johnlindquist/kit": "^0.1.0-alpha.77",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",

@@ -1,9 +1,7 @@
-import memoize from 'memoizee'
-import {gql, GraphQLClient} from 'graphql-request'
-import slugify from 'slugify'
+import '@johnlindquist/kit'
+import '@johnlindquist/kit/api/global'
 import _ from 'lodash'
-
-const endpoint = 'https://api.github.com/graphql'
+import {LoadedScript} from './types'
 
 export enum Category {
   Announcements = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',
@@ -20,6 +18,8 @@ interface Author {
   avatarUrl: string
   url: string
   resourcePath: string
+  name: string
+  twitterUsername: string
 }
 
 export interface Discussion {
@@ -33,80 +33,32 @@ export interface Discussion {
 }
 
 export interface DiscussionsProps {
-  discussions: Discussion[]
+  discussions: LoadedScript[]
   host?: string
 }
 
 export interface DiscussionProps {
-  discussion: Discussion
+  discussion: LoadedScript
   link?: string
 }
 
-async function _getDiscussions(categoryId: string): Promise<Discussion[]> {
-  const client = new GraphQLClient(endpoint, {
-    headers: {
-      'GraphQL-Features': 'discussions_api',
-      authorization: `Bearer ${process.env.GITHUB_DISCUSSIONS_TOKEN}`,
-    },
-  })
-
-  const query = gql`
-    query ($categoryId: ID) {
-      repository(owner: "johnlindquist", name: "kit") {
-        discussions(
-          first: 100
-          categoryId: $categoryId
-          orderBy: {field: CREATED_AT, direction: DESC}
-        ) {
-          # type: DiscussionConnection
-          totalCount # Int!
-          nodes {
-            title
-            url
-            author {
-              login
-              avatarUrl
-              url
-            }
-            body
-            id
-            createdAt
-          }
-        }
-      }
-    }
-  `
-
-  const response = await client.request(query, {categoryId})
-
-  return response.repository.discussions.nodes.map((d: Discussion) => {
-    const slug = slugify(d.title, {
-      lower: true,
-      strict: true,
-    })
-
-    return {
-      ...d,
-      slug,
-    }
-  })
+export const getDiscussions = async (category: Category, user: string = '') => {
+  const categoryName = Object.entries(Category)
+    .find(([, value]) => value === category)?.[0]
+    .toLowerCase()
+  const discussions: LoadedScript[] = await readJson(
+    path.resolve('public', 'data', `${categoryName}.json`),
+  )
+  return discussions.filter((d) => (user ? d.user === user : true))
 }
-
-export const getDiscussions = memoize(
-  async (category: Category, login: string = '') => {
-    const discussions = await _getDiscussions(category)
-    return discussions.filter((d) => (login ? d.author.login === login : true))
-  },
-  {promise: true},
-)
 
 export async function getDiscussionPaths(category: Category, login = '') {
   const discussions = await getDiscussions(category, login)
   const paths = []
-  for await (const {slug} of discussions) {
+  for await (const {command} of discussions) {
     paths.push({
       params: {
-        slug,
+        slug: command,
       },
     })
   }
@@ -123,18 +75,7 @@ export async function getDiscussionBySlug(
 ) {
   const discussions = await getDiscussions(category)
 
-  return discussions.find(({slug}) => {
-    return slug === matchSlug
+  return discussions.find(({command}) => {
+    return command === matchSlug
   })
-}
-
-export async function getLogins(): Promise<string[]> {
-  const discussions = await getDiscussions(Category.Share)
-  return _.uniq(discussions.map((d) => d.author.login))
-}
-
-export async function getUserShares(login: string): Promise<Discussion[]> {
-  const discussions = await getDiscussions(Category.Share)
-
-  return discussions.filter((d) => d.author.login === login)
 }

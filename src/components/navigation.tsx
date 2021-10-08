@@ -17,12 +17,12 @@ const Navigation = () => {
         </a>
       </Link>
       <div className="flex items-center space-x-5">
-        <Link href="/scripts" activeClassName="cursor-default bg-gray-900">
+        <Link href="/scripts" activeClassName="cursor-pointer bg-gray-900">
           <a className="flex items-center px-2 py-1 space-x-1 text-sm transition-all duration-100 ease-in-out rounded-lg sm:text-base sm:px-3 sm:py-2 hover:bg-gray-900 opacity-90 hover:opacity-100">
             Browse Scripts
           </a>
         </Link>
-        <Link href="/blog" activeClassName="cursor-default bg-gray-900">
+        <Link href="/blog" activeClassName="cursor-pointer bg-gray-900">
           <a className="flex items-center px-2 py-1 space-x-1 text-sm transition-all duration-100 ease-in-out rounded-lg sm:text-base sm:px-3 sm:py-2 hover:bg-gray-900 opacity-90 hover:opacity-100">
             Blog
           </a>

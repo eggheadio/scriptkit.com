@@ -13,6 +13,17 @@ const nextConfig = {
   async redirects() {
     return []
   },
+  webpack: (config, {isServer}) => {
+    config.experiments = {topLevelAwait: true}
+
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+      }
+    }
+
+    return config
+  },
 }
 
 module.exports = withPlugins(

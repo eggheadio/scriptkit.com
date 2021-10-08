@@ -1,27 +1,28 @@
 import * as React from 'react'
-import Link from 'next/link'
+import Link from 'components/link'
 import ReactMarkdown from 'react-markdown'
 import {Language} from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 
-import {DiscussionProps} from 'utils/get-discussions'
 import CodeBlock from 'components/code-block'
 import rehypeRaw from 'rehype-raw'
+import {LoadedScript} from 'utils/types'
 
-const DiscussionPost = ({
-  discussion: {url, command, title, content},
-  link,
-}: DiscussionProps) => (
-  <div key={url} className="discussion">
-    {link ? (
-      <Link href={`/${link}/${command}`}>
-        <a>
+interface DiscussionPostProps {
+  script: LoadedScript
+}
+
+const ScriptMarkdown = ({
+  script: {author, url, command, title, content, user},
+}: DiscussionPostProps) => (
+  <div key={author + command} className="break-inside">
+    <div className="mb-4">
+      <Link href={`/${user}/${command}`}>
+        <a className="md:text-3xl text-2xl font-bold leading-tight text-white hover:underline flex flex-row">
           <h2>{title}</h2>
         </a>
       </Link>
-    ) : (
-      <h2>{title}</h2>
-    )}
+    </div>
 
     <ReactMarkdown
       children={content}
@@ -65,4 +66,4 @@ const DiscussionPost = ({
   </div>
 )
 
-export default DiscussionPost
+export default ScriptMarkdown

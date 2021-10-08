@@ -4,21 +4,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {readFileSync} from 'fs'
-import findByCommentMarker from 'utils/find-by-comment-marker'
 import path from 'path'
 import ScriptCard from 'components/pages/scripts/card'
 import Layout from 'layouts'
-import AnimatedHeaderImage from 'components/pages/landing/image'
 import {
+  getAllScripts,
   getLatestAppleSiliconRelease,
   getLatestRelease,
-  getUsers,
-  getUserScripts,
-  Script,
 } from 'utils/get-user-scripts'
+import {LoadedScript} from 'utils/types'
 
 type HomeProps = {
-  featuredScripts: Script[]
+  featuredScripts: LoadedScript[]
   release: {name: string; browser_download_url: string}
   appleSiliconRelease: {name: string; browser_download_url: string}
 }
@@ -234,17 +231,9 @@ const Home: FunctionComponent<HomeProps> = ({
           <div className="w-full pt-8">
             <h2 className="text-3xl font-bold pb-4">Featured Scripts</h2>
             <div className="max-w-screen-lg w-full mx-auto grid md:grid-cols-2 grid-cols-1 gap-5">
-              {featuredScripts.map((script: Script) => {
+              {featuredScripts.map((script: LoadedScript) => {
                 return (
-                  <ScriptCard
-                    handleOpenScriptDetail={() =>
-                      router.push(`/${script?.user}/scripts/${script.command}`)
-                    }
-                    script={script}
-                    key={script.command}
-                    origin={origin}
-                    withAuthor
-                  />
+                  <ScriptCard script={script} key={script.command} withAuthor />
                 )
               })}
             </div>
@@ -266,23 +255,17 @@ export async function getStaticProps(context: any) {
   const release = await getLatestRelease()
   const appleSiliconRelease = await getLatestAppleSiliconRelease()
 
-  const selectedScripts: {user: string; script: string}[] = JSON.parse(
+  const selectedScripts: {user: string; command: string}[] = JSON.parse(
     readFileSync(path.join(process.cwd(), 'featured.json'), 'utf-8'),
   )
 
-  const users = getUsers()
-  const featuredScripts = []
+  const scripts = await getAllScripts()
 
-  for (const user of users) {
-    const scripts = await getUserScripts(user)
-    for (const script of scripts) {
-      if (
-        selectedScripts.find((s) => s.user === user && s.script === script.file)
-      ) {
-        featuredScripts.push(script)
-      }
-    }
-  }
+  const featuredScripts = scripts.filter((s) => {
+    return selectedScripts.find(
+      (ss) => ss.user === s.user && ss.command === s.command,
+    )
+  })
 
   return {
     props: {featuredScripts, release, appleSiliconRelease}, // will be passed to the page component as props

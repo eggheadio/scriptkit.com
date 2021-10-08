@@ -1,18 +1,18 @@
 [
   {
     "user": "johnlindquist",
-    "script": "giphy-search.js"
+    "command": "giphy-search"
   },
   {
     "user": "johnlindquist",
-    "script": "image-resize.js"
+    "command": "image-resize"
   },
   {
     "user": "johnlindquist",
-    "script": "center-app.js"
+    "command": "center-app"
   },
   {
     "user": "johnlindquist",
-    "script": "reddit.js"
+    "command": "reddit"
   }
 ]

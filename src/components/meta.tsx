@@ -3,7 +3,7 @@ import {useRouter} from 'next/router'
 import qs from 'query-string'
 
 interface MetaProps {
-  user: string
+  user?: string
   title: string
   twitter?: string
   description?: string
@@ -16,13 +16,20 @@ export default function Meta(props: MetaProps) {
     backgroundImage: `https://scriptkit.com/card-background.png`,
   }
 
-  const {user, title, twitter, description} = query
+  const {user, title, twitter = 'johnlindquist', description} = query
 
   const router = useRouter()
+  console.log(router)
 
-  const opengraphImage = `https://${
+  let opengraphImage = `${
     process.env.NEXT_PUBLIC_VERCEL_URL
   }/api/cloudinary-cache?${qs.stringify(query)}`
+
+  if (!opengraphImage.startsWith('http'))
+    opengraphImage = `https://${opengraphImage}`
+
+  let url = `${process.env.NEXT_PUBLIC_VERCEL_URL}${router.asPath}`
+  if (!url.startsWith('http')) url = `https://${url}`
 
   return (
     <Head>
@@ -30,10 +37,7 @@ export default function Meta(props: MetaProps) {
       <meta name="description" content={description} />
       <link rel="icon" href="/favicon.ico" />
 
-      <meta
-        property="og:url"
-        content={`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/${router.pathname}`}
-      />
+      <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
