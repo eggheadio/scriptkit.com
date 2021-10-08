@@ -15,7 +15,7 @@ const Doc: FunctionComponent<DiscussionProps> = ({discussion}) => {
   return (
     <Layout className="doc">
       <main className="max-w-screen-lg mx-auto flex-grow w-full pt-8">
-        <DiscussionPost discussion={discussion} key={discussion.id} />
+        <DiscussionPost discussion={discussion} key={discussion.url} />
       </main>
     </Layout>
   )

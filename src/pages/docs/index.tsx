@@ -10,6 +10,7 @@ import {
   getDiscussions,
   Login,
 } from 'utils/get-discussions'
+import {LoadedScript} from 'utils/types'
 
 const Docs: FunctionComponent<DiscussionsProps> = ({discussions}) => {
   return (
@@ -19,7 +20,7 @@ const Docs: FunctionComponent<DiscussionsProps> = ({discussions}) => {
           <DiscussionPost
             discussion={discussion}
             link="docs"
-            key={discussion.id}
+            key={discussion.url}
           />
         ))}
       </main>
@@ -30,7 +31,7 @@ const Docs: FunctionComponent<DiscussionsProps> = ({discussions}) => {
 
 export async function getStaticProps(
   context: any,
-): Promise<{props: {discussions: Discussion[]}}> {
+): Promise<{props: {discussions: LoadedScript[]}}> {
   const discussions = await getDiscussions(Category.Docs, Login.johnlindquist)
 
   return {

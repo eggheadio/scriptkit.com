@@ -11,6 +11,7 @@ import {
   getDiscussions,
   Login,
 } from 'utils/get-discussions'
+import {LoadedScript} from 'utils/types'
 
 const Blog: FunctionComponent<DiscussionsProps> = ({discussions}) => {
   return (
@@ -32,7 +33,7 @@ const Blog: FunctionComponent<DiscussionsProps> = ({discussions}) => {
 
 export async function getStaticProps(
   context: any,
-): Promise<{props: {discussions: Discussion[]}}> {
+): Promise<{props: {discussions: LoadedScript[]}}> {
   const discussions = await getDiscussions(
     Category.Announcements,
     Login.johnlindquist,

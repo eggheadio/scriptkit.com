@@ -9,7 +9,7 @@
     "dev": "next dev",
     "prebuild": "yarn share-data && yarn docs-data && yarn announcements-data",
     "build": "NODE_ENV=production next build",
-    "postbuild": "NODE_ENV=production next-sitemap && kit docs-to-json.ts --trust",
+    "postbuild": "NODE_ENV=production next-sitemap",
     "start": "next start",
     "test": "jest --watch",
     "repos": "kit ./scripts/repos.js",
