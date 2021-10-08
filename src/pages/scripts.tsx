@@ -3,6 +3,7 @@ import {getAllScriptsGroupedByUser, UserScripts} from 'utils/get-user-scripts'
 import Layout from 'layouts'
 import Link from 'components/link'
 import Meta from 'components/meta'
+import {LoadedScript} from 'utils/types'
 
 // interface UserScripts {
 //   [key: string]: Script[]
@@ -32,7 +33,15 @@ export default function AllScripts({userScripts}: AllScriptProps) {
         </header>
         <main className="md:masonry-2 lg:masonry-3">
           {Object.entries(userScripts).map(([, scripts]) => {
-            const {author, user, twitter} = scripts[0]
+            const {user} = scripts[0]
+
+            const author =
+              scripts.find((s: LoadedScript) => s.author)?.author || ''
+
+            let twitter =
+              scripts.find((s: LoadedScript) => s.twitter)?.twitter || ''
+            twitter = twitter.startsWith('@') ? twitter.slice(1) : twitter
+
             return (
               <div
                 key={user}

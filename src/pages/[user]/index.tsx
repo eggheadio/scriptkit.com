@@ -16,7 +16,7 @@ interface UserProps {
 
 export default function User({user, scripts}: UserProps) {
   const title = `Scripts by ${user}`
-  const {author} = scripts.find((s: LoadedScript) => s.author) || {author: ''}
+  const author = scripts.find((s: LoadedScript) => s.author)?.author || ''
   let twitter = scripts.find((s: LoadedScript) => s.twitter)?.twitter || ''
   twitter = twitter.startsWith('@') ? twitter.slice(1) : twitter
 
