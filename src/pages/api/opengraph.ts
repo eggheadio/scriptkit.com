@@ -3,6 +3,7 @@ import {NextApiRequest, NextApiResponse} from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
+    author,
     user,
     title,
     backgroundImage = `${process.env.NEXT_PUBLIC_VERCEL_URL}/card-background.png`,
@@ -82,7 +83,7 @@ ${
   user &&
   `<img class="avatar rounded-full" src="${`https://github.com/${user}.png`}"/>
 <div class="created text-gray-400 text-2xl">Created by</div>
-<div class="author text-white text-4xl">${user}</div>`
+<div class="author text-white text-4xl">${author ? author : user}</div>`
 }
 
 <script src="https://unpkg.com/textfit@2.4.0/textFit.js"></script>

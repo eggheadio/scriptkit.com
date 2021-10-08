@@ -14,7 +14,7 @@ const ScriptComponent: FunctionComponent<{
   const {user, title, twitter, author, extension} = script
   return (
     <Layout>
-      <Meta user={author ? author : user} title={title} twitter={twitter} />
+      <Meta author={author} user={user} title={title} twitter={twitter} />
 
       <div className="max-w-screen-lg w-full mx-auto">
         <Link href={`/${user}`}>
