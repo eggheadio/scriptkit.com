@@ -68,7 +68,7 @@
   }
 
   .inline-code {
-    @apply whitespace-nowrap font-mono bg-yellow-500 bg-opacity-10 py-1 rounded-md text-yellow-300 px-2 ml-2;
+    @apply font-mono bg-yellow-500 bg-opacity-10 py-1 rounded-md text-yellow-300 px-2 ml-2;
   }
 }
 
