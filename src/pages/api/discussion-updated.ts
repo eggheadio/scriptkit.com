@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     )
 
     res.send(response.data)
+  } else {
+    res.send(req.body)
   }
-
-  res.send(req.body)
 }
