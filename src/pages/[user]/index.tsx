@@ -47,9 +47,9 @@ export default function User({user, scripts}: UserProps) {
         <main className={`masonry-1 ${scripts.length > 1 && 'md:masonry-2'}`}>
           {scripts.map((script: LoadedScript) => {
             return script.extension === Extension.md ? (
-              <ScriptMarkdown script={script} />
+              <ScriptMarkdown key={script.url} script={script} />
             ) : (
-              <ScriptCard key={script.command} script={script} />
+              <ScriptCard key={script.url} script={script} />
             )
           })}
         </main>

@@ -15,7 +15,7 @@ interface DiscussionPostProps {
 const ScriptMarkdown = ({
   script: {author, url, command, title, content, user},
 }: DiscussionPostProps) => (
-  <div key={author + command} className="break-inside">
+  <div key={author + command} className="break-inside break-words">
     <div className="mb-4">
       <Link href={`/${user}/${command}`}>
         <a className="md:text-3xl text-2xl font-bold leading-tight text-white hover:underline flex flex-row">
