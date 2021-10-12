@@ -1,13 +1,11 @@
 import * as React from 'react'
 import {getAllScriptsGroupedByUser, UserScripts} from 'utils/get-user-scripts'
+import InstallScriptButton from 'components/install-script-button'
+import Image from 'next/image'
 import Layout from 'layouts'
 import Link from 'components/link'
 import Meta from 'components/meta'
 import {LoadedScript} from 'utils/types'
-
-// interface UserScripts {
-//   [key: string]: Script[]
-// }
 
 interface AllScriptProps {
   userScripts: UserScripts
@@ -18,20 +16,13 @@ export default function AllScripts({userScripts}: AllScriptProps) {
     <Layout>
       <Meta title={`Community Scripts`} />
 
-      <div className="pb-8 max-w-screen-lg mx-auto">
-        {/* <Header>
-            <div className="font-mono">
-              <div className="text-sm">scripts/</div>
-              <div className="text-lg font-bold">{props.user}</div>
-            </div>
-          </Header> */}
-        <header className="flex md:flex-row flex-col-reverse w-full md:items-center justify-between pb-8">
-          <div className="md:pt-0 pt-4">
-            <h1 className="text-4xl font-bold ">Community Scripts</h1>
-          </div>
-          {/* <Search searchValue={searchValue} setSearchValue={setSearchValue} /> */}
+      <div className="pb-8 max-w-screen-md w-full mx-auto">
+        <header className="pb-28 pt-12">
+          <h1 className="text-center sm:text-4xl text-3xl font-semibold leading-tighter">
+            Community Scripts
+          </h1>
         </header>
-        <main className="md:masonry-2 lg:masonry-3">
+        <main>
           {Object.entries(userScripts).map(([, scripts]) => {
             const {user} = scripts[0]
 
@@ -42,50 +33,76 @@ export default function AllScripts({userScripts}: AllScriptProps) {
               scripts.find((s: LoadedScript) => s.twitter)?.twitter || ''
             twitter = twitter.startsWith('@') ? twitter.slice(1) : twitter
 
-            return (
-              <div
-                key={user}
-                className="border-4 border-white border-opacity-50 p-4 rounded-xl m-2 break-inside"
-              >
-                <div className="mb-2">
-                  <Link href={`/${user}`}>
-                    <a className="md:text-3xl text-2xl font-bold leading-tight text-white hover:underline flex flex-row-reverse items-center justify-between">
-                      <img
-                        className="rounded-full h-12 mr-2"
-                        src={`https://github.com/${user}.png`}
-                        alt=""
-                      />
-                      <h2>{author ? author : user}</h2>
-                    </a>
-                  </Link>
-                  {twitter && (
-                    <a
-                      className="hover:underline"
-                      href={`https://twitter.com/${twitter}`}
-                    >
-                      @{twitter}
-                    </a>
-                  )}
-                </div>
-                {scripts.map(({command, url, title, description}) => {
-                  return (
-                    <div key={url} className="py-4">
-                      <Link href={`/${user}/${command}`}>
-                        <a className="md:text-2xl text-xl font-semibold leading-tight text-yellow-300 hover:underline">
-                          <h2>{title}</h2>
-                        </a>
-                      </Link>
-                      {description && <div>{description}</div>}
-                    </div>
-                  )
-                })}
-              </div>
+            const UserLink: React.FC<{className?: string}> = ({
+              className,
+              children,
+            }) => (
+              <Link href={`/${user}`}>
+                <a className={className}>{children}</a>
+              </Link>
             )
-            // return script.extension === Extension.md ? (
-            //   <ScriptMarkdown script={script} />
-            // ) : (
-            //   <ScriptCard key={script.user + script.command} script={script} />
-            // )
+
+            return (
+              <article
+                key={user}
+                className="bg-gray-900 mb-5 rounded-md overflow-hidden"
+              >
+                <header className="sm:px-5 px-4 py-3 bg-gray-800 flex items-center">
+                  <UserLink className="flex items-center justify-center sm:w-auto w-12 overflow-hidden rounded-full hover:border-yellow-500 border border-transparent">
+                    <Image
+                      width={64}
+                      height={64}
+                      className="rounded-full"
+                      src={`https://github.com/${user}.png`}
+                      alt={user}
+                    />
+                  </UserLink>
+                  <div className="pl-3 flex flex-col justify-center">
+                    <UserLink className="sm:text-xl text-lg leading-none font-medium hover:underline">
+                      <h2>{author ? author : user}</h2>
+                    </UserLink>
+                    {twitter && (
+                      <a
+                        className="sm:text-sm text-xs opacity-60 hover:underline"
+                        href={`https://twitter.com/${twitter}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        @{twitter}
+                      </a>
+                    )}
+                  </div>
+                </header>
+                <ul className="py-2">
+                  {scripts.map(({command, url, title, description}) => {
+                    return (
+                      <li
+                        key={url}
+                        className="relative flex items-center bg-gray-900 hover:bg-gray-800 transition-all ease-in-out duration-150"
+                      >
+                        <Link href={`/${user}/${command}`}>
+                          <a className="w-full flex flex-col px-5 py-3">
+                            <h3 className="font-medium sm:text-lg text-base">
+                              {title}
+                            </h3>
+                            {description && (
+                              <p className="sm:text-sm text-xs opacity-70 sm:leading-tight leading-tighter">
+                                {description}
+                              </p>
+                            )}
+                          </a>
+                        </Link>
+                        <InstallScriptButton
+                          name={command}
+                          url={url}
+                          className="absolute right-5 sm:flex hidden"
+                        />
+                      </li>
+                    )
+                  })}
+                </ul>
+              </article>
+            )
           })}
         </main>
       </div>
@@ -97,6 +114,6 @@ export async function getStaticProps(context: any) {
   const userScripts = await getAllScriptsGroupedByUser()
 
   return {
-    props: {userScripts}, // will be passed to the page component as props
+    props: {userScripts},
   }
 }

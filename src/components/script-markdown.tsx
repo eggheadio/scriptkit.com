@@ -1,9 +1,7 @@
 import * as React from 'react'
-import Link from 'components/link'
 import ReactMarkdown from 'react-markdown'
 import {Language} from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
-
 import CodeBlock from 'components/code-block'
 import rehypeRaw from 'rehype-raw'
 import {LoadedScript} from 'utils/types'
@@ -16,19 +14,12 @@ const ScriptMarkdown = ({
   script: {author, url, command, title, content, user},
 }: DiscussionPostProps) => (
   <div key={author + command} className="break-inside break-words">
-    <div className="mb-4">
-      <Link href={`/${user}/${command}`}>
-        <a className="md:text-3xl text-2xl font-bold leading-tight text-white hover:underline flex flex-row">
-          <h2>{title}</h2>
-        </a>
-      </Link>
-    </div>
-
     <ReactMarkdown
+      className="prose"
       children={content}
       rehypePlugins={[rehypeRaw]}
       components={{
-        p({children}) {
+        p({children}: any) {
           const c = String(children)
 
           if (c.startsWith('http') && c.endsWith('.mp4')) {
@@ -44,14 +35,12 @@ const ScriptMarkdown = ({
         code({node, inline, className, children, ...props}: any) {
           const match = /language-(\w+)/.exec(className || '')
           return !inline && match ? (
-            <div className="border border-white border-opacity-10 rounded-md my-8">
-              <CodeBlock
-                value={String(children).replace(/\n$/, '')}
-                // @ts-ignore
-                theme={theme}
-                language={match[1] as Language}
-              />
-            </div>
+            <CodeBlock
+              value={String(children).replace(/\n$/, '')}
+              // @ts-ignore
+              theme={theme}
+              language={match[1] as Language}
+            />
           ) : (
             <code className="inline-code" {...props}>
               {children}
@@ -60,9 +49,6 @@ const ScriptMarkdown = ({
         },
       }}
     />
-    <section className="max-w-screen-lg mx-auto flex flex-col justify-end items-end">
-      <a href={url}>Discuss Post</a>
-    </section>
   </div>
 )
 

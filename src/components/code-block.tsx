@@ -24,7 +24,7 @@ const CodeBlock: FunctionComponent<CodeBlockProps> = ({
         theme={theme}
       >
         {({className, tokens, getLineProps, getTokenProps}) => (
-          <pre className={`${className}  h-full`}>
+          <div className={`${className} h-full`}>
             <SimpleBar className="h-full z-0 ">
               <div className="px-5">
                 {tokens.map((line, i) => (
@@ -39,7 +39,7 @@ const CodeBlock: FunctionComponent<CodeBlockProps> = ({
                 ))}
               </div>
             </SimpleBar>
-          </pre>
+          </div>
         )}
       </Highlight>
     </div>

@@ -27,7 +27,7 @@ const Footer = () => {
         >
           <GitHubIcon />
           <span className="hidden pl-1 text-sm font-medium leading-snug sm:block">
-            View on GitHub
+            GitHub
           </span>
         </a>
       </div>
