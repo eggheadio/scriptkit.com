@@ -20,7 +20,6 @@ export default function Meta(props: MetaProps) {
   const {user, title, twitter = 'johnlindquist', description} = query
 
   const router = useRouter()
-  console.log(router)
 
   let opengraphImage = `${
     process.env.NEXT_PUBLIC_VERCEL_URL
