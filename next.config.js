@@ -2,7 +2,7 @@ const withPlugins = require('next-compose-plugins')
 const withMDX = require('@next/mdx')()
 const withSvgr = require('next-svgr')
 
-const IMAGE_HOST_DOMAINS = [`res.cloudinary.com`]
+const IMAGE_HOST_DOMAINS = ['res.cloudinary.com', 'github.com']
 
 const nextConfig = {
   webpack5: true,

@@ -1,8 +1,7 @@
 import * as React from 'react'
 import Link from 'components/link'
 import Logo from 'images/logo.svg'
-import {Fragment} from 'react'
-import {Disclosure, Menu, Transition} from '@headlessui/react'
+import {Disclosure} from '@headlessui/react'
 import {MenuIcon, XIcon} from '@heroicons/react/outline'
 
 const navigation = [
@@ -19,23 +18,29 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-function Navigation() {
+type NavigationProps = {
+  className?: string
+}
+
+function Navigation({className = ''}: NavigationProps) {
   return (
     <Disclosure as="nav">
       {({open}) => (
-        <>
-          <div className="w-full max-w-screen-lg px-5 py-2 mx-auto font-medium lg:px-0">
+        <div className={className}>
+          <div className="w-full max-w-screen-lg px-5 py-2 mx-auto lg:px-0">
             <div className="relative flex items-center justify-between h-16">
               <Link href="/">
                 <a className="flex items-center">
-                  <div className="flex items-center justify-center w-10 h-10 font-bold tracking-tighter text-black rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300">
+                  <div className="flex items-center justify-center w-10 h-10 tracking-tighter text-black rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300">
                     <Logo />
                   </div>
                   <div className="pl-2">
-                    <div className="text-lg font-bold leading-tighter">
+                    <div className="text-lg font-semibold leading-none">
                       Script Kit
                     </div>
-                    <div className="text-sm opacity-80">by John Lindquist</div>
+                    <div className="text-sm opacity-80 leading-none">
+                      by John Lindquist
+                    </div>
                   </div>
                 </a>
               </Link>
@@ -60,8 +65,8 @@ function Navigation() {
                         className={classNames(
                           item.current
                             ? 'bg-gray-900 text-white'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-md font-medium leading-tighter tracking-tight',
+                            : 'text-gray-200 hover:bg-gray-800 hover:text-white',
+                          'px-3 py-2 rounded-md text-[0.9em] leading-tighter transition-all ease-in-out duration-150',
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -74,7 +79,7 @@ function Navigation() {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
+          <Disclosure.Panel className="sm:hidden bg-gray-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <a
@@ -83,8 +88,8 @@ function Navigation() {
                   className={classNames(
                     item.current
                       ? 'bg-gray-900 text-white'
-                      : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium',
+                      : 'text-gray-200 hover:bg-gray-700 hover:text-white',
+                    'block px-3 py-2 rounded-md text-sm',
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
@@ -93,7 +98,7 @@ function Navigation() {
               ))}
             </div>
           </Disclosure.Panel>
-        </>
+        </div>
       )}
     </Disclosure>
   )

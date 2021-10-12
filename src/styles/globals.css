@@ -7,7 +7,7 @@
 @import './fonts/index.css';
 
 ::selection {
-  @apply bg-yellow-300 text-black;
+  @apply bg-yellow-400 text-yellow-900;
 }
 
 .simplebar-scrollbar:before {
@@ -66,10 +66,10 @@
   a {
     @apply hover:underline text-yellow-300;
   }
+}
 
-  .inline-code {
-    @apply font-mono bg-yellow-500 bg-opacity-10 py-1 rounded-md text-yellow-300 px-2 ml-2;
-  }
+.inline-code {
+  @apply font-mono bg-white bg-opacity-10 px-1 py-0.5 rounded-sm text-yellow-300;
 }
 
 /* .masonry {
@@ -135,9 +135,29 @@
     bottom: 5px;
   }
 }
-a {
-  @apply hover:underline;
+
+.gg-play-button {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 22px;
+  height: 22px;
 }
+.gg-play-button::before {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 0;
+  height: 10px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid;
+  top: 6px;
+  left: 9px;
+}
+
 p > a {
   @apply text-yellow-300;
 }

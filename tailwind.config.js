@@ -24,7 +24,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            '*': {
+            '*, code, strong, blockquote': {
               color: theme('colors.gray.200'),
             },
             a: {
@@ -34,12 +34,14 @@ module.exports = {
             'a:hover': {
               textDecoration: 'underline',
             },
-            code: {
-              background: theme('colors.yellow.200'),
-              fontWeight: 'bold',
-              padding: '2px 5px',
-              borderRadius: 3,
-              fontSize: '90%',
+            'code:before': {
+              content: '""',
+            },
+            'code:after': {
+              content: '""',
+            },
+            pre: {
+              background: theme('colors.gray.900'),
             },
           },
         },

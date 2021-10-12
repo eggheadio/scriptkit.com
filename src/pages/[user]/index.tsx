@@ -3,11 +3,11 @@ import {getAllUsers, getScriptsByUser} from 'utils/get-user-scripts'
 import _ from 'lodash'
 import ScriptCard from 'components/pages/scripts/card'
 import Layout from 'layouts'
-import {NextSeo} from 'next-seo'
-
-import ScriptMarkdown from 'components/script-markdown'
+import Image from 'next/image'
 import Meta from 'components/meta'
-import {Extension, LoadedScript} from 'utils/types'
+import {LoadedScript} from 'utils/types'
+import Link from 'components/link'
+import TwitterIcon from '../../../public/assets/icons/twitter.svg'
 
 interface UserProps {
   scripts: LoadedScript[]
@@ -20,40 +20,59 @@ export default function User({user, scripts}: UserProps) {
   let twitter = scripts.find((s: LoadedScript) => s.twitter)?.twitter || ''
   twitter = twitter.startsWith('@') ? twitter.slice(1) : twitter
 
-  return (
-    <Layout>
-      <Meta author={author} user={user} title={title} />
+  const Breadcrumb = () => (
+    <nav className="font-mono text-xs pb-1">
+      <Link href="/scripts">
+        <a className="text-yellow-400 hover:underline">Scripts</a>
+      </Link>{' '}
+      /{' '}
+    </nav>
+  )
 
-      <div className="pb-8 max-w-screen-lg mx-auto">
-        <header className="flex md:flex-row flex-col-reverse w-full md:items-center justify-between pb-8">
-          <div className="md:pt-0 pt-4 flex flex-col">
-            <div className="flex flex-row items-center justify-center">
-              <img
-                className="rounded-full h-8 mr-4"
+  return (
+    <Layout navClassName="bg-gray-900" className="overflow-hidden">
+      <Meta author={author} user={user} title={title} />
+      <header className="-m-5 sm:pt-20 pt-12 pb-6 px-5 bg-gray-900 relative">
+        <div className="max-w-screen-lg mx-auto w-full flex md:flex-row md:items-center flex-col justify-between">
+          <div className="pb-8">
+            <div className="flex items-center">
+              <Image
+                className="rounded-full"
+                width={80}
+                height={80}
                 src={`https://github.com/${user}.png`}
-                alt=""
+                alt={author ? author : user}
               />
-              <h2 className="text-4xl font-bold ">
-                Scripts by {author ? author : user}
-              </h2>
+              <div className="pl-3">
+                <Breadcrumb />
+                <h1 className="md:text-4xl sm:text-3xl text-2xl">{title}</h1>
+              </div>
             </div>
-            {twitter && (
-              <a href={`https://twitter.com/${twitter}`} className="">
-                @{twitter}
-              </a>
-            )}
           </div>
-        </header>
-        <main className={`masonry-1 ${scripts.length > 1 && 'md:masonry-2'}`}>
-          {scripts.map((script: LoadedScript) => {
-            return script.extension === Extension.md ? (
-              <ScriptMarkdown key={script.url} script={script} />
-            ) : (
-              <ScriptCard key={script.url} script={script} />
-            )
-          })}
-        </main>
-      </div>
+          {twitter && (
+            <div>
+              <a
+                href={`https://twitter.com/${twitter}`}
+                className="flex items-center hover:text-yellow-500 text-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TwitterIcon className="mr-1" />
+                {twitter}
+              </a>
+            </div>
+          )}
+        </div>
+        <div
+          aria-hidden
+          className="absolute right-0 bottom-0 bg-black h-5 w-2/5 skew-x-[-30deg]"
+        />
+      </header>
+      <main className="w-full max-w-screen-lg mx-auto pt-16 grid md:grid-cols-2 grid-cols-1 gap-5">
+        {scripts.map((script: LoadedScript) => (
+          <ScriptCard key={script.url} script={script} />
+        ))}
+      </main>
     </Layout>
   )
 }
