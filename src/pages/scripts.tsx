@@ -16,13 +16,13 @@ export default function AllScripts({userScripts}: AllScriptProps) {
     <Layout>
       <Meta title={`Community Scripts`} />
 
-      <div className="pb-8 max-w-screen-md w-full mx-auto">
+      <div className="pb-8 max-w-screen-lg w-full mx-auto">
         <header className="pb-28 pt-12">
           <h1 className="text-center sm:text-4xl text-3xl font-semibold leading-tighter">
             Community Scripts
           </h1>
         </header>
-        <main>
+        <main className="md:masonry-2 xl:masonry-3">
           {Object.entries(userScripts).map(([, scripts]) => {
             const {user} = scripts[0]
 
@@ -45,7 +45,7 @@ export default function AllScripts({userScripts}: AllScriptProps) {
             return (
               <article
                 key={user}
-                className="bg-gray-900 mb-5 rounded-md overflow-hidden"
+                className="bg-gray-900 mb-5 rounded-md break-inside"
               >
                 <header className="sm:px-5 px-4 py-3 bg-gray-800 flex items-center">
                   <UserLink className="flex items-center justify-center sm:w-auto w-12 overflow-hidden rounded-full hover:border-yellow-500 border border-transparent">
@@ -81,7 +81,7 @@ export default function AllScripts({userScripts}: AllScriptProps) {
                         className="relative flex items-center bg-gray-900 hover:bg-gray-800 transition-all ease-in-out duration-150"
                       >
                         <Link href={`/${user}/${command}`}>
-                          <a className="w-full flex flex-col px-5 py-3">
+                          <a className="w-11/12 flex flex-col px-5 py-3">
                             <h3 className="font-medium sm:text-lg text-base">
                               {title}
                             </h3>
@@ -92,6 +92,7 @@ export default function AllScripts({userScripts}: AllScriptProps) {
                             )}
                           </a>
                         </Link>
+
                         <InstallScriptButton
                           name={command}
                           url={url}

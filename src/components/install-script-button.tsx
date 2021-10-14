@@ -7,6 +7,7 @@ const InstallScriptButton: React.FC<{
   className?: string
   expanded?: boolean
 }> = ({name, url, className = '', expanded = false}) => {
+  if (!Boolean(url)) return <p />
   return (
     <div className={className}>
       <a

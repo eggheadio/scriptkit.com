@@ -16,6 +16,7 @@ export interface LoadedScript extends Partial<ScriptMetadata> {
   user: string
   content: string
   url: string
+  discussion: string
   extension: Extension
 
   github?: string
@@ -73,6 +74,7 @@ for await (let repo of repos) {
       title: metadata?.menu || command,
       command,
       content,
+      discussion: '',
       ...metadata,
 
       extension: path.extname(file) as Extension,

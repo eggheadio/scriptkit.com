@@ -24,7 +24,7 @@ const Doc: FunctionComponent<DiscussionProps> = ({discussion}) => {
 export async function getStaticProps(context: any) {
   const {params} = context
   const {slug} = params
-  const discussion = await getDiscussionBySlug(Category.Docs, slug)
+  const discussion = await getDiscussionBySlug(Category.Guide, slug)
 
   return {
     props: {
@@ -34,7 +34,7 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-  return await getDiscussionPaths(Category.Docs, Login.johnlindquist)
+  return await getDiscussionPaths(Category.Guide, Login.johnlindquist)
 }
 
 export default Doc

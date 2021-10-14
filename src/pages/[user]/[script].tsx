@@ -14,7 +14,8 @@ import CommentIcon from '../../../public/assets/icons/comment.svg'
 const ScriptComponent: FunctionComponent<{
   script: LoadedScript
 }> = ({script}) => {
-  const {user, title, twitter, author, command, url, extension} = script
+  const {user, title, twitter, author, command, url, extension, discussion} =
+    script
 
   const Breadcrumb = () => (
     <nav className="font-mono text-xs pb-1">
@@ -62,15 +63,18 @@ const ScriptComponent: FunctionComponent<{
                 <span className="pl-1">{author ? author : user}</span>
               </a>
             </Link>
-            <a
-              className="flex items-center hover:text-yellow-400 px-3 py-2"
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <CommentIcon className="mr-1" />
-              View on GitHub
-            </a>
+            {discussion && (
+              <a
+                className="flex items-center hover:text-yellow-400 px-3 py-2"
+                href={discussion}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <CommentIcon className="mr-1" />
+                View on GitHub
+              </a>
+            )}
+
             {/* TODO: Implement sharing feature */}
             {/* <a
               className="flex items-center hover:text-yellow-400"
