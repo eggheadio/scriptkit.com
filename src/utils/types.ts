@@ -13,6 +13,7 @@ export interface LoadedScript extends Partial<ScriptMetadata> {
   user: string
   content: string
   url: string
+  discussion: string
   extension: Extension
 
   github?: string

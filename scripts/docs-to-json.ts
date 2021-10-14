@@ -7,7 +7,7 @@ let run = async () => {
   console.log({getDiscussions})
 
   let jsonfile = await npm('jsonfile')
-  let docs = await getDiscussions(Category.Docs)
+  let docs = await getDiscussions(Category.Guide)
   let outfile = path.resolve(`./public/data/docs.json`)
   await jsonfile.writeFile(outfile, docs)
 

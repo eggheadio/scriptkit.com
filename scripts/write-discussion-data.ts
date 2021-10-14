@@ -8,7 +8,7 @@ import {Extension, LoadedScript} from '../src/utils/types'
 
 export enum Category {
   Announcements = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',
-  Docs = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODc5NjIx',
+  Guide = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODc5NjIx',
   Share = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw',
 }
 
@@ -78,7 +78,9 @@ let discussions: Discussion[] = response.repository.discussions.nodes.map(
 )
 
 let loadedScripts: LoadedScript[] = discussions.map(
-  ({author, body, createdAt, id, slug, title, url}) => {
+  ({author, body, createdAt, id, slug, title, url: discussion}) => {
+    let url =
+      body.match(/(?<=Install.*)https:\/\/gist.*js(?=\"|\))/gim)?.[0] || ''
     let metadata = getMetadata(body)
     return {
       ...metadata,
@@ -86,6 +88,7 @@ let loadedScripts: LoadedScript[] = discussions.map(
       user: author.login,
       author: author.name,
       twitter: author.twitterUsername,
+      discussion,
       url,
       title,
       command: slug,
