@@ -10,6 +10,7 @@ export enum Category {
   Announcements = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',
   Guide = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODc5NjIx',
   Share = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw',
+  Docs = 'DIC_kwDOEu7MBc4B_u-c',
 }
 
 let endpoint = 'https://api.github.com/graphql'
