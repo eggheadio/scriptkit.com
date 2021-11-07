@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "yarn share-data && yarn guide-data && yarn announcements-data",
+    "prebuild": "yarn docs-data && yarn share-data && yarn guide-data && yarn announcements-data",
     "build": "NODE_ENV=production next build",
     "postbuild": "NODE_ENV=production next-sitemap",
     "start": "next start",
@@ -18,6 +18,7 @@
     "write-discussion-data": "kit write-discussion-data",
     "share-data": "yarn write-discussion-data Share",
     "guide-data": "yarn write-discussion-data Guide",
+    "docs-data": "yarn write-discussion-data Docs",
     "announcements-data": "yarn write-discussion-data Announcements",
     "write-repo-scripts-data": "kit write-repo-scripts-data"
   },
