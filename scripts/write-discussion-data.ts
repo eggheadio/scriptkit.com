@@ -85,7 +85,7 @@ let loadedScripts: LoadedScript[] = discussions.map(
       body.match(/(?<=Install.*)https:\/\/gist.*js(?=\"|\))/gim)?.[0] || ''
     let metadata = getMetadata(body)
 
-    let [, dir, file] = body.match(/(?<=<meta path=")(\w+)\/(\w+)(?=")/) || [
+    let [, dir, file] = body.match(/(?<=<meta path=")(.*)\/(.*)(?=")/) || [
       null,
       '',
       '',
