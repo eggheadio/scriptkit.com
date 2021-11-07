@@ -19,6 +19,7 @@ const categoryKey: keyof Category = await arg<keyof Category>(
   'Category',
   Object.keys(Category),
 )
+
 let category = {
   name: categoryKey as string,
   value: (Category as any)[categoryKey] as string,
@@ -83,6 +84,12 @@ let loadedScripts: LoadedScript[] = discussions.map(
     let url =
       body.match(/(?<=Install.*)https:\/\/gist.*js(?=\"|\))/gim)?.[0] || ''
     let metadata = getMetadata(body)
+
+    let [, dir, file] = body.match(/(?<=<meta path=")(\w+)\/(\w+)(?=")/) || [
+      null,
+      '',
+      '',
+    ]
     return {
       ...metadata,
       avatar: author.avatarUrl,
@@ -95,6 +102,8 @@ let loadedScripts: LoadedScript[] = discussions.map(
       command: slug,
       content: body,
       extension: Extension.md,
+      dir,
+      file,
     }
   },
 )
