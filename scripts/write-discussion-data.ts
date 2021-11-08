@@ -91,18 +91,18 @@ let loadedScripts: LoadedScript[] = discussions.map(
       '',
     ]
 
-    let snippets = [...body.matchAll(/(`{3}js)(.{5,}?)(`{3})/gs)]
-
     let content = body
-
     let prevLength = 0
-    for (let s of snippets) {
-      let c = Buffer.from(s[2]).toString('base64url')
-      let link = `\n\n[Create script from example below](kit:snippet?content=${c})\n`
 
-      let index = s.index + prevLength
-      content = [content.slice(0, index), link, content.slice(index)].join('')
-      prevLength += link.length
+    for (let s of body.matchAll(/(`{3}js)(.{5,}?)(`{3})/gs)) {
+      if (s[2] && s.index) {
+        let c = Buffer.from(s[2]).toString('base64url')
+        let link = `\n\n[Create script from example below](kit:snippet?content=${c})\n`
+
+        let index = s.index + prevLength
+        content = [content.slice(0, index), link, content.slice(index)].join('')
+        prevLength += link.length
+      }
     }
 
     return {
