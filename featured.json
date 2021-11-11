@@ -14,5 +14,13 @@
   {
     "user": "johnlindquist",
     "command": "reddit"
+  },
+  {
+    "user": "johnlindquist",
+    "command": "book-search"
+  },
+  {
+    "user": "johnlindquist",
+    "command": "app-launcher"
   }
 ]
