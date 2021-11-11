@@ -73,14 +73,14 @@ const Home: FunctionComponent<HomeProps> = ({
           <div className="w-full flex flex-col items-center justify-center text-center space-y-1">
             <div className="sm:pb-32 pb-24 pt-8">
               <h1 className="lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight leading-tighter">
-                Shortcut for Everything
+                Shortcut to Everything
                 <sup className="px-2 py-1 rounded-full bg-indigo-500 text-xs font-bold tracking-normal font-mono inline-flex transform sm:-translate-y-6 -translate-y-4 ml-1">
                   beta
                 </sup>
               </h1>
 
               <h2 className="sm:text-xl text-lg opacity-80 font-light pt-2 leading-tight md:max-w-none max-w-xs mx-auto">
-                Automate your daily workflows as a professional developer
+                An open-source kit to optimize your developer workflow
               </h2>
             </div>
             <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex items-center justify-center p-5 pb-0 rounded-lg max-w-screen-md">
