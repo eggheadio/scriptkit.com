@@ -51,12 +51,12 @@ const features = [
 
 const Infographics = () => {
   return (
-    <section className="flex flex-col space-y-10">
+    <section className="flex flex-col space-y-24">
       {features.map(({title, description, image}, i) => {
         return (
           <div
             key={title}
-            className={`flex md:flex-row flex-col items-center md:space-x-14 md:space-y-0 space-y-8 ${classNames(
+            className={`flex md:flex-row flex-col-reverse items-center md:space-x-14 ${classNames(
               {
                 'md:flex-row-reverse': i % 2,
               },
@@ -65,7 +65,7 @@ const Infographics = () => {
             <figure className="max-w-xl flex items-center justify-center">
               <Image placeholder="blur" quality={100} src={image} alt="" />
             </figure>
-            <div className="md:text-left text-center">
+            <div className="md:text-left text-center md:pb-0 pb-4">
               <h4 className="md:text-3xl text-2xl leading-tighter font-semibold">
                 {title}
               </h4>

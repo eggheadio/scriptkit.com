@@ -13,8 +13,8 @@ const DownloadKitApp: React.FC<{
   ]
   return (
     <div className="relative">
-      <div className="flex md:flex-row flex-col px-2 md:py-2 py-8 md:rounded-full sm:rounded-lg rounded-b-lg md:translate-y-0 -translate-y-5 bg-white text-black items-center md:justify-between justify-center md:space-y-0 space-y-4">
-        <div className="flex items-center md:pl-5 leading-tight font-medium">
+      <div className="flex md:flex-row flex-col px-2 md:py-2 py-8 md:rounded-lg sm:rounded-lg rounded-b-lg md:translate-y-0 -translate-y-5 sm:bg-white bg-black sm:text-black items-center md:justify-between justify-center md:space-y-0 space-y-4">
+        <div className="flex items-center md:pl-3 leading-tight font-medium">
           Download Kit.app beta for macOS:
         </div>
         <div className="flex items-center space-x-2">
@@ -24,7 +24,7 @@ const DownloadKitApp: React.FC<{
                 <a
                   onMouseOver={() => setIsHovered(release.name)}
                   onMouseOut={() => setIsHovered('')}
-                  className="flex items-center rounded-full px-5 pl-4 py-4 leading-none bg-gradient-to-tr from-purple-500 via-pink-500 to-pink-500 text-white relative z-10 hover:-translate-y-1 transition-all ease-in-out duration-200"
+                  className="flex items-center rounded-lg px-5 pl-4 py-3 leading-none bg-gradient-to-tr from-purple-500 via-pink-500 to-pink-500 text-white relative z-10 hover:-translate-y-1 transition-all ease-in-out duration-200"
                   href={release?.browser_download_url}
                   onMouseUp={(e) => {
                     e.preventDefault()
@@ -34,7 +34,7 @@ const DownloadKitApp: React.FC<{
                   <DownloadIcon className="flex-shrink-0" width={16} />
                   <span className="pl-1">{release.label}</span>
                 </a>
-                <div className="absolute w-full h-full translate-y-1 bg-gradient-to-tr from-purple-600 via-pink-600 to-pink-600 left-0 rounded-full z-0 transition-all ease-in-out" />
+                <div className="absolute w-full h-full translate-y-1 bg-gradient-to-tr from-purple-600 via-pink-600 to-pink-600 left-0 rounded-lg z-0 transition-all ease-in-out" />
               </div>
             )
           })}
