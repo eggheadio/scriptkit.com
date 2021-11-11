@@ -51,6 +51,11 @@
   animation-iteration-count: infinite;
 }
 
+.bg-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 .discussion {
   h1 {
     @apply text-3xl font-bold mb-4;

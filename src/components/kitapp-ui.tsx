@@ -15,7 +15,7 @@ const KitAppUI: React.FC<Props> = ({scripts}) => {
   const [hovered, setHovered] = React.useState<string>('')
 
   return (
-    <div className="flex flex-col text-left h-full max-h-[400px] backdrop-blur-md bg-opacity-[85%] bg-black border border-white border-opacity-5 rounded-lg flex-grow">
+    <div className="bg-blur flex flex-col text-left h-full max-h-[400px] bg-opacity-[85%] bg-black border border-white border-opacity-5 rounded-lg flex-grow">
       <header className="border-b border-white border-opacity-5">
         {/* top-bar */}
         <div className="text-[0.6rem] uppercase font-mono p-3 pb-2 flex items-center justify-between">
