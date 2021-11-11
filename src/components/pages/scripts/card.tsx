@@ -19,7 +19,7 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
   script,
   withAuthor = true,
 }) => {
-  console.log(script.content)
+  // console.log(script.content)
   return (
     <article className="rounded-lg overflow-hidden flex flex-col max-h-[500px] min-h-[500px] bg-gray-900">
       <header className=" relative">

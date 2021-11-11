@@ -24,9 +24,9 @@ const CodeBlock: FunctionComponent<CodeBlockProps> = ({
         theme={theme}
       >
         {({className, tokens, getLineProps, getTokenProps}) => (
-          <div className={`${className} h-full`}>
-            <SimpleBar className="h-full z-0 ">
-              <div className="px-5">
+          <div className={`${className} h-full `}>
+            <SimpleBar className="h-full whitespace-pre">
+              <div className="p-3">
                 {tokens.map((line, i) => (
                   <div
                     {...getLineProps({line, key: i})}
