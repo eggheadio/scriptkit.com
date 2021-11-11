@@ -12,7 +12,7 @@ type LayoutProps = {
 
 const DefaultLayout: FunctionComponent<LayoutProps> = ({
   children,
-  className,
+  className = '',
   withFooter = true,
   navClassName = '',
   meta,
@@ -33,7 +33,7 @@ const DefaultLayout: FunctionComponent<LayoutProps> = ({
       />
       <div className="flex flex-col min-h-screen">
         <Navigation className={navClassName} />
-        <div className={`p-5 flex-grow ${className}`}>{children}</div>
+        <div className={`flex-grow ${className}`}>{children}</div>
         {withFooter && <Footer />}
       </div>
     </>

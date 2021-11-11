@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
-import Image from 'next/image'
+import Lottie from 'react-lottie'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {readFileSync} from 'fs'
@@ -13,11 +13,19 @@ import {
   getLatestRelease,
 } from 'utils/get-user-scripts'
 import {LoadedScript} from 'utils/types'
+import KitAppUI from 'components/kitapp-ui'
+import DownloadKitApp from 'components/download-kitapp'
+import HeroAnimation from '../../public/assets/particles.json'
+
+export type Release = {
+  name: string
+  browser_download_url: string
+}
 
 type HomeProps = {
   featuredScripts: LoadedScript[]
-  release: {name: string; browser_download_url: string}
-  appleSiliconRelease: {name: string; browser_download_url: string}
+  macIntelRelease: Release
+  macSilliconRelease: Release
 }
 
 const links = [
@@ -49,8 +57,8 @@ const links = [
 
 const Home: FunctionComponent<HomeProps> = ({
   featuredScripts,
-  release,
-  appleSiliconRelease,
+  macIntelRelease,
+  macSilliconRelease,
 }) => {
   const router = useRouter()
   let [origin, setOrigin] = React.useState('')
@@ -62,65 +70,45 @@ const Home: FunctionComponent<HomeProps> = ({
     <Layout>
       <header className="sm:pt-10 pt-2 pb-10">
         <div className="flex items-center justify-center">
-          <div className="flex flex-col items-center justify-center text-center space-y-1">
-            <div className="relative flex">
-              {/* <AnimatedHeaderImage /> */}
-              <Image
-                src="/scriptkit@2x.png"
-                width={2408 / 4.3}
-                height={1540 / 4.3}
-                quality={100}
-                priority={true}
-              />
-              <div className="sm:block hidden absolute w-px h-4 top-11 left-3 z-10 bg-white animate-blink duration-75" />
-            </div>
-            <div className="sm:pt-14 pt-8">
-              <h1 className="sm:text-6xl text-5xl font-bold tracking-tight leading-tighter">
-                Automation for Developers
+          <div className="w-full flex flex-col items-center justify-center text-center space-y-1">
+            <div className="sm:pb-32 pb-24 pt-8">
+              <h1 className="lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight leading-tighter">
+                Shortcut for Everything
                 <sup className="px-2 py-1 rounded-full bg-indigo-500 text-xs font-bold tracking-normal font-mono inline-flex transform sm:-translate-y-6 -translate-y-4 ml-1">
                   beta
                 </sup>
               </h1>
-              <h2 className="sm:text-2xl text-xl opacity-90 font-light pt-1 leading-tighter">
-                <span>Making scripts easy to run, write, and share</span>{' '}
+
+              <h2 className="sm:text-xl text-lg opacity-80 font-light pt-2 leading-tight md:max-w-none max-w-xs mx-auto">
+                Automate your daily workflows as a professional developer
               </h2>
             </div>
-          </div>
-        </div>
-        <div className="flex items-center justify-center w-full pt-8 flex-wrap">
-          <div className="flex flex-col items-center px-4 pt-4">
-            <a
-              className="flex-col transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-6 pt-4 pb-3 text-lg font-bold leading-tighter"
-              href={release?.browser_download_url}
-              onMouseUp={(e) => {
-                e.preventDefault()
-                fetch('/api/update-twitter-count')
-              }}
-            >
-              Download Kit.app beta for Mac
-              <p className="text-sm">(Intel)</p>
-            </a>
-            <div className="pt-4 text-sm opacity-80">{release?.name}</div>
-          </div>
-          <div className="flex flex-col items-center px-4 pt-4">
-            <a
-              className="flex-col transform hover:scale-105 ease-in-out duration-200 transition-all inline-flex items-center justify-center rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300 text-black px-6 pt-4 pb-3 text-lg font-bold leading-tighter"
-              href={appleSiliconRelease?.browser_download_url}
-              onMouseUp={(e) => {
-                e.preventDefault()
-                fetch('/api/update-twitter-count')
-              }}
-            >
-              Download Kit.app beta for Mac
-              <p className="text-sm">(Apple Silicon)</p>
-            </a>
-            <div className="pt-4 text-sm opacity-80">
-              {appleSiliconRelease?.name}
+            <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex items-center justify-center p-5 pb-0 rounded-lg max-w-screen-md">
+              <div className="max-w-screen-sm h-full flex w-full relative z-20 md:-translate-y-24 -translate-y-20 shadow-xl">
+                <KitAppUI scripts={featuredScripts} />
+              </div>
+              <div className="absolute left-0 top-0 w-full h-full opacity-50 mix-blend-overlay pointer-events-none">
+                <Lottie
+                  speed={0.1}
+                  options={{
+                    animationData: HeroAnimation,
+                    rendererSettings: {
+                      preserveAspectRatio: 'xMidYMid slice',
+                    },
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
+        <div className="max-w-xl mx-auto w-full -translate-y-8">
+          <DownloadKitApp
+            macIntelRelease={macIntelRelease}
+            macSilliconRelease={macSilliconRelease}
+          />
+        </div>
       </header>
-      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-32 py-16 w-full">
+      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-32 w-full px-5">
         <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
           <div>
             <h2 className="text-3xl font-bold">What is Script Kit?</h2>
@@ -208,7 +196,7 @@ const Home: FunctionComponent<HomeProps> = ({
                       <Link href={link.url}>
                         <a
                           target="_blank"
-                          className="group bg-gradient-to-l from-transparent to-transparent hover:from-gray-900 bg-opacity-5 flex sm:py-5 py-4 pl-6 text-lg border-b border-white border-opacity-10 relative transition-all ease-in-out duration-300"
+                          className="group bg-gradient-to-l from-transparent to-transparent hover:from-gray-900 bg-opacity-5 flex sm:py-4 py-3 pl-6 text-lg border-b border-white border-opacity-10 relative transition-all ease-in-out duration-300"
                         >
                           <span className="absolute left-0 pr-3 transform group-hover:text-transparent text-yellow-300 group-hover:translate-x-2 -translate-x-0 transition-all duration-200 ease-in-out">
                             ▪︎
@@ -226,7 +214,7 @@ const Home: FunctionComponent<HomeProps> = ({
           </div>
         </div>
       </main>
-      <section className="max-w-screen-lg mx-auto">
+      <section className="max-w-screen-lg mx-auto pt-8 px-5">
         {featuredScripts?.length > 0 && (
           <div className="w-full pt-8">
             <h2 className="text-3xl font-bold pb-4">Featured Scripts</h2>
@@ -252,8 +240,8 @@ const Home: FunctionComponent<HomeProps> = ({
 }
 
 export async function getStaticProps(context: any) {
-  const release = await getLatestRelease()
-  const appleSiliconRelease = await getLatestAppleSiliconRelease()
+  const macIntelRelease = await getLatestRelease()
+  const macSilliconRelease = await getLatestAppleSiliconRelease()
 
   const selectedScripts: {user: string; command: string}[] = JSON.parse(
     readFileSync(path.join(process.cwd(), 'featured.json'), 'utf-8'),
@@ -268,7 +256,7 @@ export async function getStaticProps(context: any) {
   })
 
   return {
-    props: {featuredScripts, release, appleSiliconRelease}, // will be passed to the page component as props
+    props: {featuredScripts, macIntelRelease, macSilliconRelease}, // will be passed to the page component as props
   }
 }
 
