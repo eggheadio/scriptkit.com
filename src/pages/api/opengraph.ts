@@ -17,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     height: 630,
   })
 
-  const logo = process.env.NEXT_PUBLIC_VERCEL_URL + '/assets/kit-icon-1.png'
+  const logo = `${process.env.NEXT_PUBLIC_VERCEL_URL}/assets/kit-icon-1.png`
 
   const content = `
 <!DOCTYPE html>
