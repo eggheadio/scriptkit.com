@@ -20,20 +20,16 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
   withAuthor = true,
 }) => {
   return (
-    <article className="rounded-lg overflow-hidden flex flex-col max-h-[500px] min-h-[500px] bg-gray-900">
-      <header className="relative">
+    <article className="rounded-lg overflow-hidden flex flex-col max-h-[500px] min-h-[500px] bg-gray-900 bg-opacity-40">
+      <header className="relative border-b border-black">
         <div>
           <Link href={`/${script.user}/${script.command}`}>
-            <a className="group bg-gray-800 flex flex-col hover:bg-gray-700 hover:bg-opacity-50 transition-all ease-in-out duration-200">
+            <a className="group bg-gray-900 bg-opacity-80 flex flex-col hover:bg-gray-700 hover:bg-opacity-50 transition-all ease-in-out duration-200">
               <div className="flex items-start px-6 pt-6">
                 <div className="flex-grow">
-                  <Link href={`/${script.user}/${script.command}`}>
-                    <a>
-                      <h2 className="md:text-2xl text-xl font-bold leading-tight">
-                        {script.command}
-                      </h2>
-                    </a>
-                  </Link>
+                  <h2 className="md:text-2xl text-xl font-bold leading-tight">
+                    {script.command}
+                  </h2>
                   {withAuthor && (
                     <div className="flex space-x-2 font-xs text-sm opacity-70">
                       {script.author && <div>by {script.author}</div>}
@@ -98,7 +94,7 @@ const ScriptCard: FunctionComponent<ScriptCardProps> = ({
             </ReactMarkdown>
           ) : (
             <CodeBlock
-              className="font-mono py-5 text-sm"
+              className="font-mono pb-5 text-sm"
               value={script.content}
               language="javascript"
               // @ts-ignore

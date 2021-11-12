@@ -20,11 +20,14 @@ const DownloadKitApp: React.FC<{
         <div className="flex items-center space-x-2">
           {releases.map((release) => {
             return (
-              <div className="relative group flex -translate-y-0.5">
+              <div
+                key={release.name}
+                className="relative group flex -translate-y-0.5"
+              >
                 <a
                   onMouseOver={() => setIsHovered(release.name)}
                   onMouseOut={() => setIsHovered('')}
-                  className="flex items-center rounded-lg px-5 pl-4 py-3 leading-none bg-gradient-to-tr from-purple-500 via-pink-500 to-pink-500 text-white relative z-10 hover:-translate-y-1 transition-all ease-in-out duration-200"
+                  className="flex items-center rounded-xl px-5 pl-4 py-3 leading-none bg-gradient-to-tr from-orange-500 via-amber-500 to-yellow-500 text-white relative z-10 hover:-translate-y-1 transition-all ease-in-out duration-200"
                   href={release?.browser_download_url}
                   onMouseUp={(e) => {
                     e.preventDefault()
@@ -34,7 +37,7 @@ const DownloadKitApp: React.FC<{
                   <DownloadIcon className="flex-shrink-0" width={16} />
                   <span className="pl-1">{release.label}</span>
                 </a>
-                <div className="absolute w-full h-full translate-y-1 bg-gradient-to-tr from-purple-600 via-pink-600 to-pink-600 left-0 rounded-lg z-0 transition-all ease-in-out" />
+                <div className="absolute w-full h-full translate-y-1 bg-gradient-to-tr from-orange-600 via-amber-600 to-yellow-600 left-0 rounded-xl z-0 transition-all ease-in-out" />
               </div>
             )
           })}

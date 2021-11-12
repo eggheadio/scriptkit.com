@@ -1,28 +1,27 @@
 import * as React from 'react'
 import Link from 'components/link'
-import Logo from 'images/logo.svg'
+// import Logo from 'images/logo.svg'
 import {Disclosure} from '@headlessui/react'
 import {MenuIcon, XIcon} from '@heroicons/react/outline'
+import classNames from 'classnames'
+import {useRouter} from 'next/router'
+import Logo from './logo'
 
-const navigation = [
-  {name: 'Browse Scripts', href: '/scripts', current: false},
-  {name: 'Blog', href: '/blog', current: false},
+const navItems = [
+  {name: 'Browse Scripts', href: '/scripts'},
+  {name: 'Blog', href: '/blog'},
   {
     name: 'Discuss',
     href: 'https://github.com/johnlindquist/kit/discussions',
-    current: false,
   },
 ]
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 type NavigationProps = {
   className?: string
 }
 
 function Navigation({className = ''}: NavigationProps) {
+  const router = useRouter()
   return (
     <Disclosure as="nav">
       {({open}) => (
@@ -31,7 +30,7 @@ function Navigation({className = ''}: NavigationProps) {
             <div className="relative flex items-center justify-between h-16">
               <Link href="/">
                 <a className="flex items-center">
-                  <div className="flex items-center justify-center w-10 h-10 tracking-tighter text-black rounded-lg bg-gradient-to-t from-amber-400 to-yellow-300">
+                  <div className="flex items-center justify-center w-10 h-10 tracking-tighter text-black">
                     <Logo />
                   </div>
                   <div className="pl-2">
@@ -58,44 +57,54 @@ function Navigation({className = ''}: NavigationProps) {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-end">
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-2">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? 'bg-gray-900 text-white'
-                            : 'text-gray-200 hover:bg-gray-800 hover:text-white',
-                          'px-3 py-2 rounded-md text-[0.9em] leading-tighter transition-all ease-in-out duration-150',
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
+                    {navItems.map((item) => {
+                      const current = router.asPath === item.href
+                      return (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className={`
+                          px-3 py-2 rounded-xl text-[0.95em] leading-tighter transition-all ease-in-out duration-200  
+                          ${classNames({
+                            'bg-gradient-to-t from-gray-900 to-gray-800 text-white hover:bg-gray-800 border border-transparent':
+                              current,
+                            'text-gray-300 bg-gradient-to-t hover:from-gray-900 hover:to-gray-800 hover:text-white border border-transparent hover:border-gray-800':
+                              !current,
+                          })}`}
+                          aria-current={current}
+                        >
+                          {item.name}
+                        </a>
+                      )
+                    })}
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden bg-gray-800">
+          <Disclosure.Panel className="sm:hidden bg-gradient-to-t from-gray-900 to-gray-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? 'bg-gray-900 text-white'
-                      : 'text-gray-200 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-sm',
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const current = router.asPath === item.href
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={`
+                  block px-3 py-3 rounded-md
+                  ${classNames({
+                    'bg-gray-900 text-white': current,
+                    'text-gray-100 hover:bg-gray-800 hover:text-white':
+                      !current,
+                  })}
+                  `}
+                    aria-current={current}
+                  >
+                    {item.name}
+                  </a>
+                )
+              })}
             </div>
           </Disclosure.Panel>
         </div>
