@@ -4,7 +4,6 @@ import _ from 'lodash'
 import ScriptCard from 'components/pages/scripts/card'
 import Layout from 'layouts'
 import Image from 'next/image'
-import Meta from 'components/meta'
 import {LoadedScript} from 'utils/types'
 import Link from 'components/link'
 import TwitterIcon from '../../../public/assets/icons/twitter.svg'
@@ -30,9 +29,20 @@ export default function User({user, scripts}: UserProps) {
   )
 
   return (
-    <Layout navClassName="bg-gray-900" className="overflow-hidden">
-      <Meta author={author} user={user} title={title} />
-      <header className="-m-5 sm:pt-20 pt-12 pb-6 px-5 bg-gray-900 relative">
+    <Layout
+      meta={{
+        title: `Scripts by ${title}`,
+        author,
+        user,
+        twitter: {
+          handle: twitter,
+        },
+        additionalMetaTags: [{property: 'author', content: title}],
+      }}
+      navClassName="bg-gray-900"
+      className="overflow-hidden"
+    >
+      <header className="-m-5 sm:pt-20 pt-12 pb-6 px-10 bg-gray-900 relative">
         <div className="max-w-screen-lg mx-auto w-full flex md:flex-row md:items-center flex-col justify-between">
           <div className="pb-8">
             <div className="flex items-center">
@@ -68,9 +78,9 @@ export default function User({user, scripts}: UserProps) {
           className="absolute right-0 bottom-0 bg-black h-5 w-2/5 skew-x-[-30deg]"
         />
       </header>
-      <main className="w-full max-w-screen-lg mx-auto pt-16 grid md:grid-cols-2 grid-cols-1 gap-5">
+      <main className="px-5 w-full max-w-screen-lg mx-auto pt-16 grid md:grid-cols-2 grid-cols-1 gap-5">
         {scripts.map((script: LoadedScript) => (
-          <ScriptCard key={script.url} script={script} />
+          <ScriptCard key={script.url || script.command} script={script} />
         ))}
       </main>
     </Layout>
