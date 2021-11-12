@@ -35,12 +35,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       font-family: 'Articulat';
       font-weight: 300;
       font-style: normal;
-      src: url('${
-        process.env.NEXT_PUBLIC_VERCEL_URL
-      }/c4567470-4d4b-40ed-b1b9-1254ec7cc4b2.woff2') format('woff2'),
-        url('${
-          process.env.NEXT_PUBLIC_VERCEL_URL
-        }/a84a9075-f8c5-4f4e-9fcd-70937ed6f0d7.woff') format('woff');
+      src: url('https://scriptkit.com/c4567470-4d4b-40ed-b1b9-1254ec7cc4b2.woff2') format('woff2'),
+        url('https://scriptkit.com/a84a9075-f8c5-4f4e-9fcd-70937ed6f0d7.woff') format('woff');
     }
 </style>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
