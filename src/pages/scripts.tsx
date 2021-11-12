@@ -4,7 +4,6 @@ import InstallScriptButton from 'components/install-script-button'
 import Image from 'next/image'
 import Layout from 'layouts'
 import Link from 'components/link'
-import Meta from 'components/meta'
 import {LoadedScript} from 'utils/types'
 
 interface AllScriptProps {
@@ -13,16 +12,18 @@ interface AllScriptProps {
 
 export default function AllScripts({userScripts}: AllScriptProps) {
   return (
-    <Layout>
-      <Meta title={`Community Scripts`} />
-
+    <Layout
+      meta={{
+        title: 'Community Scripts',
+      }}
+    >
       <div className="pb-8 max-w-screen-lg w-full mx-auto">
-        <header className="pb-28 pt-12">
-          <h1 className="text-center sm:text-4xl text-3xl font-semibold leading-tighter">
+        <header className="pb-28 pt-16">
+          <h1 className="text-center lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight leading-tighter">
             Community Scripts
           </h1>
         </header>
-        <main className="md:masonry-2 xl:masonry-3">
+        <main className="md:masonry-2 xl:masonry-3 px-5">
           {Object.entries(userScripts).map(([, scripts]) => {
             const {user} = scripts[0]
 
@@ -47,7 +48,7 @@ export default function AllScripts({userScripts}: AllScriptProps) {
                 key={user}
                 className="bg-gray-900 mb-5 rounded-md break-inside"
               >
-                <header className="sm:px-5 px-4 py-3 bg-gray-800 flex items-center">
+                <header className="sm:px-5 px-4 py-3 bg-gray-800 flex items-center rounded-t-md">
                   <UserLink className="flex items-center justify-center sm:w-auto w-12 overflow-hidden rounded-full hover:border-yellow-500 border border-transparent">
                     <Image
                       width={64}
@@ -77,7 +78,7 @@ export default function AllScripts({userScripts}: AllScriptProps) {
                   {scripts.map(({command, url, title, description}) => {
                     return (
                       <li
-                        key={url}
+                        key={url || command}
                         className="relative flex items-center bg-gray-900 hover:bg-gray-800 transition-all ease-in-out duration-150"
                       >
                         <Link href={`/${user}/${command}`}>

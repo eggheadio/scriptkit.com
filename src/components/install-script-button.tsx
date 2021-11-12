@@ -13,7 +13,10 @@ const InstallScriptButton: React.FC<{
     <div className={className}>
       <div className="relative group">
         <a
-          className="hover:translate-y-[-2px] relative z-10 flex items-center group hover:bg-yellow-200 transition-all ease-in-out duration-200 p-1 text-yellow-900 rounded-full bg-yellow-300"
+          className={`translate-y-[-1px] ${classNames({
+            'hover:translate-y-[-3px] rounded-xl': expanded,
+            'rounded-full': !expanded,
+          })} relative z-10 flex items-center group hover:bg-yellow-200 transition-all ease-in-out duration-200 p-1 text-yellow-900 bg-gradient-to-t from-yellow-400 to-yellow-300`}
           href={createInstallLink(name, url)}
         >
           <span
@@ -25,11 +28,23 @@ const InstallScriptButton: React.FC<{
             Install
           </span>
           <span className="sr-only">Add to Kit.app</span>
-          <i className="gg-play-button" aria-hidden />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 20 20"
+            className="p-1"
+          >
+            <path
+              fill="currentColor"
+              d="M4 3.323A1.25 1.25 0 015.939 2.28l10.32 6.813a1.25 1.25 0 010 2.086L5.94 17.992A1.25 1.25 0 014 16.949V3.323z"
+            />
+          </svg>
         </a>
         <div
           aria-hidden
-          className={`group-hover:opacity-100 opacity-0 rounded-full bottom-0 z-0 absolute w-full h-full translate-y-[2px] bg-yellow-600`}
+          className={`rounded-full bottom-0 z-0 absolute w-full h-full translate-y-[2px] bg-yellow-600`}
         />
       </div>
     </div>
