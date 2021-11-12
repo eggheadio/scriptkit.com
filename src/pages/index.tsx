@@ -72,7 +72,7 @@ const Home: FunctionComponent<HomeProps> = ({
         <div className="flex items-center justify-center">
           <div className="w-full flex flex-col items-center justify-center text-center space-y-1">
             <div className="sm:pb-32 pb-24 pt-8">
-              <h1 className="lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight leading-tighter">
+              <h1 className="text-center lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight leading-tighter">
                 Shortcut to Everything
                 <sup className="px-2 py-1 rounded-full bg-indigo-500 text-xs font-bold tracking-normal font-mono inline-flex transform sm:-translate-y-6 -translate-y-4 ml-1">
                   beta
@@ -83,7 +83,8 @@ const Home: FunctionComponent<HomeProps> = ({
                 An open-source kit to optimize your developer workflow
               </h2>
             </div>
-            <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex items-center justify-center p-5 pb-0 rounded-lg max-w-screen-md">
+            {/* from-yellow-500 via-amber-500 to-orange-500 */}
+            <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex items-center justify-center p-5 pb-0 rounded-xl max-w-screen-md">
               <div className="max-w-screen-sm h-full flex w-full relative z-20 md:-translate-y-24 -translate-y-20 shadow-xl">
                 <KitAppUI scripts={featuredScripts} />
               </div>
@@ -91,6 +92,8 @@ const Home: FunctionComponent<HomeProps> = ({
                 <Lottie
                   speed={0.1}
                   options={{
+                    autoplay: true,
+                    loop: true,
                     animationData: HeroAnimation,
                     rendererSettings: {
                       preserveAspectRatio: 'xMidYMid slice',

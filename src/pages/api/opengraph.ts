@@ -6,7 +6,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     author,
     user,
     title,
-    backgroundImage = `${process.env.NEXT_PUBLIC_VERCEL_URL}/card-background.png`,
+    backgroundImage, // = `${process.env.NEXT_PUBLIC_VERCEL_URL}/card-background.png`,
   } = req.query
   const browser = await launchChromium()
 
@@ -16,7 +16,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     width: 1200,
     height: 630,
   })
-  const fontUrl = process.env.NEXT_PUBLIC_VERCEL_URL + '/SF-Pro.ttf'
+
+  const logo = process.env.NEXT_PUBLIC_VERCEL_URL + '/assets/kit-icon-1.png'
 
   const content = `
 <!DOCTYPE html>
@@ -28,7 +29,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 </head>
 <body>
 <style>
-    @font-face { font-family: SFPro; src: url('${fontUrl}'); } 
+    @font-face {
+      font-family: 'Articulat';
+      font-weight: 300;
+      font-style: normal;
+      src: url('${
+        process.env.NEXT_PUBLIC_VERCEL_URL
+      }/c4567470-4d4b-40ed-b1b9-1254ec7cc4b2.woff2') format('woff2'),
+        url('${
+          process.env.NEXT_PUBLIC_VERCEL_URL
+        }/a84a9075-f8c5-4f4e-9fcd-70937ed6f0d7.woff') format('woff');
+    }
 </style>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
@@ -39,29 +50,28 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: #ffffff;
+    width: 1200px;
+    height: 630px;
+    background-color: #000;
     background-image: url("${backgroundImage}");
-    font-family: "SFPro";
-    border: 8px solid #FCD34D;
+    font-family: "Articulat", sans-serif;
 }
 
 .resize{
     position: absolute;
-    top: 158px;
-    left: 75px;
+    top: 135px;
+    left: 100px;
     position: absolute;
-    width: 560px;
-    height: 260px;
+    width: 700px;
+    height: 130px;
     color: #ffffff;
+    line-height: 1.1;
 }
 
 .avatar{
-    position: absolute;
-    left: 75px;
-    top: 474px;
-    height: 100px
+    // position: absolute;
+    // left: 75px;
+    // top: 474px;
 }
 
 .created{
@@ -71,19 +81,26 @@ body{
 }
 
 .author{
-    position: absolute;
-    left: 200px;
-    top: 510px;
+    // position: absolute;
+    // left: 200px;
+    // top: 510px;
+}
+
+.logo{
+  position: absolute;
+  right: 100px;
+  top: 100px;
 }
 
 </style>
-
+<img src="${logo}" class="logo" />
 <div class="resize">${title}</div>
 ${
   user &&
-  `<img class="avatar rounded-full" src="${`https://github.com/${user}.png`}"/>
-<div class="created text-gray-400 text-2xl">Created by</div>
-<div class="author text-white text-4xl">${author ? author : user}</div>`
+  `<div class="absolute left-24 bottom-24 flex items-center">
+  <img width="80px" height="80px" class="avatar rounded-full" src="${`https://github.com/${user}.png`}"/>
+<div class="pl-4 text-white text-3xl">${author ? author : user}</div>
+</div>`
 }
 
 <script src="https://unpkg.com/textfit@2.4.0/textFit.js"></script>
