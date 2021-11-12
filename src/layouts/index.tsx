@@ -34,7 +34,7 @@ const DefaultLayout: FunctionComponent<LayoutProps> = ({
     opengraphImage = `https://${opengraphImage}`
 
   let url = `${process.env.NEXT_PUBLIC_VERCEL_URL}${router.asPath}`
-  if (!url.startsWith('http')) url = `https://${url}`
+  if (!url.startsWith('http')) url = `https://${url}/`
 
   return (
     <>
