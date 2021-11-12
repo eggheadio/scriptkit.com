@@ -24,11 +24,13 @@ const DefaultLayout: FunctionComponent<LayoutProps> = ({
 
   const router = useRouter()
   const query = {title, user, author}
-  let opengraphImage = `${
-    process.env.NEXT_PUBLIC_VERCEL_URL
-  }/api/cloudinary-cache?${qs.stringify(query)}`
+  let opengraphImage =
+    (user || author) &&
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/cloudinary-cache?${qs.stringify(
+      query,
+    )}`
 
-  if (!opengraphImage.startsWith('http'))
+  if (opengraphImage && !opengraphImage.startsWith('http'))
     opengraphImage = `https://${opengraphImage}`
 
   let url = `${process.env.NEXT_PUBLIC_VERCEL_URL}${router.asPath}`
@@ -49,7 +51,9 @@ const DefaultLayout: FunctionComponent<LayoutProps> = ({
           title,
           description,
           url,
-          images: [{url: opengraphImage, width: 1200, height: 630}],
+          images: opengraphImage
+            ? [{url: opengraphImage, width: 1200, height: 630}]
+            : undefined,
         }}
         additionalMetaTags={additionalMetaTags}
       />
