@@ -19,8 +19,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const logo = 'https://scriptkit.com/assets/kit-icon-1.png' // `${process.env.NEXT_PUBLIC_VERCEL_URL}/assets/kit-icon-1.png`
 
-  console.log(logo)
-
   const content = `
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +26,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preload" href="https://scriptkit.com/c4567470-4d4b-40ed-b1b9-1254ec7cc4b2.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://scriptkit.com/a84a9075-f8c5-4f4e-9fcd-70937ed6f0d7.woff" as="font" type="font/woff" crossorigin>
 </head>
 <body>
 <style>
