@@ -92,6 +92,7 @@ let loadedScripts: LoadedScript[] = discussions.map(
     ]
 
     let [description] = body.match(/(?<=<meta description=")(.*)(?=")/) || ['']
+    let [tag] = body.match(/(?<=<meta tag=")(.*)(?=")/) || ['']
 
     let content = body
     let prevLength = 0
@@ -125,6 +126,7 @@ let loadedScripts: LoadedScript[] = discussions.map(
       dir,
       file,
       description,
+      tag,
     }
   },
 )
