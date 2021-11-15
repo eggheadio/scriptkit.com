@@ -21,6 +21,7 @@ export interface LoadedScript extends Partial<ScriptMetadata> {
 
   github?: string
   twitter?: string
+  description?: string
 }
 
 interface Repo {
