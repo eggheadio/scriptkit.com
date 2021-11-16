@@ -17,10 +17,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           Authorization: `token ${process.env.WORKFLOW_TOKEN}`,
           Accept: 'application/vnd.github.v3+json',
         },
+        ref: 'main',
       }
       const response = await axios.post(
         `https://api.github.com/repos/johnlindquist/kit-docs/actions/workflows/15293663`,
-        {ref: 'main'},
         requestOptions,
       )
 
