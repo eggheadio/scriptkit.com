@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         ref: 'main',
       }
       const response = await axios.post(
-        `https://api.github.com/repos/johnlindquist/kit-docs/actions/workflows/15293663`,
+        `https://api.github.com/repos/johnlindquist/kit-docs/actions/workflows/15293663/dispatches`,
         requestOptions,
       )
 
