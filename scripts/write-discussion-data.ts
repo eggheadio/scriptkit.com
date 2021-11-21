@@ -1,10 +1,10 @@
 import '@johnlindquist/kit'
-import {getMetadata} from '@johnlindquist/kit/core/utils'
-import {gql, GraphQLClient} from 'graphql-request'
+import { getMetadata } from '@johnlindquist/kit/core/utils'
+import { gql, GraphQLClient } from 'graphql-request'
 import slugify from 'slugify'
 
-import {Discussion} from '../src/utils/get-discussions'
-import {Extension, LoadedScript} from '../src/utils/types'
+import { Discussion } from '../src/utils/get-discussions'
+import { Extension, LoadedScript } from '../src/utils/types'
 
 export enum Category {
   Announcements = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',
@@ -63,7 +63,7 @@ let query = gql`
   }
 `
 
-let response = await client.request(query, {categoryId: category.value})
+let response = await client.request(query, { categoryId: category.value })
 
 let discussions: Discussion[] = response.repository.discussions.nodes.map(
   (d: Discussion) => {
@@ -80,7 +80,7 @@ let discussions: Discussion[] = response.repository.discussions.nodes.map(
 )
 
 let loadedScripts: LoadedScript[] = discussions.map(
-  ({author, body, createdAt, id, slug, title, url: discussion}) => {
+  ({ author, body, createdAt, id, slug, title, url: discussion }) => {
     let url =
       body.match(/(?<=Install.*)https:\/\/gist.*js(?=\"|\))/gim)?.[0] || ''
     let metadata = getMetadata(body)
@@ -95,21 +95,21 @@ let loadedScripts: LoadedScript[] = discussions.map(
     let [tag] = body.match(/(?<=<meta tag=")(.*)(?=")/) || ['']
 
     let content = body
-    let prevLength = 0
+    // let prevLength = 0
 
-    let i = 0
-    for (let s of body.matchAll(/(`{3}js)(.{5,}?)(`{3})/gs)) {
-      i++
-      if (s[2] && s.index) {
-        let c = Buffer.from(s[2]).toString('base64url')
-        let name = `${slug}-example-${i}`
-        let link = `\n\n[Create script from example below](kit:snippet?name=${name}&content=${c})\n`
+    // let i = 0
+    // for (let s of body.matchAll(/(`{3}js)(.{5,}?)(`{3})/gs)) {
+    //   i++
+    //   if (s[2] && s.index) {
+    //     let c = Buffer.from(s[2]).toString('base64url')
+    //     let name = `${slug}-example-${i}`
+    //     let link = `\n\n[Create script from example below](kit:snippet?name=${name}&content=${c})\n`
 
-        let index = s.index + prevLength
-        content = [content.slice(0, index), link, content.slice(index)].join('')
-        prevLength += link.length
-      }
-    }
+    //     let index = s.index + prevLength
+    //     content = [content.slice(0, index), link, content.slice(index)].join('')
+    //     prevLength += link.length
+    //   }
+    // }
 
     return {
       ...metadata,
