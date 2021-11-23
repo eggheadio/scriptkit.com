@@ -75,7 +75,7 @@ const fetchPosts = async (categoryId = '') => {
     query,
   }
 
-  let response = await post(githubURL, options, config)
+  let response: any = await post(githubURL, options, config)
 
   return response?.data?.data?.repository?.discussions?.nodes
 }
