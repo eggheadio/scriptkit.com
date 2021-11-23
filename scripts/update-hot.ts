@@ -1,4 +1,7 @@
 import '@johnlindquist/kit'
+import {getMetadata} from '@johnlindquist/kit/core/utils'
+import {Extension, LoadedScript} from '../src/utils/types'
+import {Discussion} from '../src/utils/get-discussions'
 
 // Menu:
 // Description:
@@ -32,9 +35,15 @@ const discussionInnerQuery = `
       emoji,
     },
     author {
-      login,
-      avatarUrl,
-    }
+        ... on User {
+          twitterUsername
+          name
+        }
+        login
+        avatarUrl
+        url
+      }
+    body
   }
 `
 
@@ -44,17 +53,59 @@ const buildChoice = (node: any) => {
     resourcePath,
     createdAt,
     category,
-    author: {login, avatarUrl},
+    slug,
+    id,
+    body,
+    author,
+    url,
   } = node
-  const url = `https://github.com${resourcePath}`
-  const description = `Created by ${login}`
+
+  const description = `Created by ${author.login}`
+
+  //   let metadata = getMetadata(body)
+
+  // let [, dir, file] = body.match(/(?<=<meta path=")(.*)\/(.*)(?=")/) || [
+  //   null,
+  //   '',
+  //   '',
+  // ]
+
+  // let [tag] = body.match(/(?<=<meta tag=")(.*)(?=")/) || ['']
+
+  let content = body
+  // let prevLength = 0
+
+  // let i = 0
+  // for (let s of body.matchAll(/(`{3}js)(.{5,}?)(`{3})/gs)) {
+  //   i++
+  //   if (s[2] && s.index) {
+  //     let c = Buffer.from(s[2]).toString('base64url')
+  //     let name = `${slug}-example-${i}`
+  //     let link = `\n\n[Create script from example below](kit:snippet?name=${name}&content=${c})\n`
+
+  //     let index = s.index + prevLength
+  //     content = [content.slice(0, index), link, content.slice(index)].join('')
+  //     prevLength += link.length
+  //   }
+  // }
+
   return {
-    name: title,
-    createdAt,
-    value: url,
+    // ...metadata,
+    avatar: author.avatarUrl,
+    user: author.login,
+    author: author.name,
+    twitter: author.twitterUsername,
+    discussion: url,
+    url,
+    title,
+    command: slug,
+    content,
+    extension: Extension.md,
     description,
-    img: avatarUrl,
+    resourcePath,
+    createdAt,
     category,
+    id,
   }
 }
 
