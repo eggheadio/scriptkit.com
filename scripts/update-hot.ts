@@ -1,18 +1,18 @@
-import "@johnlindquist/kit"
-    
+import '@johnlindquist/kit'
+
 // Menu:
 // Description:
 // Author:
 // Twitter: @zzxiv
 
-const githubURL = "https://api.github.com/graphql"
+const githubURL = 'https://api.github.com/graphql'
 
 let token = env.GITHUB_DISCUSSIONS_TOKEN
 
 const config = {
   headers: {
     Authorization: `Bearer ${token}`,
-    "GraphQL-Features": "discussions_api",
+    'GraphQL-Features': 'discussions_api',
   },
 }
 
@@ -38,13 +38,13 @@ const discussionInnerQuery = `
   }
 `
 
-const buildChoice = (node:any) => {
+const buildChoice = (node: any) => {
   const {
     title,
     resourcePath,
     createdAt,
     category,
-    author: { login, avatarUrl },
+    author: {login, avatarUrl},
   } = node
   const url = `https://github.com${resourcePath}`
   const description = `Created by ${login}`
@@ -58,7 +58,7 @@ const buildChoice = (node:any) => {
   }
 }
 
-const fetchPosts = async (categoryId = "") => {
+const fetchPosts = async (categoryId = '') => {
   const query = `
   query {
     repository(owner: "johnlindquist", name: "kit") {
@@ -77,8 +77,7 @@ const fetchPosts = async (categoryId = "") => {
 
   let response = await post(githubURL, options, config)
 
-  return response?.data?.data?.repository?.discussions
-    ?.nodes
+  return response?.data?.data?.repository?.discussions?.nodes
 }
 
 /**
@@ -97,10 +96,10 @@ const fetchPosts = async (categoryId = "") => {
  */
 const downloadCategory = async () => {
   const showAndTell = await fetchPosts(
-    "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw"
+    'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw',
   ) //showandtell
   const announcements = await fetchPosts(
-    "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw"
+    'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',
   ) //Announcements
 
   const nodes = [...showAndTell, ...announcements]
@@ -109,12 +108,7 @@ const downloadCategory = async () => {
     .map(buildChoice)
     .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
 
-
-    await outputJson(
-        path.resolve('public', 'data', "showandtell.json"),
-        choices,
-      )
-  
+  await outputJson(path.resolve('public', 'data', 'showandtell.json'), choices)
 }
 
-await downloadCategory()-
+await downloadCategory()
