@@ -108,7 +108,7 @@ const downloadCategory = async () => {
     .map(buildChoice)
     .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
 
-  await outputJson(path.resolve('public', 'data', 'showandtell.json'), choices)
+  await outputJson(path.resolve('public', 'data', 'hot.json'), choices)
 }
 
 await downloadCategory()
