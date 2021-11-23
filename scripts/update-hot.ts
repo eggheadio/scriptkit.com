@@ -1,12 +1,5 @@
 import '@johnlindquist/kit'
-import {getMetadata} from '@johnlindquist/kit/core/utils'
 import {Extension, LoadedScript} from '../src/utils/types'
-import {Discussion} from '../src/utils/get-discussions'
-
-// Menu:
-// Description:
-// Author:
-// Twitter: @zzxiv
 
 const githubURL = 'https://api.github.com/graphql'
 
@@ -61,36 +54,7 @@ const buildChoice = (node: any) => {
   } = node
 
   const description = `Created by ${author.login}`
-
-  //   let metadata = getMetadata(body)
-
-  // let [, dir, file] = body.match(/(?<=<meta path=")(.*)\/(.*)(?=")/) || [
-  //   null,
-  //   '',
-  //   '',
-  // ]
-
-  // let [tag] = body.match(/(?<=<meta tag=")(.*)(?=")/) || ['']
-
-  let content = body
-  // let prevLength = 0
-
-  // let i = 0
-  // for (let s of body.matchAll(/(`{3}js)(.{5,}?)(`{3})/gs)) {
-  //   i++
-  //   if (s[2] && s.index) {
-  //     let c = Buffer.from(s[2]).toString('base64url')
-  //     let name = `${slug}-example-${i}`
-  //     let link = `\n\n[Create script from example below](kit:snippet?name=${name}&content=${c})\n`
-
-  //     let index = s.index + prevLength
-  //     content = [content.slice(0, index), link, content.slice(index)].join('')
-  //     prevLength += link.length
-  //   }
-  // }
-
   return {
-    // ...metadata,
     avatar: author.avatarUrl,
     user: author.login,
     author: author.name,
@@ -98,14 +62,17 @@ const buildChoice = (node: any) => {
     discussion: url,
     url,
     title,
+    name: title,
     command: slug,
-    content,
     extension: Extension.md,
     description,
     resourcePath,
     createdAt,
     category,
     id,
+    body,
+    value: url,
+    img: author.avatarUrl,
   }
 }
 
@@ -113,7 +80,7 @@ const fetchPosts = async (categoryId = '') => {
   const query = `
   query {
     repository(owner: "johnlindquist", name: "kit") {
-      discussions(first: 50, categoryId: "${categoryId}", orderBy: {
+      discussions(first: 100, categoryId: "${categoryId}", orderBy: {
         field: CREATED_AT,
         direction: DESC,
       }) {
@@ -131,20 +98,6 @@ const fetchPosts = async (categoryId = '') => {
   return response?.data?.data?.repository?.discussions?.nodes
 }
 
-/**
- * query { 
-  repository(owner: "johnlindquist" name: "kit"){
-    discussionCategories (first: 100){
-      edges {
-        node {
-          id
-          name
-        }
-      }
-    }
-  }
-}
- */
 const downloadCategory = async () => {
   const showAndTell = await fetchPosts(
     'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw',
