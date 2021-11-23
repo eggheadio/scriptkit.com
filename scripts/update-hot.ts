@@ -38,7 +38,7 @@ const discussionInnerQuery = `
   }
 `
 
-const buildChoice = node => {
+const buildChoice = (node:any) => {
   const {
     title,
     resourcePath,
@@ -95,7 +95,7 @@ const fetchPosts = async (categoryId = "") => {
   }
 }
  */
-const downloadCategory = async categoryId => {
+const downloadCategory = async () => {
   const showAndTell = await fetchPosts(
     "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw"
   ) //showandtell
@@ -117,4 +117,4 @@ const downloadCategory = async categoryId => {
   
 }
 
-await downloadCategory()
+await downloadCategory()-
