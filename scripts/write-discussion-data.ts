@@ -1,10 +1,10 @@
 import '@johnlindquist/kit'
-import { getMetadata } from '@johnlindquist/kit/core/utils'
-import { gql, GraphQLClient } from 'graphql-request'
+import {getMetadata} from '@johnlindquist/kit/core/utils'
+import {gql, GraphQLClient} from 'graphql-request'
 import slugify from 'slugify'
 
-import { Discussion } from '../src/utils/get-discussions'
-import { Extension, LoadedScript } from '../src/utils/types'
+import {Discussion} from '../src/utils/get-discussions'
+import {Extension, LoadedScript} from '../src/utils/types'
 
 export enum Category {
   Announcements = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',
@@ -63,7 +63,7 @@ let query = gql`
   }
 `
 
-let response = await client.request(query, { categoryId: category.value })
+let response = await client.request(query, {categoryId: category.value})
 
 let discussions: Discussion[] = response.repository.discussions.nodes.map(
   (d: Discussion) => {
@@ -80,9 +80,10 @@ let discussions: Discussion[] = response.repository.discussions.nodes.map(
 )
 
 let loadedScripts: LoadedScript[] = discussions.map(
-  ({ author, body, createdAt, id, slug, title, url: discussion }) => {
+  ({author, body, createdAt, id, slug, title, url: discussion}) => {
     let url =
-      body.match(/(?<=Install.*)https:\/\/gist.*js(?=\"|\))/gim)?.[0] || ''
+      body.match(/(?<=(Install|Open).*)https:\/\/gist.*js(?=\"|\))/gim)?.[0] ||
+      ''
     let metadata = getMetadata(body)
 
     let [, dir, file] = body.match(/(?<=<meta path=")(.*)\/(.*)(?=")/) || [
