@@ -74,9 +74,6 @@ const Home: FunctionComponent<HomeProps> = ({
             <div className="sm:pb-32 pb-24 pt-8">
               <h1 className="text-center lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight leading-tighter">
                 Shortcut to Everything
-                <sup className="px-2 py-1 rounded-full bg-indigo-500 text-xs font-bold tracking-normal font-mono inline-flex transform sm:-translate-y-6 -translate-y-4 ml-1">
-                  beta
-                </sup>
               </h1>
 
               <h2 className="sm:text-xl text-lg opacity-80 font-light pt-2 leading-tight md:max-w-none max-w-xs mx-auto">
