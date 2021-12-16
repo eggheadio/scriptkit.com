@@ -88,13 +88,13 @@ export async function getLatestRelease() {
 
   const releases = releaseResponse.data
 
-  const betaRelease = releases.find((release: any) =>
-    release.name.includes('beta'),
+  const mainRelease = releases.find(
+    (release: any) => !release.name.includes('-'),
   )
 
-  const release = betaRelease?.assets.find(
+  const release = mainRelease?.assets.find(
     (asset: any) =>
-      asset.name.includes('beta') &&
+      !asset.name.includes('-') &&
       !asset.name.includes('arm') &&
       asset.name.endsWith('.dmg'),
   )
@@ -111,13 +111,13 @@ export async function getLatestAppleSiliconRelease() {
 
   console.log(releases.map((r) => r.name))
 
-  const betaRelease = releases.find((release: any) =>
-    release.name.includes('beta'),
+  const mainRelease = releases.find(
+    (release: any) => !release.name.includes('main'),
   )
 
-  const release = betaRelease?.assets.find(
+  const release = mainRelease?.assets.find(
     (asset: any) =>
-      asset.name.includes('beta') &&
+      !asset.name.includes('-') &&
       asset.name.includes('arm') &&
       asset.name.endsWith('.dmg'),
   )
