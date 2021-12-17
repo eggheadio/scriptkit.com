@@ -19,6 +19,7 @@ const discussionInnerQuery = `
     # type: Discussion
     id,
     title,
+    url,
     # bodyText,
     createdAt,
     resourcePath,
