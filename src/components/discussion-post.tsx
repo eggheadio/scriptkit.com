@@ -9,10 +9,11 @@ import CodeBlock from 'components/code-block'
 import rehypeRaw from 'rehype-raw'
 
 const DiscussionPost = ({
-  discussion: {url, command, title, content},
+  discussion: {discussion: url, command, title, content},
   link,
 }: DiscussionProps) => (
   <div key={url} className="discussion">
+    
     {link ? (
       <Link href={`/${link}/${command}`}>
         <a>
