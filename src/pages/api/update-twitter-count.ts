@@ -23,7 +23,12 @@ let getReleaseCount = async () => {
 
   let dmgs = releases.flatMap(
     (release) =>
-      release.assets.filter((asset) => asset.name.endsWith('.dmg')) as Asset[],
+      release.assets.filter(
+        (asset) =>
+          asset.name.endsWith('.dmg') ||
+          asset.name.endsWith('.exe') ||
+          asset.name.endsWith('.AppImage'),
+      ) as Asset[],
   )
 
   let count = dmgs
