@@ -14,7 +14,7 @@ const nextConfig = {
     return []
   },
   webpack: (config, {isServer}) => {
-    config.experiments = {topLevelAwait: true}
+    config.experiments = {topLevelAwait: true, layers: true}
 
     if (!isServer) {
       config.resolve.fallback = {

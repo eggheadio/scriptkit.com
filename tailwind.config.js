@@ -9,7 +9,7 @@ module.exports = {
         tighter: 1.1,
       },
       colors: {
-        gray: colors.trueGray,
+        gray: colors.neutral,
       },
       fontFamily: {
         sans: ['Articulat', ...defaultTheme.fontFamily.sans],

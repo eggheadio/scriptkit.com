@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "yarn docs-data && yarn share-data && yarn guide-data && yarn announcements-data && yarn hot-data",
+    "prebuild": "yarn docs-data && yarn share-data && yarn guide-data && yarn announcements-data && yarn hot-data && yarn course-data",
     "build": "NODE_ENV=production next build",
     "postbuild": "NODE_ENV=production next-sitemap",
     "start": "next start",
