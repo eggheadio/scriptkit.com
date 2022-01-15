@@ -1,4 +1,5 @@
 import {Octokit} from '@octokit/rest'
+import axios from 'axios'
 
 let octokit = new Octokit({
   auth: process.env.GITHUB_SCRIPTKITCOM_TOKEN,
@@ -57,6 +58,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   console.log({count})
+
+  await axios.post(`https://hooks.zapier.com/hooks/catch/3863955/b98o9wx/`, {
+    count,
+    timestamp: new Date().toString(),
+  })
 
   res.statusCode = 200
   res.json({name: 'John Doe'})

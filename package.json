@@ -26,7 +26,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
-    "@johnlindquist/kit": "^0.1.0-beta.13",
+    "@johnlindquist/kit": "0.4.6",
     "@next/mdx": "^11.1.0",
     "@octokit/rest": "^18.9.1",
     "@reach/dialog": "^0.16.0",
