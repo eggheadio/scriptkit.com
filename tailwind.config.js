@@ -2,7 +2,6 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: 'jit',
   purge: ['./src/**/*.tsx', './src/**/*.mdx'],
   theme: {
     extend: {
@@ -10,7 +9,7 @@ module.exports = {
         tighter: 1.1,
       },
       colors: {
-        ...colors,
+        gray: colors.neutral,
       },
       fontFamily: {
         sans: ['Articulat', ...defaultTheme.fontFamily.sans],
@@ -26,6 +25,9 @@ module.exports = {
           css: {
             '*, code, strong, blockquote': {
               color: theme('colors.gray.200'),
+            },
+            'h1, h2, h3, h4, h5': {
+              color: theme('colors.white'),
             },
             a: {
               color: theme('colors.yellow.300'),

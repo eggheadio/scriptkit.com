@@ -21,3 +21,19 @@ export interface LoadedScript extends Partial<ScriptMetadata> {
   description?: string
   tag?: string
 }
+
+export type Course = {
+  title: string
+  slug: string
+  path: string
+  duration: string
+  image_thumb_url: string
+  instructor: {
+    full_name: string
+  }
+  lessons: {
+    title: string
+    path: string
+    duration: string
+  }[]
+}

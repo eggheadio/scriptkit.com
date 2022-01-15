@@ -12,10 +12,12 @@ import {
   getLatestAppleSiliconRelease,
   getLatestRelease,
 } from 'utils/get-user-scripts'
-import {LoadedScript} from 'utils/types'
+import {getCourse} from 'utils/get-course'
+import {LoadedScript, Course} from 'utils/types'
 import KitAppUI from 'components/kitapp-ui'
 import DownloadKitApp from 'components/download-kitapp'
 import HeroAnimation from '../../public/assets/particles.json'
+import CourseWidget from 'components/course-widget'
 
 export type Release = {
   name: string
@@ -26,6 +28,7 @@ type HomeProps = {
   featuredScripts: LoadedScript[]
   macIntelRelease: Release
   macSilliconRelease: Release
+  course: Course
 }
 
 const links = [
@@ -59,6 +62,7 @@ const Home: FunctionComponent<HomeProps> = ({
   featuredScripts,
   macIntelRelease,
   macSilliconRelease,
+  course,
 }) => {
   const router = useRouter()
   let [origin, setOrigin] = React.useState('')
@@ -80,7 +84,6 @@ const Home: FunctionComponent<HomeProps> = ({
                 An open-source kit to optimize your developer workflow
               </h2>
             </div>
-            {/* from-yellow-500 via-amber-500 to-orange-500 */}
             <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex items-center justify-center p-5 pb-0 rounded-xl max-w-screen-md">
               <div className="max-w-screen-sm h-full flex w-full relative z-20 md:-translate-y-24 -translate-y-20 shadow-xl">
                 <KitAppUI scripts={featuredScripts} />
@@ -108,7 +111,12 @@ const Home: FunctionComponent<HomeProps> = ({
           />
         </div>
       </header>
-      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-32 w-full px-5">
+      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-16 w-full px-5">
+        <CourseWidget
+          course={course}
+          cta="Get Up and Running with Script Kit →"
+        />
+        <br />
         <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
           <div>
             <h2 className="text-3xl font-bold">What is Script Kit?</h2>
@@ -242,7 +250,9 @@ const Home: FunctionComponent<HomeProps> = ({
 export async function getStaticProps(context: any) {
   const macIntelRelease = await getLatestRelease()
   const macSilliconRelease = await getLatestAppleSiliconRelease()
-
+  const showcaseCourse = await getCourse(
+    'script-kit-showcase-for-optimizing-your-everyday-workflows-e20ceab4',
+  )
   const selectedScripts: {user: string; command: string}[] = JSON.parse(
     readFileSync(path.join(process.cwd(), 'featured.json'), 'utf-8'),
   )
@@ -256,7 +266,12 @@ export async function getStaticProps(context: any) {
   })
 
   return {
-    props: {featuredScripts, macIntelRelease, macSilliconRelease}, // will be passed to the page component as props
+    props: {
+      featuredScripts,
+      macIntelRelease,
+      macSilliconRelease,
+      course: showcaseCourse,
+    }, // will be passed to the page component as props
   }
 }
 
