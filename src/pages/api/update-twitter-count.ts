@@ -61,7 +61,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   await axios.post(`https://hooks.zapier.com/hooks/catch/3863955/b98o9wx/`, {
     count,
-    timestamp: new Date().toString(),
+    timestamp: new Date().toUTCString(),
   })
 
   res.statusCode = 200
