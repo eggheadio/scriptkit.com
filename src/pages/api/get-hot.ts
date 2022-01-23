@@ -1,5 +1,5 @@
 import {NextApiRequest, NextApiResponse} from 'next'
-import '@johnlindquist/kit'
+import '@johnlindquist/globals'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.redirect(`/data/showandtell.json`)
