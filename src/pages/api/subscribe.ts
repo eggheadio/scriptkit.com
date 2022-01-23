@@ -1,5 +1,5 @@
 import {NextApiRequest, NextApiResponse} from 'next'
-import '@johnlindquist/kit'
+import '@johnlindquist/globals'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {email_address} = req.body
