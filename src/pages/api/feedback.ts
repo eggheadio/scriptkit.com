@@ -1,8 +1,13 @@
 import {NextApiRequest, NextApiResponse} from 'next'
 import '@johnlindquist/globals'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  // await post(`https://hooks.zapier.com/hooks/catch/3863955/b9x0a39`, req.body)
+const url = `https://script-kit-kv.johnlindquist.workers.dev/`
 
-  res.send(req.body)
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const config = {
+    headers: {TOKEN: process.env.SCRIPT_KIT_KV_TOKEN as string},
+  }
+  const response = await post(url, req.body, config)
+
+  res.send(response.data)
 }
