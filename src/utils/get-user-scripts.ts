@@ -4,9 +4,11 @@ import {LoadedScript} from './types'
 import _ from 'lodash'
 import '@johnlindquist/kit/api/global'
 
-const octokit = new Octokit({
-  auth: process.env.GITHUB_SCRIPTKITCOM_TOKEN,
-})
+// const octokit = new Octokit({
+//   auth: process.env.GITHUB_SCRIPTKITCOM_TOKEN,
+// })
+
+const octokit = new Octokit()
 
 export const getAllScripts = async (): Promise<LoadedScript[]> => {
   let shareScripts = await readJson(
