@@ -5,8 +5,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {email_address} = req.body
 
   const response = await post(
-    `https://app.convertkit.com/forms/2216586/subscriptions`,
+    `https://api.convertkit.com/v3/forms/${process.env.CONVERTKIT_FORM_ID}/subscribe`,
     {
+      api_key: process.env.CONVERTKIT_API_KEY as string,
       email_address,
     },
   )
