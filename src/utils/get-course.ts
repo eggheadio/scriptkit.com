@@ -1,5 +1,5 @@
-import '@johnlindquist/kit'
-import '@johnlindquist/kit/api/global'
+import path from 'path'
+import {readJson} from 'fs-extra'
 import find from 'lodash/find'
 
 async function getCourse(slug: string) {
