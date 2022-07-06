@@ -20,6 +20,10 @@ export interface LoadedScript extends Partial<ScriptMetadata> {
   twitter?: string
   description?: string
   tag?: string
+  dir?: string
+  section?: string
+  i?: string
+  sectionIndex?: string
 }
 
 export type Course = {

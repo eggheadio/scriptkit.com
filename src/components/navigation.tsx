@@ -8,12 +8,14 @@ import {useRouter} from 'next/router'
 import Logo from './logo'
 
 const navItems = [
-  {name: 'Browse Scripts', href: '/scripts'},
-  {name: 'Blog', href: '/blog'},
+  {name: 'Community Scripts', href: '/scripts'},
+  {name: 'Docs', href: '/docs'},
+  // {name: 'Guide', href: '/guide'},
   {
     name: 'Discuss',
     href: 'https://github.com/johnlindquist/kit/discussions',
   },
+  {name: 'Blog', href: '/blog'},
 ]
 
 type NavigationProps = {

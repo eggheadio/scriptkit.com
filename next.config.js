@@ -1,6 +1,7 @@
 const withPlugins = require('next-compose-plugins')
 const withMDX = require('@next/mdx')()
 const withSvgr = require('next-svgr')
+const withMarkdoc = require('@markdoc/next.js')
 
 const IMAGE_HOST_DOMAINS = ['res.cloudinary.com', 'github.com']
 
@@ -28,6 +29,9 @@ const nextConfig = {
 
 module.exports = withPlugins(
   [
+    withMarkdoc({mode: 'static'})({
+      pageExtensions: ['md', 'mdoc', 'js', 'jsx', 'ts', 'tsx'],
+    }),
     // withMDX({
     //   pageExtensions: ['ts', 'tsx', 'mdx'],
     //   remarkPlugins: [
