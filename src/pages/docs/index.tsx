@@ -14,7 +14,14 @@ import {
 import {LoadedScript} from 'utils/types'
 import DocsPost from 'components/docs-post'
 
-type DocsType = {i: string; dir: string; section: string; title: string}
+type DocsType = {
+  i: string
+  dir: string
+  section: string
+  title: string
+  command: string
+} & LoadedScript
+
 type SectionType = {
   name: string
   docs: DocsType[]
@@ -89,7 +96,7 @@ export async function getStaticProps(
         }
       } else {
         acc[index]?.docs?.push(current)
-        acc[index]?.docs?.sort((a, b) => (a.i > b.i ? 1 : -1))
+        acc[index]?.docs?.sort((a: any, b: any) => (a.i > b.i ? 1 : -1))
       }
 
       return acc

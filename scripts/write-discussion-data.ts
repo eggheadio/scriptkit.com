@@ -79,7 +79,8 @@ let discussions: Discussion[] = response.repository.discussions.nodes.map(
   },
 )
 
-let loadedScripts: LoadedScript[] = discussions.map(
+// Don't have time, ugh...
+let loadedScripts: any[] = discussions.map(
   ({author, body, createdAt, id, slug, title, url: discussion}) => {
     let url =
       body.match(/(?<=(Install|Open).*)https:\/\/gist.*js(?=\"|\))/gim)?.[0] ||
