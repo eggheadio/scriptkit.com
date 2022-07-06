@@ -1,3 +1,5 @@
+// Name: Pull Discussion Docs
+
 import '@johnlindquist/kit'
 import {getMetadata} from '@johnlindquist/kit/core/utils'
 import {gql, GraphQLClient} from 'graphql-request'
@@ -15,10 +17,7 @@ export enum Category {
 
 let endpoint = 'https://api.github.com/graphql'
 
-const categoryKey: keyof Category = await arg<keyof Category>(
-  'Category',
-  Object.keys(Category),
-)
+const categoryKey = "Docs"
 
 let category = {
   name: categoryKey as string,

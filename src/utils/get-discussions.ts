@@ -1,11 +1,13 @@
 import '@johnlindquist/kit'
 import '@johnlindquist/kit/api/global'
 import _ from 'lodash'
+
 import {LoadedScript} from './types'
 
 export enum Category {
   Announcements = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',
   Guide = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODc5NjIx',
+  Docs = 'DIC_kwDOEu7MBc4B_u-c',
   Share = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDg0MTcw',
 }
 

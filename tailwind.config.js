@@ -13,9 +13,13 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Articulat', ...defaultTheme.fontFamily.sans],
+        display: ['Lexend', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
         xxs: '0.65rem',
+      },
+      maxWidth: {
+        '8xl': '88rem',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
