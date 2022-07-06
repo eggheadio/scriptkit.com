@@ -2,7 +2,9 @@ import path from 'path'
 import {Octokit} from '@octokit/rest'
 import {LoadedScript} from './types'
 import _ from 'lodash'
-import '@johnlindquist/kit/api/global'
+import {readJson} from 'fs-extra'
+
+const cwd = process.cwd
 
 // const octokit = new Octokit({
 //   auth: process.env.GITHUB_SCRIPTKITCOM_TOKEN,
