@@ -17,7 +17,7 @@ export enum Category {
 
 let endpoint = 'https://api.github.com/graphql'
 
-const categoryKey = "Docs"
+const categoryKey = 'Docs'
 
 let category = {
   name: categoryKey as string,
@@ -78,7 +78,7 @@ let discussions: Discussion[] = response.repository.discussions.nodes.map(
   },
 )
 
-let loadedScripts: LoadedScript[] = discussions.map(
+let loadedScripts: any[] = discussions.map(
   ({author, body, createdAt, id, slug, title, url: discussion}) => {
     let url =
       body.match(/(?<=(Install|Open).*)https:\/\/gist.*js(?=\"|\))/gim)?.[0] ||

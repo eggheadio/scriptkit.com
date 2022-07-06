@@ -7,6 +7,8 @@ import theme from 'prism-react-renderer/themes/nightOwl'
 import find from 'lodash/find'
 import SimpleBar from 'simplebar-react'
 
+const S = SimpleBar as any
+
 type Props = {
   scripts: LoadedScript[]
 }
@@ -56,7 +58,7 @@ const KitAppUI: React.FC<Props> = ({scripts}) => {
       <main className="flex flex-grow overflow-hidden">
         {/* scripts */}
         <ul className="flex w-full flex-grow sm:max-w-[300px] sm:border-r border-white border-opacity-5">
-          <SimpleBar className="flex-grow">
+          <S className="flex-grow">
             {scripts?.map((script: LoadedScript) => {
               return (
                 <li className="" key={script.command}>
@@ -74,7 +76,7 @@ const KitAppUI: React.FC<Props> = ({scripts}) => {
                 </li>
               )
             })}
-          </SimpleBar>
+          </S>
         </ul>
         {/* preview pane */}
         <div className="sm:flex hidden w-full">

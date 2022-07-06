@@ -10,38 +10,36 @@ type CodeBlockProps = {
   className?: string
 }
 
+const H = Highlight as any
+const S = SimpleBar as any
+
 const CodeBlock: FunctionComponent<CodeBlockProps> = ({
   language,
   value,
   className,
-}) => {
+}: any) => {
   return (
     <div className={className}>
-      <Highlight
-        {...defaultProps}
-        code={value}
-        language={language}
-        theme={theme}
-      >
-        {({className, tokens, getLineProps, getTokenProps}) => (
+      <H {...defaultProps} code={value} language={language} theme={theme}>
+        {({className, tokens, getLineProps, getTokenProps}: any) => (
           <div className={`${className} h-full `}>
-            <SimpleBar className="h-full whitespace-pre">
+            <S className="h-full whitespace-pre">
               <div className="p-3">
-                {tokens.map((line, i) => (
+                {tokens.map((line: any, i: any) => (
                   <div
                     {...getLineProps({line, key: i})}
                     style={{fontSize: '90%'}}
                   >
-                    {line.map((token, key) => (
+                    {line.map((token: any, key: any) => (
                       <span {...getTokenProps({token, key})} />
                     ))}
                   </div>
                 ))}
               </div>
-            </SimpleBar>
+            </S>
           </div>
         )}
-      </Highlight>
+      </H>
     </div>
   )
 }
