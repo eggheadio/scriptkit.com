@@ -1408,10 +1408,10 @@
   resolved "https://registry.yarnpkg.com/@johnlindquist/kit-internal/-/kit-internal-1.12.2.tgz#c98caf06f91138646c599298af3bc2b789438d58"
   integrity sha512-9rA5z+/Nf7/VjwD588h7s6YuCRwDP8klbZs+PET3KfE+i5zTERCqjJbowEvHEl6MmKYTXZp88w52ZjvLbcfi+g==
 
-"@johnlindquist/kit@0.16.3":
-  version "0.16.3"
-  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-0.16.3.tgz#f373e810924c53a4241b2fa6204677945ee8f88e"
-  integrity sha512-DyldBdHt0vvt1W/QN4mXLtuB60q4EM0Hn+bfuc/5DyKUbL7mIjyYDKdQ9EeaUub4Yr+/divkVwZcBDnCVbNRsg==
+"@johnlindquist/kit@0.16.4":
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@johnlindquist/kit/-/kit-0.16.4.tgz#4e8bfdfbdb36956d035d2940506e22c057db4a48"
+  integrity sha512-RTPY2Ur5ohGR0fG0hTmI2lLHxY51w1NrfTBWrdGLhG2oWNJqj6Ygf+QV8zOhG2Zy7q5NbELR0pbLPwxQloLTzQ==
   dependencies:
     "@johnlindquist/globals" "^1.13.2"
     "@johnlindquist/kit-internal" "1.12.2"
