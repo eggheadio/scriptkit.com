@@ -1,4 +1,4 @@
-import {Fence} from '../src/components/Fence'
+import {Fence} from '../src/components/markdoc/Fence'
 
 const nodes = {
   document: {

@@ -1,18 +1,18 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
-import Lottie from 'react-lottie'
+import Lottie from 'react-lottie-player'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {readFileSync} from 'fs'
 import path from 'path'
-import ScriptCard from 'components/pages/scripts/card'
+import ScriptCard from 'components/scripts/card'
 import Layout from 'layouts'
 import {
   getAllScripts,
   getLatestAppleSiliconRelease,
   getLatestRelease,
-} from 'utils/get-user-scripts'
-import {getCourse} from 'utils/get-course'
+} from 'lib/get-user-scripts'
+import {getCourse} from 'lib/get-course'
 import {LoadedScript, Course} from 'utils/types'
 import KitAppUI from 'components/kitapp-ui'
 import DownloadKitApp from 'components/download-kitapp'
@@ -59,7 +59,7 @@ const links = [
   },
 ]
 
-const Home: FunctionComponent<HomeProps> = ({
+const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
   featuredScripts,
   macIntelRelease,
   macSilliconRelease,
@@ -89,19 +89,14 @@ const Home: FunctionComponent<HomeProps> = ({
               <div className="max-w-screen-sm h-full flex w-full relative z-20 md:-translate-y-24 -translate-y-20 shadow-xl">
                 <KitAppUI scripts={featuredScripts} />
               </div>
-              <div className="absolute left-0 top-0 w-full h-full opacity-50 mix-blend-overlay pointer-events-none">
-                <Lottie
-                  speed={0.1}
-                  options={{
-                    autoplay: true,
-                    loop: true,
-                    animationData: HeroAnimation,
-                    rendererSettings: {
-                      preserveAspectRatio: 'xMidYMid slice',
-                    },
-                  }}
-                />
-              </div>
+              <Lottie
+                className="absolute left-0 top-0 w-full h-full opacity-50 mix-blend-overlay pointer-events-none"
+                speed={0.2}
+                play
+                loop
+                animationData={HeroAnimation}
+                rendererSettings={{preserveAspectRatio: 'xMidYMid slice'}}
+              />
             </div>
           </div>
         </div>

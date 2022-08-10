@@ -2,7 +2,7 @@ import * as React from 'react'
 import {convertTimeToMins} from 'utils/time-utils'
 import {Course} from 'utils/types'
 
-const CourseWidget: React.FC<{course: Course; cta?: string}> = ({
+const CourseWidget: React.FC<React.PropsWithChildren<{course: Course; cta?: string}>> = ({
   course,
   cta,
 }) => {

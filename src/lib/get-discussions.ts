@@ -2,7 +2,7 @@ import path from 'path'
 import {readJson} from 'fs-extra'
 import _ from 'lodash'
 
-import {LoadedScript} from './types'
+import {LoadedScript} from 'utils/types'
 
 export enum Category {
   Announcements = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',

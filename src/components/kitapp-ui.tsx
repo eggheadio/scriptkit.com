@@ -13,7 +13,7 @@ type Props = {
   scripts: LoadedScript[]
 }
 
-const KitAppUI: React.FC<Props> = ({scripts}) => {
+const KitAppUI: React.FC<React.PropsWithChildren<Props>> = ({scripts}) => {
   const [hovered, setHovered] = React.useState<string>('')
 
   return (

@@ -2,12 +2,12 @@ import classNames from 'classnames'
 import React from 'react'
 import createInstallLink from 'utils/createInstallLink'
 
-const InstallScriptButton: React.FC<{
+const InstallScriptButton: React.FC<React.PropsWithChildren<{
   name: string
   url: string
   className?: string
   expanded?: boolean
-}> = ({name, url, className = '', expanded = false}) => {
+}>> = ({name, url, className = '', expanded = false}) => {
   if (!Boolean(url)) return <p />
   return (
     <div className={className}>
