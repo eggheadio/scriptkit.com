@@ -2,10 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 import sponsorsData from '../../public/data/sponsors.json'
 
-const BECOME_SPONSOR_URL = process.env.NEXT_PUBLIC_SPONSORSHIP_URL
-
 const Sponsors = () => {
-  return (
+  return process.env.NEXT_PUBLIC_SPONSORSHIP_URL ? (
     <div className="flex flex-col items-center justify-center text-center pt-10 px-5">
       <span className="font-light text-lg opacity-80">
         ScriptKit is made possible thanks to our sponsors
@@ -32,7 +30,7 @@ const Sponsors = () => {
         <div className="flex items-center justify-center">
           <a
             className="px-4 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 transition ease-in-out"
-            href={BECOME_SPONSOR_URL}
+            href={process.env.NEXT_PUBLIC_SPONSORSHIP_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -41,7 +39,7 @@ const Sponsors = () => {
         </div>
       </div>
     </div>
-  )
+  ) : null
 }
 
 export default Sponsors
