@@ -38,7 +38,7 @@ const KitAppUI: React.FC<Props> = ({scripts}) => {
         {/* tabs */}
         <nav className="pointer-events-none">
           <ul className="flex items-center space-x-1">
-            {Array.of('Run', 'New', 'Kit', 'Help', 'Hot 🔥').map((tab, i) => {
+            {Array.of('Run', 'Tips', 'Community').map((tab, i) => {
               let active = 0
               return (
                 <div
