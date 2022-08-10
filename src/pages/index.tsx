@@ -18,6 +18,7 @@ import KitAppUI from 'components/kitapp-ui'
 import DownloadKitApp from 'components/download-kitapp'
 import HeroAnimation from '../../public/assets/particles.json'
 import CourseWidget from 'components/course-widget'
+import Sponsors from 'components/sponsors'
 
 export type Release = {
   name: string
@@ -110,8 +111,9 @@ const Home: FunctionComponent<HomeProps> = ({
             macSilliconRelease={macSilliconRelease}
           />
         </div>
+        <Sponsors />
       </header>
-      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-16 w-full px-5">
+      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-10 w-full px-5">
         <CourseWidget
           course={course}
           cta="Get Up and Running with Script Kit →"
