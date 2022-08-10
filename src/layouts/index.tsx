@@ -12,7 +12,9 @@ type LayoutProps = {
   navClassName?: string
 }
 
-const DefaultLayout: FunctionComponent<LayoutProps> = ({
+const DefaultLayout: FunctionComponent<
+  React.PropsWithChildren<LayoutProps>
+> = ({
   children,
   className = '',
   withFooter = true,

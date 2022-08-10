@@ -1,6 +1,6 @@
 import path from 'path'
 import {Octokit} from '@octokit/rest'
-import {LoadedScript} from './types'
+import {LoadedScript} from 'utils/types'
 import _ from 'lodash'
 import {readJson} from 'fs-extra'
 

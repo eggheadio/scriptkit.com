@@ -13,7 +13,7 @@ type CodeBlockProps = {
 const H = Highlight as any
 const S = SimpleBar as any
 
-const CodeBlock: FunctionComponent<CodeBlockProps> = ({
+const CodeBlock: FunctionComponent<React.PropsWithChildren<CodeBlockProps>> = ({
   language,
   value,
   className,

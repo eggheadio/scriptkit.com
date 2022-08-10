@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: ['./src/**/*.tsx', './src/**/*.mdx'],
+  content: ['./src/**/*.tsx'],
   theme: {
     extend: {
       lineHeight: {

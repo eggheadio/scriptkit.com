@@ -10,7 +10,7 @@ import {
   DiscussionsProps,
   getDiscussions,
   Login,
-} from 'utils/get-discussions'
+} from 'lib/get-discussions'
 import {LoadedScript} from 'utils/types'
 import DocsPost from 'components/docs-post'
 
@@ -29,7 +29,7 @@ type SectionType = {
 type DocsProps = {
   sections: SectionType
 }
-const Docs: FunctionComponent<DocsProps> = ({sections}) => {
+const Docs: FunctionComponent<React.PropsWithChildren<DocsProps>> = ({sections}) => {
   return (
     <Layout className="docs w-full">
       <main className="max-w-screen-lg mx-auto w-full flex">

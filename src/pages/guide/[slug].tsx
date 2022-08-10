@@ -8,10 +8,10 @@ import {
   getDiscussionBySlug,
   DiscussionProps,
   Login,
-} from 'utils/get-discussions'
+} from 'lib/get-discussions'
 import DiscussionPost from 'components/discussion-post'
 
-const Doc: FunctionComponent<DiscussionProps> = ({discussion}) => {
+const Doc: FunctionComponent<React.PropsWithChildren<DiscussionProps>> = ({discussion}) => {
   return (
     <Layout className="doc">
       <main className="max-w-screen-lg mx-auto flex-grow w-full pt-8">

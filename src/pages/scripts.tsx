@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {getAllScriptsGroupedByUser, UserScripts} from 'utils/get-user-scripts'
-import InstallScriptButton from 'components/install-script-button'
+import {getAllScriptsGroupedByUser, UserScripts} from 'lib/get-user-scripts'
+import InstallScriptButton from 'components/scripts/install-script-button'
 import Image from 'next/image'
 import Layout from 'layouts'
 import Link from 'components/link'
@@ -34,10 +34,9 @@ export default function AllScripts({userScripts}: AllScriptProps) {
               scripts.find((s: LoadedScript) => s.twitter)?.twitter || ''
             twitter = twitter.startsWith('@') ? twitter.slice(1) : twitter
 
-            const UserLink: React.FC<{className?: string}> = ({
-              className,
-              children,
-            }) => (
+            const UserLink: React.FC<
+              React.PropsWithChildren<{className?: string}>
+            > = ({className, children}) => (
               <Link href={`/${user}`}>
                 <a className={className}>{children}</a>
               </Link>
