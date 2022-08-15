@@ -1,5 +1,5 @@
 import '@johnlindquist/kit'
-import {getDiscussions, Category} from '../src/utils/get-discussions.js'
+import {getDiscussions, Category} from '../src/lib/get-discussions.js'
 
 let run = async () => {
   console.log(`Starting discussion json generation:`)

@@ -8,11 +8,11 @@ import {
   getDiscussionBySlug,
   DiscussionProps,
   Login,
-} from 'utils/get-discussions'
+} from 'lib/get-discussions'
 import DiscussionPost from 'components/discussion-post'
 import Meta from 'components/meta'
 
-const Doc: FunctionComponent<DiscussionProps> = ({discussion}) => {
+const Doc: FunctionComponent<React.PropsWithChildren<DiscussionProps>> = ({discussion}) => {
   return (
     <Layout className="doc">
       <Meta title={discussion.title} />

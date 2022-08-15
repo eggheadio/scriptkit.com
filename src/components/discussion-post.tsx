@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import {Language} from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 
-import {DiscussionProps} from 'utils/get-discussions'
+import {DiscussionProps} from 'lib/get-discussions'
 import CodeBlock from 'components/code-block'
 import rehypeRaw from 'rehype-raw'
 
@@ -13,7 +13,6 @@ const DiscussionPost = ({
   link,
 }: DiscussionProps) => (
   <div key={url} className="discussion">
-    
     {link ? (
       <Link href={`/${link}/${command}`}>
         <a>

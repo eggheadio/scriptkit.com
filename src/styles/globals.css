@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../../node_modules/@reach/dialog/styles.css';
 @import '../../node_modules/simplebar/dist/simplebar.min.css';
 @import './fonts/index.css';
 
@@ -10,11 +9,11 @@
   @apply bg-yellow-400 text-yellow-900;
 }
 
-.simplebar-content:before{
+.simplebar-content:before {
   content: '';
 }
 
-.simplebar-content:after{
+.simplebar-content:after {
   content: '';
 }
 
@@ -82,7 +81,7 @@
 }
 
 .docs {
-  p{
+  p {
     @apply leading-relaxed;
   }
   h1 {
@@ -100,27 +99,26 @@
     @apply hover:underline text-yellow-300;
   }
 
-  ul{
+  ul {
     list-style: none;
     @apply my-4;
   }
-   
 
-  ul > li:before{
-    content: "-";
-    padding: 0 .5rem 0 0;    
+  ul > li:before {
+    content: '-';
+    padding: 0 0.5rem 0 0;
   }
 
-  ul > li{
+  ul > li {
     @apply my-2;
   }
 
   blockquote {
-    @apply  border-yellow-400 border-l-4 p-3 m-10 rounded-sm my-4 italic text-sm ml-0;
+    @apply border-yellow-400 border-l-4 p-3 m-10 rounded-sm my-4 italic text-sm ml-0;
   }
 
-  kbd{
-    @apply   border border-white rounded-md px-1 py-0.5 text-sm font-mono font-semibold;
+  kbd {
+    @apply border border-white rounded-md px-1 py-0.5 text-sm font-mono font-semibold;
   }
 }
 .inline-code {
@@ -134,19 +132,17 @@
 } */
 
 @layer utilities {
-  @variants responsive {
-    .masonry-3 {
-      column-count: 3;
-    }
-    .masonry-2 {
-      column-count: 2;
-    }
-    .masonry-1 {
-      column-count: 1;
-    }
-    .break-inside {
-      break-inside: avoid;
-    }
+  .masonry-3 {
+    column-count: 3;
+  }
+  .masonry-2 {
+    column-count: 2;
+  }
+  .masonry-1 {
+    column-count: 1;
+  }
+  .break-inside {
+    break-inside: avoid;
   }
 
   .gg-software-download {

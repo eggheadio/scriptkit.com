@@ -1,5 +1,5 @@
 interface SvgrComponent
-  extends React.StatelessComponent<React.SVGAttributes<SVGElement>> {}
+  extends React.FunctionComponent<React.SVGAttributes<SVGElement>> {}
 
 declare module '*.svg' {
   const value: SvgrComponent
