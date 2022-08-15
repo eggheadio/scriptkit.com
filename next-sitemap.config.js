@@ -1,5 +1,4 @@
-require('dotenv-flow').config()
-
+/** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: `https://scriptkit.com`,
   changefreq: 'daily',

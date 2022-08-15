@@ -2,10 +2,10 @@ import {DownloadIcon} from '@heroicons/react/outline'
 import {Release} from 'pages'
 import * as React from 'react'
 
-const DownloadKitApp: React.FC<{
+const DownloadKitApp: React.FC<React.PropsWithChildren<{
   macIntelRelease: Release
   macSilliconRelease: Release
-}> = ({macIntelRelease, macSilliconRelease}) => {
+}>> = ({macIntelRelease, macSilliconRelease}) => {
   const [isHovered, setIsHovered] = React.useState('')
   const releases = [
     {...macIntelRelease, label: 'Intel'},

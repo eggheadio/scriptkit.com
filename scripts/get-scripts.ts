@@ -2,7 +2,7 @@ import '@johnlindquist/kit'
 import {gql, GraphQLClient} from 'graphql-request'
 import slugify from 'slugify'
 
-import {Discussion} from '../src/utils/get-discussions'
+import {Discussion} from '../src/lib/get-discussions'
 
 export enum Category {
   Announcements = 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODIwMDgw',

@@ -3,7 +3,7 @@ import {FunctionComponent} from 'react'
 import CodeBlock from 'components/code-block'
 import {LoadedScript} from 'utils/types'
 
-const ScriptDetail: FunctionComponent<LoadedScript> = ({
+const ScriptDetail: FunctionComponent<React.PropsWithChildren<LoadedScript>> = ({
   command,
   description,
   content,

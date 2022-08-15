@@ -1,18 +1,20 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
 import Layout from 'layouts'
-import ScriptDetail from 'components/pages/scripts/detail'
-import {getScript, getScriptPaths} from 'utils/get-user-scripts'
+import ScriptDetail from 'components/scripts/detail'
+import {getScript, getScriptPaths} from 'lib/get-user-scripts'
 import ScriptMarkdown from 'components/script-markdown'
 import {Extension, LoadedScript} from 'utils/types'
 import Link from 'components/link'
 import Image from 'next/image'
-import InstallScriptButton from 'components/install-script-button'
+import InstallScriptButton from 'components/scripts/install-script-button'
 import CommentIcon from '../../../public/assets/icons/comment.svg'
 
-const ScriptComponent: FunctionComponent<{
-  script: LoadedScript
-}> = ({script}) => {
+const ScriptComponent: FunctionComponent<
+  React.PropsWithChildren<{
+    script: LoadedScript
+  }>
+> = ({script}) => {
   const {
     user,
     title,

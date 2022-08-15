@@ -2,12 +2,12 @@ import * as React from 'react'
 import Link from 'next/link'
 import {FunctionComponent} from 'react'
 import CodeBlock from 'components/code-block'
-import createInstallLink from '../../../utils/createInstallLink'
+import createInstallLink from '../../utils/createInstallLink'
 import {Extension, LoadedScript} from 'utils/types'
 import {Language} from 'prism-react-renderer'
 import ReactMarkdown from 'react-markdown'
 import theme from 'prism-react-renderer/themes/nightOwl'
-import InstallScriptButton from 'components/install-script-button'
+import InstallScriptButton from 'components/scripts/install-script-button'
 
 type ScriptCardProps = {
   script: LoadedScript
@@ -15,10 +15,9 @@ type ScriptCardProps = {
   withAuthor?: boolean
 }
 
-const ScriptCard: FunctionComponent<ScriptCardProps> = ({
-  script,
-  withAuthor = true,
-}) => {
+const ScriptCard: FunctionComponent<
+  React.PropsWithChildren<ScriptCardProps>
+> = ({script, withAuthor = true}) => {
   return (
     <article className="rounded-lg overflow-hidden flex flex-col max-h-[500px] min-h-[500px] bg-gray-900 bg-opacity-40">
       <header className="relative border-b border-black">

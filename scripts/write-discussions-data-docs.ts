@@ -5,7 +5,7 @@ import {getMetadata} from '@johnlindquist/kit/core/utils'
 import {gql, GraphQLClient} from 'graphql-request'
 import slugify from 'slugify'
 
-import {Discussion} from '../src/utils/get-discussions'
+import {Discussion} from '../src/lib/get-discussions'
 import {Extension, LoadedScript} from '../src/utils/types'
 
 export enum Category {

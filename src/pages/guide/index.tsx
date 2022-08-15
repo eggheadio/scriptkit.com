@@ -10,10 +10,10 @@ import {
   DiscussionsProps,
   getDiscussions,
   Login,
-} from 'utils/get-discussions'
+} from 'lib/get-discussions'
 import {LoadedScript} from 'utils/types'
 
-const Docs: FunctionComponent<DiscussionsProps> = ({discussions}) => {
+const Docs: FunctionComponent<React.PropsWithChildren<DiscussionsProps>> = ({discussions}) => {
   return (
     <Layout className="blog">
       <main className="max-w-screen-lg mx-auto flex-grow w-full">

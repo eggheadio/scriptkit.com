@@ -10,10 +10,10 @@ import {
   DiscussionsProps,
   getDiscussions,
   Login,
-} from 'utils/get-discussions'
+} from 'lib/get-discussions'
 import {LoadedScript} from 'utils/types'
 
-const Blog: FunctionComponent<DiscussionsProps> = ({discussions}) => {
+const Blog: FunctionComponent<React.PropsWithChildren<DiscussionsProps>> = ({discussions}) => {
   return (
     <Layout className="blog">
       <Meta title="Script Kit Blog" />

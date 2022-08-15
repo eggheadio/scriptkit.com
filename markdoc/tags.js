@@ -1,5 +1,5 @@
-import {Callout} from '../src/components/Callout'
-import {LinkGrid} from '../src/components/LinkGrid'
+import {Callout} from '../src/components/markdoc/Callout'
+import {LinkGrid} from '../src/components/markdoc/LinkGrid'
 
 const tags = {
   callout: {
