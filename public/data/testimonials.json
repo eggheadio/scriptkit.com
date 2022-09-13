@@ -21,8 +21,10 @@
     "review": "I just learned about ScriptKit, and my mind is racing with all the stuff I could do with it."
   },
   {
-    "name": "Nadeem",
-    "avatar": "nadeem.jpg",
-    "review": "I've been using Alfred for the past 10 years maybe, and I am about to uninstall it. ScriptKit fully replaces everything for me now."
+    "name": "Tom Slutsky",
+    "handle": "SlutskyTom",
+    "avatar": "slutskytom.jpg",
+    "url": "https://twitter.com/SlutskyTom/status/1546775672051453952",
+    "review": "[@scriptkitapp](https://twitter.com/scriptkitapp) is dope!\n\nTook me less then a minute to create a command palette script for killing a port 🤩"
   }
 ]
