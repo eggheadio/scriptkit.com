@@ -10,16 +10,16 @@ type LayoutProps = {
   className?: string
   withFooter?: boolean
   navClassName?: string
+  style?: {}
 }
 
-const DefaultLayout: FunctionComponent<
-  React.PropsWithChildren<LayoutProps>
-> = ({
+const Layout: FunctionComponent<React.PropsWithChildren<LayoutProps>> = ({
   children,
   className = '',
   withFooter = true,
   navClassName = '',
   meta,
+  style,
 }) => {
   const {title, description, user, author, twitter, additionalMetaTags} =
     meta || {}
@@ -59,7 +59,7 @@ const DefaultLayout: FunctionComponent<
         }}
         additionalMetaTags={additionalMetaTags}
       />
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen px-5" style={style}>
         <Navigation className={navClassName} />
         <div className={`flex-grow ${className}`}>{children}</div>
         {withFooter && <Footer />}
@@ -68,4 +68,4 @@ const DefaultLayout: FunctionComponent<
   )
 }
 
-export default DefaultLayout
+export default Layout

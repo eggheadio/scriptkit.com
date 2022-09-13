@@ -44,8 +44,6 @@ const ScriptComponent: FunctionComponent<
 
   return (
     <Layout
-      navClassName="bg-gray-900"
-      className="overflow-hidden"
       meta={{
         title,
         author,
@@ -54,7 +52,7 @@ const ScriptComponent: FunctionComponent<
         description,
       }}
     >
-      <header className="-m-5 sm:pt-24 pt-12 px-10 bg-gray-900 relative p-5">
+      <header className="-mx-5 sm:pt-24 pt-12 px-10 bg-gray-900 relative p-5 overflow-hidden">
         <div className="max-w-screen-lg mx-auto w-full flex sm:flex-row flex-col justify-between">
           <div>
             <div className="pb-8">
@@ -68,7 +66,7 @@ const ScriptComponent: FunctionComponent<
               className="translate-y-8 sm:flex hidden"
             />
           </div>
-          <div className="flex items-center text-sm space-x-4 pb-10">
+          <div className="flex items-center text-sm space-x-4 pb-10 flex-shrink-0">
             <Link href={`/${user}`}>
               <a className="flex items-center group hover:text-yellow-400 sm:px-3 py-2">
                 <div className="flex items-center justify-center group-hover:border-yellow-400 border border-transparent rounded-full overflow-hidden">
@@ -112,7 +110,7 @@ const ScriptComponent: FunctionComponent<
         />
       </header>
       {/* ——— */}
-      <div className="max-w-screen-lg w-full mx-auto sm:pt-24 pt-16 lg:px-0 px-5">
+      <div className="max-w-screen-lg w-full mx-auto pt-16">
         {/* <Link href={`/${user}`}>
           <a className="flex md:flex-row flex-col-reverse w-full md:items-center justify-between pb-8">
             <div className="md:pt-0 pt-4 flex flex-row items-center justify-center">

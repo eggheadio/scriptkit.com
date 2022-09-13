@@ -33,17 +33,26 @@ module.exports = {
             'h1, h2, h3, h4, h5': {
               color: theme('colors.white'),
             },
+
             a: {
-              color: theme('colors.yellow.300'),
-              textDecoration: 'none',
+              color: theme('colors.amber.300'),
             },
-            'a:hover': {
+            '* > a': {
+              color: theme('colors.amber.300'),
+            },
+            '* > a:hover': {
               textDecoration: 'underline',
             },
-            'code:before': {
+            code: {
+              background: theme('colors.gray.800'),
+              padding: '1px 3px',
+              borderRadius: 3,
+              fontSize: '85%',
+            },
+            'code::before': {
               content: '""',
             },
-            'code:after': {
+            'code::after': {
               content: '""',
             },
             pre: {

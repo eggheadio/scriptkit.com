@@ -1,11 +1,13 @@
-import {DownloadIcon} from '@heroicons/react/outline'
+import {ArrowDownTrayIcon} from '@heroicons/react/20/solid'
 import {Release} from 'pages'
 import * as React from 'react'
 
-const DownloadKitApp: React.FC<React.PropsWithChildren<{
-  macIntelRelease: Release
-  macSilliconRelease: Release
-}>> = ({macIntelRelease, macSilliconRelease}) => {
+const DownloadKitApp: React.FC<
+  React.PropsWithChildren<{
+    macIntelRelease: Release
+    macSilliconRelease: Release
+  }>
+> = ({macIntelRelease, macSilliconRelease}) => {
   const [isHovered, setIsHovered] = React.useState('')
   const releases = [
     {...macIntelRelease, label: 'Intel'},
@@ -34,7 +36,7 @@ const DownloadKitApp: React.FC<React.PropsWithChildren<{
                     fetch('/api/update-twitter-count')
                   }}
                 >
-                  <DownloadIcon className="flex-shrink-0" width={16} />
+                  <ArrowDownTrayIcon className="flex-shrink-0" width={16} />
                   <span className="pl-1">{release.label}</span>
                 </a>
                 <div className="absolute w-full h-full translate-y-1 bg-gradient-to-tr from-orange-600 via-amber-600 to-yellow-600 left-0 rounded-xl z-0 transition-all ease-in-out" />
