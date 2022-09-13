@@ -1,32 +1,42 @@
 import * as React from 'react'
 import {FunctionComponent} from 'react'
 import Layout from 'layouts'
-import DiscussionPost from 'components/discussion-post'
-import Meta from 'components/meta'
 
 import {
   Category,
-  Discussion,
   DiscussionsProps,
   getDiscussions,
   Login,
 } from 'lib/get-discussions'
 import {LoadedScript} from 'utils/types'
+import BlogTeaser from 'components/blog/teaser'
+import Image from 'next/image'
 
-const Blog: FunctionComponent<React.PropsWithChildren<DiscussionsProps>> = ({discussions}) => {
+const Blog: FunctionComponent<React.PropsWithChildren<DiscussionsProps>> = ({
+  discussions,
+}) => {
   return (
-    <Layout className="blog">
-      <Meta title="Script Kit Blog" />
-      <main className="max-w-screen-lg mx-auto flex-grow w-full px-5">
-        {discussions.map((discussion) => (
-          <DiscussionPost
-            discussion={discussion}
-            key={discussion.url}
-            link="blog"
-          />
-        ))}
+    <Layout meta={{title: 'Script Kit Blog'}} className="blog">
+      <header className="relative z-10">
+        <h1 className="text-center text-5xl tracking-tight font-semibold py-16">
+          News & Announcements
+        </h1>
+      </header>
+      <main className="z-10 pt-16 relative max-w-screen-sm mx-auto flex-grow flex flex-col w-full gap-16">
+        {discussions.map((discussion) => {
+          return <BlogTeaser key={discussion.url} discussion={discussion} />
+        })}
       </main>
-      <section className="max-w-screen-lg mx-auto"></section>
+      <Image
+        className="-z-10"
+        src={require('../../../public/assets/gradient-bg-1.png')}
+        alt=""
+        aria-hidden="true"
+        layout="fill"
+        objectPosition="top center"
+        objectFit="contain"
+        quality={100}
+      />
     </Layout>
   )
 }

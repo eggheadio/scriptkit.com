@@ -39,10 +39,8 @@ export default function User({user, scripts}: UserProps) {
         },
         additionalMetaTags: [{property: 'author', content: title}],
       }}
-      navClassName="bg-gray-900"
-      className="overflow-hidden"
     >
-      <header className="-m-5 sm:pt-20 pt-12 pb-6 px-10 bg-gray-900 relative">
+      <header className="-mx-5 sm:pt-20 pt-12 pb-6 px-10 bg-gray-900 relative overflow-hidden">
         <div className="max-w-screen-lg mx-auto w-full flex md:flex-row md:items-center flex-col justify-between">
           <div className="pb-8">
             <div className="flex items-center">

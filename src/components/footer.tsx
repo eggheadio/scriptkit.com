@@ -4,7 +4,7 @@ import GitHubIcon from 'images/github.svg'
 
 const Footer = () => {
   return (
-    <footer className="flex flex-row items-center justify-between w-full max-w-screen-lg px-5 pt-24 pb-10 mx-auto sm:items-end sm:pt-32 lg:px-0 ">
+    <footer className="flex flex-row items-center justify-between w-full max-w-screen-lg pt-24 pb-10 mx-auto sm:items-end sm:pt-32">
       <a
         className="flex items-center origin-left transform scale-90 group sm:scale-100"
         href="https://johnlindquist.com"

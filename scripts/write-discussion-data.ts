@@ -137,6 +137,7 @@ let loadedScripts: any[] = discussions.map(
       section,
       i,
       sectionIndex,
+      createdAt,
     }
   },
 )

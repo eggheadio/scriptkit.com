@@ -2,7 +2,8 @@ import * as React from 'react'
 import Link from 'components/link'
 // import Logo from 'images/logo.svg'
 import {Disclosure} from '@headlessui/react'
-import {MenuIcon, XIcon} from '@heroicons/react/outline'
+import {Bars3Icon, XMarkIcon} from '@heroicons/react/20/solid'
+import cx from 'classnames'
 import classNames from 'classnames'
 import {useRouter} from 'next/router'
 import Logo from './logo'
@@ -28,7 +29,7 @@ function Navigation({className = ''}: NavigationProps) {
     <Disclosure as="nav">
       {({open}) => (
         <div className={className}>
-          <div className="w-full max-w-screen-lg px-5 py-2 mx-auto lg:px-0">
+          <div className="w-full max-w-screen-lg py-2 mx-auto relative z-10">
             <div className="relative flex items-center justify-between h-16">
               <Link href="/">
                 <a className="flex items-center">
@@ -50,9 +51,9 @@ function Navigation({className = ''}: NavigationProps) {
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -62,21 +63,22 @@ function Navigation({className = ''}: NavigationProps) {
                     {navItems.map((item) => {
                       const current = router.asPath === item.href
                       return (
-                        <a
+                        <Link
                           key={item.name}
                           href={item.href}
-                          className={`
-                          px-3 py-2 rounded-xl text-[0.95em] leading-tighter transition-all ease-in-out duration-200  
-                          ${classNames({
-                            'bg-gradient-to-t from-gray-900 to-gray-800 text-white hover:bg-gray-800 border border-transparent':
-                              current,
-                            'text-gray-300 bg-gradient-to-t hover:from-gray-900 hover:to-gray-800 hover:text-white border border-transparent hover:border-gray-800':
-                              !current,
-                          })}`}
                           aria-current={current}
                         >
-                          {item.name}
-                        </a>
+                          <a
+                            className={cx(
+                              'px-3 py-2 rounded-xl text-[0.95em] leading-tighter transition-all ease-in-out duration-200 text-white hover:underline',
+                              {
+                                underline: current,
+                              },
+                            )}
+                          >
+                            {item.name}
+                          </a>
+                        </Link>
                       )
                     })}
                   </div>
@@ -84,7 +86,6 @@ function Navigation({className = ''}: NavigationProps) {
               </div>
             </div>
           </div>
-
           <Disclosure.Panel className="sm:hidden bg-gradient-to-t from-gray-900 to-gray-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => {
