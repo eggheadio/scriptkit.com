@@ -15,7 +15,6 @@ export interface LoadedScript extends Partial<ScriptMetadata> {
   url: string
   discussion: string
   extension: Extension
-
   github?: string
   twitter?: string
   description?: string
@@ -24,6 +23,7 @@ export interface LoadedScript extends Partial<ScriptMetadata> {
   section?: string
   i?: string
   sectionIndex?: string
+  createdAt?: string
 }
 
 export type Course = {

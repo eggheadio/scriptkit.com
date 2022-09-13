@@ -9,6 +9,14 @@
   @apply bg-yellow-400 text-yellow-900;
 }
 
+:root {
+  color-scheme: dark;
+}
+
+a {
+  @apply break-words !important;
+}
+
 .simplebar-content:before {
   content: '';
 }
@@ -185,8 +193,4 @@
     left: 5px;
     bottom: 5px;
   }
-}
-
-p > a {
-  @apply text-yellow-300;
 }
