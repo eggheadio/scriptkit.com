@@ -52,7 +52,7 @@ const ScriptComponent: FunctionComponent<
         description,
       }}
     >
-      <header className="-mx-5 sm:pt-24 pt-12 px-10 bg-gray-900 relative p-5 overflow-hidden">
+      <header className="rounded-xl sm:pt-24 pt-12 px-10 bg-gray-900 relative p-5">
         <div className="max-w-screen-lg mx-auto w-full flex sm:flex-row flex-col justify-between">
           <div>
             <div className="pb-8">
