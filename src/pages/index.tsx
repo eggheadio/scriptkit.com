@@ -13,12 +13,14 @@ import {
   getLatestRelease,
 } from 'lib/get-user-scripts'
 import {getCourse} from 'lib/get-course'
-import {LoadedScript, Course} from 'utils/types'
+import {LoadedScript, Course, Testimonial as TestimonialType} from 'utils/types'
+import {getTestimonials} from 'lib/get-testimonials'
 import KitAppUI from 'components/kitapp-ui'
 import DownloadKitApp from 'components/download-kitapp'
 import HeroAnimation from '../../public/assets/particles.json'
 import CourseWidget from 'components/course-widget'
 import Sponsors from 'components/sponsors'
+import Testimonial from 'components/testimonial'
 
 export type Release = {
   name: string
@@ -30,6 +32,7 @@ type HomeProps = {
   macIntelRelease: Release
   macSilliconRelease: Release
   course: Course
+  testimonials: TestimonialType[]
 }
 
 const links = [
@@ -64,6 +67,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
   macIntelRelease,
   macSilliconRelease,
   course,
+  testimonials,
 }) => {
   const router = useRouter()
   let [origin, setOrigin] = React.useState('')
@@ -108,7 +112,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
         </div>
         <Sponsors />
       </header>
-      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-10 w-full px-5">
+      <main className="max-w-screen-lg mx-auto space-y-10 flex-grow sm:py-10 w-full">
         <CourseWidget
           course={course}
           cta="Get Up and Running with Script Kit →"
@@ -218,8 +222,18 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
             </ul>
           </div>
         </div>
+        <section>
+          <h2 className="text-3xl font-bold pb-4 sm:pt-10 pt-4">
+            What the community is saying
+          </h2>
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+            {testimonials.map((testimonial) => {
+              return <Testimonial testimonial={testimonial} />
+            })}
+          </div>
+        </section>
       </main>
-      <section className="max-w-screen-lg mx-auto pt-8 px-5">
+      <section className="max-w-screen-lg mx-auto pt-8 ">
         {featuredScripts?.length > 0 && (
           <div className="w-full pt-8">
             <h2 className="text-3xl font-bold pb-4">Featured Scripts</h2>
@@ -262,13 +276,16 @@ export async function getStaticProps(context: any) {
     )
   })
 
+  const testimonials = await getTestimonials()
+
   return {
     props: {
       featuredScripts,
       macIntelRelease,
       macSilliconRelease,
       course: showcaseCourse,
-    }, // will be passed to the page component as props
+      testimonials,
+    },
   }
 }
 
