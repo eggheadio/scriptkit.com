@@ -38,27 +38,29 @@ const KitAppUI: React.FC<React.PropsWithChildren<Props>> = ({scripts}) => {
         {/* tabs */}
         <nav className="pointer-events-none">
           <ul className="flex items-center space-x-1">
-            {Array.of('Run', 'Tips', 'Community').map((tab, i) => {
-              let active = 0
-              return (
-                <div
-                  className={`border-b-2 px-3 py-1 text-xs ${classNames({
-                    'border-yellow-500': i === active,
-                    'border-none opacity-80': i !== active,
-                  })}`}
-                  key={tab}
-                >
-                  {tab}
-                </div>
-              )
-            })}
+            {Array.of('Script', 'Kit', 'API', 'Guide', 'Community').map(
+              (tab, i) => {
+                let active = 0
+                return (
+                  <div
+                    className={`border-b-2 px-3 py-1 text-xs ${classNames({
+                      'border-yellow-500': i === active,
+                      'border-none opacity-80': i !== active,
+                    })}`}
+                    key={tab}
+                  >
+                    {tab}
+                  </div>
+                )
+              },
+            )}
           </ul>
         </nav>
       </header>
       <main className="flex flex-grow overflow-hidden">
         {/* scripts */}
         <ul className="flex w-full flex-grow sm:max-w-[300px] sm:border-r border-white border-opacity-5">
-          <S className="flex-grow">
+          <S className="flex-grow h-[296px]">
             {scripts?.map((script: LoadedScript) => {
               return (
                 <li className="" key={script.command}>

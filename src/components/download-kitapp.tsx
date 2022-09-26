@@ -15,7 +15,7 @@ const DownloadKitApp: React.FC<
   ]
   return (
     <div className="relative">
-      <div className="flex md:flex-row flex-col px-2 md:py-2 py-8 md:rounded-lg sm:rounded-lg rounded-b-lg md:translate-y-0 -translate-y-5 sm:bg-white bg-black sm:text-black items-center md:justify-between justify-center md:space-y-0 space-y-4">
+      <div className="flex md:flex-row flex-col px-2 md:py-2 py-8 md:rounded-lg sm:rounded-lg rounded-b-lg md:translate-y-0 -translate-y-5 sm:bg-white bg-gray-900 sm:text-black items-center md:justify-between justify-center md:space-y-0 space-y-4">
         <div className="flex items-center md:pl-3 leading-tight font-medium">
           Download Script Kit for macOS:
         </div>
