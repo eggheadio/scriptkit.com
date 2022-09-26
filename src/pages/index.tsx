@@ -104,11 +104,30 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
             </div>
           </div>
         </div>
-        <div className="max-w-xl mx-auto w-full -translate-y-8">
+        <div className="max-w-xl mx-auto w-full sm:-translate-y-8">
           <DownloadKitApp
             macIntelRelease={macIntelRelease}
             macSilliconRelease={macSilliconRelease}
           />
+        </div>
+        <div className="text-center max-w-md w-full mx-auto sm:text-sm text-xs">
+          <p className="leading-relaxed text-gray-300">
+            Script Kit is made for developers who understand the inherent risks
+            of running scripts on their computer. If you're uncomfortable with
+            any aspect of writing, running, or sharing scripts, please{' '}
+            <a
+              className="underline hover:text-white"
+              href="https://github.com/johnlindquist/kit/discussions"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              ask for help
+            </a>
+            !
+          </p>
+          <p className="pt-5">
+            Script Kit doesn't collect any personal information.
+          </p>
         </div>
         <Sponsors />
       </header>
@@ -228,7 +247,9 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
           </h2>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             {testimonials.map((testimonial) => {
-              return <Testimonial testimonial={testimonial} />
+              return (
+                <Testimonial key={testimonial.name} testimonial={testimonial} />
+              )
             })}
           </div>
         </section>

@@ -4,7 +4,7 @@ import sponsorsData from '../../public/data/sponsors.json'
 
 const Sponsors = () => {
   return process.env.NEXT_PUBLIC_SPONSORSHIP_URL ? (
-    <div className="flex flex-col items-center justify-center text-center pt-10 px-5">
+    <div className="flex flex-col items-center justify-center text-center sm:pt-16 pt-10 sm:mt-16 mt-10 px-5 border-t border-gray-900 max-w-screen-lg mx-auto">
       <span className="font-light text-lg opacity-80">
         ScriptKit is made possible thanks to our sponsors
       </span>
