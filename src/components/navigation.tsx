@@ -10,8 +10,11 @@ import Logo from './logo'
 
 const navItems = [
   {name: 'Community Scripts', href: '/scripts'},
-  {name: 'Docs', href: '/docs'},
-  // {name: 'Guide', href: '/guide'},
+  {name: 'Docs', href: 'https://github.com/johnlindquist/kit/blob/main/API.md'},
+  {
+    name: 'Guide',
+    href: 'https://github.com/johnlindquist/kit/blob/main/GUIDE.md',
+  },
   {
     name: 'Discuss',
     href: 'https://github.com/johnlindquist/kit/discussions',
