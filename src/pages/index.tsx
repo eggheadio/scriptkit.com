@@ -84,14 +84,18 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
               <h1 className="text-center lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight leading-tighter">
                 Shortcut to Everything
               </h1>
-
               <h2 className="sm:text-xl text-lg opacity-80 font-light pt-2 leading-tight md:max-w-none max-w-xs mx-auto">
                 An open-source kit to optimize your developer workflow
               </h2>
             </div>
-            <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex items-center justify-center p-5 pb-0 rounded-xl max-w-screen-md">
-              <div className="max-w-screen-sm h-full flex w-full relative z-20 md:-translate-y-24 -translate-y-20 shadow-xl">
-                <KitAppUI scripts={featuredScripts} />
+            <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex flex-col items-center justify-center p-5 pb-16 rounded-xl max-w-3xl">
+              <div className="max-w-2xl h-full flex flex-col w-full relative z-20 md:-mt-24 -mt-20">
+                <div className="shadow-xl">
+                  <KitAppUI scripts={featuredScripts} />
+                </div>
+                <div className="pt-8 md:text-2xl text-xl font-semibold tracking-tight drop-shadow-md">
+                  Download Script Kit:
+                </div>
               </div>
               <Lottie
                 className="absolute left-0 top-0 w-full h-full opacity-50 mix-blend-overlay pointer-events-none"
@@ -104,11 +108,30 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
             </div>
           </div>
         </div>
-        <div className="max-w-xl mx-auto w-full -translate-y-8">
+        <div className="max-w-2xl mx-auto w-full -translate-y-8 flex items-center justify-center">
           <DownloadKitApp
             macIntelRelease={macIntelRelease}
             macSilliconRelease={macSilliconRelease}
           />
+        </div>
+        <div className="text-center max-w-md w-full mx-auto sm:text-sm text-xs pt-2">
+          <p className="leading-relaxed text-gray-300">
+            Script Kit is made for developers who understand the inherent risks
+            of running scripts on their computer. If you're uncomfortable with
+            any aspect of writing, running, or sharing scripts, please{' '}
+            <a
+              className="underline hover:text-white"
+              href="https://github.com/johnlindquist/kit/discussions"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              ask for help
+            </a>
+            !
+          </p>
+          <p className="pt-5">
+            Script Kit doesn't collect any personal information.
+          </p>
         </div>
         <Sponsors />
       </header>
@@ -228,7 +251,9 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
           </h2>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             {testimonials.map((testimonial) => {
-              return <Testimonial testimonial={testimonial} />
+              return (
+                <Testimonial key={testimonial.name} testimonial={testimonial} />
+              )
             })}
           </div>
         </section>

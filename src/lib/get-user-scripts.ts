@@ -94,7 +94,9 @@ export async function getLatestRelease() {
 
   const mainRelease = releases.find(
     (release: any) =>
-      !release.name.includes('beta') && !release.name.includes('alpha'),
+      !release.name.includes('beta') &&
+      !release.name.includes('alpha') &&
+      !release.prerelease,
   )
 
   const release = mainRelease?.assets.find(
@@ -102,6 +104,7 @@ export async function getLatestRelease() {
       !asset.name.includes('beta') &&
       !asset.name.includes('alpha') &&
       !asset.name.includes('arm') &&
+      !asset.name.includes('prerelease') &&
       asset.name.endsWith('.dmg'),
   )
 
@@ -119,7 +122,9 @@ export async function getLatestAppleSiliconRelease() {
 
   const mainRelease = releases.find(
     (release: any) =>
-      !release.name.includes('beta') && !release.name.includes('alpha'),
+      !release.name.includes('beta') &&
+      !release.name.includes('alpha') &&
+      !release.prerelease,
   )
 
   const release = mainRelease?.assets.find(
