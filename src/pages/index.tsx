@@ -11,6 +11,7 @@ import {
   getAllScripts,
   getLatestAppleSiliconRelease,
   getLatestRelease,
+  getLatestWindowsPreviewRelease,
 } from 'lib/get-user-scripts'
 import {getCourse} from 'lib/get-course'
 import {LoadedScript, Course, Testimonial as TestimonialType} from 'utils/types'
@@ -31,6 +32,7 @@ type HomeProps = {
   featuredScripts: LoadedScript[]
   macIntelRelease: Release
   macSilliconRelease: Release
+  windowsPreviewRelease: Release
   course: Course
   testimonials: TestimonialType[]
 }
@@ -66,6 +68,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
   featuredScripts,
   macIntelRelease,
   macSilliconRelease,
+  windowsPreviewRelease,
   course,
   testimonials,
 }) => {
@@ -112,6 +115,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
           <DownloadKitApp
             macIntelRelease={macIntelRelease}
             macSilliconRelease={macSilliconRelease}
+            windowsPreviewRelease={windowsPreviewRelease}
           />
         </div>
         <div className="text-center max-w-md w-full mx-auto sm:text-sm text-xs pt-2">
@@ -286,6 +290,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
 export async function getStaticProps(context: any) {
   const macIntelRelease = await getLatestRelease()
   const macSilliconRelease = await getLatestAppleSiliconRelease()
+  const windowsPreviewRelease = await getLatestWindowsPreviewRelease()
   const showcaseCourse = await getCourse(
     'script-kit-showcase-for-optimizing-your-everyday-workflows-e20ceab4',
   )
@@ -308,6 +313,7 @@ export async function getStaticProps(context: any) {
       featuredScripts,
       macIntelRelease,
       macSilliconRelease,
+      windowsPreviewRelease,
       course: showcaseCourse,
       testimonials,
     },

@@ -137,3 +137,31 @@ export async function getLatestAppleSiliconRelease() {
 
   return release
 }
+
+export async function getLatestWindowsPreviewRelease() {
+  const releaseResponse = await octokit.repos.listReleases({
+    owner: 'johnlindquist',
+    repo: 'kitapp',
+  })
+
+  const releases = releaseResponse.data
+
+  console.log(releases.map((r) => r.name))
+
+  const mainRelease = releases.find(
+    (release: any) =>
+      !release.name.includes('beta') &&
+      !release.name.includes('alpha') &&
+      !release.prerelease,
+  )
+
+  const release = mainRelease?.assets.find(
+    (asset: any) =>
+      !asset.name.includes('beta') &&
+      !asset.name.includes('alpha') &&
+      !asset.name.includes('arm') &&
+      asset.name.endsWith('.exe'),
+  )
+
+  return release
+}
