@@ -33,7 +33,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   let response = await client.request(query)
   let sponsors = response.user.sponsorshipsAsMaintainer.nodes.map(
-    (n) => n.sponsorEntity.login,
+    (n: any) => n.sponsorEntity.login,
   )
 
   res.send(sponsors)
