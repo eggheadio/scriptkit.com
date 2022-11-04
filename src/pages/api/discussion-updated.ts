@@ -2,8 +2,6 @@ import {NextApiRequest, NextApiResponse} from 'next'
 
 import axios from 'axios'
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log(req.body)
-
   const {action, comment, discussion} = req.body
 
   if (['edited', 'created', 'deleted'].includes(action) && !comment) {
