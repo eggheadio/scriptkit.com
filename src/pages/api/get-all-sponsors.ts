@@ -5,22 +5,12 @@ import {NextApiRequest, NextApiResponse} from 'next'
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let endpoint = 'https://api.github.com/graphql'
 
-  let {id, login, node_id} = req.body
-
   let client = new GraphQLClient(endpoint, {
     headers: {
       'GraphQL-Features': 'discussions_api',
       authorization: `Bearer ${process.env.GITHUB_SCRIPTKITCOM_TOKEN}`,
     },
   })
-
-  /**
-                "sponsorEntity": {
-              "id": "MDQ6VXNlcjIyNjI4NTg=",
-              "databaseId": 2262858,
-              "login": "tayiorbeii"
-            }
-   */
 
   let query = gql`
     query {
@@ -46,9 +36,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     (n: any) => n.sponsorEntity,
   )
 
-  let isSponsor = sponsors.find((s: any) => {
-    return s.id === node_id && s.login === login && s.databaseId === id
-  })
-
-  res.send(isSponsor)
+  res.send(sponsors)
 }
