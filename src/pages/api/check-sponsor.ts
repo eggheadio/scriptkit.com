@@ -11,9 +11,9 @@ const supabase = createClient(
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let endpoint = 'https://api.github.com/graphql'
 
-  let {id, login, node_id, twitter_username, email, name} = req.body
+  let {id, login, node_id, twitter_username, email, name, feature} = req.body
 
-  await supabase.from('user').insert([
+  let supabaseResponse = await supabase.from('users').insert([
     {
       database_id: id,
       login,
@@ -21,8 +21,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       twitter_username,
       email,
       name,
+      feature,
     },
   ])
+
+  if (supabaseResponse.error) {
+    res.status(500).json({error: supabaseResponse.error})
+  }
 
   let client = new GraphQLClient(endpoint, {
     headers: {
@@ -30,14 +35,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       authorization: `Bearer ${process.env.GITHUB_SCRIPTKITCOM_TOKEN}`,
     },
   })
-
-  /**
-                "sponsorEntity": {
-              "id": "MDQ6VXNlcjIyNjI4NTg=",
-              "databaseId": 2262858,
-              "login": "tayiorbeii"
-            }
-   */
 
   let query = gql`
     query {
@@ -59,6 +56,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   `
 
   let response = await client.request(query)
+  if (response.error) {
+    res.status(500).json({error: response.error})
+  }
+
   let sponsors = response.user.sponsorshipsAsMaintainer.nodes.map(
     (n: any) => n.sponsorEntity,
   )
