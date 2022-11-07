@@ -1,11 +1,28 @@
 // Next.js API route to check if user is a sponsor
 import {gql, GraphQLClient} from 'graphql-request'
 import {NextApiRequest, NextApiResponse} from 'next'
+import {createClient, SupabaseClient} from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.SUPABASE_URL as string,
+  process.env.SUPABASE_API_KEY as string,
+)
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let endpoint = 'https://api.github.com/graphql'
 
-  let {id, login, node_id} = req.body
+  let {id, login, node_id, twitter_username, email, name} = req.body
+
+  await supabase.from('user').insert([
+    {
+      database_id: id,
+      login,
+      node_id,
+      twitter_username,
+      email,
+      name,
+    },
+  ])
 
   let client = new GraphQLClient(endpoint, {
     headers: {
