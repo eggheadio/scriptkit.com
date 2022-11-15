@@ -6,10 +6,6 @@ import {readJson} from 'fs-extra'
 
 const cwd = process.cwd
 
-// const octokit = new Octokit({
-//   auth: process.env.GITHUB_SCRIPTKITCOM_TOKEN,
-// })
-
 const octokit = new Octokit()
 
 export const getAllScripts = async (): Promise<LoadedScript[]> => {
