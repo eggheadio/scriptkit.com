@@ -36,3 +36,5 @@ yarn-error.log*
 .env
 .scripts
 .clj-kondo
+bin
+logs
