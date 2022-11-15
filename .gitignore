@@ -38,3 +38,8 @@ yarn-error.log*
 .clj-kondo
 bin
 logs
+.env
+.env.local
+.env.development
+.env.test
+.env.production
