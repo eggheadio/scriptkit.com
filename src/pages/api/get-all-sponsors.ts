@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   let client = new GraphQLClient(endpoint, {
     headers: {
       'GraphQL-Features': 'discussions_api',
-      authorization: `Bearer ${process.env.GITHUB_SCRIPTKITCOM_TOKEN}`,
+      authorization: `Bearer ${process.env.GITHUB_DISCUSSIONS_TOKEN}`,
     },
   })
 
