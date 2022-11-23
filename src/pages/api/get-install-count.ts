@@ -33,6 +33,8 @@ let getReleaseCount = async () => {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let count = await getReleaseCount()
 
+  // cache response for 6 hours
+  res.setHeader('Cache-Control', 's-maxage=21600')
   res.statusCode = 200
   res.json(count)
 }
