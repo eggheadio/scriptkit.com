@@ -90,22 +90,25 @@ export async function getLatestRelease() {
 
   const mainRelease = releases.find(
     (release: any) =>
-      !release.name.includes('beta') &&
-      !release.name.includes('alpha') &&
-      !release.prerelease,
+      !release?.name?.includes('beta') &&
+      !release?.name?.includes('alpha') &&
+      !release.prerelease &&
+      release?.assets?.find((a: any) => a.name.includes('dmg')),
   )
 
   const release = mainRelease?.assets.find(
     (asset: any) =>
-      !asset.name.includes('beta') &&
-      !asset.name.includes('alpha') &&
-      !asset.name.includes('arm') &&
-      !asset.name.includes('prerelease') &&
-      asset.name.endsWith('.dmg'),
+      !asset?.name?.includes('beta') &&
+      !asset?.name?.includes('alpha') &&
+      !asset?.name?.includes('arm') &&
+      asset?.name?.endsWith('.dmg'),
   )
 
   return release
 }
+
+// export const getLatestReleaseMemo = memoizerific(1)(getLatestRelease)
+
 export async function getLatestAppleSiliconRelease() {
   const releaseResponse = await octokit.repos.listReleases({
     owner: 'johnlindquist',
@@ -118,17 +121,18 @@ export async function getLatestAppleSiliconRelease() {
 
   const mainRelease = releases.find(
     (release: any) =>
-      !release.name.includes('beta') &&
-      !release.name.includes('alpha') &&
-      !release.prerelease,
+      !release?.name?.includes('beta') &&
+      !release?.name?.includes('alpha') &&
+      !release.prerelease &&
+      release?.assets?.find((a: any) => a.name.includes('dmg')),
   )
 
   const release = mainRelease?.assets.find(
     (asset: any) =>
-      !asset.name.includes('beta') &&
-      !asset.name.includes('alpha') &&
-      asset.name.includes('arm') &&
-      asset.name.endsWith('.dmg'),
+      !asset?.name?.includes('beta') &&
+      !asset?.name?.includes('alpha') &&
+      asset?.name?.includes('arm') &&
+      asset?.name?.endsWith('.dmg'),
   )
 
   return release
@@ -146,17 +150,18 @@ export async function getLatestWindowsPreviewRelease() {
 
   const mainRelease = releases.find(
     (release: any) =>
-      !release.name.includes('beta') &&
-      !release.name.includes('alpha') &&
-      !release.prerelease,
+      !release?.name?.includes('beta') &&
+      !release?.name?.includes('alpha') &&
+      !release.prerelease &&
+      release?.assets?.find((a: any) => a.name.includes('exe')),
   )
 
   const release = mainRelease?.assets.find(
     (asset: any) =>
-      !asset.name.includes('beta') &&
-      !asset.name.includes('alpha') &&
-      !asset.name.includes('arm') &&
-      asset.name.endsWith('.exe'),
+      !asset?.name?.includes('beta') &&
+      !asset?.name?.includes('alpha') &&
+      !asset?.name?.includes('arm') &&
+      asset?.name?.endsWith('.exe'),
   )
 
   return release
