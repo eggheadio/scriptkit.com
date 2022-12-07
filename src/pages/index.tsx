@@ -22,6 +22,8 @@ import HeroAnimation from '../../public/assets/particles.json'
 import CourseWidget from 'components/course-widget'
 import Sponsors from 'components/sponsors'
 import Testimonial from 'components/testimonial'
+import SubscribeToConvertkitForm from 'components/subscribe-to-convertkit-form'
+import {Favicon} from 'components/logo'
 
 export type Release = {
   name: string
@@ -145,7 +147,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
           cta="Get Up and Running with Script Kit →"
         />
         <br />
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-8 pb-5">
           <div>
             <h2 className="text-3xl font-bold">What is Script Kit?</h2>
             <div className="prose pt-4 max-w-none">
@@ -249,6 +251,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
             </ul>
           </div>
         </div>
+        <NewsletterSection />
         <section>
           <h2 className="text-3xl font-bold pb-4 sm:pt-10 pt-4">
             What the community is saying
@@ -284,6 +287,21 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
         )}
       </section>
     </Layout>
+  )
+}
+
+const NewsletterSection = () => {
+  return (
+    <section className="from-gray-900 to-gray-800/80 bg-gradient-to-tr md:p-16 sm:p-10 p-6 flex flex-col items-center justify-center rounded-lg border border-gray-800">
+      <Favicon />
+      <h2 className="sm:text-3xl text-2xl font-bold max-w-xl text-center pb-10 pt-5">
+        Join the Script Kit community and stay up-to-date on the latest updates!
+      </h2>
+      <SubscribeToConvertkitForm className="w-full max-w-2xl" />
+      <small className="text-sm text-gray-300 pt-10 text-center">
+        No spam. We respect your privacy. Unsubscribe at any time.
+      </small>
+    </section>
   )
 }
 
