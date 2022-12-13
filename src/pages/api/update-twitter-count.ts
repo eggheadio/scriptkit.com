@@ -51,12 +51,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   console.log(`🆙date twitter count`)
   // let count = await getReleaseCount()
   let count = await getCachedReleaseCount()
-  let response = await client.post('account/update_profile', {
-    name: `John (${count}) Lindquist`,
-  })
+  // let response = await client.post('account/update_profile', {
+  //   name: `John (${count}) Lindquist`,
+  // })
 
   // console.log({count})
 
   res.statusCode = 200
-  res.json({name: 'disabled until twitter api is fixed'})
+  res.json({name: `John (${count}) Lindquist`})
 }
