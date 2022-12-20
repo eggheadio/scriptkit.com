@@ -13,22 +13,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   let {id, login, node_id, twitter_username, email, name, feature} = req.body
 
-  let supabaseResponse = await supabase.from('users').insert([
-    {
-      database_id: id,
-      login,
-      node_id,
-      twitter_username,
-      email,
-      name,
-      feature,
-    },
-  ])
-
-  if (supabaseResponse.error) {
-    res.status(500).json({error: supabaseResponse.error})
-  }
-
   let client = new GraphQLClient(endpoint, {
     headers: {
       'GraphQL-Features': 'discussions_api',
@@ -67,6 +51,31 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   let isSponsor = sponsors.find((s: any) => {
     return s.id === node_id && s.login === login && s.databaseId === id
   })
+
+  if (!isSponsor && feature && feature !== 'Login') {
+    try {
+      supabase
+        .from('users')
+        .insert([
+          {
+            database_id: id,
+            login,
+            node_id,
+            twitter_username,
+            email,
+            name,
+            feature,
+          },
+        ])
+        .then((response) => {
+          if (response && response?.error) {
+            console.error({error: response.error})
+          }
+        })
+    } catch (error) {
+      console.error({error})
+    }
+  }
 
   res.send(isSponsor)
 }
