@@ -75,8 +75,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return s.id === node_id && s.login === login && s.databaseId === id
   })
 
-  console.log({isSponsor})
-
   if (!isSponsor && feature && feature !== 'Login') {
     try {
       supabase
