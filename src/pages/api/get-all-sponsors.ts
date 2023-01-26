@@ -24,6 +24,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 databaseId
                 login
               }
+              ... on Organization {
+                id
+                databaseId
+                login
+              }
             }
           }
         }
