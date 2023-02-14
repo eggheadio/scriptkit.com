@@ -85,21 +85,25 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
       <header className="sm:pt-10 pt-2 pb-10">
         <div className="flex items-center justify-center">
           <div className="w-full flex flex-col items-center justify-center text-center space-y-1">
-            <div className="sm:pb-32 pb-24 pt-8">
+            <div className="pb-32 pt-8">
               <h1 className="text-center lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight leading-tighter">
                 Shortcut to Everything
               </h1>
               <h2 className="sm:text-xl text-lg opacity-80 font-light pt-2 leading-tight md:max-w-none max-w-xs mx-auto">
                 An open-source kit to optimize your developer workflow
               </h2>
+              <div className="max-w-screen-lg mx-auto w-full pt-16 flex items-center justify-center">
+                <DownloadKitApp
+                  macIntelRelease={macIntelRelease}
+                  macSilliconRelease={macSilliconRelease}
+                  windowsPreviewRelease={windowsPreviewRelease}
+                />
+              </div>
             </div>
-            <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex flex-col items-center justify-center p-5 pb-16 rounded-xl max-w-3xl">
+            <div className="relative bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-yellow-500 w-full flex flex-col items-center justify-center p-5 pb-12 rounded-xl max-w-3xl">
               <div className="max-w-2xl h-full flex flex-col w-full relative z-20 md:-mt-24 -mt-20">
                 <div className="shadow-xl">
                   <KitAppUI scripts={featuredScripts} />
-                </div>
-                <div className="pt-8 md:text-2xl text-xl font-semibold tracking-tight drop-shadow-md">
-                  Download Script Kit:
                 </div>
               </div>
               <Lottie
@@ -113,14 +117,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
             </div>
           </div>
         </div>
-        <div className="max-w-2xl mx-auto w-full -translate-y-8 flex items-center justify-center">
-          <DownloadKitApp
-            macIntelRelease={macIntelRelease}
-            macSilliconRelease={macSilliconRelease}
-            windowsPreviewRelease={windowsPreviewRelease}
-          />
-        </div>
-        <div className="text-center max-w-md w-full mx-auto sm:text-sm text-xs pt-2">
+        <div className="text-center max-w-md w-full mx-auto sm:text-sm text-xs pt-10">
           <p className="leading-relaxed text-gray-300">
             Script Kit is made for developers who understand the inherent risks
             of running scripts on their computer. If you're uncomfortable with

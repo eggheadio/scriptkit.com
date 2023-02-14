@@ -45,10 +45,10 @@ export const Favicon = () => {
           y2="55"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFE86F" />
-          <stop offset=".333" stop-color="#FED533" />
-          <stop offset=".714" stop-color="#FFB800" />
-          <stop offset="1" stop-color="#FFA800" />
+          <stop stopColor="#FFE86F" />
+          <stop offset=".333" stopColor="#FED533" />
+          <stop offset=".714" stopColor="#FFB800" />
+          <stop offset="1" stopColor="#FFA800" />
         </linearGradient>
       </defs>
     </svg>
