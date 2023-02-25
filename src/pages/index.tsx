@@ -10,6 +10,7 @@ import Layout from 'layouts'
 import {
   getAllScripts,
   getLatestAppleSiliconRelease,
+  getLatestLinuxRelease,
   getLatestRelease,
   getLatestWindowsPreviewRelease,
 } from 'lib/get-user-scripts'
@@ -35,6 +36,7 @@ type HomeProps = {
   macIntelRelease: Release
   macSilliconRelease: Release
   windowsPreviewRelease: Release
+  linuxCommunityRelease: Release
   course: Course
   testimonials: TestimonialType[]
 }
@@ -71,6 +73,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
   macIntelRelease,
   macSilliconRelease,
   windowsPreviewRelease,
+  linuxCommunityRelease,
   course,
   testimonials,
 }) => {
@@ -97,6 +100,7 @@ const Home: FunctionComponent<React.PropsWithChildren<HomeProps>> = ({
                   macIntelRelease={macIntelRelease}
                   macSilliconRelease={macSilliconRelease}
                   windowsPreviewRelease={windowsPreviewRelease}
+                  linuxCommunityRelease={linuxCommunityRelease}
                 />
               </div>
             </div>
@@ -306,6 +310,7 @@ export async function getStaticProps(context: any) {
   const macIntelRelease = await getLatestRelease()
   const macSilliconRelease = await getLatestAppleSiliconRelease()
   const windowsPreviewRelease = await getLatestWindowsPreviewRelease()
+  const linuxCommunityRelease = await getLatestLinuxRelease()
   const showcaseCourse = await getCourse(
     'script-kit-showcase-for-optimizing-your-everyday-workflows-e20ceab4',
   )
@@ -329,6 +334,7 @@ export async function getStaticProps(context: any) {
       macIntelRelease,
       macSilliconRelease,
       windowsPreviewRelease,
+      linuxCommunityRelease,
       course: showcaseCourse,
       testimonials,
     },

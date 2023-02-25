@@ -82,7 +82,7 @@ const DownloadKitApp: React.FC<
                   }}
                 >
                   <DownloadIcon className="flex-shrink-0 text-gray-500" />
-                  <span className="pl-1">Preview (Alpha)</span>
+                  <span className="pl-1">x64 (Beta)</span>
                 </a>
               </div>
             </div>
@@ -116,7 +116,7 @@ const DownloadKitApp: React.FC<
                   }}
                 >
                   <DownloadIcon className="flex-shrink-0 text-gray-500" />
-                  <span className="pl-1">Preview (Alpha)</span>
+                  <span className="pl-1">x64 (Beta)</span>
                 </a>
               </div>
             </div>
