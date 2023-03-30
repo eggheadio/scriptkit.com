@@ -44,7 +44,7 @@ type HomeProps = {
 const links = [
   {
     label: 'Community examples',
-    url: 'https://github.com/johnlindquist/kit/discussions/categories/show-and-tell',
+    url: 'https://github.com/johnlindquist/kit/discussions/categories/share',
   },
   {
     label: 'Quick orientation guide',
