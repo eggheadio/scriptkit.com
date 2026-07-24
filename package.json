@@ -75,7 +75,7 @@
     "remark-footnotes": "^4.0.1",
     "remark-gfm": "^3.0.1",
     "remark-slug": "^7.0.1",
-    "sharp": "^0.30.7",
+    "sharp": "^0.35.0",
     "simplebar-react": "^2.4.1",
     "slugify": "^1.6.5",
     "tree-cli": "^0.6.7",
