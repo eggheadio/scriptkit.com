@@ -102,7 +102,7 @@
     "jsonfile": "^6.1.0",
     "lint-staged": "^13.0.3",
     "next-compose-plugins": "^2.2.1",
-    "postcss": "^8.4.16",
+    "postcss": "^8.5.18",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.7.2",
     "prettier": "^2.7.1",
